@@ -1,0 +1,152 @@
+<ui version="4.0" >
+ <class>kmdevices</class>
+ <widget class="QWidget" name="kmdevices" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>797</width>
+    <height>647</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout" >
+   <item row="0" column="1" >
+    <widget class="QGroupBox" name="deviceGroupBox" >
+     <property name="title" >
+      <string>Detected Devices</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_3" >
+      <item row="1" column="0" >
+       <widget class="QTreeWidget" name="deviceList" >
+        <property name="iconSize" >
+         <size>
+          <width>32</width>
+          <height>32</height>
+         </size>
+        </property>
+        <property name="uniformRowHeights" >
+         <bool>false</bool>
+        </property>
+        <property name="allColumnsShowFocus" >
+         <bool>false</bool>
+        </property>
+        <property name="headerHidden" >
+         <bool>false</bool>
+        </property>
+        <column>
+         <property name="text" >
+          <string>Device List</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Profile Description</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Profile Filename</string>
+         </property>
+        </column>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item row="2" column="1" >
+    <spacer name="verticalSpacer_2" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Minimum</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>20</width>
+       <height>5</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item rowspan="2" row="3" column="1" >
+    <widget class="QGroupBox" name="groupBox_2" >
+     <property name="title" >
+      <string>Profiles Associated with Device</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2" >
+      <item row="6" column="0" >
+       <widget class="Line" name="line" >
+        <property name="orientation" >
+         <enum>Qt::Horizontal</enum>
+        </property>
+       </widget>
+      </item>
+      <item row="0" column="0" >
+       <widget class="QListWidget" name="profileAssociationList" />
+      </item>
+      <item row="5" column="0" >
+       <widget class="QGroupBox" name="groupBox" >
+        <property name="title" >
+         <string>Available DeviceProfiles</string>
+        </property>
+        <layout class="QFormLayout" name="formLayout" >
+         <property name="fieldGrowthPolicy" >
+          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
+         </property>
+         <item row="1" column="1" >
+          <widget class="QComboBox" name="deviceProfileComboBox" />
+         </item>
+         <item row="1" column="0" >
+          <widget class="QPushButton" name="addProfileButton" >
+           <property name="enabled" >
+            <bool>true</bool>
+           </property>
+           <property name="text" >
+            <string>Add Profile</string>
+           </property>
+           <property name="icon" >
+            <iconset>
+             <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-add.png</normalon>
+            </iconset>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item row="2" column="0" >
+       <widget class="QPushButton" name="removeButton" >
+        <property name="text" >
+         <string>Remove Profile</string>
+        </property>
+        <property name="icon" >
+         <iconset>
+          <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-remove.png</normalon>
+         </iconset>
+        </property>
+       </widget>
+      </item>
+      <item row="1" column="0" >
+       <widget class="QPushButton" name="defaultProfileButton" >
+        <property name="text" >
+         <string>Set Profile as Device Default</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+  <zorder>deviceGroupBox</zorder>
+  <zorder>verticalSpacer_2</zorder>
+  <zorder>groupBox_2</zorder>
+ </widget>
+ <resources>
+  <include location="icons.qrc" />
+ </resources>
+ <connections/>
+</ui>

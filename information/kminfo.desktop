@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Profile Information
+Comment= Display ICC-specific Profile Information
+Exec=kminfo
+Icon=help-about
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-FactoryName=kminfoFactory
+X-KDE-Library=kminfo
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=kolor-management

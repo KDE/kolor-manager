@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Devices
+Comment= Device settings for Kolor Management
+Exec=kcprofiler
+Icon=preferences-desktop-display
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-FactoryName=kmdevicesFactory
+X-KDE-Library=kmdevices
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=kolor-management

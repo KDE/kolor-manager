@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Settings
+Comment= Kolor Management Settings
+Exec=kmsettings
+Icon=configure
+Type=Service
+X-KDE-ServiceTypes=KCModule
+
+X-KDE-FactoryName=kmsettingsFactory
+X-KDE-Library=kmsettings
+X-KDE-ParentApp=kcontrol
+
+X-KDE-System-Settings-Parent-Category=kolor-management

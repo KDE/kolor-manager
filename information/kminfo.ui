@@ -1,0 +1,441 @@
+<ui version="4.0" >
+ <class>kminfo</class>
+ <widget class="QWidget" name="kminfo" >
+  <property name="geometry" >
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1126</width>
+    <height>926</height>
+   </rect>
+  </property>
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_3" >
+   <item row="0" column="0" >
+    <widget class="QTreeWidget" name="installedProfilesTree" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Minimum" hsizetype="MinimumExpanding" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="alternatingRowColors" >
+      <bool>false</bool>
+     </property>
+     <property name="selectionMode" >
+      <enum>QAbstractItemView::SingleSelection</enum>
+     </property>
+     <property name="uniformRowHeights" >
+      <bool>false</bool>
+     </property>
+     <property name="allColumnsShowFocus" >
+      <bool>false</bool>
+     </property>
+     <column>
+      <property name="text" >
+       <string>Installed Profiles</string>
+      </property>
+     </column>
+     <column>
+      <property name="text" >
+       <string>Description</string>
+      </property>
+     </column>
+     <item>
+      <property name="text" >
+       <string>Devices</string>
+      </property>
+      <property name="text" >
+       <string/>
+      </property>
+      <item>
+       <property name="text" >
+        <string>Monitors</string>
+       </property>
+       <property name="text" >
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Printers</string>
+       </property>
+       <property name="text" >
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Scanners</string>
+       </property>
+       <property name="text" >
+        <string/>
+       </property>
+      </item>
+      <item>
+       <property name="text" >
+        <string>Digital Camera</string>
+       </property>
+       <property name="text" >
+        <string/>
+       </property>
+      </item>
+     </item>
+     <item>
+      <property name="text" >
+       <string>Editing Space</string>
+      </property>
+      <property name="text" >
+       <string/>
+      </property>
+     </item>
+     <item>
+      <property name="text" >
+       <string>Assumed Space</string>
+      </property>
+      <property name="text" >
+       <string/>
+      </property>
+     </item>
+    </widget>
+   </item>
+   <item row="0" column="1" >
+    <widget class="QGroupBox" name="profileInfoGroupBox" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Preferred" hsizetype="Maximum" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
+     <property name="title" >
+      <string>Profile Information</string>
+     </property>
+     <layout class="QGridLayout" name="gridLayout_2" >
+      <item row="0" column="0" >
+       <layout class="QVBoxLayout" name="verticalLayout" >
+        <property name="sizeConstraint" >
+         <enum>QLayout::SetFixedSize</enum>
+        </property>
+        <property name="leftMargin" >
+         <number>11</number>
+        </property>
+        <property name="bottomMargin" >
+         <number>9</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="descriptionTagLabel" >
+          <property name="sizePolicy" >
+           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="font" >
+           <font>
+            <pointsize>13</pointsize>
+            <weight>75</weight>
+            <bold>true</bold>
+           </font>
+          </property>
+          <property name="text" >
+           <string>ICCDescriptionLabel</string>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap" >
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="Line" name="line_2" >
+          <property name="orientation" >
+           <enum>Qt::Horizontal</enum>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QLabel" name="copyrightTagLabel" >
+          <property name="sizePolicy" >
+           <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="frameShadow" >
+           <enum>QFrame::Plain</enum>
+          </property>
+          <property name="lineWidth" >
+           <number>1</number>
+          </property>
+          <property name="text" >
+           <string>(Copyright not available)</string>
+          </property>
+          <property name="scaledContents" >
+           <bool>true</bool>
+          </property>
+          <property name="alignment" >
+           <set>Qt::AlignCenter</set>
+          </property>
+          <property name="wordWrap" >
+           <bool>true</bool>
+          </property>
+          <property name="margin" >
+           <number>0</number>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <spacer name="verticalSpacer" >
+          <property name="orientation" >
+           <enum>Qt::Vertical</enum>
+          </property>
+          <property name="sizeType" >
+           <enum>QSizePolicy::Fixed</enum>
+          </property>
+          <property name="sizeHint" stdset="0" >
+           <size>
+            <width>368</width>
+            <height>16</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="launchICCExaminButton" >
+          <property name="text" >
+           <string>Analyze Profile Data</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QGridLayout" name="gridLayout" >
+          <item row="0" column="0" >
+           <widget class="QLabel" name="filenameLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>File Name:</string>
+            </property>
+            <property name="indent" >
+             <number>-5</number>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
+           <widget class="QLabel" name="filenameTagLabel" >
+            <property name="font" >
+             <font>
+              <italic>false</italic>
+             </font>
+            </property>
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="0" >
+           <widget class="QLabel" name="dateTextLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <italic>false</italic>
+              <bold>true</bold>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Date Created:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
+           <widget class="QLabel" name="dateTagLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="0" >
+           <widget class="QLabel" name="dcTextLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Device Class</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" >
+           <widget class="QLabel" name="deviceClassTagLabel" >
+            <property name="text" >
+             <string>"FIXME"</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="QLabel" name="manufacturerLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Manufacturer:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" >
+           <widget class="QLabel" name="mfgTagLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" >
+           <widget class="QLabel" name="modelTexLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Model:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <widget class="QLabel" name="modelTagLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" >
+           <widget class="QLabel" name="iccVersionLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>ICC Version:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" >
+           <widget class="QLabel" name="iccVerTagLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="0" >
+           <widget class="QLabel" name="colorspaceLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Color Space:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1" >
+           <widget class="QLabel" name="colorspaceTagLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="0" >
+           <widget class="QLabel" name="pcsTypeLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>PCS Type:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="7" column="1" >
+           <widget class="QLabel" name="pcsTagLabel" >
+            <property name="text" >
+             <string>TextLabel</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="0" >
+           <widget class="QLabel" name="listingHeaderLabel" >
+            <property name="font" >
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+              <underline>false</underline>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Profile Pathname:</string>
+            </property>
+           </widget>
+          </item>
+          <item row="8" column="1" >
+           <widget class="QLabel" name="directoryListingTag" >
+            <property name="sizePolicy" >
+             <sizepolicy vsizetype="Preferred" hsizetype="Preferred" >
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="font" >
+             <font>
+              <weight>50</weight>
+              <italic>false</italic>
+              <bold>false</bold>
+             </font>
+            </property>
+            <property name="text" >
+             <string>Directory Listng</string>
+            </property>
+            <property name="textFormat" >
+             <enum>Qt::AutoText</enum>
+            </property>
+            <property name="scaledContents" >
+             <bool>true</bool>
+            </property>
+            <property name="wordWrap" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

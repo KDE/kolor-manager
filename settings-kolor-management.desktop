@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceTypes=SystemSettingsCategory
+X-KDE-System-Settings-Category=kolor-management
+X-KDE-System-Settings-Parent-Category=computer-administration
+Icon=preferences-desktop-color
+
+Name=Kolor Management
+X-SuSE-translate=true
