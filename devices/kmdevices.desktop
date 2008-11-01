@@ -1,6 +1,14 @@
 [Desktop Entry]
 Name=Devices
+Name[pt]=Dispositivos
+Name[pt_BR]=Dispositivos
+Name[sv]=Enheter
+Name[uk]=Пристрої
 Comment= Device settings for Kolor Management
+Comment[pt]= Configuração do Dispositivo de Gestão de Cores
+Comment[pt_BR]= Configuração do Dispositivo de Gestão de Cores
+Comment[sv]= Enhetsinställningar för färghantering
+Comment[uk]=Параметри пристрою для керування Kolor
 Exec=kcprofiler
 Icon=preferences-desktop-display
 Type=Service

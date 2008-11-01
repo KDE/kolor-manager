@@ -1,6 +1,14 @@
 [Desktop Entry]
 Name=Profile Information
+Name[pt]=Informação do Perfil
+Name[pt_BR]=Informação do Perfil
+Name[sv]=Profilinformation
+Name[uk]=Відомості профілю
 Comment= Display ICC-specific Profile Information
+Comment[pt]= Mostrar a informação específica do perfil de ICC
+Comment[pt_BR]= Mostrar a informação específica do perfil de ICC
+Comment[sv]=Visa ICC-specifik profilinformation
+Comment[uk]=Показати відомості профілю, характерні для ICC
 Exec=kminfo
 Icon=help-about
 Type=Service
