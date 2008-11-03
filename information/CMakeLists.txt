@@ -1,7 +1,7 @@
 
  
 find_package(KDE4 REQUIRED)
-include_directories(${KDE4_INCLUDES} ${kolor_manager_SOURCE_DIR})
+include_directories(${KDE4_INCLUDES} ${kolor_manager_SOURCE_DIR} ${CMAKE_CURRENT_BINARY_DIR})
 
 INCLUDE( "../settings")
  

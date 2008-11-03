@@ -1,7 +1,7 @@
 
  
 find_package(KDE4 REQUIRED)
-include_directories(${KDE4_INCLUDES})
+include_directories(${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
  
 set(kmsettings_PART_SRCS 
       kmsettings.cpp      
