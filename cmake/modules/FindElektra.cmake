@@ -8,8 +8,6 @@ set(ELEKTRA_INCLUDE_DIR ${_ElektraIncDir})
 
 if(ELEKTRA_DEFINITIONS AND ELEKTRA_LIBRARIES)
 
-  FIND_PROGRAM(PKGCONFIG_EXECUTABLE NAMES pkg-config PATHS /usr/bin/ /usr/local/bin )
-
   # query pkg-config asking for Elektra >= 0.6.4
   EXEC_PROGRAM(${PKGCONFIG_EXECUTABLE} ARGS --atleast-version=0.6.4 elektra RETURN_VALUE _return_VALUE OUTPUT_VARIABLE _pkgconfigDevNull )
 

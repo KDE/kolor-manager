@@ -8,8 +8,6 @@ set(OYRANOS_INCLUDE_DIR ${_OyranosIncDir})
 
 if(OYRANOS_DEFINITIONS AND OYRANOS_LIBRARIES)
 
-  FIND_PROGRAM(PKGCONFIG_EXECUTABLE NAMES pkg-config PATHS /usr/bin/ /usr/local/bin )
-
   # query pkg-config asking for Oyranos >= 0.1.7
   EXEC_PROGRAM(${PKGCONFIG_EXECUTABLE} ARGS --atleast-version=0.1.7 oyranos RETURN_VALUE _return_VALUE OUTPUT_VARIABLE _pkgconfigDevNull )
 
