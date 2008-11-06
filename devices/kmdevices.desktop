@@ -1,12 +1,14 @@
 [Desktop Entry]
 Name=Devices
 Name[el]=Συσκευές
+Name[fr]=Périphériques
 Name[pt]=Dispositivos
 Name[pt_BR]=Dispositivos
 Name[sv]=Enheter
 Name[uk]=Пристрої
 Comment= Device settings for Kolor Management
 Comment[el]=Ρυθμίσεις συσκευής για τη διαχείριση χρωμάτων
+Comment[fr]=Configuration des périphériques pour le gestionnaire de couleurs
 Comment[pt]= Configuração do Dispositivo de Gestão de Cores
 Comment[pt_BR]= Configuração do Dispositivo de Gestão de Cores
 Comment[sv]= Enhetsinställningar för färghantering
