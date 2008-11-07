@@ -2,6 +2,7 @@
 Name=Profile Information
 Name[el]=Πληροφορίες προφίλ
 Name[fr]=Information sur le profil
+Name[gl]=Información do perfil
 Name[pt]=Informação do Perfil
 Name[pt_BR]=Informação do Perfil
 Name[sv]=Profilinformation
@@ -9,6 +10,7 @@ Name[uk]=Відомості профілю
 Comment= Display ICC-specific Profile Information
 Comment[el]=Εμφάνιση πληροφοριών προφίλ ICC
 Comment[fr]=Afficher les informations sur le profil spécifique ICC
+Comment[gl]= Mostra información do perfil específica de ICC
 Comment[pt]= Mostrar a informação específica do perfil de ICC
 Comment[pt_BR]= Mostrar a informação específica do perfil de ICC
 Comment[sv]=Visa ICC-specifik profilinformation
