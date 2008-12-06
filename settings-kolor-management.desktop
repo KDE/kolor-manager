@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=computer-administration
 Icon=preferences-desktop-color
 
 Name=Kolor Management
+Name[de]=Farbverwaltung
 Name[el]=Διαχείριση χρωμάτων Kolor
 Name[fr]=Gestionnaire de couleurs
 Name[gl]=Xestor da cor

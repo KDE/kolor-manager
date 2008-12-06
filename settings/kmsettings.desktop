@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Settings
+Name[de]=Einstellungen
 Name[el]=Ρυθμίσεις
 Name[fr]=Configuration
 Name[gl]=Configuración
@@ -11,6 +12,7 @@ Name[sv]=Inställningar
 Name[uk]=Параметри
 Name[x-test]=xxSettingsxx
 Comment= Kolor Management Settings
+Comment[de]= Einstellungen zur Farbverwaltung
 Comment[el]=Ρυθμίσεις διαχείρισης χρωμάτων Kolor
 Comment[fr]=Configuration du gestionnaire de couleurs
 Comment[gl]= Configuración do Xestor de cor
