@@ -5,13 +5,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>797</width>
-    <height>647</height>
+    <width>801</width>
+    <height>630</height>
    </rect>
   </property>
-  <layout class="QGridLayout" name="gridLayout" >
-   <item row="0" column="1" >
+  <layout class="QGridLayout" name="gridLayout_4" >
+   <item row="0" column="0" >
     <widget class="QGroupBox" name="deviceGroupBox" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="MinimumExpanding" hsizetype="Preferred" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="title" >
       <string>Detected Devices</string>
      </property>
@@ -53,85 +59,98 @@
      </layout>
     </widget>
    </item>
-   <item row="2" column="1" >
-    <spacer name="verticalSpacer_2" >
-     <property name="orientation" >
-      <enum>Qt::Vertical</enum>
-     </property>
-     <property name="sizeType" >
-      <enum>QSizePolicy::Minimum</enum>
-     </property>
-     <property name="sizeHint" stdset="0" >
-      <size>
-       <width>20</width>
-       <height>5</height>
-      </size>
-     </property>
-    </spacer>
-   </item>
-   <item rowspan="2" row="3" column="1" >
+   <item row="1" column="0" >
     <widget class="QGroupBox" name="groupBox_2" >
+     <property name="sizePolicy" >
+      <sizepolicy vsizetype="Ignored" hsizetype="Preferred" >
+       <horstretch>0</horstretch>
+       <verstretch>0</verstretch>
+      </sizepolicy>
+     </property>
      <property name="title" >
       <string>Profiles Associated with Device</string>
      </property>
      <layout class="QGridLayout" name="gridLayout_2" >
-      <item row="6" column="0" >
-       <widget class="Line" name="line" >
-        <property name="orientation" >
-         <enum>Qt::Horizontal</enum>
-        </property>
-       </widget>
-      </item>
       <item row="0" column="0" >
        <widget class="QListWidget" name="profileAssociationList" />
       </item>
-      <item row="5" column="0" >
+      <item row="1" column="0" >
+       <layout class="QHBoxLayout" name="horizontalLayout" >
+        <item>
+         <widget class="QPushButton" name="defaultProfileButton" >
+          <property name="text" >
+           <string>Set Profile as Device Default</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="removeButton" >
+          <property name="text" >
+           <string>Remove Profile</string>
+          </property>
+          <property name="icon" >
+           <iconset>
+            <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-remove.png</normalon>
+           </iconset>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="2" column="0" >
        <widget class="QGroupBox" name="groupBox" >
+        <property name="sizePolicy" >
+         <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
         <property name="title" >
          <string>Available DeviceProfiles</string>
         </property>
-        <layout class="QFormLayout" name="formLayout" >
-         <property name="fieldGrowthPolicy" >
-          <enum>QFormLayout::AllNonFixedFieldsGrow</enum>
-         </property>
-         <item row="1" column="1" >
-          <widget class="QComboBox" name="deviceProfileComboBox" />
-         </item>
-         <item row="1" column="0" >
-          <widget class="QPushButton" name="addProfileButton" >
-           <property name="enabled" >
-            <bool>true</bool>
-           </property>
-           <property name="text" >
-            <string>Add Profile</string>
-           </property>
-           <property name="icon" >
-            <iconset>
-             <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-add.png</normalon>
-            </iconset>
-           </property>
-          </widget>
+        <layout class="QGridLayout" name="gridLayout" >
+         <item row="0" column="0" >
+          <layout class="QHBoxLayout" name="horizontalLayout_2" >
+           <item>
+            <widget class="QPushButton" name="addProfileButton" >
+             <property name="enabled" >
+              <bool>true</bool>
+             </property>
+             <property name="sizePolicy" >
+              <sizepolicy vsizetype="Fixed" hsizetype="Maximum" >
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="text" >
+              <string>Add Profile</string>
+             </property>
+             <property name="icon" >
+              <iconset>
+               <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-add.png</normalon>
+              </iconset>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QComboBox" name="deviceProfileComboBox" >
+             <property name="sizePolicy" >
+              <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="minimumSize" >
+              <size>
+               <width>0</width>
+               <height>27</height>
+              </size>
+             </property>
+            </widget>
+           </item>
+          </layout>
          </item>
         </layout>
-       </widget>
-      </item>
-      <item row="2" column="0" >
-       <widget class="QPushButton" name="removeButton" >
-        <property name="text" >
-         <string>Remove Profile</string>
-        </property>
-        <property name="icon" >
-         <iconset>
-          <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-remove.png</normalon>
-         </iconset>
-        </property>
-       </widget>
-      </item>
-      <item row="1" column="0" >
-       <widget class="QPushButton" name="defaultProfileButton" >
-        <property name="text" >
-         <string>Set Profile as Device Default</string>
-        </property>
        </widget>
       </item>
      </layout>

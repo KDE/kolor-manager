@@ -91,7 +91,7 @@ private:
      void populateDeviceProfiles( QStringList listOfDevices, QTreeWidgetItem * deviceListSubTree, QIcon device_icon);
 
      // Populate tag descriptions for device-specific profiles.
-     void populateDeviceProfileDescriptions(oyProfile_s * profile);
+     void populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid);
  
      // Function to write tag descriptions to individual labels
      void setTagDescriptions(oyProfile_s *, icTagSignature, QLabel *);

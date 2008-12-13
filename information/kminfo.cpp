@@ -160,7 +160,7 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     
     // Display oyEDITING_XYZ info for now. 
     populateInstalledProfileList();
-    profileInfoGroupBox->hide();
+    profileInfoGroupBox -> setEnabled(false);
 
     if (iccExaminIsInstalled(iccExaminCommand))
         launchICCExaminButton->show();
@@ -314,7 +314,7 @@ void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
                            break;
                  case (3): populateTagDescriptions(oyEDITING_LAB);                                 
             }
-            profileInfoGroupBox->show();
+            profileInfoGroupBox -> setEnabled(true);
       }    
       else if (matchingParentItem == assumedCsTree)
       {
@@ -331,7 +331,7 @@ void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
                  case (3): populateTagDescriptions(oyASSUMED_LAB);            
  
             }
-            profileInfoGroupBox->show();
+            profileInfoGroupBox -> setEnabled(true);
        }
 
        else if(isValidItemString != 0)
@@ -346,34 +346,56 @@ void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
               oyProfile_s * profile;
               profile = oyProfile_FromFile( grabProfileFilename.toLocal8Bit(), 0, 0);
                
-              populateDeviceProfileDescriptions(profile);    
-              profileInfoGroupBox->show();
+              populateDeviceProfileDescriptions(profile, true);    
+              profileInfoGroupBox -> setEnabled(true);
         }
         else
         {
-             profileInfoGroupBox->hide();
+             populateDeviceProfileDescriptions(NULL, false);
+             profileInfoGroupBox -> setEnabled(false);
         }
         
    
 }
 
 // Refresh profile information list.
-void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile)
+void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid)
 {
-     // Output Oyranos-specified profile descriptions.
-     setTagDescriptions(profile, icSigCopyrightTag, copyrightTagLabel);     
-     setTagDescriptions(profile, icSigDeviceMfgDescTag, mfgTagLabel);
-     setTagDescriptions(profile, icSigDeviceModelDescTag, modelTagLabel);
-     setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
+    if (valid)
+    {
+        // Output Oyranos-specified profile descriptions.
+        setTagDescriptions(profile, icSigCopyrightTag, copyrightTagLabel);
+        setTagDescriptions(profile, icSigDeviceMfgDescTag, mfgTagLabel);
+        setTagDescriptions(profile, icSigDeviceModelDescTag, modelTagLabel);
+        setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
 
-     setDateTag(profile, dateTagLabel);
-     setCSpaceTag(profile, colorspaceTagLabel);
-     setIccsTag(profile, iccVerTagLabel);
-     setPcsTag(profile, pcsTagLabel);
-     setDeviceClassTag(profile, deviceClassTagLabel);  
+        setDateTag(profile, dateTagLabel);
+        setCSpaceTag(profile, colorspaceTagLabel);
+        setIccsTag(profile, iccVerTagLabel);
+        setPcsTag(profile, pcsTagLabel);
+        setDeviceClassTag(profile, deviceClassTagLabel);
 
-     QString profilePathName = oyProfile_GetFileName( profile, 0 );
-     directoryListingTag->setText(profilePathName);
+        QString profilePathName = oyProfile_GetFileName( profile, 0 );
+        directoryListingTag->setText(profilePathName);
+    }
+    else
+    {
+      // Set default descriptions.
+        descriptionTagLabel -> setText(tr("No Profile Selected"));
+        copyrightTagLabel -> setText(tr("(Copyright not available)"));
+        filenameTagLabel -> setText("");
+        mfgTagLabel -> setText("");
+        modelTagLabel -> setText("");
+
+        dateTagLabel -> setText("");
+        colorspaceTagLabel -> setText("");
+        iccVerTagLabel -> setText("");
+        pcsTagLabel -> setText("");
+        deviceClassTagLabel -> setText("");
+
+        directoryListingTag -> setText("");
+    }
+  
 }
 
 // Refresh profile information list.
