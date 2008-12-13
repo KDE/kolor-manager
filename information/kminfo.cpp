@@ -214,24 +214,33 @@ void kminfo::populateInstalledProfileList()
          populateDeviceProfiles( scannerDevices, scannerListSubTree, scanner_icon);
 
      const char * g_name = NULL;
+     QString name;
             
      // Populate colorspace items.
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_RGB, NULL, &g_name, NULL, NULL );
-     addProfileTreeItem( oyEDITING_RGB, g_name, editingCsTree);
+     if (strlen(g_name) > 0)
+         addProfileTreeItem( oyEDITING_RGB, name.fromLatin1(g_name), editingCsTree);
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_CMYK, NULL, &g_name, NULL,NULL );
-     addProfileTreeItem( oyEDITING_CMYK, g_name, editingCsTree);
+     if (strlen(g_name) > 0)
+        addProfileTreeItem( oyEDITING_CMYK, name.fromLatin1(g_name), editingCsTree);
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_XYZ, NULL, &g_name, NULL, NULL );
-     addProfileTreeItem( oyEDITING_XYZ, g_name, editingCsTree );
+     if (strlen(g_name) > 0)
+         addProfileTreeItem( oyEDITING_XYZ, name.fromLatin1(g_name), editingCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_LAB, NULL, &g_name, NULL, NULL );
-     addProfileTreeItem( oyEDITING_LAB, g_name, editingCsTree );
+     if (strlen(g_name) > 0)
+         addProfileTreeItem( oyEDITING_LAB, name.fromLatin1(g_name), editingCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_RGB, NULL, &g_name, NULL, NULL );
-     addProfileTreeItem( oyASSUMED_RGB, g_name, assumedCsTree );
+     if (strlen(g_name) > 0)
+        addProfileTreeItem( oyASSUMED_RGB, name.fromLatin1(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_CMYK, NULL, &g_name, NULL,NULL );
-     addProfileTreeItem( oyASSUMED_CMYK, g_name, assumedCsTree );
+     if (strlen(g_name) > 0)
+         addProfileTreeItem( oyASSUMED_CMYK, name.fromLatin1(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_XYZ, NULL, &g_name, NULL, NULL );
-     addProfileTreeItem( oyASSUMED_XYZ, g_name, assumedCsTree );
+     if (strlen(g_name) > 0)
+        addProfileTreeItem( oyASSUMED_XYZ, name.fromLatin1(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_LAB, NULL, &g_name, NULL, NULL );
-     addProfileTreeItem( oyASSUMED_LAB, g_name, assumedCsTree );          
+     if (strlen(g_name) > 0)
+        addProfileTreeItem( oyASSUMED_LAB, name.fromLatin1(g_name), assumedCsTree );
 }
 
 void kminfo::populateDeviceProfiles(QStringList listOfDevices, QTreeWidgetItem * deviceListSubTree,                                                                                                                  
