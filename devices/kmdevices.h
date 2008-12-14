@@ -62,7 +62,7 @@ public:
     int numberOfDetectedMonitors;
     int numberOfDetectedPrinters;
 
-   
+
 
 public Q_SLOTS:
 

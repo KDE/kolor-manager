@@ -279,10 +279,7 @@ void kminfo::populateDeviceProfiles(QStringList listOfDevices, QTreeWidgetItem *
 // Function to add profile items into the tree listing.
 void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description, 
                                         QTreeWidgetItem * parent_item )
-{             
-      const char * lol = oyGetDefaultProfileName ( profile_type, 0 );
-      
-
+{
       oyProfile_s * profile = oyProfile_FromStd( profile_type, 0);
       oyProfileTag_s * tagID = oyProfile_GetTagById( profile, icSigProfileDescriptionTag  );
 
@@ -446,7 +443,6 @@ void kminfo::populateTagDescriptions(oyDEFAULT_PROFILE current_profile)
 
 void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)
 {
-    int f1, f2, f3;
     QString field1, field2, field3;
 
     icSignature vs = oyValueUInt32( oyProfile_GetSignature(profile, oySIGNATURE_VERSION) );

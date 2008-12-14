@@ -362,7 +362,7 @@ void kmdevices::detectScanner()
 void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 {
     
-    int current = 0, size, i;
+    int size, i;
     oyProfile_s * profile = 0, * temp_profile = 0;
     oyProfiles_s * patterns = 0, * iccs = 0;
 
@@ -608,7 +608,7 @@ void kmdevices::addNewDeviceConfig(QString device_name)
 {                 
      QString keyString = "DEVICE:";
      keyString.append(device_name);
-     KConfigGroup device_config(m_config, keyString); 
+     KConfigGroup device_config(m_config, keyString);
 }
 
 // Save profile settings to KConfig file.
@@ -650,7 +650,6 @@ void kmdevices::saveProfileSettings(QString device_name)
 // Add selected profile to the ASSOCIATED_PROFILES listing in the KConfig file.
 void kmdevices::addDeviceProfile(QString device_name, QString profile)
 {
-     int i;   
      QString keyString = "DEVICE:";
      keyString.append(device_name);
      KConfigGroup add_profile(m_config, keyString);
@@ -714,7 +713,7 @@ void kmdevices::saveDefaultProfile(QString device_name, QString profile)
          save_default_profile.writeEntry("ASSOCIATED_DESCRIPTIONS", descriptionList);
      }
 
-     save_default_profile.writeEntry("DEFAULT_PROFILE", profile);         
+     save_default_profile.writeEntry("DEFAULT_PROFILE", profile); 
 }
 
 // Function to save Oyranos display information.
