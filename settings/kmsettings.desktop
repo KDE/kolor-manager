@@ -2,6 +2,7 @@
 Name=Settings
 Name[de]=Einstellungen
 Name[el]=Ρυθμίσεις
+Name[es]=Preferencias
 Name[fr]=Configuration
 Name[gl]=Configuración
 Name[km]=ការ​កំណត់
@@ -16,6 +17,7 @@ Name[x-test]=xxSettingsxx
 Comment= Kolor Management Settings
 Comment[de]= Einstellungen zur Farbverwaltung
 Comment[el]=Ρυθμίσεις διαχείρισης χρωμάτων Kolor
+Comment[es]=Preferencias del gestor de Kolor
 Comment[fr]=Configuration du gestionnaire de couleurs
 Comment[gl]= Configuración do Xestor de cor
 Comment[km]=កំណត់​ការ​គ្រប់គ្រង Kolor

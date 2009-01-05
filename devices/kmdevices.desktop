@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Devices
 Name[el]=Συσκευές
+Name[es]=Dispositivos
 Name[fr]=Périphériques
 Name[gl]=Dispositivos
 Name[km]=ឧបករណ៍
@@ -14,6 +15,7 @@ Name[uk]=Пристрої
 Name[x-test]=xxDevicesxx
 Comment= Device settings for Kolor Management
 Comment[el]=Ρυθμίσεις συσκευής για τη διαχείριση χρωμάτων
+Comment[es]=Preferencias de los dispositivos para el gestor de Kolor
 Comment[fr]=Configuration des périphériques pour le gestionnaire de couleurs
 Comment[gl]=Configura os dispositivos para o Xestor de cor
 Comment[km]= ការ​កំណត់​ឧបករណ៍​សម្រាប់​ការ​គ្រប់គ្រង Kolor

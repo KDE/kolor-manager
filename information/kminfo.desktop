@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Profile Information
 Name[el]=Πληροφορίες προφίλ
+Name[es]=Información del perfil
 Name[fr]=Information sur le profil
 Name[gl]=Información do perfil
 Name[km]=ព័ត៌មាន​ទម្រង់
@@ -14,6 +15,7 @@ Name[uk]=Відомості профілю
 Name[x-test]=xxProfile Informationxx
 Comment= Display ICC-specific Profile Information
 Comment[el]=Εμφάνιση πληροφοριών προφίλ ICC
+Comment[es]=Muestra información del perfil especifica de ICC
 Comment[fr]=Afficher les informations sur le profil spécifique ICC
 Comment[gl]= Mostra información do perfil específica de ICC
 Comment[km]= បង្ហាញ​ព័ត៌មាន​ទម្រង់​ជាក់លាក់​របស់ ICC
