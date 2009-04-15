@@ -21,6 +21,7 @@ Name[x-test]=xxDevicesxx
 Comment=Device settings for Kolor Management
 Comment[en_GB]=Device settings for Kolour Management
 Comment[et]= Kolori haldamise seadmete seadistused
+Comment[fr]=Configuration du périphérique pour le gestionnaire de couleurs
 Comment[pt]=Configuração do dispositivo de Gestão de Cores
 Comment[pt_BR]=Configuração do dispositivo de Gestão de Cores
 Comment[sv]=Enhetsinställningar för färghantering
