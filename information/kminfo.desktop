@@ -17,6 +17,7 @@ Name[tr]=Profil Bilgisi
 Name[uk]=Відомості профілю
 Name[x-test]=xxProfile Informationxx
 Comment=Display ICC-specific Profile Information
+Comment[es]=Muestra información del perfil especifica de ICC
 Comment[et]= ICC profiiliga seotud teave
 Comment[fr]=Afficher les informations sur le profil spécifique ICC
 Comment[pt]=Mostrar a informação específica do perfil de ICC
