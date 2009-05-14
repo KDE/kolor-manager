@@ -27,6 +27,7 @@ Comment[fr]=Configuration du gestionnaire de couleurs
 Comment[pt]=Configuração da Gestão de Cores
 Comment[pt_BR]=Configuração da Gestão de Cores
 Comment[sv]=Inställningar av färghantering
+Comment[tr]=Renk Yönetimi Ayarları
 Comment[uk]=Параметри керування Kolor
 Comment[x-test]=xxKolor Management Settingsxx
 Exec=kmsettings

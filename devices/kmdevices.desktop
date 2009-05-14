@@ -26,6 +26,7 @@ Comment[fr]=Configuration du périphérique pour le gestionnaire de couleurs
 Comment[pt]=Configuração do dispositivo de Gestão de Cores
 Comment[pt_BR]=Configuração do dispositivo de Gestão de Cores
 Comment[sv]=Enhetsinställningar för färghantering
+Comment[tr]=Renk Yönetimi için aygıt ayarları
 Comment[uk]=Параметри пристрою для керування Kolor
 Comment[x-test]=xxDevice settings for Kolor Managementxx
 Exec=kcprofiler

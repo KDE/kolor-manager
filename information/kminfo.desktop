@@ -23,6 +23,7 @@ Comment[fr]=Afficher les informations sur le profil spécifique ICC
 Comment[pt]=Mostrar a informação específica do perfil de ICC
 Comment[pt_BR]=Mostrar a informação específica do perfil de ICC
 Comment[sv]=Visa ICC-specifik profilinformation
+Comment[tr]=ICC-özellikli Profil Bilgilerini göster
 Comment[uk]=Показати відомості профілю, характерні для ICC
 Comment[x-test]=xxDisplay ICC-specific Profile Informationxx
 Exec=kminfo
