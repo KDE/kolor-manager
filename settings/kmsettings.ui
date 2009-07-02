@@ -9,25 +9,60 @@
     <height>619</height>
    </rect>
   </property>
-  <layout class="QGridLayout" name="gridLayout_10" >
-   <item row="0" column="0" >
+  <property name="windowTitle" >
+   <string>Form</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout_7" >
+   <item row="1" column="2" >
+    <spacer name="horizontalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>0</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="2" column="1" >
+    <spacer name="verticalSpacer" >
+     <property name="orientation" >
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeType" >
+      <enum>QSizePolicy::Fixed</enum>
+     </property>
+     <property name="sizeHint" stdset="0" >
+      <size>
+       <width>20</width>
+       <height>0</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="1" >
     <widget class="QSplitter" name="splitter" >
      <property name="orientation" >
       <enum>Qt::Horizontal</enum>
      </property>
     </widget>
    </item>
-   <item row="1" column="0" >
+   <item row="1" column="1" >
     <widget class="QTabWidget" name="kmsettingsTab" >
      <property name="currentIndex" >
-      <number>0</number>
+      <number>1</number>
      </property>
      <widget class="QWidget" name="policySettingsTab" >
       <attribute name="title" >
        <string>Policy Settings</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_7" >
-       <item row="0" column="0" >
+      <layout class="QGridLayout" name="gridLayout_6" >
+       <item row="1" column="0" >
         <widget class="QGroupBox" name="currentPolicyBox" >
          <property name="title" >
           <string>Current Policy</string>
@@ -56,7 +91,7 @@
          </layout>
         </widget>
        </item>
-       <item row="1" column="0" >
+       <item row="3" column="0" >
         <widget class="QGroupBox" name="policySetttingsBox" >
          <property name="title" >
           <string>Policy Settings</string>
@@ -64,15 +99,62 @@
          <property name="alignment" >
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
-         <layout class="QGridLayout" name="gridLayout_6" >
-          <item row="0" column="0" >
+         <layout class="QGridLayout" name="gridLayout_8" >
+          <item row="1" column="2" >
+           <spacer name="horizontalSpacer_2" >
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeType" >
+             <enum>QSizePolicy::Fixed</enum>
+            </property>
+            <property name="sizeHint" stdset="0" >
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="2" column="1" >
+           <widget class="QPushButton" name="setPolicyButton" >
+            <property name="acceptDrops" >
+             <bool>true</bool>
+            </property>
+            <property name="text" >
+             <string>Set Policy as Default</string>
+            </property>
+           </widget>
+          </item>
+          <item row="0" column="1" >
            <widget class="QLabel" name="policyLabel" >
             <property name="text" >
              <string>Change the global color policy:</string>
             </property>
            </widget>
           </item>
-          <item row="1" column="0" >
+          <item row="5" column="1" >
+           <widget class="QPushButton" name="removePolicyButton" >
+            <property name="text" >
+             <string>Remove Custom Policy</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <widget class="QPushButton" name="addNewPolicyButton" >
+            <property name="text" >
+             <string>Add Custom Policy</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" >
+           <widget class="Line" name="line_2" >
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
+          <item row="1" column="1" >
            <widget class="QListWidget" name="policySettingsList" >
             <property name="font" >
              <font>
@@ -81,6 +163,26 @@
               <bold>false</bold>
               <underline>false</underline>
              </font>
+            </property>
+            <property name="contextMenuPolicy" >
+             <enum>Qt::ActionsContextMenu</enum>
+            </property>
+            <property name="toolTip" >
+             <string/>
+            </property>
+            <property name="whatsThis" >
+             <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Select from a group of pre-set or user-defined policy settings that maintain all of the settings in Kolor Manager.  &lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">The four "standard" settings are as follows:&lt;/p>
+&lt;p style="-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Graphic Design:&lt;/span> Useful for digital illustration and web imaging work.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Home / Office: &lt;/span>Settings that are used for everyday occurrences&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Photography:&lt;/span> Optimized for photo-related work.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Printer: &lt;/span>Settings used mainly for printer/proofing images.&lt;/p>&lt;/body>&lt;/html></string>
             </property>
             <property name="editTriggers" >
              <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
@@ -119,33 +221,24 @@
             </item>
            </widget>
           </item>
-          <item row="2" column="0" >
-           <layout class="QHBoxLayout" name="horizontalLayout_2" >
-            <item>
-             <widget class="QPushButton" name="setPolicyButton" >
-              <property name="text" >
-               <string>Set Policy as Default</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="addNewPolicyButton" >
-              <property name="text" >
-               <string>Add Custom Policy</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="removePolicyButton" >
-              <property name="text" >
-               <string>Remove Custom Policy</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
-          </item>
          </layout>
         </widget>
+       </item>
+       <item row="5" column="0" >
+        <spacer name="verticalSpacer_2" >
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
+         </property>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>10</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
@@ -153,21 +246,104 @@
       <attribute name="title" >
        <string>Default Profiles</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_8" >
+      <layout class="QGridLayout" name="gridLayout_12" >
+       <item row="3" column="0" >
+        <widget class="QGroupBox" name="defaultProfilesBox" >
+         <property name="toolTip" >
+          <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Select the default &lt;span style=" font-style:italic;">editing&lt;/span> profiles for each of the corresponding color spaces.&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="whatsThis" >
+          <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Select the default &lt;span style=" font-style:italic;">editing&lt;/span> profiles for each of the corresponding color spaces.&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="title" >
+          <string>Editing Profile Defaults</string>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11" >
+          <item row="2" column="0" >
+           <widget class="QLabel" name="label_2" >
+            <property name="text" >
+             <string>Editing RGB</string>
+            </property>
+           </widget>
+          </item>
+          <item row="2" column="1" >
+           <widget class="QComboBox" name="editRgbCombo" >
+            <property name="enabled" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="0" >
+           <widget class="QLabel" name="label_3" >
+            <property name="text" >
+             <string>Editing CMYK</string>
+            </property>
+           </widget>
+          </item>
+          <item row="3" column="1" >
+           <widget class="QComboBox" name="editCmykCombo" >
+            <property name="enabled" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="0" >
+           <widget class="QLabel" name="label_5" >
+            <property name="text" >
+             <string>Editing XYZ</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <widget class="QComboBox" name="editXyzCombo" >
+            <property name="enabled" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="0" >
+           <widget class="QLabel" name="label_6" >
+            <property name="text" >
+             <string>Editing Lab</string>
+            </property>
+           </widget>
+          </item>
+          <item row="5" column="1" >
+           <widget class="QComboBox" name="editLabCombo" >
+            <property name="enabled" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item row="6" column="1" >
+           <widget class="QComboBox" name="editGrayCombo" />
+          </item>
+          <item row="6" column="0" >
+           <widget class="QLabel" name="label_9" >
+            <property name="text" >
+             <string>Editing Gray</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </item>
        <item row="0" column="0" >
         <widget class="QLabel" name="label" >
-         <property name="sizePolicy" >
-          <sizepolicy vsizetype="Fixed" hsizetype="Preferred" >
-           <horstretch>0</horstretch>
-           <verstretch>0</verstretch>
-          </sizepolicy>
-         </property>
          <property name="text" >
           <string>Choose an appropriate profile for the following color space settings:</string>
          </property>
         </widget>
        </item>
-       <item row="1" column="0" >
+       <item row="2" column="0" >
         <spacer name="verticalSpacer_4" >
          <property name="orientation" >
           <enum>Qt::Vertical</enum>
@@ -178,92 +354,27 @@
          <property name="sizeHint" stdset="0" >
           <size>
            <width>20</width>
-           <height>7</height>
+           <height>40</height>
           </size>
          </property>
         </spacer>
        </item>
-       <item row="2" column="0" >
-        <widget class="QGroupBox" name="defaultProfilesBox" >
-         <property name="title" >
-          <string>Editing Profile Defaults</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_11" >
-          <item row="0" column="0" >
-           <widget class="QLabel" name="label_2" >
-            <property name="text" >
-             <string>Editing RGB</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" >
-           <widget class="QComboBox" name="editRgbCombo" >
-            <property name="enabled" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QLabel" name="label_3" >
-            <property name="text" >
-             <string>Editing CMYK</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1" >
-           <widget class="QComboBox" name="editCmykCombo" >
-            <property name="enabled" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QLabel" name="label_5" >
-            <property name="text" >
-             <string>Editing XYZ</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1" >
-           <widget class="QComboBox" name="editXyzCombo" >
-            <property name="enabled" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0" >
-           <widget class="QLabel" name="label_6" >
-            <property name="text" >
-             <string>Editing Lab</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1" >
-           <widget class="QComboBox" name="editLabCombo" >
-            <property name="enabled" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1" >
-           <widget class="QComboBox" name="editGrayCombo" />
-          </item>
-          <item row="4" column="0" >
-           <widget class="QLabel" name="label_9" >
-            <property name="text" >
-             <string>Editing Gray</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="3" column="0" >
+       <item row="4" column="0" >
         <widget class="QGroupBox" name="assumedSourceGBox" >
+         <property name="toolTip" >
+          <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Select the default &lt;span style=" font-style:italic;">assumed&lt;/span> profiles for each of the corresponding color spaces.&lt;/p>&lt;/body>&lt;/html></string>
+         </property>
+         <property name="whatsThis" >
+          <string/>
+         </property>
          <property name="title" >
           <string>Assumed Profile Default</string>
          </property>
-         <layout class="QGridLayout" name="gridLayout_12" >
+         <layout class="QGridLayout" name="gridLayout_17" >
           <item row="0" column="0" >
            <widget class="QLabel" name="label_7" >
             <property name="text" >
@@ -320,23 +431,6 @@
             </property>
            </widget>
           </item>
-          <item row="4" column="0" >
-           <widget class="QLabel" name="assumedGrayLabel" >
-            <property name="text" >
-             <string>Assumed Gray Source</string>
-            </property>
-           </widget>
-          </item>
-          <item row="4" column="1" >
-           <widget class="QComboBox" name="assumeGrayCombo" />
-          </item>
-          <item row="5" column="0" colspan="2" >
-           <widget class="Line" name="line" >
-            <property name="orientation" >
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
           <item row="6" column="0" >
            <widget class="QLabel" name="webSourceLabel" >
             <property name="text" >
@@ -356,6 +450,23 @@
             </item>
            </widget>
           </item>
+          <item row="4" column="0" >
+           <widget class="QLabel" name="assumedGrayLabel" >
+            <property name="text" >
+             <string>Assumed Gray Source</string>
+            </property>
+           </widget>
+          </item>
+          <item row="4" column="1" >
+           <widget class="QComboBox" name="assumeGrayCombo" />
+          </item>
+          <item row="5" column="0" colspan="2" >
+           <widget class="Line" name="line" >
+            <property name="orientation" >
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
+          </item>
          </layout>
         </widget>
        </item>
@@ -365,295 +476,523 @@
       <attribute name="title" >
        <string>Behavior Settings</string>
       </attribute>
-      <layout class="QGridLayout" name="gridLayout_9" >
+      <layout class="QGridLayout" name="gridLayout_10" >
        <item row="0" column="0" >
-        <widget class="QGroupBox" name="renderingSettingsBox" >
-         <property name="title" >
-          <string>Rendering Settings</string>
-         </property>
-         <layout class="QGridLayout" name="gridLayout_2" >
-          <item row="0" column="0" >
-           <widget class="QComboBox" name="defaultRIntentCombo" >
-            <property name="acceptDrops" >
-             <bool>false</bool>
-            </property>
-            <property name="toolTip" >
-             <string/>
-            </property>
-            <property name="statusTip" >
-             <string/>
-            </property>
-            <property name="whatsThis" >
-             <string/>
-            </property>
-            <item>
-             <property name="text" >
-              <string>Perceptual</string>
-             </property>
+        <layout class="QGridLayout" name="gridLayout_9" >
+         <item row="2" column="0" >
+          <widget class="QGroupBox" name="groupBox" >
+           <property name="toolTip" >
+            <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Mismatch Handling &lt;/span>settings lets you manage different handling situations for differing profiles.&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="whatsThis" >
+            <string/>
+           </property>
+           <property name="title" >
+            <string>Mismatch Handling</string>
+           </property>
+           <property name="flat" >
+            <bool>false</bool>
+           </property>
+           <property name="checkable" >
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_14" >
+            <item row="0" column="0" >
+             <layout class="QGridLayout" name="gridLayout" >
+              <item row="0" column="0" >
+               <widget class="QLabel" name="label_12" >
+                <property name="text" >
+                 <string>For Non-existent Profile</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" >
+               <widget class="QLabel" name="label_13" >
+                <property name="text" >
+                 <string>For RGB Mismatch</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2" >
+               <widget class="QLabel" name="label_14" >
+                <property name="text" >
+                 <string>For CMYK Mismatch</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" >
+               <widget class="QComboBox" name="ifNoProfileCombo" >
+                <property name="contextMenuPolicy" >
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Don't Assign Profile:&lt;/span> Do nothing to the mismatched profile (leave as is).&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Assign Assumed Profile: &lt;/span>Assign a profile.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Prompt User: &lt;/span>Let the user decide on whether to assign a profile or not.&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Don't Assign Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Assign Assumed Profile</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Prompt User</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="1" >
+               <widget class="QComboBox" name="ifRgbMismatchCombo" >
+                <property name="contextMenuPolicy" >
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Preserve Numbers: &lt;/span>Allow the source RGB profile to be kept and unchanged from the destination.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Automatically Convert: &lt;/span>Convert the source RGB profile to its destination.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Prompt User:&lt;/span> Allow the user to choose which method to use.&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Preserve Numbers</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Automatically Convert</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Prompt User</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="2" >
+               <widget class="QComboBox" name="ifCmykMismatchCombo" >
+                <property name="contextMenuPolicy" >
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Preserve Numbers: &lt;/span>Allow the source CMYK profile to be kept and unchanged from the destination.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Automatically Convert: &lt;/span>Convert the source CMYK profile to its destination.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Prompt User:&lt;/span> Allow the user to choose which method to use.&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Preserve Numbers</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Automatically Convert</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Prompt User</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
             </item>
-            <item>
-             <property name="text" >
-              <string>Relative Colormetric</string>
-             </property>
+           </layout>
+          </widget>
+         </item>
+         <item row="4" column="0" >
+          <widget class="QGroupBox" name="groupBox_3" >
+           <property name="toolTip" >
+            <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Mixed Color Space Settings&lt;/span> lets you handle color space mismatch options for your monitor and printer.&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="whatsThis" >
+            <string/>
+           </property>
+           <property name="title" >
+            <string>Mixed Color Space Settings</string>
+           </property>
+           <property name="flat" >
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_16" >
+            <item row="0" column="0" >
+             <layout class="QGridLayout" name="gridLayout_4" >
+              <item row="0" column="0" >
+               <widget class="QLabel" name="label_17" >
+                <property name="text" >
+                 <string>For Screen</string>
+                </property>
+                <property name="alignment" >
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1" >
+               <widget class="QComboBox" name="monitorMixedCombo" >
+                <property name="contextMenuPolicy" >
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Preserve Numbers: &lt;/span>Leave the non-RGB color space as is (no conversion).&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Convert to Editing RGB Space:&lt;/span> Convert the non-RGB color space into the assigned editing color space.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Convert to Web: &lt;/span>Convert the non-RGB color space into the web-appropriate sRGB color space.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Prompt User: &lt;/span>Allow the user to select the appropriate color space conversion method.&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Preserve Numbers</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Convert to Editing RGB Space</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Convert to Web </string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Prompt User</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+              <item row="1" column="0" >
+               <widget class="QLabel" name="label_18" >
+                <property name="text" >
+                 <string>Printer</string>
+                </property>
+                <property name="alignment" >
+                 <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1" >
+               <widget class="QComboBox" name="printerMixedCombo" >
+                <property name="contextMenuPolicy" >
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Preserve Numbers: &lt;/span>Leave the non-CMYK color space as is (no conversion).&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Convert to Editing CMYK:&lt;/span> Convert the non-CMYK color space into an assigned editing CMYK color space.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Convert to Untagged CMYK: &lt;/span>Convert the color space into a non-CMYK color space.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Prompt User: &lt;/span>Allow the user to select the appropriate color space conversion method.&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Preserve Numbers</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Convert to Editing CMYK</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Convert to Untagged CMYK</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Prompt User</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
             </item>
-            <item>
-             <property name="text" >
-              <string>Saturation</string>
-             </property>
+           </layout>
+          </widget>
+         </item>
+         <item row="3" column="0" >
+          <widget class="QGroupBox" name="groupBox_2" >
+           <property name="toolTip" >
+            <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Proofing &lt;/span>will allow you to modify color proofing options, including color space, rendering intent, and hard/soft proofing.&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="whatsThis" >
+            <string/>
+           </property>
+           <property name="title" >
+            <string>Proofing</string>
+           </property>
+           <property name="flat" >
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_15" >
+            <item row="0" column="0" >
+             <layout class="QGridLayout" name="gridLayout_3" >
+              <item row="0" column="0" >
+               <widget class="QLabel" name="label_15" >
+                <property name="text" >
+                 <string>Proofing Color Space</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2" >
+               <layout class="QGridLayout" name="gridLayout_2" >
+                <item row="0" column="0" >
+                 <widget class="QComboBox" name="proofColorProfileCombo" >
+                  <property name="contextMenuPolicy" >
+                   <enum>Qt::ActionsContextMenu</enum>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>Selet from a list of profiles applicable for proofing.</string>
+                  </property>
+                 </widget>
+                </item>
+                <item row="0" column="1" >
+                 <widget class="QComboBox" name="proofRIntentCombo" >
+                  <property name="contextMenuPolicy" >
+                   <enum>Qt::ActionsContextMenu</enum>
+                  </property>
+                  <property name="acceptDrops" >
+                   <bool>false</bool>
+                  </property>
+                  <property name="toolTip" >
+                   <string/>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Relative Colorimetric: &lt;/span>Scales the white point of the source gamut into the white point of the target.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;">Absolute Colorimetric: &lt;span style=" font-weight:400;">Preserves in-gamut colors, and clips out-of-gamut colors to the nearest hue.&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                  <item>
+                   <property name="text" >
+                    <string>Relative Colorimetric</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text" >
+                    <string>Absolute Colorimetric</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item row="1" column="1" >
+                 <widget class="QRadioButton" name="hardProofCheckbox" >
+                  <property name="contextMenuPolicy" >
+                   <enum>Qt::ActionsContextMenu</enum>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">Check &lt;span style=" font-weight:600;">Hard Proof&lt;/span> (or match print) to fully simulate colors that the printer will be using through a reflective surface. &lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                  <property name="text" >
+                   <string>Hard Proof </string>
+                  </property>
+                  <property name="autoExclusive" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+                <item row="1" column="0" >
+                 <widget class="QRadioButton" name="softProofCheckbox" >
+                  <property name="contextMenuPolicy" >
+                   <enum>Qt::ActionsContextMenu</enum>
+                  </property>
+                  <property name="toolTip" >
+                   <string/>
+                  </property>
+                  <property name="whatsThis" >
+                   <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-size:9pt;">Select &lt;/span>&lt;span style=" font-size:9pt; font-weight:600;">Soft Proof&lt;/span>&lt;span style=" font-size:9pt;"> as a means to preview the printer's color output on your monitor. (Mostly to match transmissive media.)&lt;/span>&lt;/p>&lt;/body>&lt;/html></string>
+                  </property>
+                  <property name="text" >
+                   <string>Soft Proof</string>
+                  </property>
+                  <property name="autoExclusive" >
+                   <bool>true</bool>
+                  </property>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item row="0" column="1" >
+               <widget class="QLabel" name="label_16" >
+                <property name="text" >
+                 <string>Proofing Rendering Intent</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
             </item>
-            <item>
-             <property name="text" >
-              <string>Absolute Colormetric</string>
-             </property>
+           </layout>
+          </widget>
+         </item>
+         <item row="0" column="0" >
+          <widget class="QGroupBox" name="renderingSettingsBox" >
+           <property name="acceptDrops" >
+            <bool>false</bool>
+           </property>
+           <property name="toolTip" >
+            <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Rendering Settings&lt;/span> allows you to change the global rendering intent.&lt;/p>&lt;/body>&lt;/html></string>
+           </property>
+           <property name="statusTip" >
+            <string/>
+           </property>
+           <property name="whatsThis" >
+            <string/>
+           </property>
+           <property name="title" >
+            <string>Rendering Settings</string>
+           </property>
+           <property name="flat" >
+            <bool>false</bool>
+           </property>
+           <layout class="QGridLayout" name="gridLayout_13" >
+            <item row="0" column="0" >
+             <layout class="QHBoxLayout" name="horizontalLayout" >
+              <item>
+               <widget class="QComboBox" name="defaultRIntentCombo" >
+                <property name="mouseTracking" >
+                 <bool>false</bool>
+                </property>
+                <property name="focusPolicy" >
+                 <enum>Qt::WheelFocus</enum>
+                </property>
+                <property name="contextMenuPolicy" >
+                 <enum>Qt::ActionsContextMenu</enum>
+                </property>
+                <property name="acceptDrops" >
+                 <bool>false</bool>
+                </property>
+                <property name="toolTip" >
+                 <string/>
+                </property>
+                <property name="statusTip" >
+                 <string/>
+                </property>
+                <property name="whatsThis" >
+                 <string>&lt;!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN" "http://www.w3.org/TR/REC-html40/strict.dtd">
+&lt;html>&lt;head>&lt;meta name="qrichtext" content="1" />&lt;style type="text/css">
+p, li { white-space: pre-wrap; }
+&lt;/style>&lt;/head>&lt;body style=" font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;">
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Perceptual: &lt;/span>Preserves relationship between out-of-gamut colors.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Relative Colorimetric:&lt;/span> The white point of the colorspace source is changed to the destination. &lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Saturation:&lt;/span> Preserves accurate saturation, while modifying color hues.&lt;/p>
+&lt;p style=" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;">&lt;span style=" font-weight:600;">Absolute Colorimetric: &lt;/span>The white point of the destination colorspace will become the white point of the source.&lt;/p>&lt;/body>&lt;/html></string>
+                </property>
+                <property name="autoFillBackground" >
+                 <bool>false</bool>
+                </property>
+                <property name="frame" >
+                 <bool>false</bool>
+                </property>
+                <item>
+                 <property name="text" >
+                  <string>Perceptual</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Relative Colorimetric</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Saturation</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text" >
+                  <string>Absolute Colorimetric</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
             </item>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+           </layout>
+          </widget>
+         </item>
+        </layout>
        </item>
        <item row="1" column="0" >
-        <widget class="QGroupBox" name="groupBox" >
-         <property name="title" >
-          <string>Mismatch Handling</string>
+        <spacer name="verticalSpacer_3" >
+         <property name="orientation" >
+          <enum>Qt::Vertical</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout_3" >
-          <item row="0" column="0" >
-           <widget class="QLabel" name="label_12" >
-            <property name="text" >
-             <string>For Non-existent Profile</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" >
-           <widget class="QLabel" name="label_13" >
-            <property name="text" >
-             <string>For RGB Mismatch</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="2" >
-           <widget class="QLabel" name="label_14" >
-            <property name="text" >
-             <string>For CMYK Mismatch</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QComboBox" name="ifNoProfileCombo" >
-            <item>
-             <property name="text" >
-              <string>Don't Assign Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Assign Assumed Profile</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Prompt User</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="1" column="1" >
-           <widget class="QComboBox" name="ifRgbMismatchCombo" >
-            <item>
-             <property name="text" >
-              <string>Preserve Numbers</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Automatically Convert</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Prompt User</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="1" column="2" >
-           <widget class="QComboBox" name="ifCmykMismatchCombo" >
-            <item>
-             <property name="text" >
-              <string>Preserve Numbers</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Automatically Convert</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Prompt User</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-         </layout>
-        </widget>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Fixed</enum>
+         </property>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>20</width>
+           <height>40</height>
+          </size>
+         </property>
+        </spacer>
        </item>
-       <item row="2" column="0" >
-        <widget class="QGroupBox" name="groupBox_2" >
-         <property name="title" >
-          <string>Proofing</string>
+       <item row="0" column="1" >
+        <spacer name="horizontalSpacer_3" >
+         <property name="orientation" >
+          <enum>Qt::Horizontal</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout_4" >
-          <item row="0" column="0" >
-           <widget class="QLabel" name="label_15" >
-            <property name="text" >
-             <string>Proofing Colorspace</string>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1" >
-           <widget class="QLabel" name="label_16" >
-            <property name="text" >
-             <string>Proofing Rendering Intent</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0" >
-           <widget class="QComboBox" name="proofColorProfileCombo" />
-          </item>
-          <item row="1" column="1" >
-           <widget class="QComboBox" name="proofRIntentCombo" >
-            <item>
-             <property name="text" >
-              <string>Relative Colormetric</string>
-             </property>
-            </item>
-            <item>
-             <property name="text" >
-              <string>Absolute Colormetric</string>
-             </property>
-            </item>
-           </widget>
-          </item>
-          <item row="2" column="0" >
-           <widget class="QRadioButton" name="softProofCheckbox" >
-            <property name="text" >
-             <string>Soft Proof</string>
-            </property>
-            <property name="autoExclusive" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="1" >
-           <widget class="QRadioButton" name="hardProofCheckbox" >
-            <property name="text" >
-             <string>Hard Proof </string>
-            </property>
-            <property name="autoExclusive" >
-             <bool>true</bool>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </widget>
-       </item>
-       <item row="3" column="0" >
-        <widget class="QGroupBox" name="groupBox_3" >
-         <property name="title" >
-          <string>Mixed Color Space Settings</string>
+         <property name="sizeType" >
+          <enum>QSizePolicy::Fixed</enum>
          </property>
-         <layout class="QGridLayout" name="gridLayout" >
-          <item row="0" column="0" >
-           <layout class="QHBoxLayout" name="horizontalLayout" >
-            <item>
-             <widget class="QLabel" name="label_18" >
-              <property name="sizePolicy" >
-               <sizepolicy vsizetype="Preferred" hsizetype="Maximum" >
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text" >
-               <string>Printer</string>
-              </property>
-              <property name="alignment" >
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="printerMixedCombo" >
-              <item>
-               <property name="text" >
-                <string>Preserve Numbers</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Convert to Editing CMYK Space</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Convert to Untagged CMYK</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Prompt User</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
-          </item>
-          <item row="0" column="1" >
-           <layout class="QHBoxLayout" name="horizontalLayout_3" >
-            <item>
-             <widget class="QLabel" name="label_17" >
-              <property name="sizePolicy" >
-               <sizepolicy vsizetype="Preferred" hsizetype="Maximum" >
-                <horstretch>0</horstretch>
-                <verstretch>0</verstretch>
-               </sizepolicy>
-              </property>
-              <property name="text" >
-               <string>Screen</string>
-              </property>
-              <property name="alignment" >
-               <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QComboBox" name="monitorMixedCombo" >
-              <item>
-               <property name="text" >
-                <string>Preserve Numbers</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Convert to Editing RGB Space</string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Convert to Web </string>
-               </property>
-              </item>
-              <item>
-               <property name="text" >
-                <string>Prompt User</string>
-               </property>
-              </item>
-             </widget>
-            </item>
-           </layout>
-          </item>
-         </layout>
-        </widget>
+         <property name="sizeHint" stdset="0" >
+          <size>
+           <width>40</width>
+           <height>20</height>
+          </size>
+         </property>
+        </spacer>
        </item>
       </layout>
      </widget>
