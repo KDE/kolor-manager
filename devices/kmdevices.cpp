@@ -48,8 +48,11 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KAboutData>
 
 #include <oyranos/oyranos.h>
+#include <oyranos/oyranos_alpha.h>
 #include <oyranos/oyranos_config.h>
 #include <oyranos/oyranos_icc.h>
+#include <oyranos/oyranos_cmm.h>
+// #include "oyranos/oyranos_printer.h"
 
 #include <cups/cups.h>
 #include <cups/ppd.h>
@@ -66,13 +69,12 @@ using namespace oyranos;
 #define SANE_MAX_USERNAME_LEN   128
 #define SANE_MAX_PASSWORD_LEN   128
 
+#define KM_CONFIG_FILE "kolor-manager-globals"
 
 typedef void (*SANE_Authorization_Callback)
     (SANE_String_Const resource,
          SANE_Char username[SANE_MAX_USERNAME_LEN],
          SANE_Char password[SANE_MAX_PASSWORD_LEN]);
-
-
 
 void kmdevices::load()
 {
@@ -87,8 +89,11 @@ void kmdevices::save()
          listModified = false;
      }
 
-     // Write KConfig items to the file.
-     m_config->sync();            
+     // Refresh KConfig file
+     m_config->sync();
+
+     // NOTE oyConfig_s solution to kconfig.
+     // oyConfig_SaveToDB(km_config);           
 }
 
 kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
@@ -108,8 +113,10 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
   
     setupUi(this);              // Load Gui. 
 
-    // Set up KConfig data file.
-    m_config = KSharedConfig::openConfig("kolor-manager-globals");
+    // NOTE oyConfig_s solution to kconfig.
+    // km_config = oyConfig_New(KM_CONFIG_FILE, 0);
+
+    m_config = KSharedConfig::openConfig(KM_CONFIG_FILE);
  
     addProfileButton->setEnabled(false);
     removeButton->setEnabled(false);
@@ -147,14 +154,16 @@ void kmdevices::populateDeviceListing()
 
     // Refresh KConfig file
     m_config->sync();
-}
 
+    // NOTE oyConfig_s solution to kconfig.
+    // oyConfig_SaveToDB(km_config);
+}
 
 // Setup monitor items for QtListWidget (Devices)
 void kmdevices::detectMonitor()
 {     
      // To add monitor device name to list.
-     KConfigGroup save_monitor_list(m_config, "DEVICE_LIST");
+     KConfigGroup save_monitor_list(m_config, "DEVICE_LIST");     
      QStringList monitorNameList;
 
      QDesktopWidget desktop;
@@ -162,7 +171,7 @@ void kmdevices::detectMonitor()
          
      QIcon monitor_icon(":/resources/monitor.png");    
 
-     const char * display;
+     char * display;
 
      if (nScreens > 0)
      {
@@ -180,6 +189,9 @@ void kmdevices::detectMonitor()
            char * manufacturer = 0;
            char * model = 0;
            char * serial = 0;
+           char * system_port = 0;
+           char * display_geometry = 0;
+           oyBlob_s * edid = 0;
 
            char * newProfile;
 
@@ -188,7 +200,8 @@ void kmdevices::detectMonitor()
            // Grab Monitor info       
            display = oyGetDisplayNameFromPosition(display, rect.left(), rect.bottom(), 0);
 
-           oyGetMonitorInfo(display, &manufacturer, &model, &serial, 0);
+           oyGetMonitorInfo(display, &manufacturer, &model, &serial, &system_port, 
+                                              &display_geometry, &edid, 0);
 
            // Display Monitor Information in list.
            newProfile = oyGetMonitorProfileNameFromDB(display, 0);
@@ -232,6 +245,20 @@ void kmdevices::detectMonitor()
         }   
     }
     save_monitor_list.writeEntry("MONITOR", monitorNameList);
+
+/*     NOTE oyConfig_s solution to kconfig.
+
+    int i;
+    QString keyString;
+    QString keyString_base = "MONITOR_NAME";     
+ 
+    for (i = 0; i < monitorNameList.size(); i++)
+    {
+        keyString = keyString_base + (char*)(i + 1);
+        oyConfig_AddDBData(km_config, keyString.toAscii(), (monitorNameList.takeAt(i)).toAscii(), 6);
+
+    }*/
+    
 }
 
 void kmdevices::detectPrinter()
@@ -248,27 +275,70 @@ void kmdevices::detectPrinter()
 
    numDests = cupsGetDests(&dests);
 
+ /* NOTE Alternative backend code to retrieve the CUPS info. 
+
+   char *** list = allocFunc(sizeof(char**));
+   int numDests = oyPrGetDevices(list, allocFunc);
+
+*/
+
    if( numDests > 0)
    {
         parent_printer_item = new QTreeWidgetItem;
         parent_printer_item->setText(0, "Printers");
         deviceList->insertTopLevelItem(0, parent_printer_item);
+        
         for (int j = 0; j < numDests; j++)
         {
             printerItemString = dests[j].name;
 
-            const char * printer_filename;
+            /* NOTE Backend method:
+      
+            char * printer_name;
+            char * manufacturer = 0;
+            char * model = 0;
+            char * serial = 0;
+                
+            oyConfig_s * cups_device = oyConfig_New (CMM_PRINTER_REG, 0);    
+            oyOptions_s * cups_options = oyPrSaveCUPSOptions ( *(*list + j), &cups_device);
+
+            char * newProfile = oyPrPPDGetProfileName ( cups_options );
+
+            // TODO Work on backend to activate profiles here.
+
+            oyOption_s * printer_info = 0;
+
+            printer_name = oyConfig_Find(km_config, "instrument_name", 0);
+            manufacturer = oyConfig_Find(km_config, "Manufacturer", 0);
+            model = oyConfig_Find(km_config, "Model", 0);
+            serial = oyConfig_Find(km_config, "Serial", 0);
+
+            // Setup printer device designation
+            printerItemString.append(manufacturer);
+            printerItemString.append(" ");
+            printerItemString.append(model);
+            printerItemString.append("-");
+            printerItemString.append(serial);
+
+            // Set for initial "default profile".
+            printerProfileString = newProfile
+                                                                            */
+
+            // NOTE The following is not needed for Oyranos backend.
+/*
+            const char * printer_filename;  
             printer_filename = cupsGetPPD(dests[j].name);
-
             ppd_file_t * ppd;
-            ppd = ppdOpenFile(printer_filename);
-
-            //FIXME the profile name needs to be retrieved from somewhere
+            ppd = ppdOpenFile(printer_filename);                            */
 
             addNewDeviceConfig(printerItemString);
             //saveDefaultProfile(printerItemString, printerProfileString);                
             saveDeviceType(printerItemString, "PRINTER");
+            
+            /* NOTE Or use: saveDeviceType(printerItemString, printer_name);
 
+
+                                                                            */
             deviceListPointer = new QTreeWidgetItem();
 
             deviceListPointer->setIcon(0, printer_icon);
@@ -278,11 +348,26 @@ void kmdevices::detectPrinter()
         
             parent_printer_item->addChild(deviceListPointer);
      
-           printerNameList.insert(0, printerItemString);
+            printerNameList.insert(0, printerItemString);
        }
   }
-     cupsFreeDests(numDests, dests);
+
+     cupsFreeDests(numDests, dests);   
      save_printer_info.writeEntry("PRINTER", printerNameList);
+
+/*      NOTE oyConfig_s solution to kconfig.
+
+    int i;
+    QString keyString;
+    QString keyString_base = "PRINTER_NAME";     
+ 
+    for (i = 0; i < printerNameList.size(); i++)
+    {
+        keyString = keyString_base + (char*)(i + 1);
+        oyConfig_AddDBData(km_config, keyString.toAscii(), (printerNameList.takeAt(i)).toAscii(), 6);
+
+    }*/
+    
 
 }
 
@@ -360,9 +445,8 @@ void kmdevices::detectScanner()
 
 // Populate "Add Profile" combobox.  Depending on the device selected, the profile list will vary.
 void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
-{
-    
-    int size, i;
+{    
+    int current = 0, size, i;
     oyProfile_s * profile = 0, * temp_profile = 0;
     oyProfiles_s * patterns = 0, * iccs = 0;
 
@@ -462,7 +546,6 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
 
             listModified = false;
      }
-
 
     // If we find a device, the current device is stored and options are available.
     addProfileButton->setEnabled(true);
@@ -586,7 +669,7 @@ void kmdevices::setDefaultItem()
          oyActivateMonitorProfiles(activated_profile_name);
      }
        
-    // FIXME write code to activate printer, scanner, etc. ...
+    // TODO write code to activate printer, scanner, etc. ...
 
     
     defaultProfileButton->setEnabled(false);
@@ -644,6 +727,49 @@ void kmdevices::saveProfileSettings(QString device_name)
     
     save_device_profiles.writeEntry("ASSOCIATED_PROFILES", updatedProfiles);
     save_device_profiles.writeEntry("ASSOCIATED_DESCRIPTIONS", updatedDescriptions);
+  
+/*      NOTE oyConfig_s solution to kconfig.
+  
+     QString fileToDescriptionString;
+     QListWidgetItem * temp_item;
+    
+     const char * description_string = 0;
+     const char * profile_string = 0;
+
+     QString keyString_ap;
+     QString keyString_ap_base = device_name;
+     keyString_ap_base.append("-ASSOCIATED_PROFILE");
+
+     QString keyString_ad;
+     QString keyString_ad_base = device_name;
+     keyString_ad_base.append("-ASSOCIATED_DESCRIPTION");
+
+     QString keyString_apCount = device_name;
+     keyString_apCount.append("-PROFILE_COUNT");
+
+     char * profile_count = (char *)(profileAssociationList->count());
+     oyConfig_AddDBData(km_config, keyString_apCount.toAscii(), profile_count, 6);
+              
+    int i;
+    for (i = 0; i < profileAssociationList->count(); i++)
+    {
+         keyString_ap = keyString_ap_base + (char*)(i + 1);
+         keyString_ad = keyString_ad_base + (char*)(i + 1);
+         
+         temp_item = profileAssociationList->item(i);
+
+         // Grab filename from list.
+         fileToDescriptionString = temp_item->text();
+         fileToDescriptionString = convertFilenameToDescription(fileToDescriptionString);
+         description_string = fileToDescriptionString.toAscii();
+         
+         oyConfig_AddDBData(km_config, keyString_ap.toAscii(), description_string, 6);
+         oyConfig_AddDBData(km_config, keyString_ad.toAscii(), (temp_item->text()).toAscii(), 6);
+    }
+
+    oyConfig_SaveToDB(km_config);*/
+
+    
 }
 
 
@@ -665,6 +791,28 @@ void kmdevices::addDeviceProfile(QString device_name, QString profile)
           
      add_profile.writeEntry("ASSOCIATED_PROFILES", temp_profilelist);
      add_profile.writeEntry("ASSOCIATED_DESCRIPTIONS", descriptionlist);
+
+
+   /*          NOTE oyConfig_s solution to kconfig.
+
+     QString keyString_ap_base = device_name;
+     keyString_ap_base.append("-ASSOCIATED_PROFILE");
+
+     QString keyString_ad_base = device_name;
+     keyString_ad_base.append("-ASSOCIATED_DESCRIPTION");
+
+     oyConfig_AddDBData(km_config, keyString_ap_base.toAscii(), profile.toAscii(), 6);
+
+     const char * fn_description = (convertFilenameToDescription(profile)).toAscii();
+
+     oyConfig_AddDBData(km_config, keyString_ad_base.toAscii(), fn_description, 6);
+
+     QString keyString_apCount = device_name;
+     keyString_apCount.append("-PROFILE_COUNT");
+
+     QString profile_count = oyConfig_FindString(km_config, keyString_apCount.toAscii(), 0);
+   */  
+
 }
 
 // A check to see if the profile already exists in the profile list (resolves duplication)
@@ -688,6 +836,12 @@ void kmdevices::saveDeviceType(QString device_name, QString deviceType)
      keyString.append(device_name);
      KConfigGroup save_device_type(m_config, keyString);
      save_device_type.writeEntry("Type", deviceType);
+
+/*        NOTE oyConfig_s solution to kconfig.
+
+     QString keyString = device_name;
+     keyString.append("-DEVICE_TYPE");  
+     oyConfig_AddDBData(km_config, keyString.toAscii(), deviceType.toAscii(), 6);*/
 }
 
 // Saves default profile to the list.
@@ -714,6 +868,14 @@ void kmdevices::saveDefaultProfile(QString device_name, QString profile)
      }
 
      save_default_profile.writeEntry("DEFAULT_PROFILE", profile); 
+
+/*    NOTE oyConfig_s solution to kconfig.
+
+     int i;
+     QString keyString = device_name;
+     keyString.append("-DEFAULT_PROFILE");
+
+     oyConfig_AddDBData(km_config, keyString.toAscii(), profile.toAscii(), 6);*/
 }
 
 // Function to save Oyranos display information.
@@ -726,6 +888,12 @@ void kmdevices::saveMonitorLocationInfo (QString device_name, const char * displ
      QString displayQString;
 
      save_display.writeEntry("Screen_Position", display);
+
+/*    NOTE oyConfig_s solution to kconfig.
+    QString keyString = device_name;
+    keyString.append("-SCREEN_POSITION");    
+
+    oyConfig_AddDBData(km_config, keyString.toAscii(), display, 6);*/
 }
 
 const char * kmdevices::loadMonitorLocationInfo(QString device_name)
@@ -737,6 +905,16 @@ const char * kmdevices::loadMonitorLocationInfo(QString device_name)
      QString displayQString = save_display.readEntry("Screen_Position", QString() );
   
      return displayQString.toLocal8Bit();
+
+/*    NOTE oyConfig_s solution to kconfig.
+
+     QString keyString = device_name;
+     keyString.append("-SCREEN_POSITION");
+
+     const char * displayQString = oyConfig_FindString(km_config, keyString.toAscii(), 0);
+
+     return displayQString; */
+
 }
 
 // This is so we can obtain a profile name description from a profile file name.
