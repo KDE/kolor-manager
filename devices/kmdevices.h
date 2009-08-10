@@ -75,13 +75,18 @@ private:
     void addProfileToList();
 
     // Search for available monitors and install default profile
-    void detectMonitor();
+    int detectMonitor();
 
     // Search for available printers and install profile for device.
-    void detectPrinter();
+    int detectPrinter();
 
     // Detect scanner 
-    void detectScanner();
+    int detectScanner();
+
+    int detectDevices(const char * device_type);
+
+    // Detect camera
+    void detectCamera();
 
     // FIXME Add camera support.
     //void detectCamera();
