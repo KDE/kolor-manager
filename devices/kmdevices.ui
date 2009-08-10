@@ -18,12 +18,24 @@
        <verstretch>0</verstretch>
       </sizepolicy>
      </property>
+     <property name="contextMenuPolicy" >
+      <enum>Qt::ActionsContextMenu</enum>
+     </property>
+     <property name="whatsThis" >
+      <string/>
+     </property>
      <property name="title" >
       <string>Detected Devices</string>
+     </property>
+     <property name="flat" >
+      <bool>true</bool>
      </property>
      <layout class="QGridLayout" name="gridLayout_3" >
       <item row="1" column="0" >
        <widget class="QTreeWidget" name="deviceList" >
+        <property name="toolTip" >
+         <string>List of installed input/output devices and their default profiles.</string>
+        </property>
         <property name="iconSize" >
          <size>
           <width>32</width>
@@ -70,14 +82,30 @@
      <property name="title" >
       <string>Profiles Associated with Device</string>
      </property>
+     <property name="flat" >
+      <bool>true</bool>
+     </property>
      <layout class="QGridLayout" name="gridLayout_2" >
       <item row="0" column="0" >
-       <widget class="QListWidget" name="profileAssociationList" />
+       <widget class="QListWidget" name="profileAssociationList" >
+        <property name="toolTip" >
+         <string>Listing of all profiles that are associated with the selected device.</string>
+        </property>
+       </widget>
       </item>
       <item row="1" column="0" >
        <layout class="QHBoxLayout" name="horizontalLayout" >
         <item>
          <widget class="QPushButton" name="defaultProfileButton" >
+          <property name="toolTip" >
+           <string comment="tooltipcomment" >tooltip</string>
+          </property>
+          <property name="statusTip" >
+           <string comment="statustipcomment" >statustip</string>
+          </property>
+          <property name="whatsThis" >
+           <string comment="whatsthiscomment" >whatsthis</string>
+          </property>
           <property name="text" >
            <string>Set Profile as Device Default</string>
           </property>
@@ -93,6 +121,12 @@
             <normalon>../../../../../../../usr/share/icons/crystalsvg/16x16/actions/list-remove.png</normalon>
            </iconset>
           </property>
+          <property name="checkable" >
+           <bool>false</bool>
+          </property>
+          <property name="checked" >
+           <bool>false</bool>
+          </property>
          </widget>
         </item>
        </layout>
@@ -107,6 +141,9 @@
         </property>
         <property name="title" >
          <string>Available DeviceProfiles</string>
+        </property>
+        <property name="flat" >
+         <bool>false</bool>
         </property>
         <layout class="QGridLayout" name="gridLayout" >
          <item row="0" column="0" >
@@ -157,9 +194,6 @@
     </widget>
    </item>
   </layout>
-  <zorder>deviceGroupBox</zorder>
-  <zorder>verticalSpacer_2</zorder>
-  <zorder>groupBox_2</zorder>
  </widget>
  <resources>
   <include location="icons.qrc" />

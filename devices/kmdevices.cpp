@@ -25,8 +25,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 */
 
-//alias go='make; make install; cp /home/joe/Desktop/kolor-manager/build/lib/* /usr/lib64/kde4/; kcmshell4 kmdevices'
-
 #include "kmdevices.h"
 
 #include <KComponentData>
@@ -130,10 +128,10 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
 // Populate devices and profiles.
 void kmdevices::populateDeviceListing()
 {
-     //detectCamera();  
+     detectCamera();  
      detectScanner();
-     //detectPrinter();
-     //detectMonitor();  
+     detectPrinter();
+     detectMonitor();  
 }
 
 // Setup monitor items for QtListWidget (Devices)
@@ -582,14 +580,14 @@ void kmdevices::setDefaultItem()
      if(currentDevice->parent() == parent_monitor_item)
      {          
          oyConfig_s * monitor = 0;
-         const char * display_name = (currentDevice->text(0)).toLocal8Bit();
+         const char * display_string_name = (currentDevice->text(0)).toLocal8Bit();
          const char * profile = defaultProfile.toLocal8Bit();
     
-         //oyDeviceGet( OY_TYPE_STD, "monitor", display_name, 0, &monitor);
-         const char * geometry = oyConfig_FindString(monitor, "display_name", 0);
+         oyDeviceGet( OY_TYPE_STD, "monitor", display_string_name, 0, &monitor);
+         const char * display_name = oyConfig_FindString(monitor, "display_name", 0);
     
-         oySetMonitorProfile ( ":0.0", profile );         
-         oyActivateMonitorProfiles(":0.0");
+         oySetMonitorProfile ( display_name, profile );         
+         oyActivateMonitorProfiles(display_name);
      }
      // If current device pointer points to a PRINTER item, save default profile to Oyranos.
      else if(currentDevice->parent() == parent_printer_item)
@@ -625,14 +623,6 @@ kmdevices::~kmdevices()
 /*                  
            ************* KConfig functions for kmdevices *************
 */
-
-// Add a new device (initializer)
-void kmdevices::addNewDeviceConfig(QString device_name)
-{                 
-     QString keyString = "DEVICE:";
-     keyString.append(device_name);
-     KConfigGroup device_config(m_config, keyString);
-}
 
 // Save profile settings to KConfig file.
 void kmdevices::saveProfileSettings(QString device_name)

@@ -18,10 +18,6 @@ class QTreeWidgetItem;
 #include <oyranos/oyranos.h>
 #include <oyranos/oyranos_cmm.h>
 
-using oyranos::oyPROFILE_e;
-using oyranos::oyConfig_s;
-
-
 /*****************************************************************
               KMDevices Class Definition                         *
 ******************************************************************/
@@ -34,14 +30,6 @@ class kmdevices : public KCModule, Ui::kmdevices
 public:    
     kmdevices(QWidget *parent, const QVariantList &);
     ~kmdevices();
-
-    // Integers to keep track of available devices
-    int numberOfDetectedMonitors;
-    int numberOfDetectedPrinters;
-
-    // NOTE oyConfig_s solution to kconfig
-    //oyConfig_s * km_config;
-   
 
 public Q_SLOTS:
 
@@ -75,15 +63,15 @@ private:
     void addProfileToList();
 
     // Search for available monitors and install default profile
-    int detectMonitor();
+    void detectMonitor();
 
     // Search for available printers and install profile for device.
-    int detectPrinter();
+    void detectPrinter();
 
     // Detect scanner 
-    int detectScanner();
+    void detectScanner();
 
-    int detectDevices(const char * device_type);
+    void detectDevices(const char * device_type);
 
     // Detect camera
     void detectCamera();
