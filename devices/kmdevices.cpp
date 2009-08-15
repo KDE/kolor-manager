@@ -50,7 +50,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos/oyranos.h>
 #include <oyranos/oyranos_alpha.h>
 #include <oyranos/oyranos_icc.h>
-#include <oyranos/oyranos_cmm.h>
 
 #define CONFIG_REGISTRATION ("//" OY_TYPE_STD "/config/command")
 
@@ -61,8 +60,6 @@ K_PLUGIN_FACTORY( kmdevicesFactory,
 K_EXPORT_PLUGIN( kmdevicesFactory("kmdevices") )
 
 using namespace oyranos;
-
-#define KM_CONFIG_FILE "kolor-manager-globals"
 
 void kmdevices::load()
 {
@@ -85,15 +82,15 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     );
     about->addAuthor( ki18n("Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
-    
+    puts("**");
     setAboutData( about );
+
+    current_device_name = 0;
+    current_device_class = 0;
 
     listModified = false;       // Nothing has been modified yet...
   
     setupUi(this);              // Load Gui. 
-
-    // NOTE oyConfig_s solution to kconfig.
-    oyConfig_s * km_config = oyConfig_New(KM_CONFIG_FILE, 0);
 
     //m_config = KSharedConfig::openConfig(KM_CONFIG_FILE);
  
@@ -110,7 +107,6 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     deviceList->setColumnWidth(3, 175);
 
     // Load directories and device listing.
-
     populateDeviceListing();   
     
     // Expand list for user.
@@ -129,219 +125,112 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
 void kmdevices::populateDeviceListing()
 {
      detectCamera();  
-     detectScanner();
-     detectPrinter();
-     detectMonitor();  
-}
 
-// Setup monitor items for QtListWidget (Devices)
-int kmdevices::detectMonitor()
-{    
-     QDesktopWidget desktop;
-     int nScreens = desktop.numScreens();
-         
-     QIcon monitor_icon(":/resources/monitor.png");    
+     int error = 0;
+
+     error = detectDevices("scanner");
+     error = detectDevices("printer");
+     error = detectDevices("monitor");     
      
-     char * display;
-     //QString monitorItemString;    
-     QString monitorProfileDescription;   
-
-     oyConfigs_s * monitor_devices = 0;  
-     oyDevicesGet( 0, "monitor", 0, &monitor_devices);  
-
-     int monitor_num = oyConfigs_Count(monitor_devices);
-
-     if (monitor_num > 0)
-     {
-        // build monitor top-level item.
-        parent_monitor_item = new QTreeWidgetItem;
-        parent_monitor_item->setText(0, "Monitor(s)");
-        deviceList->insertTopLevelItem(0, parent_monitor_item);
-        
-        for(int j = 0; j < monitor_num; j++)
-        {                   
-            display = 0;
-            const char * manufacturer = 0;
-            const char * model = 0;
-            const char * serial = 0;                  
-
-            QString monitorItemString;
-            
-            oyOptions_s * options = oyOptions_New(0);
-            char * monitor_model = 0;
-                        
-            oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/command", "properties", OY_CREATE_NEW);
-            
-            oyConfig_s * monitor = oyConfigs_Get(monitor_devices, j);
-            oyDeviceGetInfo(monitor, oyNAME_NICK, 0, &monitor_model, malloc);
-                        
-            monitorItemString = monitor_model;
-           
-            //manufacturer = oyConfig_FindString(monitor_device, "manufacturer", 0);
-            //model = oyConfig_FindString(monitor_device, "model", 0);         
-            //serial = oyConfig_FindString(monitor_device, "serial", 0);
-
-            const char * profile_filename = 0;
-            oyProfile_s * profile = 0;
-
-            // Display Monitor Information in list.
-            oyDeviceGetProfile(monitor, &profile);
-            profile_filename = oyProfile_GetFileName(profile, 0);
-                      
-            // Activate monitor profile through Oyranos.
-            oySetMonitorProfile(display, profile_filename);    
-            oyActivateMonitorProfiles(display);          
-
-            // NOTE The following is a human-readable output for monitors.ww
-
-            // Setup monitor device designation
-            //monitorItemString.append(manufacturer);
-            //monitorItemString.append(" ");
-            //monitorItemString.append(model);
-            //monitorItemString.append("-");
-            //monitorItemString.append(serial); 
-
-            deviceListPointer = new QTreeWidgetItem(); 
-         
-            // Initial "default profile" string.
-            if (profile_filename == NULL)
-            {               
-                monitorProfileDescription = "(No Profile Installed)";
-                profile_filename = "------";
-            }
-            else           
-                monitorProfileDescription = convertFilenameToDescription(profile_filename);
-       
-            deviceListPointer->setText(0, monitorItemString);
-            deviceListPointer->setIcon(0, monitor_icon);
-            deviceListPointer->setText(1, monitorProfileDescription);
-            deviceListPointer->setText(2, profile_filename);
-
-            parent_monitor_item->addChild(deviceListPointer);    
-           
-            oyDeviceSetProfile( monitor, profile_filename);      
-        }   
-    }   
-
-    return nScreens;   
+     //detectScanner();
+     //detectPrinter();
+     //detectMonitor();  
 }
 
-int kmdevices::detectPrinter()
-{    
-    QString printerProfileDescription;
-    QIcon printer_icon(":/resources/printer1.png");
+// General function to detect and retrieve devices via the Oyranos CMM backend.
+int kmdevices::detectDevices(const char * device_type)
+{ 
+    oyConfigs_s * device_list = 0;
+    oyDevicesGet( 0, device_type, 0, &device_list);
+    
+    int j = 0, 
+        device_num = oyConfigs_Count(device_list);
 
-    oyConfigs_s * printer_devices = 0;  
-    oyDevicesGet( 0, "printer", 0, &printer_devices);  
+    // Must have at least one device detected to add to the list.
+    if(device_num > 0)
+    {        
+        QIcon device_icon;
+        QSize icon_size(30, 30);
 
-    int printer_num = oyConfigs_Count(printer_devices);
-
-    if( printer_num > 0)
-    {
-        parent_printer_item = new QTreeWidgetItem;
-        parent_printer_item->setText(0, "Printers");
-        deviceList->insertTopLevelItem(0, parent_printer_item);
-               
-        for (int j = 0; j < printer_num; j++)
+        // Set up Kolor Manager gui "logistics" for a specified device.
+        if(device_type == "monitor")
         {
-            QString printerItemString;
-            
+            device_icon.addFile( ":/resources/monitor.png", icon_size , QIcon::Normal, QIcon::On);
+
+            parent_monitor_item = new QTreeWidgetItem;
+            parent_monitor_item->setText(0, "Monitor(s)");
+            deviceList->insertTopLevelItem(0, parent_monitor_item);
+        }
+        else if(device_type == "printer")
+        {
+            device_icon.addFile( ":/resources/printer1.png", icon_size , QIcon::Normal, QIcon::On);
+
+            parent_printer_item = new QTreeWidgetItem;
+            parent_printer_item->setText(0, "Printer(s)");
+            deviceList->insertTopLevelItem(0, parent_printer_item);
+        }
+        else if(device_type == "scanner")
+        {
+            device_icon.addFile( ":/resources/scanner.png", icon_size , QIcon::Normal, QIcon::On);
+
+            parent_scanner_item = new QTreeWidgetItem;
+            parent_scanner_item->setText(0, "Scanner(s)");
+            deviceList->insertTopLevelItem(0, parent_scanner_item);
+        }
+
+        // Traverse through the available devices 
+        for (j = 0; j < device_num; j++)
+        {
+            QString deviceItemString, deviceProfileDescription;
+
             oyOptions_s * options = oyOptions_New(0);
-            char * printer_model = 0;
-                        
+            char * device_model = 0;
+
             oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/command", "properties", OY_CREATE_NEW);
             
-            oyConfig_s * printer = oyConfigs_Get(printer_devices, j);
-            oyDeviceGetInfo(printer, oyNAME_NICK, 0, &printer_model, malloc);
-                        
-            printerItemString.append(printer_model);
+            oyConfig_s * device = oyConfigs_Get(device_list, j);
+            oyDeviceGetInfo(device, oyNAME_NICK, 0, &device_model, malloc);
+            
+            deviceItemString.append(device_model);
 
             const char * profile_filename = 0;
             oyProfile_s * profile = 0;
-                                                                                
+            
+            // NOTE Still finalizing printer backend!
+            if (device_type != "printer")
+            {
+                oyDeviceGetProfile(device, &profile);
+                profile_filename = oyProfile_GetFileName(profile, 0);
+            }
+            
             deviceListPointer = new QTreeWidgetItem();
 
-            // Initial "default profile" string.
             if (profile_filename == NULL)
-            {               
-                printerProfileDescription = "(No Profile Installed)";
+            {
+                deviceProfileDescription = "(No Profile Installed!)";
                 profile_filename = "------";
             }
-
-            else           
-                printerProfileDescription = convertFilenameToDescription(profile_filename);
+            else 
+                deviceProfileDescription = convertFilenameToDescription(profile_filename);
        
-            deviceListPointer->setIcon(0, printer_icon);
-            deviceListPointer->setText(0, printerItemString);
-            deviceListPointer->setText(1, printerProfileDescription);   
+            deviceListPointer->setIcon(0, device_icon);
+            deviceListPointer->setText(0, deviceItemString);
+            deviceListPointer->setText(1, deviceProfileDescription);   
             deviceListPointer->setText(2, profile_filename);
         
-            parent_printer_item->addChild(deviceListPointer);
+            if (device_type == "monitor")
+                parent_monitor_item->addChild(deviceListPointer);
+            else if (device_type == "printer")
+                parent_printer_item->addChild(deviceListPointer);
+            else if (device_type == "scanner")
+                parent_scanner_item->addChild(deviceListPointer);     
         }
      }   
-    
-     oyConfigs_Release( &printer_devices );  
-}
-
-// Inital scanner support.
-int kmdevices::detectScanner()
-{
-    QString scannerProfileDescription;
-    QIcon scanner_icon(":/resources/scanner.png");
-
-    oyConfigs_s * scanner_devices = 0;  
-    oyDevicesGet( 0, "scanner", 0, &scanner_devices);  
-
-    int scanner_num = oyConfigs_Count(scanner_devices);
-
-    if( scanner_num > 0)
-    {
-        parent_scanner_item = new QTreeWidgetItem;
-        parent_scanner_item->setText(0, "Scanners");
-        deviceList->insertTopLevelItem(0, parent_scanner_item);
-               
-        for (int j = 0; j < scanner_num; j++)
-        {
-            QString scannerItemString;
-            
-            oyOptions_s * options = oyOptions_New(0);
-            char * scanner_model = 0;
-                        
-            oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/command", "properties", OY_CREATE_NEW);
-            
-            oyConfig_s * scanner = oyConfigs_Get(scanner_devices, j);
-            oyDeviceGetInfo(scanner, oyNAME_NICK, 0, &scanner_model, malloc);
-                        
-            scannerItemString.append(scanner_model);
-
-            const char * profile_filename = 0;
-            oyProfile_s * profile = 0;
-                                                                                
-            deviceListPointer = new QTreeWidgetItem();
-
-            // Initial "default profile" string.
-            if (profile_filename == NULL)
-            {               
-                scannerProfileDescription = "(No Profile Installed)";
-                profile_filename = "------";
-            }
-            else           
-                scannerProfileDescription = convertFilenameToDescription(profile_filename);
-       
-            deviceListPointer->setIcon(0, scanner_icon);
-            deviceListPointer->setText(0, scannerItemString);
-            deviceListPointer->setText(1, scannerProfileDescription);   
-            deviceListPointer->setText(2, profile_filename);
-        
-            parent_scanner_item->addChild(deviceListPointer);
-     
-        }
-     }   
-    
-     oyConfigs_Release( &scanner_devices );  
-    return 0;
-
-
+     else
+         return -1;    
+ 
+     oyConfigs_Release( &device_list );  
+     return 0;
 }
 
 void kmdevices::detectCamera()
@@ -412,8 +301,7 @@ void kmdevices::openProfile()
     parenthesis_index = baseFileName.indexOf(")");
     baseFileName.remove(parenthesis_index, parenthesis_index + 1);
     base_filename_index = baseFileName.lastIndexOf("/");
-    baseFileName.remove(0, base_filename_index + 1);
-
+    baseFileName.remove(0, base_filename_index + 1); 
 
     // Error if user adds a duplicate profile.
     for(i = 0; i < profileAssociationList->count(); i++)
@@ -473,19 +361,36 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     defaultProfileButton->setEnabled(true);
 
     // Change "Available Device Profiles" combobox to device-related profiles.
-    if ( selected_device->parent() == parent_monitor_item)        
-             populateDeviceComboBox(icSigDisplayClass);
+    if ( selected_device->parent() == parent_monitor_item)      
+    {  
+             current_device_class = "monitor";
+             populateDeviceComboBox(icSigDisplayClass);             
+    }
     else if ( selected_device->parent() == parent_printer_item)
+    {
+            current_device_class = "printer";
             populateDeviceComboBox(icSigOutputClass);
+    }
     
      // TODO Does icSigInputClass return any profile?
     else if ( selected_device->parent() == parent_scanner_item)
-             populateDeviceComboBox(icSigInputClass);  
+    {
+             current_device_class = "scanner";
+             populateDeviceComboBox(icSigInputClass);               
+    }
     else if ( selected_device->parent() == parent_camera_item)
              populateDeviceComboBox(icSigInputClass);  
 
-    currentDevice = selected_device;      
-    //updateProfileList(); 
+    currentDevice = selected_device;        
+    current_device_name = (currentDevice->text(0)).toAscii();
+         
+    oyConfig_s * device = 0;     
+    oyDeviceGet(0, current_device_class, current_device_name, 0, &device);
+    
+     // NOTE STILL NEEDS WORK
+    // updateProfileList(device); 
+
+    oyConfig_Release(&device);
 }
 
 void kmdevices::removeProfile()
@@ -512,22 +417,19 @@ void kmdevices::removeProfile()
 }
 
 // Update profile association list.
-void kmdevices::updateProfileList()
-{
-    int j;
-    QStringList savedProfileList;
-    QString keyString = "DEVICE:";
+void kmdevices::updateProfileList(oyConfig_s * device)
+{    
+    int j;    
+    oyProfile_s ** profile = 0;
+    oyDeviceGetProfile( device, profile );
 
-    // Read from KConfig file about available Associated Profiles (filenames).
-    keyString.append(currentDevice->text(0));    
-    KConfigGroup loadProfiles(m_config, keyString);
-    savedProfileList = loadProfiles.readEntry("ASSOCIATED_PROFILES", QStringList());
+    //puts(oyProfile_GetFileName (*profile, 0));
     
     profileAssociationList->clear();
 
-    // Refresh profile listing.
-    for(j = 0; j < savedProfileList.size(); j++)
-        profileAssociationList->addItem(savedProfileList.value(j));
+   // Refresh profile listing.
+   // for(j = 0; j < savedProfileList.size(); j++)
+   //     profileAssociationList->addItem(savedProfileList.value(j));
 }
 
 // User clicks on a profile item...

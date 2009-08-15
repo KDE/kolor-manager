@@ -22,6 +22,7 @@ class QTreeWidgetItem;
               KMDevices Class Definition                         *
 ******************************************************************/
 
+using namespace oyranos;
 
 class kmdevices : public KCModule, Ui::kmdevices
 {
@@ -59,25 +60,20 @@ private slots:
 
 private:
     
-    // Add profile to list (opens file open dialog)
-    void addProfileToList();
-
     // Search for available monitors and install default profile
-    void detectMonitor();
+    // DEPRECATED void detectMonitor();
 
     // Search for available printers and install profile for device.
-    void detectPrinter();
+    // DEPRECATED void detectPrinter();
 
     // Detect scanner 
-    void detectScanner();
+    // DEPRECATED void detectScanner();
 
-    void detectDevices(const char * device_type);
+    // General device detection 
+    int detectDevices(const char * device_type);
 
     // Detect camera
     void detectCamera();
-
-    // FIXME Add camera support.
-    //void detectCamera();
 
     // Function to detect all devices/directories.
     void populateDeviceListing();
@@ -92,7 +88,7 @@ private:
     void setDefaultProfile(QString new_default_profile); 
 
     // Refresh current profile list.
-    void updateProfileList(); 
+    void updateProfileList(oyConfig_s * device); 
     
     // Convert profile filename into profile description (using Oyranos).
     QString convertFilenameToDescription(QString profileFilename);  
@@ -134,7 +130,11 @@ private:
     QTreeWidgetItem * parent_camera_item;
     
     bool listModified;                // Was the list changed by the user?
-       
+
+    // Global string values for Oyranos device identification 
+    const char * current_device_name;
+    const char * current_device_class;  
+
     KSharedConfigPtr m_config;        // KConfig pointer.
 };
 
