@@ -135,7 +135,7 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     setAboutData( about );
 
     setupUi(this);              // Load Gui.
-   
+    
     m_config = KSharedConfig::openConfig("kolor-manager-globals");
 
     installedProfilesTree->setColumnWidth(0, 350);
@@ -165,7 +165,10 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     if (iccExaminIsInstalled(iccExaminCommand))
         launchICCExaminButton->show();
     else
-        launchICCExaminButton->hide();    
+        launchICCExaminButton->hide(); 
+    
+    scrollArea->setWidget(scrollAreaWidgetContents);
+    scrollArea->setWidgetResizable(true);
 
     // Whenever the user clicks on a QTreeWidget child, the description changes.
     connect( installedProfilesTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), 
@@ -297,7 +300,7 @@ void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description,
 // Whenever a user clicks on a child in the tree list, the "profile information"
 // window is updated.
 void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
-{      
+{     
       int row_of_parent;
       
       QTreeWidgetItem * matchingParentItem = currentProfileItem->parent(); 
@@ -359,6 +362,8 @@ void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
         {
              populateDeviceProfileDescriptions(NULL, false);
              profileInfoGroupBox -> setEnabled(false);
+	     // set default fram size
+             frame -> setMinimumSize(QSize(250,250));
         }
         
    
@@ -371,14 +376,21 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
     {
         // Output Oyranos-specified profile descriptions.
         setTagDescriptions(profile, icSigCopyrightTag, copyrightTagLabel);
-        setTagDescriptions(profile, icSigDeviceMfgDescTag, mfgTagLabel);
-        setTagDescriptions(profile, icSigDeviceModelDescTag, modelTagLabel);
-        setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
+        
+	setTagDescriptions(profile, icSigDeviceMfgDescTag, mfgTagLabel);
+        
+	setTagDescriptions(profile, icSigDeviceModelDescTag, modelTagLabel);
+        
+	setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
 
         setDateTag(profile, dateTagLabel);
+	
         setCSpaceTag(profile, colorspaceTagLabel);
+	
         setIccsTag(profile, iccVerTagLabel);
+	
         setPcsTag(profile, pcsTagLabel);
+	
         setDeviceClassTag(profile, deviceClassTagLabel);
 
         QString profilePathName = oyProfile_GetFileName( profile, 0 );
@@ -386,7 +398,7 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
     }
     else
     {
-      // Set default descriptions.
+        // Set default descriptions.
         descriptionTagLabel -> setText(tr("No Profile Selected"));
         copyrightTagLabel -> setText(tr("(Copyright not available)"));
         filenameTagLabel -> setText("");
@@ -439,6 +451,26 @@ void kminfo::populateTagDescriptions(oyDEFAULT_PROFILE current_profile)
      setIccsTag(profile, iccVerTagLabel);
      setPcsTag(profile, pcsTagLabel);
      setDeviceClassTag(profile, deviceClassTagLabel);
+     
+      int longestString = mfgTagLabel->text().length();
+      if (modelTagLabel->text().length() > longestString)
+	longestString = modelTagLabel->text().length();
+      if (descriptionTagLabel->text().length() > longestString)
+	longestString = descriptionTagLabel->text().length();
+      if (dateTagLabel->text().length() > longestString)
+	longestString = dateTagLabel->text().length();
+      if (colorspaceTagLabel->text().length() > longestString)
+	longestString = colorspaceTagLabel->text().length();
+      if (iccVerTagLabel->text().length() > longestString)
+	longestString = iccVerTagLabel->text().length();
+      if (pcsTagLabel->text().length() > longestString)
+	longestString = pcsTagLabel->text().length();
+      if (deviceClassTagLabel->text().length() > longestString)
+	longestString = deviceClassTagLabel->text().length();;
+      if (directoryListingTag->text().length() > longestString)
+	longestString = directoryListingTag->text().length();
+      
+      frame -> setMinimumSize(QSize((longestString + 16) * 8 ,250));
 }
 
 void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)
