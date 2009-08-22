@@ -59,21 +59,12 @@ private slots:
     void changeProfileItem(QListWidgetItem*);
 
 private:
-    
-    // Search for available monitors and install default profile
-    // DEPRECATED void detectMonitor();
-
-    // Search for available printers and install profile for device.
-    // DEPRECATED void detectPrinter();
-
-    // Detect scanner 
-    // DEPRECATED void detectScanner();
 
     // General device detection 
     int detectDevices(const char * device_type);
 
     // Detect camera
-    void detectCamera();
+    void detectRaw();
 
     // Function to detect all devices/directories.
     void populateDeviceListing();

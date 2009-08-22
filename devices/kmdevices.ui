@@ -53,7 +53,12 @@
         </property>
         <column>
          <property name="text" >
-          <string>Device List</string>
+          <string>Device Name</string>
+         </property>
+        </column>
+        <column>
+         <property name="text" >
+          <string>Designation</string>
          </property>
         </column>
         <column>
