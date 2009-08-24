@@ -128,13 +128,13 @@ void kmdevices::populateDeviceListing()
 
      error = detectDevices("scanner");
      error = detectDevices("printer");
-     error = detectDevices("monitor");     
-
+     error = detectDevices("monitor");  
 }
 
 // NEW General function to detect and retrieve devices via the Oyranos CMM backend.
 int kmdevices::detectDevices(const char * device_type)
 { 
+    int error = 0;
     oyConfigs_s * device_list = 0;
     oyOptions_s * options = oyOptions_New(0);
 
@@ -184,7 +184,7 @@ int kmdevices::detectDevices(const char * device_type)
             QString deviceItemString, deviceProfileDescription;
 
             oyConfig_s * device = oyConfigs_Get(device_list, j);     
-            oyDeviceBackendCall(device, options);          
+            error = oyDeviceBackendCall(device, options);          
             
             const char * device_manufacturer = 0;
             const char * device_model = 0;
@@ -198,7 +198,8 @@ int kmdevices::detectDevices(const char * device_type)
             device_model = oyConfig_FindString( device, "model", 0);
             device_serial = oyConfig_FindString( device, "serial", 0);  
 
-            oyDeviceGetInfo(device, oyNAME_NICK, 0, &device_designation, malloc);
+            // Get device designation.
+            error = oyDeviceGetInfo(device, oyNAME_NICK, 0, &device_designation, malloc);
             
             // A printer will only take a "device model"
             if (device_type != "printer")
@@ -210,18 +211,9 @@ int kmdevices::detectDevices(const char * device_type)
             deviceItemString.append(device_model);
             deviceItemString.append(" ");
             deviceItemString.append(device_serial);
- 
-            // NOTE Profiles are not functional for printers yet. 
-            if (device_type != "printer")
-            {
-                // How do we properly set/unset devices
-                //      with a new profile?
 
-                oyDeviceGetProfile(device, &profile);
-                oyDeviceUnset(device);
-                profile_filename = oyProfile_GetFileName(profile, 0);
-                oyDeviceSetup(device);
-            }
+            error = oyDeviceGetProfile(device, &profile);        
+            profile_filename = oyProfile_GetFileName(profile, 0);
             
             deviceListPointer = new QTreeWidgetItem();
 
@@ -245,16 +237,16 @@ int kmdevices::detectDevices(const char * device_type)
                 parent_printer_item->addChild(deviceListPointer);
             else if (strcmp(device_type, "scanner") == 0)
                 parent_scanner_item->addChild(deviceListPointer);     
-
+            oyConfig_Release(&device);
         }
      }   
      else
-         return -1;    
+         error = -1;    
 
      oyOptions_Release ( &options );
      oyConfigs_Release ( &device_list );
      
-     return 0;
+     return error;
 }
 
 // Display an item that will open a dialog to use camera functionality.
