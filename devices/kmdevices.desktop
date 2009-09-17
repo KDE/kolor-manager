@@ -2,6 +2,7 @@
 Name=Devices
 Name[cs]=Zařízení
 Name[el]=Συσκευές
+Name[en_GB]=Devices
 Name[es]=Dispositivos
 Name[et]=Seadmed
 Name[fr]=Périphériques
@@ -25,7 +26,6 @@ Comment[et]= Kolori haldamise seadmete seadistused
 Comment[fr]=Configuration du périphérique pour le gestionnaire de couleurs
 Comment[km]=ការ​កំណត់​ឧបករណ៍​សម្រាប់​ការ​គ្រប់គ្រង Kolor
 Comment[pt]=Configuração do dispositivo de Gestão de Cores
-Comment[pt_BR]=Configuração do dispositivo de Gestão de Cores
 Comment[sv]=Enhetsinställningar för färghantering
 Comment[tr]=Renk Yönetimi için aygıt ayarları
 Comment[uk]=Параметри пристрою для керування Kolor

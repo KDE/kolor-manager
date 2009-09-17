@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Profile Information
 Name[el]=Πληροφορίες προφίλ
+Name[en_GB]=Profile Information
 Name[es]=Información del perfil
 Name[et]=Profiili teave
 Name[fr]=Information sur le profil
@@ -17,12 +18,12 @@ Name[tr]=Profil Bilgisi
 Name[uk]=Відомості профілю
 Name[x-test]=xxProfile Informationxx
 Comment=Display ICC-specific Profile Information
+Comment[en_GB]=Display ICC-specific Profile Information
 Comment[es]=Muestra información del perfil especifica de ICC
 Comment[et]= ICC profiiliga seotud teave
 Comment[fr]=Afficher les informations sur le profil spécifique ICC
 Comment[km]=បបង្ហាញ​ព័ត៌មាន​ទម្រង់​ជាក់លាក់​របស់ ICC
 Comment[pt]=Mostrar a informação específica do perfil de ICC
-Comment[pt_BR]=Mostrar a informação específica do perfil de ICC
 Comment[sv]=Visa ICC-specifik profilinformation
 Comment[tr]=ICC-özellikli Profil Bilgilerini göster
 Comment[uk]=Показати відомості профілю, характерні для ICC
