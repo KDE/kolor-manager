@@ -60,38 +60,6 @@
       <property name="text">
        <string/>
       </property>
-      <item>
-       <property name="text">
-        <string>Monitors</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Printers</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Scanners</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
-      <item>
-       <property name="text">
-        <string>Digital Camera</string>
-       </property>
-       <property name="text">
-        <string/>
-       </property>
-      </item>
      </item>
      <item>
       <property name="text">
@@ -250,8 +218,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>383</width>
-           <height>480</height>
+           <width>399</width>
+           <height>522</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">

@@ -47,9 +47,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KConfigGroup>
 #include <QString>
 
-#include <oyranos/oyranos.h>
-#include <oyranos/oyranos_config.h>
-#include <oyranos/oyranos_alpha.h>
+#include <oyranos.h>
+#include <oyranos_config.h>
+#include <oyranos_alpha.h>
 
 // Code to provide KDE module functionality for color manager.
 
@@ -105,7 +105,7 @@ bool kminfo::iccExaminIsInstalled(QString &iccExaminPath)
              if (Path.length() <= iccExaminPath.length())
                  done = true;
            }
-      }
+     }
 
      return found;
 }
@@ -131,13 +131,12 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     );
     about->addAuthor( ki18n("Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
-    
+
     setAboutData( about );
+    current_profile = 0;
 
     setupUi(this);              // Load Gui.
     
-    m_config = KSharedConfig::openConfig("kolor-manager-globals");
-
     installedProfilesTree->setColumnWidth(0, 350);
     installedProfilesTree->setColumnWidth(1, 150);
 
@@ -145,12 +144,6 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     devicesParentTree = installedProfilesTree->topLevelItem(0);
     editingCsTree = installedProfilesTree->topLevelItem(1);
     assumedCsTree = installedProfilesTree->topLevelItem(2);
-
-    // Save sub-list of "Devices" to QTreeWidgetItem pointers according to row.
-    monitorListSubTree = devicesParentTree->child(0);
-    printerListSubTree = devicesParentTree->child(1);
-    scannerListSubTree = devicesParentTree->child(2);
-    //cameraListSubTree = devicesParentTree->child(3);
 
     // For convenience, we expand colorspace trees.
     installedProfilesTree->expandItem(editingCsTree);
@@ -175,12 +168,34 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
                 this, SLOT(changeProfileTreeItem(QTreeWidgetItem*)));
     
     connect( launchICCExaminButton, SIGNAL(clicked()), this, SLOT(launchICCExamin())); 
-
 }
 
 void kminfo::launchICCExamin()
 {
-    QString exec = iccExaminCommand + " " + directoryListingTag->text();
+    
+    QString exec;
+
+    if(!directoryListingTag->text().isNull())
+      exec = iccExaminCommand + " " + directoryListingTag->text() + "&";
+    else
+    {
+      // Write to a temporary file.
+      size_t size = 0;
+      oyPointer data = oyProfile_GetMem( current_profile, &size, 0, malloc );
+      if(data)
+      {
+        // The disadvantage is, any previous ICC Examin session for the same
+        // file name will update its view to the newly written one.
+        QFile file("/tmp/icc_examin_temp.icc");
+        file.open( QIODevice::WriteOnly );
+        file.write( (const char*)data, size );
+        file.flush();
+        file.close();
+        free(data); data = 0;
+        exec = iccExaminCommand + " " + "/tmp/icc_examin_temp.icc" + "&";
+      } else
+        return;
+    }
     system(exec.toLocal8Bit());
 }
 
@@ -191,30 +206,9 @@ void kminfo::populateInstalledProfileList()
      editingCsTree = installedProfilesTree->topLevelItem(1);
      assumedCsTree = installedProfilesTree->topLevelItem(2);
 
-      // Setup icons for devices parent item.
-     QIcon monitor_icon(":/resources/monitor.png");  
-     QIcon printer_icon(":/resources/printer1.png");
-     QIcon scanner_icon(":/resources/scanner.png");
 
-     // All input/output devices are stored in the "[DEVICE_LIST]" key.
-     KConfigGroup installed_devices(m_config, "DEVICE_LIST");
-     
-     // Load any devices stored in the KConfig file.
-     QStringList monitorDevices = installed_devices.readEntry("MONITOR", QStringList());
-     QStringList printerDevices = installed_devices.readEntry("PRINTER", QStringList());
-     QStringList scannerDevices = installed_devices.readEntry("SCANNER", QStringList());
-
-     // Detect available monitors
-     if(!monitorDevices.empty())
-         populateDeviceProfiles(monitorDevices, monitorListSubTree, monitor_icon);
-
-     // Detect available printers.
-     if(!printerDevices.empty())
-         populateDeviceProfiles( printerDevices, printerListSubTree, printer_icon);
-
-     // Detect available scanners.
-     if(!scannerDevices.empty())
-         populateDeviceProfiles( scannerDevices, scannerListSubTree, scanner_icon);
+     populateDeviceProfiles( devicesParentTree );
+     installedProfilesTree->expandAll();
 
      const char * g_name = NULL;
      QString name;
@@ -246,37 +240,112 @@ void kminfo::populateInstalledProfileList()
         addProfileTreeItem( oyASSUMED_LAB, name.fromLatin1(g_name), assumedCsTree );
 }
 
-void kminfo::populateDeviceProfiles(QStringList listOfDevices, QTreeWidgetItem * deviceListSubTree,                                                                                                                  
-                                                                                     QIcon device_icon)
+void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
 {
-    int i, j;
-    QString deviceName = "";
+    int n = 0;
+    QIcon device_icon("");
 
-    for (i = 0; i < listOfDevices.count(); i++)
-     {         
-         QTreeWidgetItem * device_child = new QTreeWidgetItem;
-         deviceName = listOfDevices.value(i);
-         device_child->setText(0, deviceName);
-         device_child->setIcon(0, device_icon);
-         deviceListSubTree->addChild(device_child);   
+    uint32_t count = 0, i,j,
+           * rank_list = 0;
+    char ** texts = 0;
+    const char * device_class = 0;
+    oyConfDomain_s * d = 0;
+    int error = 0;
 
-         // Configure current device
-         KConfigGroup device_group(m_config, "DEVICE:" + deviceName);
-         QStringList deviceProfiles = device_group.readEntry("ASSOCIATED_DESCRIPTIONS", QStringList());
-         QStringList deviceFile = device_group.readEntry("ASSOCIATED_PROFILES", QStringList());
+    // get all configuration filters
+    oyConfigDomainList( "//"OY_TYPE_STD"/config.device.icc_profile",
+                        &texts, &count, &rank_list ,0 );
 
-         QString fileName, profileName;
+    for (i = 0; i < count; i++)
+    {
+      oyConfigs_s * devices = 0;
+      const char * reg_app = strrchr(texts[i],'/')+1;
+      error = oyDevicesGet( OY_TYPE_STD, reg_app, 0, &devices );
+      n = oyConfigs_Count( devices );
+      d = oyConfDomain_FromReg( texts[i], 0 );
 
-         for(j = 0; j < deviceProfiles.count(); j++)
-         {
-              QTreeWidgetItem * profile_child = new QTreeWidgetItem;
-              profileName = deviceProfiles.value(j);
-              fileName = deviceFile.value(j);
-              profile_child->setText(1, ("Device Profile / " + fileName));
-              profile_child->setText(0, profileName);
-              device_child->addChild(profile_child);
-         }      
-     }     
+      // Setup icons for devices parent item.
+      if(strstr(reg_app,"monitor"))
+        device_icon = QIcon(":/resources/monitor.png");
+      else if(strstr(reg_app,"printer"))
+        device_icon = QIcon(":/resources/printer1.png");
+      else if(strstr(reg_app,"scanner"))
+        device_icon = QIcon(":/resources/scanner.png");
+
+      // pick the modules device class nick name
+      device_class = oyConfDomain_GetText( d, "device_class", oyNAME_NICK );
+
+      QTreeWidgetItem * device_list_sub_tree = new QTreeWidgetItem;
+      device_list_sub_tree->setText(0, device_class);
+      deviceListTree->addChild(device_list_sub_tree);
+
+      for(j = 0; j < (uint32_t)n; ++j)
+      {
+        oyConfig_s * device = oyConfigs_Get( devices, j );
+        char * device_info = 0;
+
+        // get expensive informations to see the "model" option
+        error = oyDeviceGetInfo( device, oyNAME_DESCRIPTION, 0,
+                                 &device_info, malloc );
+        error = oyDeviceGetInfo( device, oyNAME_NAME, 0,
+                                 &device_info, malloc );
+
+        QTreeWidgetItem * device_child = new QTreeWidgetItem;
+        QString device_item_string;
+        const char * device_manufacturer = 0;
+        const char * device_model = 0;
+        const char * device_serial = 0;   
+
+        device_manufacturer = oyConfig_FindString( device, "manufacturer", 0);
+        device_model = oyConfig_FindString( device, "model", 0);
+        device_serial = oyConfig_FindString( device, "serial", 0);  
+
+        device_item_string.append(device_manufacturer);
+        device_item_string.append(" ");
+        device_item_string.append(device_model);
+        device_item_string.append(" ");
+        device_item_string.append(device_serial);
+
+        const char * model = device_item_string.toUtf8();
+        if(!model)
+          model = oyConfig_FindString( device, "device_name", 0);
+
+#if 0
+        if(device_info)
+          device_child->setText(0, QString("\"") + model + "\" "
+                                   + QString(device_info));
+        else
+#endif
+        device_child->setText(0, QString(model));
+        device_child->setIcon(0, device_icon);
+        device_list_sub_tree->addChild(device_child);   
+
+        oyProfile_s * p = 0;
+        oyDeviceGetProfile( device, &p );
+
+        if(p)
+        {
+          QTreeWidgetItem * profile_child = new QTreeWidgetItem;
+          const char* profile_name = oyProfile_GetText( p, oyNAME_DESCRIPTION );
+          const char* file_name = oyProfile_GetFileName( p, -1 );
+          if(file_name)
+            profile_child->setText(1, QString(file_name));
+          else
+            profile_child->setText(1, "in memory");
+          profile_child->setText(0, profile_name);
+
+          // attach the profile to the widget
+          QVariant v((qulonglong) oyProfile_Copy(p,0));
+          profile_child->setData( 0, Qt::UserRole, v );
+          device_child->addChild(profile_child);
+        }
+
+        //oyProfile_Release( &p );
+        oyConfig_Release( &device );
+      }
+      oyConfigs_Release( &devices );
+      oyConfDomain_Release( &d );
+    }
 }
 
 // Function to add profile items into the tree listing.
@@ -284,89 +353,40 @@ void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description,
                                         QTreeWidgetItem * parent_item )
 {
       oyProfile_s * profile = oyProfile_FromStd( profile_type, 0);
-      oyProfileTag_s * tagID = oyProfile_GetTagById( profile, icSigProfileDescriptionTag  );
-
-      int text_n = 0;
-      char ** tagText = oyProfileTag_GetText( tagID, &text_n, 0,0, 0, 0 );
+      const char * text = oyProfile_GetText( profile, oyNAME_DESCRIPTION );
       
       // Add new item.
       QTreeWidgetItem * new_child = new QTreeWidgetItem();
       new_child->setText(1, description);
-      new_child->setText(0, *tagText);
-          
+      new_child->setText(0, text);
+
+      // attach the profile to the widget
+      QVariant v((qulonglong) oyProfile_Copy(profile,0));
+      new_child->setData( 0, Qt::UserRole, v );
+ 
       parent_item->addChild(new_child);    
+      oyProfile_Release( &profile );
 } 
 
 // Whenever a user clicks on a child in the tree list, the "profile information"
 // window is updated.
 void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
 {     
-      int row_of_parent;
-      
-      QTreeWidgetItem * matchingParentItem = currentProfileItem->parent(); 
+      // get the profile from the widget
+      QVariant v = currentProfileItem->data( 0, Qt::UserRole );
+      oyProfile_s * p = (oyProfile_s *) v.toULongLong();
 
-      // Is this a device item profile that was selected?
-      QString isValidItemString = currentProfileItem->text(1);
-
-      // If user clicks on an editing/assumed space item, find which one based on index.
-      if (matchingParentItem == editingCsTree)
+      if(p && p->type_ == oyOBJECT_PROFILE_S)
       {
-            row_of_parent = editingCsTree->indexOfChild(currentProfileItem);  
+        populateDeviceProfileDescriptions(p, true);    
+        profileInfoGroupBox->setEnabled(true);
+        return;
+      }
 
-            switch(row_of_parent)
-            {
-                 case (0): populateTagDescriptions(oyEDITING_RGB);
-                           break;
-                 case (1): populateTagDescriptions(oyEDITING_CMYK);
-                           break;
-                 case (2): populateTagDescriptions(oyEDITING_XYZ);
-                           break;
-                 case (3): populateTagDescriptions(oyEDITING_LAB);                                 
-            }
-            profileInfoGroupBox -> setEnabled(true);
-      }    
-      else if (matchingParentItem == assumedCsTree)
-      {
-            row_of_parent = assumedCsTree->indexOfChild(currentProfileItem);
-
-            switch(row_of_parent)
-            {
-                 case (0): populateTagDescriptions(oyASSUMED_RGB);
-                           break;
-                 case (1): populateTagDescriptions(oyASSUMED_CMYK);
-                           break;
-                 case (2): populateTagDescriptions(oyASSUMED_XYZ);
-                           break;
-                 case (3): populateTagDescriptions(oyASSUMED_LAB);            
- 
-            }
-            profileInfoGroupBox -> setEnabled(true);
-       }
-
-       else if(isValidItemString != 0)
-       {
-              QString grabProfileFilename = currentProfileItem->text(1);
-              int str_index = grabProfileFilename.indexOf("/ ");
-              
-              grabProfileFilename.remove(0, str_index + 2);
-
-              filenameTagLabel->setText(grabProfileFilename);
-              
-              oyProfile_s * profile;
-              profile = oyProfile_FromFile( grabProfileFilename.toLocal8Bit(), 0, 0);
-               
-              populateDeviceProfileDescriptions(profile, true);    
-              profileInfoGroupBox -> setEnabled(true);
-        }
-        else
-        {
-             populateDeviceProfileDescriptions(NULL, false);
-             profileInfoGroupBox -> setEnabled(false);
-	     // set default fram size
-             frame -> setMinimumSize(QSize(250,250));
-        }
-        
-   
+      populateDeviceProfileDescriptions(NULL, false);
+      profileInfoGroupBox -> setEnabled(false);
+      // set default fram size
+      frame -> setMinimumSize(QSize(250,250));
 }
 
 // Refresh profile information list.
@@ -395,6 +415,9 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
 
         QString profilePathName = oyProfile_GetFileName( profile, 0 );
         directoryListingTag->setText(profilePathName);
+
+        oyProfile_Release( &current_profile );
+        current_profile = oyProfile_Copy( profile, 0 );
     }
     else
     {
@@ -414,63 +437,6 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
         directoryListingTag -> setText("");
     }
   
-}
-
-// Refresh profile information list.
-void kminfo::populateTagDescriptions(oyDEFAULT_PROFILE current_profile)
-{
-     oyProfile_s * profile;
-     
-     QString profilename;
-     int sizeofProfilename;
-     int indexofProfilename; 
-
-     profile = oyProfile_FromStd( current_profile, 0);
-     profilename = oyProfile_GetFileName( profile, 0 );
-  
-     // Save a copy of the entire pathname.
-     QString profile_path = profilename;   
-
-     // Eliminate path from profile name.
-     sizeofProfilename = profilename.size();
-     indexofProfilename = profilename.lastIndexOf( "/", sizeofProfilename - 1);
-     profilename.remove(0, indexofProfilename + 1);
-     
-     // Output profile description and path separately.
-     filenameTagLabel->setText(profilename);
-     directoryListingTag->setText(profile_path);
-
-     // Output Oyranos-specified profile descriptions.
-     setTagDescriptions(profile, icSigCopyrightTag, copyrightTagLabel);     
-     setTagDescriptions(profile, icSigDeviceMfgDescTag, mfgTagLabel);
-     setTagDescriptions(profile, icSigDeviceModelDescTag, modelTagLabel);
-     setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
-     
-     setDateTag(profile, dateTagLabel);
-     setCSpaceTag(profile, colorspaceTagLabel);
-     setIccsTag(profile, iccVerTagLabel);
-     setPcsTag(profile, pcsTagLabel);
-     setDeviceClassTag(profile, deviceClassTagLabel);
-     
-      int longestString = mfgTagLabel->text().length();
-      if (modelTagLabel->text().length() > longestString)
-	longestString = modelTagLabel->text().length();
-      if (descriptionTagLabel->text().length() > longestString)
-	longestString = descriptionTagLabel->text().length();
-      if (dateTagLabel->text().length() > longestString)
-	longestString = dateTagLabel->text().length();
-      if (colorspaceTagLabel->text().length() > longestString)
-	longestString = colorspaceTagLabel->text().length();
-      if (iccVerTagLabel->text().length() > longestString)
-	longestString = iccVerTagLabel->text().length();
-      if (pcsTagLabel->text().length() > longestString)
-	longestString = pcsTagLabel->text().length();
-      if (deviceClassTagLabel->text().length() > longestString)
-	longestString = deviceClassTagLabel->text().length();;
-      if (directoryListingTag->text().length() > longestString)
-	longestString = directoryListingTag->text().length();
-      
-      frame -> setMinimumSize(QSize((longestString + 16) * 8 ,250));
 }
 
 void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)

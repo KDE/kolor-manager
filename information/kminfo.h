@@ -33,7 +33,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KColorScheme>
 #include <KPushButton>
 
-#include <oyranos/oyranos_alpha.h>
+#include <oyranos_alpha.h>
 
 class QPushButton;
 class QListWidget;
@@ -84,11 +84,8 @@ private:
      // Add an item to the tree.
      void addProfileTreeItem( oyPROFILE_e, QString description, QTreeWidgetItem * parent_item );
     
-     // Populate "Profile Information" box (using Oyranos profile information)
-     void populateTagDescriptions(oyDEFAULT_PROFILE);
-
      // Populate tree list items relating to device-specific profiles (printers, monitors, etc.)
-     void populateDeviceProfiles( QStringList listOfDevices, QTreeWidgetItem * deviceListSubTree, QIcon device_icon);
+     void populateDeviceProfiles( /*QStringList listOfDevices,*/ QTreeWidgetItem * deviceListSubTree /*, QIcon device_icon*/);
 
      // Populate tag descriptions for device-specific profiles.
      void populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid);
@@ -104,7 +101,7 @@ private:
 
      // Function to write date tag to a label.
      void setDateTag(oyProfile_s *, QLabel *);
-    
+
      // Check for iccexamin functionality on user system.
      bool iccExaminIsInstalled(QString &iccExaminPath);
 
@@ -115,10 +112,7 @@ private:
      QTreeWidgetItem * devicesParentTree;
 
      // Pointers to device-specific (parent) items on list
-     QTreeWidgetItem * monitorListSubTree;
-     QTreeWidgetItem * printerListSubTree;
-     QTreeWidgetItem * scannerListSubTree;
-     QTreeWidgetItem * cameraListSubTree;
+     oyProfile_s * current_profile;
 
      KSharedConfigPtr m_config;
  
