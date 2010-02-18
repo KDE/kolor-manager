@@ -212,9 +212,9 @@ int kmdevices::detectDevices(const char * device_type)
             deviceItemString.append(" ");
             deviceItemString.append(device_serial);
 
-            error = oyDeviceGetProfile(device, &profile);        
+            error = oyDeviceGetProfile(device, &profile);
             profile_filename = oyProfile_GetFileName(profile, 0);
-            
+ 
             deviceListPointer = new QTreeWidgetItem();
 
             if (profile_filename == NULL)
@@ -222,30 +222,32 @@ int kmdevices::detectDevices(const char * device_type)
                 deviceProfileDescription = "(No Profile Installed!)";
                 profile_filename = "------";
             }
-            else                               
+            else
                 deviceProfileDescription = convertFilenameToDescription(profile_filename);
-                         
+
             deviceListPointer->setIcon(0, device_icon);
             deviceListPointer->setText(0, deviceItemString);
             deviceListPointer->setText(1, device_designation);
-            deviceListPointer->setText(2, deviceProfileDescription);   
+            deviceListPointer->setText(2, deviceProfileDescription);
             deviceListPointer->setText(3, profile_filename);
-        
+ 
             if (strcmp(device_type, "monitor") == 0)
                 parent_monitor_item->addChild(deviceListPointer);
             else if (strcmp(device_type, "printer") == 0)
                 parent_printer_item->addChild(deviceListPointer);
             else if (strcmp(device_type, "scanner") == 0)
-                parent_scanner_item->addChild(deviceListPointer);     
+                parent_scanner_item->addChild(deviceListPointer);
+
             oyConfig_Release(&device);
+            oyProfile_Release( &profile );
         }
-     }   
+     }
      else
-         error = -1;    
+         error = -1;
 
      oyOptions_Release ( &options );
      oyConfigs_Release ( &device_list );
-     
+
      return error;
 }
 
