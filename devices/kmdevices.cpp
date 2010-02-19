@@ -46,10 +46,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KSharedConfigPtr>
 #include <KAboutData>
 
-#include <oyranos/oyranos.h>
-#include <oyranos/oyranos_alpha.h>
-#include <oyranos/oyranos_icc.h>
-#include <oyranos/oyranos_cmm.h>
+#include <oyranos.h>
+#include <oyranos_alpha.h>
+#include <oyranos_icc.h>
+#include <oyranos_cmm.h>
 
 #define CONFIG_REGISTRATION ("//" OY_TYPE_STD "/config/command")
 

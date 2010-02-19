@@ -48,9 +48,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QDataStream>
 #include <KSharedConfig>
 
-#include <oyranos/oyranos.h>
-#include <oyranos/oyranos_config.h>
-#include <oyranos/oyranos_alpha.h>
+#include <oyranos.h>
+#include <oyranos_config.h>
+#include <oyranos_alpha.h>
 
 // Code to provide KDE module functionality for Kolor Management.
 K_PLUGIN_FACTORY( kmsettingsFactory, 

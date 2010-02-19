@@ -4,7 +4,7 @@ PROJECT(kolor_manager)
 
 set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake/modules )
 
-# cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 2.4)
 
 # project version
 SET( ${PROJECT_NAME}_MAJOR_VERSION 0)
