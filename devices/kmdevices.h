@@ -41,22 +41,15 @@ public Q_SLOTS:
 
 // User-defined QT slots.
 private slots:
-    
-    // When the "Add Profile" button is pressed...
-    void openProfile();
-    
-    // "Remove Profile" button press.
-    void removeProfile();    
-    
-    // "Set Profile as Device Default" button press.
-    void setDefaultItem();
-    
-    // When user clicks on a device list item.
-    void changeDeviceItem(QTreeWidgetItem*);
-    
-    // When user clicks on a profile list item.
-    void changeProfileItem(QListWidgetItem*);
 
+    // When the "Assign Profile" button is pressed...
+    void openProfile(int index);
+ 
+    // When user clicks on a device tree item.
+    void changeDeviceItem( QTreeWidgetItem* );
+
+    // When user clicks on a profile list item
+    void profileListDoubleClicked( QListWidgetItem* );
 private:
 
     // General device detection 
@@ -77,16 +70,21 @@ private:
     // Function to refresh device list and node with the new default profile.
     void setDefaultProfile(QString new_default_profile); 
 
-    // Refresh current profile list.
-    void updateProfileList(oyConfig_s * device); 
+    // set the new profile to a Oyranos device
+    void assingProfile( QString & profile_name );
     
+    // Refresh current profile list.
+    void updateProfileList(oyConfig_s * device);
+
+    // get the actual device from currentDevice
+    oyConfig_s * getCurrentDevice( void );
+
     // Convert profile filename into profile description (using Oyranos).
     QString convertFilenameToDescription(QString profileFilename);  
 
     // KConfig calls to save, load, and delete associated profiles.
     void addNewDeviceConfig(QString device_name);
     void addDeviceProfile(QString device_name, QString profile);
-    void saveDefaultProfile(QString device_name, QString profile);
     bool isProfileDuplicate(QString, QStringList);
     void saveDeviceType(QString device_name, QString deviceType);
     void saveProfileSettings(QString device_name);
@@ -99,9 +97,6 @@ private:
 // PRIVATE DATA MEMBERS
 // -----------------------------------------------
 
-    // Current user selected profile/device.
-    QListWidgetItem * currentProfileItem;
-
     // String used when user wants to add a new profile...
     QString recentlyAddedProfile;
 
@@ -110,6 +105,12 @@ private:
 
     // Pointer used to store address of 'initial' device item widget.
     QTreeWidgetItem * deviceListPointer;
+    enum {
+      DEVICE_DESCRIPTION,
+      DEVICE_NAME,
+      PROFILE_DESCRIPTION,
+      PROFILE_FILENAME
+    };
     // Pointer used to store address of 'recently clicked' device item widget.
     QTreeWidgetItem * currentDevice;
 
@@ -122,10 +123,14 @@ private:
     bool listModified;                // Was the list changed by the user?
 
     // Global string values for Oyranos device identification 
-    const char * current_device_name;
-    const char * current_device_class;  
-
-    KSharedConfigPtr m_config;        // KConfig pointer.
+    char * current_device_name;
+    char * current_device_class;  
+    void setCurrentDeviceName(const char * name)
+    { if(current_device_name) free(current_device_name);
+      current_device_name = strdup(name); };
+    void setCurrentDeviceClass(const char * name)
+    { if(current_device_name) free(current_device_class);
+      current_device_class = strdup(name); };
 };
 
 #endif 
