@@ -52,7 +52,27 @@ ui_MODULE.h (Qt designer header file - for hand coding purposes)
 CMakeLists.txt (build instructions for each module)
 
 
------MAJOR CHANGES FROM LAST TEST BUILDS--------------------------------------------
+-----DEVELOPMENT---------------------------------------------------------------
+
+# local debug build
+mkdir build
+cd build
+cmake -DCMAKE_INSTALL_PREFIX=~/.kde4/ -DCMAKE_BUILD_TYPE=debugfull ../kolor-manager
+#Possibly prepend the PKG_CONFIG_PATH variable to reflect Oyranos/lcms...
+kbuildsycoca4 # update KDEs internal icon and module cachings
+kcmshell4 kminfo & # start
+
+# Debug
+echo $!  # obtain process id from bashs most recent process - kcmshell4
+gdb kcmshell4
+gdb > attach to process id
+gdb > breakpoint kminfo.cpp:line_number
+gdb > continue
+
+# svn diff Howto
+# add here
+
+-----MAJOR CHANGES FROM LAST TEST BUILDS---------------------------------------
 
 GENERAL
 -Icons should now be visible (kmdevices/kminfo)
@@ -87,7 +107,7 @@ The following is a sample of the keys associated from within the kolor-manager-g
 Custom_Policies_Installed= "saved custom policies"
 Default_Policy= "system default policy"
 
-[DEVICE:"device name"]  
+[DEVICE:"device name"]
 ASSOCIATED_DESCRIPTIONS= "description name of installed profiles"
 ASSOCIATED_PROFILE= "listing of profile (names) related to the device"
 DEFAULT_PROFILE= "default profile for the device"
@@ -99,7 +119,8 @@ MONITOR="list of installed monitors"
 PRINTER="list of installed printers"
 *SCANNER="list of installed scanners"
 
-
+One goal of Oyranos development is to obsolete this KDE specific information 
+and move accrding keys into the Oyranos DB.
 
 -----CURRENT ISSUES (FIXME)------------------------------------------------------
 
