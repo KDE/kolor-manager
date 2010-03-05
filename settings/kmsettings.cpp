@@ -31,7 +31,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KAboutData>
 #include <KComponentData>
 #include <KGenericFactory>
-#include <KConfigGroup>
+//#include <KConfigGroup>
 #include <KGlobal>
 #include <KGlobalSettings>
 #include <KInputDialog>
@@ -67,12 +67,6 @@ void kmsettings::load()
 void kmsettings::save()
 {
     saveCustomXmlFile();
-    KConfigGroup default_policy_save(m_config, "Custom_Policies");
-
-    // Save the default policy for next session.
-    default_policy_save.writeEntry("Default_Policy", default_policy);
-    m_config->sync();
-
     settingsChanged = false;
 }
 
@@ -90,10 +84,6 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     
     setAboutData( about );
     
-   // Set up shared configuration pointer, and save configuration data to
-   // the 'kolor-manager-globals' file.
-   m_config = KSharedConfig::openConfig("kolor-manager-globals");
- 
    setupUi(this);              // Load Gui.
 
    setPolicyButton->setEnabled(false);
@@ -101,14 +91,20 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
 
    loadEditableItems();        // Store all setting widgets into a convenient list structure.
 
-   setupDirectory();           // Load XDG directory.
-
    populateProfiles();         // Load all Oyranos-specified profiles
                                // into each combobox in the "Default Profiles" tab.
 
-   // Load saved default profile.
-   KConfigGroup default_policy_load(m_config, "Custom_Policies");   
-   selected_policy = default_policy_load.readEntry("Default_Policy", QString() );
+   // Load policy.
+   int count = 0, current = -1;
+   const char ** names = 0;
+   oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
+   if(names && count && current >= 0)
+   {
+     selected_policy = names[current];
+     // Set user selected policy as system default.
+     currentPolicyLabel->setText(selected_policy);      // Update default policy label.
+     printf( "acual policy: %s\n", names[current] );
+   }
 
    setPolicy();
  
@@ -135,33 +131,6 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     connect(editableCheckBoxItems.value(k), SIGNAL(clicked()), this, SLOT(emitChanged()));    
 }
 
-// Load XML directory for saving and loading policies.
-void kmsettings::setupDirectory()
-{
-     char * ifXDGDirExists = getenv("XDG_CONFIG_HOME");
- 
-     // Check to see if user system has the environmental variable set up.
-     if(ifXDGDirExists)
-        customProfileDirectory = getenv("XDG_CONFIG_HOME");     // Set up directory to save xml files.
-     else 
-     {  
-        customProfileDirectory = getenv("HOME");
-        customProfileDirectory.append("/.config/color/settings/");
-     }
-
-     // Set up 'default' policy directories.
-     office_policy_path = customProfileDirectory;
-     office_policy_path.append("office.policy.xml");
-
-     designer_policy_path = customProfileDirectory;
-     designer_policy_path.append("designer.policy.xml");
-
-     printer_policy_path = customProfileDirectory;
-     printer_policy_path.append("prepress.policy.xml");
-
-     photographer_policy_path = customProfileDirectory;
-     photographer_policy_path.append("photographer.policy.xml");
-}
 
 // Load editable comboboxe and checkbox items into a list
 //  (this is convenient to detect each settings change by the user).
@@ -313,33 +282,19 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
 
      selected_policy = selectedPolicyItem->text();
 
-     if (selected_policy == "[Home / Office]"  ||
-         selected_policy == "[Graphic Design]" ||
-         selected_policy == "[Printer]"        ||
-         selected_policy == "[Photography]"       )
-     {
-         isCustom = false;
-         removePolicyButton->setEnabled(false);
-     }
-     
-     else
+     char * full_name = 0;
+     oyPolicyFileNameGet( selected_policy.toLocal8Bit(), &full_name, malloc );
+     QFile file( full_name );
+     if(file.permissions() & QFile::WriteOwner)
      {
          isCustom = true;             // This is a custom policy.
          
          removePolicyButton->setEnabled(true);
           
-         oyPolicySet(policyNameToXmlFile(selectedPolicyItem->text()), 
-                              policyNameToXmlPath(selectedPolicyItem->text()));
+         oyPolicySet( selectedPolicyItem->text().toLocal8Bit(), 0 );
      }
+     if(full_name) free( full_name );
 
-     if (selected_policy == "[Home / Office]")
-         oyPolicySet("office.policy.xml", office_policy_path.toLocal8Bit());
-     else if (selected_policy == "[Graphic Design]")
-         oyPolicySet("designer.policy.xml", designer_policy_path.toLocal8Bit());
-     else if (selected_policy == "[Printer]")
-         oyPolicySet("prepress.policy.xml", printer_policy_path.toLocal8Bit());
-     else if (selected_policy == "[Photography]")
-         oyPolicySet("photographer.policy.xml", photographer_policy_path.toLocal8Bit());
    
      // Make sure the user doesn't delete the current policy settings!
      if(default_policy == selectedPolicyItem->text())
@@ -416,25 +371,7 @@ void kmsettings::setPolicy()
      currentPolicyLabel->setText(selected_policy);      // Update default policy label.
      default_policy = selected_policy;    
 
-     // Check to see if the policy is one of the four 'defaults' or a custom-made one.
-     if (default_policy == "[Home / Office]")
-         oyPolicySet("office.policy.xml", office_policy_path.toLocal8Bit());
-     else if (default_policy == "[Graphic Design]")
-         oyPolicySet("designer.policy.xml", designer_policy_path.toLocal8Bit());
-     else if (default_policy == "[Printer]")
-         oyPolicySet("prepress.policy.xml", printer_policy_path.toLocal8Bit());
-     else if (default_policy == "[Photography]")
-         oyPolicySet("photographer.policy.xml", photographer_policy_path.toLocal8Bit());
-     else 
-     {
-           // Refresh custom profile.
-           oyPolicySet(policyNameToXmlFile(selected_policy), 
-                              policyNameToXmlPath(selected_policy));
-
-            //isCustom = true;      // This is a custom policy.
-      }             
-
-     save();
+     oyPolicySet( selected_policy.toLocal8Bit(), 0 );
 
      // Once a new policy is obtained, the UI needs to update the settings.
      populateBehaviorSettings();       // Refresh settings in "Behavior Settings"
@@ -507,36 +444,22 @@ void kmsettings::addNewPolicy()
 }
 
 void kmsettings::removeCustomPolicy()
-{        
-     // Remove policy from list and KConfig file.  
+{
+     // Remove policy from list and KConfig file.
      QListWidgetItem * deleted_item = policySettingsList->takeItem(policySettingsList->currentRow());
      savePolicy();
 
      // Remove actual Xml file from directory.
-     QFile file(policyNameToXmlPath(deleted_item->text()));
-     file.remove();     
+     char * full_name = 0;
+     oyPolicyFileNameGet( deleted_item->text().toLocal8Bit(),&full_name,malloc);
+     QFile file( full_name );
+     file.remove();
+     if(full_name) free( full_name );
 }
 
 void kmsettings::saveSettingsToXml()
 {     
      saveCustomXmlFile();
-}
-
-// Convert policy name to Oyranos-readable XML file pathname. 
-const char* kmsettings::policyNameToXmlPath(QString policyName)
-{
-     QString fullXmlPath = customProfileDirectory;
-     fullXmlPath.append(policyName);
-     fullXmlPath.append(".xml");
-
-     return fullXmlPath.toLocal8Bit();
-}
-
-// Convert policy name to Oyranos-readable XML name. 
-const char* kmsettings::policyNameToXmlFile(QString policyName)
-{
-      policyName.append(".xml");
-      return policyName.toLocal8Bit();
 }
 
 // Create a new file that's currently stored in the customProfileDirectory QString.
@@ -618,49 +541,34 @@ void kmsettings::emitChanged()
 // Function to save/refresh installed policies in system.
 void kmsettings::savePolicy()
 {
-     KConfigGroup policyGroup(m_config, "Custom_Policies");
-
      QString tempProfile;
      QStringList policyList;
 
-     policyGroup.deleteEntry("Custom_Policies_Installed");
-
      if ( policySettingsList->count() >= 4)
-     {   
+     {
          QListWidgetItem * temp_item;
 
          for (int i = 4; i < policySettingsList->count(); i++)
          {
-              
               temp_item = policySettingsList->item(i);
               tempProfile = temp_item->text();
 
               policyList.insert(0, tempProfile);
          }
      }
-
-     policyGroup.writeEntry("Custom_Policies_Installed", policyList);
 }
 
 // Function to load the installed policies in system.
 void kmsettings::loadPolicy()
 {
-     KConfigGroup installedCustomPolicies(m_config, "Custom_Policies");
-     QStringList policyList = installedCustomPolicies.readEntry("Custom_Policies_Installed", QStringList());
+  const char ** names = NULL;
+  int count = 0, i, current = -1;
+  oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
 
-     if (policyList.empty())
-         return;
-     else
-     {
-         QString tempProfileName;
-
-         for (int i = 0; i < policyList.size(); i++)
-         {       
-              tempProfileName = policyList.value(i);
-              policySettingsList->addItem(tempProfileName);        
-         }
-     }
-     
+  for(i = 0; i < count; ++i)
+  {
+    policySettingsList->addItem( names[i] );
+  }
 }
 
 kmsettings::~kmsettings()

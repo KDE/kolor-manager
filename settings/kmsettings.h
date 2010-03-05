@@ -58,12 +58,6 @@ public:
     // QString to const char * conversion.
     const char* qStringToChar(QString);
 
-    // Convert policy name to Oyranos-readable XML file pathname. 
-    const char* policyNameToXmlPath(QString);
-
-    // Convert policy name to Oyranos-readable XML name. 
-    const char* policyNameToXmlFile(QString);
-
 public Q_SLOTS:
      
     // load the settings from the config
@@ -122,9 +116,6 @@ private:
     // Load policies
     void loadPolicy();
     
-    // Load XDG_CONFIG_HOME directory.
-    void setupDirectory();
-    
     // Set up all available widgets that are editable into lists.
     void loadEditableItems();  
 
@@ -140,12 +131,6 @@ private:
     QString selected_policy;
     QString default_policy;  
 
-    // Strings to locate standard policy files.
-    QString office_policy_path;
-    QString designer_policy_path;
-    QString printer_policy_path;
-    QString photographer_policy_path;
-
     // String to hold new custom XML filename.
     QString xmlFileName;
    
@@ -155,8 +140,6 @@ private:
     // Variable to specify if current policy is a custom one.
     bool isCustom, settingsChanged;
 
-    // KConfig pointer (save various settings within KDE)
-    KSharedConfigPtr m_config;
 };
 
 #endif 
