@@ -119,6 +119,7 @@ private:
     QTreeWidgetItem * parent_printer_item;
     QTreeWidgetItem * parent_scanner_item;
     QTreeWidgetItem * parent_camera_item;
+    QTreeWidgetItem * parent_other_item;
     
     bool listModified;                // Was the list changed by the user?
 
