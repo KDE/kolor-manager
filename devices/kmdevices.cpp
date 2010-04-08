@@ -233,7 +233,7 @@ int kmdevices::detectDevices(const char * device_type)
             deviceItemString.append(" ");
             deviceItemString.append(device_serial);
 
-            error = oyDeviceGetProfile(device, &profile);
+            error = oyDeviceGetProfile(device, 0, &profile);
             profile_filename = oyProfile_GetFileName(profile, 0);
  
             deviceListPointer = new QTreeWidgetItem();
@@ -372,12 +372,12 @@ void kmdevices::updateProfileList(oyConfig_s * device)
 
     profileAssociationList->clear();
 
-    oyDeviceGetProfile( device, &profile );
+    oyDeviceGetProfile( device, 0, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
 
     device = getCurrentDevice();
 
-    oyDeviceGetProfile( device, &profile );
+    oyDeviceGetProfile( device, 0, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
 
 
@@ -431,7 +431,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 
     deviceProfileComboBox->clear();
 
-    oyDeviceGetProfile( device, &profile ); /* reget profile */
+    oyDeviceGetProfile( device, 0, &profile ); /* reget profile */
     profile_file_name = oyProfile_GetFileName( profile, 0 );
 
     for( i = 0; i < size; ++i)
@@ -620,7 +620,7 @@ void kmdevices::assingProfile( QString & profile_name )
            device = getCurrentDevice();
          }
          error = oyDeviceSetup( device ); /* reinitialise */
-         error = oyDeviceGetProfile( device, &profile ); /* reget profile */
+         error = oyDeviceGetProfile( device, 0, &profile ); /* reget profile */
 
          /* clear */
          oyConfig_Release( &device );

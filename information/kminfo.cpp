@@ -321,7 +321,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         device_list_sub_tree->addChild(device_child);   
 
         oyProfile_s * p = 0;
-        oyDeviceGetProfile( device, &p );
+        oyDeviceGetProfile( device, 0, &p );
 
         if(p)
         {
