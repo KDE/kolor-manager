@@ -321,7 +321,12 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         device_list_sub_tree->addChild(device_child);   
 
         oyProfile_s * p = 0;
-        oyDeviceGetProfile( device, 0, &p );
+        oyOptions_s * options = 0;
+        error = oyOptions_SetFromText( &options,
+                                       "//"OY_TYPE_STD"/config/icc_profile.net_color_region_target",
+                                       "yes", OY_CREATE_NEW );
+        oyDeviceGetProfile( device, options, &p );
+        oyOptions_Release( &options );
 
         if(p)
         {

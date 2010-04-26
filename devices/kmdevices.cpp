@@ -116,6 +116,19 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
              this, SLOT( profileListDoubleClicked( QListWidgetItem * )) );
 }
 
+// small helper to obtain a profile from a device
+int kmDeviceGetProfile( oyConfig_s * device, oyProfile_s ** profile )
+{
+  oyOptions_s * options = 0;
+  oyOptions_SetFromText( &options,
+                   "//"OY_TYPE_STD"/config/icc_profile.net_color_region_target",
+                         "yes", OY_CREATE_NEW );
+  int error = oyDeviceGetProfile( device, options, profile );
+  oyOptions_Release( &options );
+  return error;
+}
+
+
 // Populate devices and profiles.
 void kmdevices::populateDeviceListing()
 {
@@ -233,7 +246,7 @@ int kmdevices::detectDevices(const char * device_type)
             deviceItemString.append(" ");
             deviceItemString.append(device_serial);
 
-            error = oyDeviceGetProfile(device, 0, &profile);
+            error = kmDeviceGetProfile(device, &profile);
             profile_filename = oyProfile_GetFileName(profile, 0);
  
             deviceListPointer = new QTreeWidgetItem();
@@ -372,12 +385,12 @@ void kmdevices::updateProfileList(oyConfig_s * device)
 
     profileAssociationList->clear();
 
-    oyDeviceGetProfile( device, 0, &profile );
+    kmDeviceGetProfile( device, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
 
     device = getCurrentDevice();
 
-    oyDeviceGetProfile( device, 0, &profile );
+    kmDeviceGetProfile( device, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
 
 
@@ -431,7 +444,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 
     deviceProfileComboBox->clear();
 
-    oyDeviceGetProfile( device, 0, &profile ); /* reget profile */
+    kmDeviceGetProfile( device, &profile ); /* reget profile */
     profile_file_name = oyProfile_GetFileName( profile, 0 );
 
     for( i = 0; i < size; ++i)
@@ -583,6 +596,9 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   oyOptions_s * options = 0;
   oyOptions_SetFromText( &options, "//" OY_TYPE_STD "/config/command", 
                          "properties", OY_CREATE_NEW );
+  oyOptions_SetFromText( &options,
+                   "//"OY_TYPE_STD"/config/icc_profile.net_color_region_target",
+                         "yes", OY_CREATE_NEW );
   if(current_device_class && current_device_name)
     error = oyDeviceGet( OY_TYPE_STD, current_device_class, current_device_name,
                          options, &device );
@@ -620,7 +636,7 @@ void kmdevices::assingProfile( QString & profile_name )
            device = getCurrentDevice();
          }
          error = oyDeviceSetup( device ); /* reinitialise */
-         error = oyDeviceGetProfile( device, 0, &profile ); /* reget profile */
+         error = kmDeviceGetProfile( device, &profile ); /* reget profile */
 
          /* clear */
          oyConfig_Release( &device );
