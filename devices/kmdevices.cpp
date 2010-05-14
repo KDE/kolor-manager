@@ -347,7 +347,6 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
             setCurrentDeviceClass("printer");
             populateDeviceComboBox(icSigOutputClass);
             profileAssociationList->clear();
-            return; 
     }
     
      // TODO Does icSigInputClass return any profile?
