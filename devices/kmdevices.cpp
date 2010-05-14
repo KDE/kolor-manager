@@ -347,7 +347,7 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
             setCurrentDeviceClass("printer");
             populateDeviceComboBox(icSigOutputClass);
             profileAssociationList->clear();
-            return;  
+            return; 
     }
     
      // TODO Does icSigInputClass return any profile?
@@ -382,6 +382,8 @@ void kmdevices::updateProfileList(oyConfig_s * device)
                              {"model",0},
                              {"serial",0},
                              {0,0}};
+
+    if(!device) return;
 
     profileAssociationList->clear();
 
