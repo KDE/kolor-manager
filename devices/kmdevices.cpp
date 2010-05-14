@@ -388,12 +388,6 @@ void kmdevices::updateProfileList(oyConfig_s * device)
     kmDeviceGetProfile( device, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
 
-    device = getCurrentDevice();
-
-    kmDeviceGetProfile( device, &profile );
-    profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
-
-
     j = 0;
     while(pattern[j][0])
     {

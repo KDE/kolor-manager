@@ -306,9 +306,13 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         device_item_string.append(" ");
         device_item_string.append(device_serial);
 
-        const char * model = device_item_string.toUtf8();
+        char * model = strdup(device_item_string.toUtf8());
         if(!model)
-          model = oyConfig_FindString( device, "device_name", 0);
+        {
+          const char * m = oyConfig_FindString( device, "device_name", 0);
+          if(m)
+            model = strdup(m);
+        }
 
 #if 0
         if(device_info)
@@ -317,6 +321,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         else
 #endif
         device_child->setText(0, QString(model));
+        if(model) free(model); model = 0;
         device_child->setIcon(0, device_icon);
         device_list_sub_tree->addChild(device_child);   
 
