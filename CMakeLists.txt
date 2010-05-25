@@ -12,7 +12,6 @@ SET( ${PROJECT_NAME}_MINOR_VERSION 1)
 
 find_package(KDE4 REQUIRED )
 find_package(Oyranos REQUIRED)
-find_package(Sane REQUIRED)
 find_package(Cups REQUIRED)
 
 include_directories(${KDE4_INCLUDES} ${OYRANOS_INCLUDE_DIR} ${CUPS_INCLUDE_DIR})
