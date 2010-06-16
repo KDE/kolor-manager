@@ -21,7 +21,6 @@ class QTreeWidgetItem;
               KMDevices Class Definition                         *
 ******************************************************************/
 
-using namespace oyranos;
 
 class kmdevices : public KCModule, Ui::kmdevices
 {

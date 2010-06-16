@@ -41,8 +41,6 @@ class QListWidgetItem;
 
 #include "ui_kminfo.h"     // Gui header.
 
-using namespace oyranos;
-
 /******************************************************************
           KM Information Class Definition                         *
 *******************************************************************/

@@ -41,7 +41,6 @@ class QListWidgetItem;
 
 #include "ui_kmsettings.h"     // Gui header.
 
-using namespace oyranos;
 
 /*****************************************************************
           Kolor Management Settings Class Definition             *

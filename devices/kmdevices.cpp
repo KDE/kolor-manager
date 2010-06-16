@@ -59,8 +59,6 @@ K_PLUGIN_FACTORY( kmdevicesFactory,
          )
 K_EXPORT_PLUGIN( kmdevicesFactory("kmdevices") )
 
-using namespace oyranos;
-
 
 void kmdevices::load()
 {

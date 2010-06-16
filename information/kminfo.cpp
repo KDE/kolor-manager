@@ -58,8 +58,6 @@ K_PLUGIN_FACTORY( kminfoFactory,
          )
 K_EXPORT_PLUGIN( kminfoFactory("kminfo") )
 
-using namespace oyranos;     
-
 // Detect iccexamin for integrated 3D Profile support.
 bool kminfo::iccExaminIsInstalled(QString &iccExaminPath)
 {
