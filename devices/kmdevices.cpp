@@ -47,9 +47,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KAboutData>
 
 #include <oyranos.h>
-#include <oyranos_alpha.h>
 #include <oyranos_icc.h>
-#include <oyranos_cmm.h>
+#include <alpha/oyranos_alpha.h>
+#include <alpha/oyranos_cmm.h>
 
 #define CONFIG_REGISTRATION ("//" OY_TYPE_STD "/config/command")
 

@@ -14,8 +14,8 @@ class QTreeWidget;
 class QTreeWidgetItem;
 
 #include "ui_kmdevices.h"     // Gui header.
-#include <oyranos_alpha.h>
-#include <oyranos_cmm.h>
+#include <alpha/oyranos_alpha.h>
+#include <alpha/oyranos_cmm.h>
 
 /*****************************************************************
               KMDevices Class Definition                         *
