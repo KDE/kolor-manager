@@ -18,9 +18,6 @@ by Joe Simon
 -This build is currently using the latest Oyranos build through "gits".  It is
 required that Oyranos be up to date using this
 
--It is also required that CUPS and SANE functionality is installed on your
-linux system.
-
 
 -----INSTALLATION----------------------------------------------------
 
