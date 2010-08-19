@@ -1,10 +1,8 @@
 *******************************
 *   KDE Kolor Manager README  *
 *******************************
-Update #4
 
-by Joe Simon
-8/17/08
+started by Joe Simon in summer 2008
 
 "Evaluation" Package
 
@@ -49,6 +47,10 @@ ui_MODULE.h (Qt designer header file - for hand coding purposes)
 CMakeLists.txt (build instructions for each module)
 
 
+-----LINKS---------------------------------------------------------------------
+
+ColourWiki: http://www.oyranos.org/wiki/index.php?title=Kolor-manager
+
 -----DEVELOPMENT---------------------------------------------------------------
 
 # local debug build
@@ -75,62 +77,19 @@ GENERAL
 -Icons should now be visible (kmdevices/kminfo)
 -Column widths are now tidied up.
 
-DEVICES
--SANE detection is now working.
--Will now only display devices that are actually installed (if the user doesn't have a scanner, for example, the scanner parent tree will not be shown on the list)
--Fixed a bug relating to setting up a default profile for monitors.
--Resolved profile issue for printers and scanners (which do not have back end profile support at this time) 
--Improved error-checking.
 
-INFORMATION
--Fix in the GUI.
--Resolved some issues when displaying device profiles in the information box (profile file and directory names should be the correct now).
--The profile information box now hides when clicking on a non-profile item in the tree.
+-----CURRENT ISSUES (FIXME)----------------------------------------------------
 
-----KCONFIG--------------------------------------------------------------
-
-
-KConfig has been added for this build to store information that is not yet accessible outside of KDE.  When a user adds a policy, device, profile, or default item, the data will be written to "kolor-manager-globals", located in "~/.kde4/share/config".  
-
-It is important that the user presses the "Apply" button to save some the changes.
-
-In the code, the 'm_config' variable is a global KConfig pointer that points to kolor-manager-globals.  The pointer is used for KConfigGroup variables, which are used to write string data alongside an associated key value.  
-
-The following is a sample of the keys associated from within the kolor-manager-globals file when completely filled:
-
-(Quotes indicate data items / non-quotes indicate key values / * updated items)
-
-[Custom_Policies]
-Custom_Policies_Installed= "saved custom policies"
-Default_Policy= "system default policy"
-
-[DEVICE:"device name"]
-ASSOCIATED_DESCRIPTIONS= "description name of installed profiles"
-ASSOCIATED_PROFILE= "listing of profile (names) related to the device"
-DEFAULT_PROFILE= "default profile for the device"
-Screen_Position= "save monitor data so we can re-use it when updating the monitor default profile"
-Type= "device category"
-
-[DEVICE_LIST]
-MONITOR="list of installed monitors"
-PRINTER="list of installed printers"
-*SCANNER="list of installed scanners"
-
-One goal of Oyranos development is to obsolete this KDE specific information 
-and move accrding keys into the Oyranos DB.
-
------CURRENT ISSUES (FIXME)------------------------------------------------------
-
-In general, this build should have more stability than the previous builds.  Although I have tried my best to work the following issues, they shall now be forwarded as "FIXMEs" from here on:
+The following issues, shall be forwarded as "FIXMEs" from here on:
 
 KMSETTINGS
--On some machines, the policy data somehow isn't being saved internally as it should.  On my system, the policy settings are saved after clicking "Apply" and restarting Kolor-Manager.  Hal informed me off the list that his settings aren't being saved after doing the same thing I did.  This needs to be checked among different users to verify consistency.
--There are a few options that don't seem to be showing up for some reason.  This needs to be fixed.
+-The configuration has to be ported to a Oyranos configure object to manipulate
+settings and then apply at once. This is currently not possible, as each setting
+is imediately aplpied to the Oyranos settings DB.  
 
 KMDEVICES
--Profile interaction between CUPs and SANE need to be fixed (camera support isn't likely going to be supported with Kolor Manager).
+-Camera support needs to be outlined first
 
 KMINFO
 -There needs to be a way to refresh the profile listing every time a change has been made in 'devices' and 'settings' modules.  Right now, the user must restart Kolor Manager in order to see 
 the profile listing to be changed in Information.
--The "Device" profile tag needs to be fixed.
