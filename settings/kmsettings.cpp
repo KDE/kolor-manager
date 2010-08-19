@@ -44,7 +44,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KPluginLoader>
 #include <QFileDialog>
 #include <QInputDialog>
-#include <KConfig>
 #include <QDataStream>
 #include <KSharedConfig>
 
@@ -362,7 +361,7 @@ void kmsettings::refreshProfileSettings()
      proofColorProfileCombo->setCurrentIndex(profileSearchIndex);    
 }
 
-// Set Policy as default.
+// Set Policy as Default.
 void kmsettings::setPolicy()
 {
      isCustom = false;    // For now, we assume the user is using a default policy.        
@@ -445,7 +444,7 @@ void kmsettings::addNewPolicy()
 
 void kmsettings::removeCustomPolicy()
 {
-     // Remove policy from list and KConfig file.
+     // Remove policy from list file.
      QListWidgetItem * deleted_item = policySettingsList->takeItem(policySettingsList->currentRow());
      savePolicy();
 
