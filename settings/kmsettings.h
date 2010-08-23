@@ -71,9 +71,6 @@ private slots:
     // Refreshes which policy is currently highlighted/selected.
     void selectPolicy(QListWidgetItem*);  
 
-    // Function used when user
-    void setPolicy();
-    
     // Function used when user clicks on "Add Custom Policy".
     void addNewPolicy();
 
@@ -82,7 +79,7 @@ private slots:
  
     // Write changes to the custom Xml File.
     void saveCustomXmlFile();
-    
+
     // Enables "Apply" button.
     void emitChanged();
 
@@ -90,15 +87,18 @@ private slots:
     void saveSettingsToXml();
 
 private:
-    
+ 
     // Used to fill in "Default Profiles" tab.
     void populateProfiles();
-     
+
     // Used to fill in "Behavior Settings" tab.
     void populateBehaviorSettings();
    
     // Refresh profile list with changed policy settings.
     void refreshProfileSettings();    
+
+    // Refresh policy displaying
+    void refreshPolicySettings();
 
     // Function that handles read-only instances.
     void setEditableItems(bool);
@@ -114,9 +114,12 @@ private:
 
     // Load policies
     void loadPolicy();
-    
+
     // Set up all available widgets that are editable into lists.
     void loadEditableItems();  
+
+    // Store the settings in the Oyranos database
+    void saveSettings();
 
     // Holds all available policy names on the list.
     QStringList installedCustomPolicies;
@@ -124,8 +127,8 @@ private:
     // For items that are editable by the user, having them stored
     // in a list allows us to easily detect if "one" item has been changed.
     QList<QComboBox*> editableComboItems;
-    QList<QRadioButton*> editableCheckBoxItems;
-       
+    QList<QCheckBox*> editableCheckBoxItems;
+
     // Strings to store policy names.
     QString selected_policy;
     QString default_policy;  

@@ -85,7 +85,6 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     
    setupUi(this);              // Load Gui.
 
-   setPolicyButton->setEnabled(false);
    removePolicyButton->setEnabled(false);
 
    loadEditableItems();        // Store all setting widgets into a convenient list structure.
@@ -93,30 +92,18 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    populateProfiles();         // Load all Oyranos-specified profiles
                                // into each combobox in the "Default Profiles" tab.
 
-   // Load policy.
-   int count = 0, current = -1;
-   const char ** names = 0;
-   oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
-   if(names && count && current >= 0)
-   {
-     selected_policy = names[current];
-     // Set user selected policy as system default.
-     currentPolicyLabel->setText(selected_policy);      // Update default policy label.
-     printf( "acual policy: %s\n", names[current] );
-   }
 
-   setPolicy();
- 
    settingsChanged = false;
 
    // Load behavior settings and display current default policy.
    populateBehaviorSettings();
+   refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
+   refreshPolicySettings();
 
    // QT-related SIGNAL/SLOT functions, such as button presses and clicking
    // on a particular item.
    connect(policySettingsList, SIGNAL(itemClicked(QListWidgetItem*)), 
         this, SLOT(selectPolicy(QListWidgetItem*)));   
-   connect(setPolicyButton, SIGNAL(clicked()), this, SLOT(setPolicy()));
    connect(addNewPolicyButton, SIGNAL(clicked()), this, SLOT(addNewPolicy()));
    connect(removePolicyButton, SIGNAL(clicked()), this, SLOT(removeCustomPolicy()));
 
@@ -158,6 +145,8 @@ void kmsettings::loadEditableItems()
 
      editableCheckBoxItems.push_front(softProofCheckbox);
      editableCheckBoxItems.push_front(hardProofCheckbox);
+     editableCheckBoxItems.push_front(BPCcheckbox);
+     editableCheckBoxItems.push_front(gamutWarnCheckbox);
      
 }
 
@@ -181,7 +170,7 @@ void kmsettings::populateProfiles()
     // FIXME Not sure if gray works?
     fillProfileComboBoxes(oyASSUMED_GRAY, assumeGrayCombo);  
 
-    fillProfileComboBoxes(oyASSUMED_RGB, proofColorProfileCombo);
+    fillProfileComboBoxes(oyPROFILE_PROOF, proofColorProfileCombo);
 }
 
 // Filter comboboxes in 'Default Profiles' with appropriate profiles.
@@ -239,12 +228,24 @@ void kmsettings::populateBehaviorSettings()
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_INTENT_PROOF);
      proofRIntentCombo->setCurrentIndex(behavior_setting);
 
+     behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_BPC);
+     if(behavior_setting == 1)
+          BPCcheckbox->setChecked(true);
+     else 
+          BPCcheckbox->setChecked(false);
+
+     behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_GAMUT_WARNING);
+     if(behavior_setting == 1)
+          gamutWarnCheckbox->setChecked(true);
+     else 
+          gamutWarnCheckbox->setChecked(false);
+
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_PROOF_SOFT);
      if(behavior_setting == 1)
           softProofCheckbox->setChecked(true);
      else 
           softProofCheckbox->setChecked(false);
-      
+
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_PROOF_HARD);
 
      if(behavior_setting == 1)
@@ -264,8 +265,6 @@ void kmsettings::populateBehaviorSettings()
 // Last "clicked on" policy by the user.
 void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
 {
-     setPolicyButton->setEnabled(true);
-
     // If user makes a settings change, and then clicks on a different policy...
     if (settingsChanged == true && isCustom == true)   
     {
@@ -301,6 +300,7 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
 
      populateBehaviorSettings();       // Refresh settings in "Behavior Settings"
      refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
+     refreshPolicySettings();
 
      setEditableItems(isCustom);
 }
@@ -361,23 +361,23 @@ void kmsettings::refreshProfileSettings()
      proofColorProfileCombo->setCurrentIndex(profileSearchIndex);    
 }
 
-// Set Policy as Default.
-void kmsettings::setPolicy()
+void kmsettings::refreshPolicySettings()
 {
-     isCustom = false;    // For now, we assume the user is using a default policy.        
-
+   // Load policy.
+   int count = 0, current = -1;
+   const char ** names = 0;
+   oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
+   if(names && count && current >= 0)
+   {
+     selected_policy = names[current];
      // Set user selected policy as system default.
      currentPolicyLabel->setText(selected_policy);      // Update default policy label.
-     default_policy = selected_policy;    
-
-     oyPolicySet( selected_policy.toLocal8Bit(), 0 );
-
-     // Once a new policy is obtained, the UI needs to update the settings.
-     populateBehaviorSettings();       // Refresh settings in "Behavior Settings"
-     refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
-
-     setEditableItems(isCustom);
+     printf( "acual policy: %s\n", names[current] );
+   } else
+     currentPolicyLabel->setText("----");
 }
+
+
 
 // This function controls whether or not the settings are read-only.
 void kmsettings::setEditableItems(bool itemStatus)
@@ -389,7 +389,7 @@ void kmsettings::setEditableItems(bool itemStatus)
          combobox->setEnabled(itemStatus);
      }
 
-     QRadioButton * checkbox;
+     QCheckBox * checkbox;
      for (int i = 0; i < editableCheckBoxItems.size(); i++)
      {
          checkbox = editableCheckBoxItems.value(i);
@@ -440,6 +440,7 @@ void kmsettings::addNewPolicy()
    // Create a "blank" XML file based on entered name.
    selected_policy = xmlFileName;
    saveCustomXmlFile();
+   refreshPolicySettings();
 }
 
 void kmsettings::removeCustomPolicy()
@@ -458,12 +459,12 @@ void kmsettings::removeCustomPolicy()
 
 void kmsettings::saveSettingsToXml()
 {     
-     saveCustomXmlFile();
+   saveCustomXmlFile();
+   refreshPolicySettings();
 }
 
-// Create a new file that's currently stored in the customProfileDirectory QString.
 
-void kmsettings::saveCustomXmlFile()
+void kmsettings::saveSettings()
 { 
     QString stringToXml;    
     int behaviorSetting;    
@@ -515,6 +516,16 @@ void kmsettings::saveCustomXmlFile()
     behaviorSetting = printerMixedCombo->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_PRINT , behaviorSetting );
 
+    if (BPCcheckbox->isChecked())
+        oySetBehaviour ( oyBEHAVIOUR_RENDERING_BPC , 1 );
+    else
+        oySetBehaviour ( oyBEHAVIOUR_RENDERING_BPC , 0 );
+
+    if (gamutWarnCheckbox->isChecked())
+        oySetBehaviour ( oyBEHAVIOUR_RENDERING_GAMUT_WARNING , 1 );
+    else
+        oySetBehaviour ( oyBEHAVIOUR_RENDERING_GAMUT_WARNING , 0 );
+
     if (softProofCheckbox->isChecked())
         oySetBehaviour ( oyBEHAVIOUR_PROOF_SOFT , 1 );
     else
@@ -524,9 +535,13 @@ void kmsettings::saveCustomXmlFile()
         oySetBehaviour( oyBEHAVIOUR_PROOF_HARD , 1 );
     else 
         oySetBehaviour(oyBEHAVIOUR_PROOF_HARD  , 0 );
+}
+// Create a new file that's currently stored in the customProfileDirectory QString.
 
+void kmsettings::saveCustomXmlFile()
+{ 
+    saveSettings();
     oyPolicySaveActual(oyGROUP_ALL, selected_policy.toLocal8Bit()); 
-
 }
 
 // Used to enable the "Apply" button.
@@ -535,6 +550,9 @@ void kmsettings::emitChanged()
      // Ungrey "Apply" button. 
      settingsChanged = true;
      emit changed(true);     
+
+     saveSettings();
+     refreshPolicySettings();
 }
 
 // Function to save/refresh installed policies in system.
