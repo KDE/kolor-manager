@@ -140,8 +140,16 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
 
     // Save tree list parents to QTreeWidgetItem pointers.
     devicesParentTree = installedProfilesTree->topLevelItem(0);
+    const char * g_name = NULL;
+    QString name;
     editingCsTree = installedProfilesTree->topLevelItem(1);
+    oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES_EDIT, NULL, &g_name,
+                      NULL, NULL );
+    editingCsTree->setText(0, name.fromLatin1(g_name));
     assumedCsTree = installedProfilesTree->topLevelItem(2);
+    oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES_ASSUMED, NULL, &g_name,
+                      NULL, NULL );
+    assumedCsTree->setText(0, name.fromLatin1(g_name));
 
     // For convenience, we expand colorspace trees.
     installedProfilesTree->expandItem(editingCsTree);
@@ -224,6 +232,9 @@ void kminfo::populateInstalledProfileList()
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_LAB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
          addProfileTreeItem( oyEDITING_LAB, name.fromLatin1(g_name), editingCsTree );
+     oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_GRAY, NULL, &g_name, NULL, NULL );
+     if (strlen(g_name) > 0)
+         addProfileTreeItem( oyEDITING_GRAY, name.fromLatin1(g_name), editingCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_RGB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
         addProfileTreeItem( oyASSUMED_RGB, name.fromLatin1(g_name), assumedCsTree );
@@ -236,6 +247,9 @@ void kminfo::populateInstalledProfileList()
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_LAB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
         addProfileTreeItem( oyASSUMED_LAB, name.fromLatin1(g_name), assumedCsTree );
+     oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_GRAY, NULL, &g_name, NULL, NULL );
+     if (strlen(g_name) > 0)
+        addProfileTreeItem( oyASSUMED_GRAY, name.fromLatin1(g_name), assumedCsTree );
 }
 
 void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
