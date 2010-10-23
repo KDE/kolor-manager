@@ -602,6 +602,26 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   return device;
 }
 
+  void kmsleep(double sekunden)
+  {
+#          if defined(__GCC__) || defined(__APPLE__)
+             timespec ts;
+             double ganz;
+             double rest = modf(sekunden, &ganz);
+             ts.tv_sec = (time_t)ganz;
+             ts.tv_nsec = (time_t)(rest * 1000000000);
+             //DBG_PROG_V( sekunden<<" "<<ts.tv_sec<<" "<<ganz<<" "<<rest )
+             nanosleep(&ts, 0);
+#          else
+#            if defined( WIN32 ) 
+               Sleep((DWORD)(sekunden*(double)CLOCKS_PER_SEC));
+#            else
+               usleep((time_t)(sekunden*(double)CLOCKS_PER_SEC));
+#            endif
+#          endif
+  }
+
+
 // Set default profile.
 void kmdevices::assingProfile( QString & profile_name )
 {        
@@ -629,6 +649,9 @@ void kmdevices::assingProfile( QString & profile_name )
            device = getCurrentDevice();
          }
          error = oyDeviceSetup( device ); /* reinitialise */
+         /* compiz needs some time to exchange the profiles,
+            immediately we would get the old colour server profile */
+         kmsleep(0.3);
          error = kmDeviceGetProfile( device, &profile ); /* reget profile */
 
          /* clear */
