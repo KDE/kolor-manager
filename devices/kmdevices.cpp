@@ -418,7 +418,7 @@ void kmdevices::updateProfileList(oyConfig_s * device)
 
 // Populate "Assign Profile" combobox.  Depending on the device selected, the profile list will vary.
 void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
-{    
+{
     int size, i, current;
     oyProfile_s * profile = 0, * temp_profile = 0;
     oyProfiles_s * patterns = 0, * iccs = 0;
@@ -430,8 +430,13 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 
     iccs = oyProfiles_Create( patterns, 0 );
     oyProfiles_Release( &patterns );
-    
+ 
     QString getProfileDescription;
+
+    size = oyProfiles_Count(iccs);
+    int32_t * rank_list = (int32_t*) malloc( oyProfiles_Count(iccs) *
+                                             sizeof(int32_t) );
+    oyProfiles_DeviceRank( iccs, device, rank_list );
 
     size = oyProfiles_Count(iccs);
 
@@ -440,13 +445,22 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
     kmDeviceGetProfile( device, &profile ); /* reget profile */
     profile_file_name = oyProfile_GetFileName( profile, 0 );
 
+    int empty_added = -1;
+
     for( i = 0; i < size; ++i)
     {
       const char * temp_profile_file_name;
          temp_profile = oyProfiles_Get( iccs, i );
          getProfileDescription = oyProfile_GetText( temp_profile, oyNAME_DESCRIPTION );
          temp_profile_file_name = oyProfile_GetFileName( temp_profile, 0);
-         
+ 
+         if(empty_added == -1 &&
+            rank_list[i] < 1)
+         {
+           deviceProfileComboBox->addItem("");
+           empty_added = i;
+           ++current;
+         }
 
          getProfileDescription.append("\t(");
          getProfileDescription.append(temp_profile_file_name);
@@ -458,6 +472,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
          deviceProfileComboBox->addItem(getProfileDescription);
       oyProfile_Release( &temp_profile );
     }
+  if(empty_added == -1)
     deviceProfileComboBox->addItem("");
   oyConfig_Release( &device );
   oyProfile_Release( &profile );
