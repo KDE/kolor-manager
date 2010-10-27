@@ -47,6 +47,9 @@ private slots:
     // When user clicks on a device tree item.
     void changeDeviceItem( QTreeWidgetItem* );
 
+    // Hitting the "Show only device related ICC profiles" button.
+    void changeDeviceItem( int state );
+
     // When user clicks on a profile list item
     void profileListDoubleClicked( QListWidgetItem* );
 private:

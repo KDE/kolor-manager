@@ -108,6 +108,8 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     // QT-related Signal/Slot calls (for button-press and item selection events)si.
     connect( deviceList, SIGNAL(itemClicked( QTreeWidgetItem*, int)),
              this, SLOT( changeDeviceItem( QTreeWidgetItem*)) );
+    connect( relatedDeviceCheckBox, SIGNAL(stateChanged( int )),
+             this, SLOT( changeDeviceItem( int )) );
     connect( deviceProfileComboBox, SIGNAL(activated(int)),
              this, SLOT( openProfile(int)) );
     connect( profileAssociationList, SIGNAL( itemDoubleClicked( QListWidgetItem* )),
@@ -304,6 +306,12 @@ void kmdevices::detectRaw()
 
 
 //        ** SIGNAL/SLOT Related Functions **  
+// Hitting the "Show only device related ICC profiles" button 
+// relatedDeviceCheckBox.
+void kmdevices::changeDeviceItem(int /*state*/)
+{     
+  changeDeviceItem( currentDevice );
+} 
 
 // When the user clicks on an item in the devices tree list.
 void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
@@ -445,6 +453,8 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
     kmDeviceGetProfile( device, &profile ); /* reget profile */
     profile_file_name = oyProfile_GetFileName( profile, 0 );
 
+    Qt::CheckState show_only_device_related = 
+                                            relatedDeviceCheckBox->checkState();
     int empty_added = -1;
 
     for( i = 0; i < size; ++i)
@@ -469,7 +479,11 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
          if(profile_file_name && temp_profile_file_name &&
             strcmp( profile_file_name, temp_profile_file_name ) == 0)
            current = i;
-         deviceProfileComboBox->addItem(getProfileDescription);
+
+         if(empty_added == -1 ||
+            show_only_device_related == Qt::Unchecked ||
+            current == i)
+           deviceProfileComboBox->addItem(getProfileDescription);
       oyProfile_Release( &temp_profile );
     }
   if(empty_added == -1)
@@ -482,7 +496,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 }
 
 // Add a new profile to the list.
-void kmdevices::openProfile(int index)
+void kmdevices::openProfile(int /*index*/)
 {
     int parenthesis_index = 0, base_filename_index = 0, str_size = 0, i;        
     QString baseFileName = deviceProfileComboBox->currentText(),
