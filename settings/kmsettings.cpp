@@ -50,6 +50,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos.h>
 #include <oyranos_config.h>
 #include <alpha/oyranos_alpha.h>
+#include <locale.h>
 
 // Code to provide KDE module functionality for Kolor Management.
 K_PLUGIN_FACTORY( kmsettingsFactory, 
@@ -82,7 +83,7 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
                      "j.simon.iii@astound.net" );
     
     setAboutData( about );
-    
+
    setupUi(this);              // Load Gui.
 
    removePolicyButton->setEnabled(false);
@@ -107,13 +108,14 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    connect(addNewPolicyButton, SIGNAL(clicked()), this, SLOT(addNewPolicy()));
    connect(removePolicyButton, SIGNAL(clicked()), this, SLOT(removeCustomPolicy()));
 
-   int k = 0;   
+   int k = 0, n = editableComboItems.size();
    // When a user clicks on any combo box, the "Apply" button will be enabled.
-   for(k = 0; k < editableComboItems.size(); k++)
+   for(k = 0; k < n; k++)
     connect(editableComboItems.value(k), SIGNAL(activated(int)), this, SLOT(emitChanged()));
 
+   n = editableCheckBoxItems.size();
    // When a user clicks on a radio box, the "Apply" button will be enabled.
-   for(k = 0; k < editableCheckBoxItems.size(); k++)
+   for(k = 0; k < n; k++)
     connect(editableCheckBoxItems.value(k), SIGNAL(clicked()), this, SLOT(emitChanged()));    
 }
 
@@ -158,16 +160,12 @@ void kmsettings::populateProfiles()
     fillProfileComboBoxes(oyEDITING_CMYK, editCmykCombo);
     fillProfileComboBoxes(oyEDITING_LAB, editLabCombo);
     fillProfileComboBoxes(oyEDITING_XYZ, editXyzCombo);
-    
-    // FIXME Not sure if gray works?
     fillProfileComboBoxes(oyEDITING_GRAY, editGrayCombo);
 
     fillProfileComboBoxes(oyASSUMED_RGB, assumeRgbCombo);
     fillProfileComboBoxes(oyASSUMED_CMYK, assumeCmykCombo);
     fillProfileComboBoxes(oyASSUMED_LAB, assumeLabCombo);
     fillProfileComboBoxes(oyASSUMED_XYZ, assumeXyzCombo);
-    
-    // FIXME Not sure if gray works?
     fillProfileComboBoxes(oyASSUMED_GRAY, assumeGrayCombo);  
 
     fillProfileComboBoxes(oyPROFILE_PROOF, proofColorProfileCombo);
@@ -481,6 +479,9 @@ void kmsettings::saveSettings()
     stringToXml = editLabCombo->currentText();
     oySetDefaultProfile(oyEDITING_LAB, stringToXml.toLocal8Bit());
 
+    stringToXml = editGrayCombo->currentText();
+    oySetDefaultProfile(oyEDITING_GRAY, stringToXml.toLocal8Bit());
+
     stringToXml = assumeRgbCombo->currentText();
     oySetDefaultProfile(oyASSUMED_RGB, stringToXml.toLocal8Bit());
 
@@ -492,6 +493,9 @@ void kmsettings::saveSettings()
 
     stringToXml = assumeXyzCombo->currentText();
     oySetDefaultProfile(oyASSUMED_XYZ, stringToXml.toLocal8Bit());
+
+    stringToXml = assumeGrayCombo->currentText();
+    oySetDefaultProfile(oyASSUMED_GRAY, stringToXml.toLocal8Bit());
 
     //----------------------------------------------------------------
 
@@ -580,12 +584,12 @@ void kmsettings::loadPolicy()
 {
   const char ** names = NULL;
   int count = 0, i, current = -1;
-  oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
 
+  policySettingsList->clear();
+
+  oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
   for(i = 0; i < count; ++i)
-  {
     policySettingsList->addItem( names[i] );
-  }
 }
 
 kmsettings::~kmsettings()
