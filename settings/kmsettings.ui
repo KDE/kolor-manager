@@ -42,7 +42,7 @@
    <item row="1" column="0" colspan="2">
     <widget class="QTabWidget" name="kmsettingsTab">
      <property name="currentIndex">
-      <number>1</number>
+      <number>0</number>
      </property>
      <widget class="QWidget" name="policySettingsTab">
       <attribute name="title">
@@ -50,7 +50,7 @@
       </attribute>
       <layout class="QGridLayout" name="gridLayout_6">
        <item row="2" column="0">
-        <widget class="QGroupBox" name="policySetttingsBox">
+        <widget class="QGroupBox" name="policySettingsBox">
          <property name="title">
           <string>Policy Settings</string>
          </property>
@@ -112,13 +112,6 @@ p, li { white-space: pre-wrap; }
             </property>
            </widget>
           </item>
-          <item row="3" column="1">
-           <widget class="Line" name="line_2">
-            <property name="orientation">
-             <enum>Qt::Horizontal</enum>
-            </property>
-           </widget>
-          </item>
           <item row="4" column="1">
            <widget class="QPushButton" name="addNewPolicyButton">
             <property name="text">
@@ -145,6 +138,13 @@ p, li { white-space: pre-wrap; }
              </size>
             </property>
            </spacer>
+          </item>
+          <item row="3" column="1">
+           <widget class="Line" name="line_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -173,70 +173,70 @@ p, li { white-space: pre-wrap; }
          </property>
          <layout class="QGridLayout" name="gridLayout_17">
           <item row="0" column="0">
-           <widget class="QLabel" name="label_7">
+           <widget class="QLabel" name="label_ASSUMED_RGB">
             <property name="text">
              <string>Assumed RGB Source</string>
             </property>
            </widget>
           </item>
           <item row="0" column="1">
-           <widget class="QComboBox" name="assumeRgbCombo">
+           <widget class="QComboBox" name="combo_ASSUMED_RGB">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="1" column="0">
-           <widget class="QLabel" name="label_8">
+           <widget class="QLabel" name="label_ASSUMED_CMYK">
             <property name="text">
              <string>Assumed CMYK Source</string>
             </property>
            </widget>
           </item>
           <item row="1" column="1">
-           <widget class="QComboBox" name="assumeCmykCombo">
+           <widget class="QComboBox" name="combo_ASSUMED_CMYK">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="2" column="0">
-           <widget class="QLabel" name="label_10">
+           <widget class="QLabel" name="label_ASSUMED_XYZ">
             <property name="text">
              <string>Assumed XYZ Source</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="assumeXyzCombo">
+           <widget class="QComboBox" name="combo_ASSUMED_XYZ">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="label_11">
+           <widget class="QLabel" name="label_ASSUMED_LAB">
             <property name="text">
              <string>Assumed Lab Source</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QComboBox" name="assumeLabCombo">
+           <widget class="QComboBox" name="combo_ASSUMED_LAB">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QLabel" name="assumedGrayLabel">
+           <widget class="QLabel" name="label_ASSUMED_GRAY">
             <property name="text">
              <string>Assumed Gray Source</string>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QComboBox" name="assumeGrayCombo"/>
+           <widget class="QComboBox" name="combo_ASSUMED_GRAY"/>
           </item>
           <item row="5" column="0" colspan="2">
            <widget class="Line" name="line">
@@ -246,14 +246,14 @@ p, li { white-space: pre-wrap; }
            </widget>
           </item>
           <item row="6" column="0">
-           <widget class="QLabel" name="webSourceLabel">
+           <widget class="QLabel" name="label_ASSUMED_WEB">
             <property name="text">
              <string>Web Source</string>
             </property>
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QComboBox" name="editRgbCombo_7">
+           <widget class="QComboBox" name="combo_ASSUMED_WEB">
             <property name="enabled">
              <bool>false</bool>
             </property>
@@ -288,70 +288,70 @@ p, li { white-space: pre-wrap; }
          </property>
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="2" column="0">
-           <widget class="QLabel" name="label_2">
+           <widget class="QLabel" name="label_EDITING_RGB">
             <property name="text">
              <string>Editing RGB</string>
             </property>
            </widget>
           </item>
           <item row="2" column="1">
-           <widget class="QComboBox" name="editRgbCombo">
+           <widget class="QComboBox" name="combo_EDITING_RGB">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="3" column="0">
-           <widget class="QLabel" name="label_3">
+           <widget class="QLabel" name="label_EDITING_CMYK">
             <property name="text">
              <string>Editing CMYK</string>
             </property>
            </widget>
           </item>
           <item row="3" column="1">
-           <widget class="QComboBox" name="editCmykCombo">
+           <widget class="QComboBox" name="combo_EDITING_CMYK">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="4" column="0">
-           <widget class="QLabel" name="label_5">
+           <widget class="QLabel" name="label_EDITING_XYZ">
             <property name="text">
              <string>Editing XYZ</string>
             </property>
            </widget>
           </item>
           <item row="4" column="1">
-           <widget class="QComboBox" name="editXyzCombo">
+           <widget class="QComboBox" name="combo_EDITING_XYZ">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="5" column="0">
-           <widget class="QLabel" name="label_6">
+           <widget class="QLabel" name="label_EDITING_LAB">
             <property name="text">
              <string>Editing Lab</string>
             </property>
            </widget>
           </item>
           <item row="5" column="1">
-           <widget class="QComboBox" name="editLabCombo">
+           <widget class="QComboBox" name="combo_EDITING_LAB">
             <property name="enabled">
              <bool>true</bool>
             </property>
            </widget>
           </item>
           <item row="6" column="0">
-           <widget class="QLabel" name="label_9">
+           <widget class="QLabel" name="label_EDITING_GRAY">
             <property name="text">
              <string>Editing Gray</string>
             </property>
            </widget>
           </item>
           <item row="6" column="1">
-           <widget class="QComboBox" name="editGrayCombo"/>
+           <widget class="QComboBox" name="combo_EDITING_GRAY"/>
           </item>
          </layout>
         </widget>
@@ -379,7 +379,7 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <layout class="QGridLayout" name="gridLayout_9">
          <item row="2" column="0">
-          <widget class="QGroupBox" name="groupBox">
+          <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_MISSMATCH">
            <property name="toolTip">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -403,28 +403,28 @@ p, li { white-space: pre-wrap; }
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout">
               <item row="0" column="0">
-               <widget class="QLabel" name="label_12">
+               <widget class="QLabel" name="label_ACTION_UNTAGGED_ASSIGN">
                 <property name="text">
                  <string>For Non-existent Profile</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="2">
-               <widget class="QLabel" name="label_13">
+               <widget class="QLabel" name="label_ACTION_OPEN_MISMATCH_RGB">
                 <property name="text">
                  <string>For RGB Mismatch</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="3">
-               <widget class="QLabel" name="label_14">
+               <widget class="QLabel" name="label_ACTION_OPEN_MISMATCH_CMYK">
                 <property name="text">
                  <string>For CMYK Mismatch</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QComboBox" name="ifNoProfileCombo">
+               <widget class="QComboBox" name="combo_ACTION_UNTAGGED_ASSIGN">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -455,7 +455,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QComboBox" name="ifRgbMismatchCombo">
+               <widget class="QComboBox" name="combo_ACTION_OPEN_MISMATCH_RGB">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -486,7 +486,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="3">
-               <widget class="QComboBox" name="ifCmykMismatchCombo">
+               <widget class="QComboBox" name="combo_ACTION_OPEN_MISMATCH_CMYK">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -535,7 +535,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="4" column="0">
-          <widget class="QGroupBox" name="groupBox_3">
+          <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_MIXED_MODE_DOCUMENTS">
            <property name="toolTip">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -556,7 +556,7 @@ p, li { white-space: pre-wrap; }
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_4">
               <item row="0" column="0">
-               <widget class="QLabel" name="label_17">
+               <widget class="QLabel" name="label_MIXED_MOD_DOCUMENTS_SCREEN">
                 <property name="text">
                  <string>For Screen</string>
                 </property>
@@ -566,7 +566,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QComboBox" name="monitorMixedCombo">
+               <widget class="QComboBox" name="combo_MIXED_MOD_DOCUMENTS_SCREEN">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -603,7 +603,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QLabel" name="label_18">
+               <widget class="QLabel" name="label_MIXED_MOD_DOCUMENTS_PRINT">
                 <property name="text">
                  <string>Printer</string>
                 </property>
@@ -613,7 +613,7 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="1">
-               <widget class="QComboBox" name="printerMixedCombo">
+               <widget class="QComboBox" name="combo_MIXED_MOD_DOCUMENTS_PRINT">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -655,7 +655,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="3" column="0">
-          <widget class="QGroupBox" name="groupBox_2">
+          <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_PROOF">
            <property name="toolTip">
             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
 &lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
@@ -676,14 +676,14 @@ p, li { white-space: pre-wrap; }
             <item row="0" column="0">
              <layout class="QGridLayout" name="gridLayout_3">
               <item row="0" column="0">
-               <widget class="QLabel" name="label_15">
+               <widget class="QLabel" name="label_PROFILE_PROOF">
                 <property name="text">
                  <string>Color Space</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="2">
-               <widget class="QComboBox" name="proofColorProfileCombo">
+               <widget class="QComboBox" name="combo_PROFILE_PROOF">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -693,14 +693,14 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="1" column="0">
-               <widget class="QLabel" name="label_16">
+               <widget class="QLabel" name="label_RENDERING_INTENT_PROOF">
                 <property name="text">
                  <string>Rendering Intent</string>
                 </property>
                </widget>
               </item>
               <item row="1" column="2">
-               <widget class="QComboBox" name="proofRIntentCombo">
+               <widget class="QComboBox" name="combo_RENDERING_INTENT_PROOF">
                 <property name="contextMenuPolicy">
                  <enum>Qt::ActionsContextMenu</enum>
                 </property>
@@ -733,7 +733,7 @@ p, li { white-space: pre-wrap; }
               <item row="2" column="2">
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
-                 <widget class="QCheckBox" name="softProofCheckbox">
+                 <widget class="QCheckBox" name="check_PROOF_SOFT">
                   <property name="contextMenuPolicy">
                    <enum>Qt::DefaultContextMenu</enum>
                   </property>
@@ -753,7 +753,7 @@ p, li { white-space: pre-wrap; }
                  </widget>
                 </item>
                 <item>
-                 <widget class="QCheckBox" name="hardProofCheckbox">
+                 <widget class="QCheckBox" name="check_PROOF_HARD">
                   <property name="contextMenuPolicy">
                    <enum>Qt::DefaultContextMenu</enum>
                   </property>
@@ -777,7 +777,7 @@ p, li { white-space: pre-wrap; }
           </widget>
          </item>
          <item row="0" column="0">
-          <widget class="QGroupBox" name="renderingSettingsBox">
+          <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_RENDERING">
            <property name="acceptDrops">
             <bool>false</bool>
            </property>
@@ -804,7 +804,7 @@ p, li { white-space: pre-wrap; }
             <item>
              <layout class="QGridLayout" name="gridLayout_19">
               <item row="0" column="0">
-               <widget class="QComboBox" name="defaultRIntentCombo">
+               <widget class="QComboBox" name="combo_RENDERING_INTENT">
                 <property name="mouseTracking">
                  <bool>false</bool>
                 </property>
@@ -862,14 +862,14 @@ p, li { white-space: pre-wrap; }
                </widget>
               </item>
               <item row="0" column="1">
-               <widget class="QCheckBox" name="BPCcheckbox">
+               <widget class="QCheckBox" name="check_RENDERING_BPC">
                 <property name="text">
                  <string>BlackPointCompensation</string>
                 </property>
                </widget>
               </item>
               <item row="0" column="3">
-               <widget class="QCheckBox" name="gamutWarnCheckbox">
+               <widget class="QCheckBox" name="check_RENDERING_GAMUT_WARNING">
                 <property name="text">
                  <string>Gamut Warning</string>
                 </property>

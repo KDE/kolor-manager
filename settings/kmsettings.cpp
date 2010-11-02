@@ -96,6 +96,108 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
 
    settingsChanged = false;
 
+  /* i18n */
+  QString qs;
+  int i;
+        int             count = 0,
+                        current = 0,
+                        flags = 0;
+        const char    * tooltip = NULL;
+        const char   ** names = NULL;
+        const char    * name = NULL;
+        oyWIDGET_TYPE_e type = oyWIDGETTYPE_START;
+
+  
+  type = oyWidgetTitleGet( oyWIDGET_POLICY, NULL, &name, &tooltip, &flags );
+  qs = QString::fromLocal8Bit(name);
+  policySettingsBox->setTitle(qs);
+  kmsettingsTab->setTabText(0,qs);
+  qs = QString::fromLocal8Bit( tooltip );
+  policyLabel->setText(qs);
+
+  type = oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES, NULL, &name, &tooltip, &flags );
+  qs = QString::fromLocal8Bit(name);
+  kmsettingsTab->setTabText(1,qs);
+  
+  type = oyWidgetTitleGet( oyWIDGET_GROUP_BEHAVIOUR, NULL, &name, &tooltip, &flags );
+  qs = QString::fromLocal8Bit(name,-1);
+  kmsettingsTab->setTabText(2,qs);
+
+#define SET_OY_PROFILE_WIDGET( widget ) \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit(name); \
+  label_##widget->setText( qs ); \
+  qs = QString::fromLocal8Bit( tooltip ); \
+  label_##widget->setToolTip( qs ); \
+  combo_##widget->setToolTip( qs );
+
+#define SET_OY_BOX_WIDGET( widget ) \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit(name); \
+  box_##widget->setTitle( qs ); \
+  qs = QString::fromLocal8Bit( tooltip ); \
+  box_##widget->setToolTip( qs );
+
+#define SET_OY_COMBO_WIDGET( widget ) \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
+  oyOptionChoicesGet( oyWIDGET_##widget, &count, &names, &current ); \
+  qs = QString::fromLocal8Bit( tooltip ); \
+  combo_##widget->setToolTip( qs ); \
+  combo_##widget->clear(); \
+  for(i = 0; i < count; ++i) \
+  { \
+    qs = QString::fromLocal8Bit( names[i] ); \
+    combo_##widget->addItem( qs ); \
+  }
+
+#define SET_OY_CHECK_WIDGET( widget ) \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit( name ); \
+  check_##widget->setText( qs ); \
+  qs = QString::fromLocal8Bit( tooltip ); \
+  check_##widget->setToolTip( qs );
+
+#define SET_OY_LABEL_WIDGET( widget ) \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit(name); \
+  label_##widget->setText( qs ); \
+  qs = QString::fromLocal8Bit( tooltip ); \
+  label_##widget->setToolTip( qs );
+
+  SET_OY_PROFILE_WIDGET( EDITING_RGB );
+  SET_OY_PROFILE_WIDGET( EDITING_CMYK );
+  SET_OY_PROFILE_WIDGET( EDITING_LAB );
+  SET_OY_PROFILE_WIDGET( EDITING_XYZ );
+  SET_OY_PROFILE_WIDGET( EDITING_GRAY );
+  SET_OY_PROFILE_WIDGET( ASSUMED_RGB );
+  SET_OY_PROFILE_WIDGET( ASSUMED_CMYK );
+  SET_OY_PROFILE_WIDGET( ASSUMED_LAB );
+  SET_OY_PROFILE_WIDGET( ASSUMED_XYZ );
+  SET_OY_PROFILE_WIDGET( ASSUMED_GRAY );
+  SET_OY_PROFILE_WIDGET( ASSUMED_WEB );
+  SET_OY_PROFILE_WIDGET( PROFILE_PROOF );
+  SET_OY_BOX_WIDGET( GROUP_BEHAVIOUR_RENDERING );
+  SET_OY_BOX_WIDGET( GROUP_BEHAVIOUR_MIXED_MODE_DOCUMENTS );
+  SET_OY_BOX_WIDGET( GROUP_BEHAVIOUR_MISSMATCH );
+  SET_OY_BOX_WIDGET( GROUP_BEHAVIOUR_PROOF );
+  SET_OY_COMBO_WIDGET( ACTION_UNTAGGED_ASSIGN );
+  SET_OY_LABEL_WIDGET( ACTION_UNTAGGED_ASSIGN );
+  SET_OY_COMBO_WIDGET( ACTION_OPEN_MISMATCH_RGB );
+  SET_OY_LABEL_WIDGET( ACTION_OPEN_MISMATCH_RGB );
+  SET_OY_COMBO_WIDGET( ACTION_OPEN_MISMATCH_CMYK );
+  SET_OY_LABEL_WIDGET( ACTION_OPEN_MISMATCH_CMYK );
+  SET_OY_COMBO_WIDGET( MIXED_MOD_DOCUMENTS_PRINT );
+  SET_OY_LABEL_WIDGET( MIXED_MOD_DOCUMENTS_PRINT );
+  SET_OY_COMBO_WIDGET( MIXED_MOD_DOCUMENTS_SCREEN );
+  SET_OY_LABEL_WIDGET( MIXED_MOD_DOCUMENTS_SCREEN );
+  SET_OY_COMBO_WIDGET( RENDERING_INTENT );
+  SET_OY_COMBO_WIDGET( RENDERING_INTENT_PROOF );
+  SET_OY_LABEL_WIDGET( RENDERING_INTENT_PROOF );
+  SET_OY_CHECK_WIDGET( RENDERING_BPC );
+  SET_OY_CHECK_WIDGET( PROOF_SOFT );
+  SET_OY_CHECK_WIDGET( PROOF_HARD );
+  SET_OY_CHECK_WIDGET( RENDERING_GAMUT_WARNING );
+
    // Load behavior settings and display current default policy.
    populateBehaviorSettings();
    refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
@@ -117,6 +219,8 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    // When a user clicks on a radio box, the "Apply" button will be enabled.
    for(k = 0; k < n; k++)
     connect(editableCheckBoxItems.value(k), SIGNAL(clicked()), this, SLOT(emitChanged()));    
+
+
 }
 
 
@@ -124,31 +228,31 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
 //  (this is convenient to detect each settings change by the user).
 void kmsettings::loadEditableItems()
 {      
-     editableComboItems.push_front(editRgbCombo);
-     editableComboItems.push_front(editCmykCombo);   
-     editableComboItems.push_front(editXyzCombo);
-     editableComboItems.push_front(editLabCombo);
-     editableComboItems.push_front(assumeRgbCombo);
-     editableComboItems.push_front(assumeCmykCombo);   
-     editableComboItems.push_front(assumeXyzCombo);
-     editableComboItems.push_front(assumeLabCombo);
+     editableComboItems.push_front(combo_EDITING_RGB);
+     editableComboItems.push_front(combo_EDITING_CMYK);   
+     editableComboItems.push_front(combo_EDITING_XYZ);
+     editableComboItems.push_front(combo_EDITING_LAB);
+     editableComboItems.push_front(combo_ASSUMED_RGB);
+     editableComboItems.push_front(combo_ASSUMED_CMYK);   
+     editableComboItems.push_front(combo_ASSUMED_XYZ);
+     editableComboItems.push_front(combo_ASSUMED_LAB);
 
-     editableComboItems.push_front(editGrayCombo);
-     editableComboItems.push_front(assumeGrayCombo);   
+     editableComboItems.push_front(combo_EDITING_GRAY);
+     editableComboItems.push_front(combo_ASSUMED_GRAY);   
      
-     editableComboItems.push_front(defaultRIntentCombo);
-     editableComboItems.push_front(ifNoProfileCombo);    
-     editableComboItems.push_front(ifRgbMismatchCombo);
-     editableComboItems.push_front(ifCmykMismatchCombo);
-     editableComboItems.push_front(proofRIntentCombo);    
-     editableComboItems.push_front(monitorMixedCombo);
-     editableComboItems.push_front(proofColorProfileCombo);
-     editableComboItems.push_front(printerMixedCombo);     
+     editableComboItems.push_front(combo_RENDERING_INTENT);
+     editableComboItems.push_front(combo_ACTION_UNTAGGED_ASSIGN);    
+     editableComboItems.push_front(combo_ACTION_OPEN_MISMATCH_RGB);
+     editableComboItems.push_front(combo_ACTION_OPEN_MISMATCH_CMYK);
+     editableComboItems.push_front(combo_RENDERING_INTENT_PROOF);    
+     editableComboItems.push_front(combo_MIXED_MOD_DOCUMENTS_SCREEN);
+     editableComboItems.push_front(combo_MIXED_MOD_DOCUMENTS_PRINT);     
+     editableComboItems.push_front(combo_PROFILE_PROOF);
 
-     editableCheckBoxItems.push_front(softProofCheckbox);
-     editableCheckBoxItems.push_front(hardProofCheckbox);
-     editableCheckBoxItems.push_front(BPCcheckbox);
-     editableCheckBoxItems.push_front(gamutWarnCheckbox);
+     editableCheckBoxItems.push_front(check_PROOF_SOFT);
+     editableCheckBoxItems.push_front(check_PROOF_HARD);
+     editableCheckBoxItems.push_front(check_RENDERING_BPC);
+     editableCheckBoxItems.push_front(check_RENDERING_GAMUT_WARNING);
      
 }
 
@@ -156,19 +260,19 @@ void kmsettings::loadEditableItems()
 void kmsettings::populateProfiles()
 {
     // Fill comboboxes with each 'filtered' profile.
-    fillProfileComboBoxes(oyEDITING_RGB, editRgbCombo);
-    fillProfileComboBoxes(oyEDITING_CMYK, editCmykCombo);
-    fillProfileComboBoxes(oyEDITING_LAB, editLabCombo);
-    fillProfileComboBoxes(oyEDITING_XYZ, editXyzCombo);
-    fillProfileComboBoxes(oyEDITING_GRAY, editGrayCombo);
+    fillProfileComboBoxes(oyEDITING_RGB, combo_EDITING_RGB);
+    fillProfileComboBoxes(oyEDITING_CMYK, combo_EDITING_CMYK);
+    fillProfileComboBoxes(oyEDITING_LAB, combo_EDITING_LAB);
+    fillProfileComboBoxes(oyEDITING_XYZ, combo_EDITING_XYZ);
+    fillProfileComboBoxes(oyEDITING_GRAY, combo_EDITING_GRAY);
 
-    fillProfileComboBoxes(oyASSUMED_RGB, assumeRgbCombo);
-    fillProfileComboBoxes(oyASSUMED_CMYK, assumeCmykCombo);
-    fillProfileComboBoxes(oyASSUMED_LAB, assumeLabCombo);
-    fillProfileComboBoxes(oyASSUMED_XYZ, assumeXyzCombo);
-    fillProfileComboBoxes(oyASSUMED_GRAY, assumeGrayCombo);  
+    fillProfileComboBoxes(oyASSUMED_RGB, combo_ASSUMED_RGB);
+    fillProfileComboBoxes(oyASSUMED_CMYK, combo_ASSUMED_CMYK);
+    fillProfileComboBoxes(oyASSUMED_LAB, combo_ASSUMED_LAB);
+    fillProfileComboBoxes(oyASSUMED_XYZ, combo_ASSUMED_XYZ);
+    fillProfileComboBoxes(oyASSUMED_GRAY, combo_ASSUMED_GRAY);  
 
-    fillProfileComboBoxes(oyPROFILE_PROOF, proofColorProfileCombo);
+    fillProfileComboBoxes(oyPROFILE_PROOF, combo_PROFILE_PROOF);
 }
 
 // Filter comboboxes in 'Default Profiles' with appropriate profiles.
@@ -208,56 +312,56 @@ void kmsettings::populateBehaviorSettings()
      int behavior_setting;
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_INTENT);
-     defaultRIntentCombo->setCurrentIndex(behavior_setting);
+     combo_RENDERING_INTENT->setCurrentIndex(behavior_setting);
 
 //  Populate Mismatch Handling Settings
    
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_ACTION_UNTAGGED_ASSIGN);
-     ifNoProfileCombo->setCurrentIndex(behavior_setting);
+     combo_ACTION_UNTAGGED_ASSIGN->setCurrentIndex(behavior_setting);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_ACTION_OPEN_MISMATCH_RGB);
-     ifRgbMismatchCombo->setCurrentIndex(behavior_setting);
+     combo_ACTION_OPEN_MISMATCH_RGB->setCurrentIndex(behavior_setting);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_ACTION_OPEN_MISMATCH_CMYK);
-     ifCmykMismatchCombo->setCurrentIndex(behavior_setting);
+     combo_ACTION_OPEN_MISMATCH_CMYK->setCurrentIndex(behavior_setting);
 
 //  Set up Proofing Settings  
   
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_INTENT_PROOF);
-     proofRIntentCombo->setCurrentIndex(behavior_setting);
+     combo_RENDERING_INTENT_PROOF->setCurrentIndex(behavior_setting);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_BPC);
      if(behavior_setting == 1)
-          BPCcheckbox->setChecked(true);
+          check_RENDERING_BPC->setChecked(true);
      else 
-          BPCcheckbox->setChecked(false);
+          check_RENDERING_BPC->setChecked(false);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_GAMUT_WARNING);
      if(behavior_setting == 1)
-          gamutWarnCheckbox->setChecked(true);
+          check_RENDERING_GAMUT_WARNING->setChecked(true);
      else 
-          gamutWarnCheckbox->setChecked(false);
+          check_RENDERING_GAMUT_WARNING->setChecked(false);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_PROOF_SOFT);
      if(behavior_setting == 1)
-          softProofCheckbox->setChecked(true);
+          check_PROOF_SOFT->setChecked(true);
      else 
-          softProofCheckbox->setChecked(false);
+          check_PROOF_SOFT->setChecked(false);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_PROOF_HARD);
 
      if(behavior_setting == 1)
-          hardProofCheckbox->setChecked(true);
+          check_PROOF_HARD->setChecked(true);
      else 
-          hardProofCheckbox->setChecked(false);
+          check_PROOF_HARD->setChecked(false);
 
 // Set up Mixed Color Settings
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_SCREEN);
-     monitorMixedCombo->setCurrentIndex(behavior_setting);
+     combo_MIXED_MOD_DOCUMENTS_SCREEN->setCurrentIndex(behavior_setting);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_PRINT);
-     printerMixedCombo->setCurrentIndex(behavior_setting);     
+     combo_MIXED_MOD_DOCUMENTS_PRINT->setCurrentIndex(behavior_setting);     
 }
 
 // Last "clicked on" policy by the user.
@@ -315,48 +419,48 @@ void kmsettings::refreshProfileSettings()
         under each combo box in "Default Profiles".  The combobox will then display
         the default profile.                                                     */
      xmlToString = oyGetDefaultProfileName (oyEDITING_RGB, 0); 
-     profileSearchIndex = editRgbCombo->findText( xmlToString, Qt::MatchExactly);
-     editRgbCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_EDITING_RGB->findText( xmlToString, Qt::MatchExactly);
+     combo_EDITING_RGB->setCurrentIndex(profileSearchIndex);
      
      xmlToString = oyGetDefaultProfileName (oyEDITING_CMYK, 0);
-     profileSearchIndex = editCmykCombo->findText( xmlToString, Qt::MatchExactly);
-     editCmykCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_EDITING_CMYK->findText( xmlToString, Qt::MatchExactly);
+     combo_EDITING_CMYK->setCurrentIndex(profileSearchIndex);
      
      xmlToString = oyGetDefaultProfileName (oyEDITING_XYZ, 0);
-     profileSearchIndex = editXyzCombo->findText( xmlToString, Qt::MatchExactly);
-     editXyzCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_EDITING_XYZ->findText( xmlToString, Qt::MatchExactly);
+     combo_EDITING_XYZ->setCurrentIndex(profileSearchIndex);
     
      xmlToString = oyGetDefaultProfileName (oyEDITING_LAB, 0);
-     profileSearchIndex = editLabCombo->findText( xmlToString, Qt::MatchExactly);
-     editLabCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_EDITING_LAB->findText( xmlToString, Qt::MatchExactly);
+     combo_EDITING_LAB->setCurrentIndex(profileSearchIndex);
 
      xmlToString = oyGetDefaultProfileName (oyEDITING_GRAY, 0);
-     profileSearchIndex = editGrayCombo->findText( xmlToString, Qt::MatchExactly);
-     editGrayCombo->setCurrentIndex(profileSearchIndex);  
+     profileSearchIndex = combo_EDITING_GRAY->findText( xmlToString, Qt::MatchExactly);
+     combo_EDITING_GRAY->setCurrentIndex(profileSearchIndex);  
      
      xmlToString = oyGetDefaultProfileName (oyASSUMED_RGB, 0);
-     profileSearchIndex = assumeRgbCombo->findText( xmlToString, Qt::MatchExactly);
-     assumeRgbCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_ASSUMED_RGB->findText( xmlToString, Qt::MatchExactly);
+     combo_ASSUMED_RGB->setCurrentIndex(profileSearchIndex);
      
      xmlToString = oyGetDefaultProfileName (oyASSUMED_CMYK, 0);
-     profileSearchIndex = editCmykCombo->findText( xmlToString, Qt::MatchExactly);
-     assumeCmykCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_EDITING_CMYK->findText( xmlToString, Qt::MatchExactly);
+     combo_ASSUMED_CMYK->setCurrentIndex(profileSearchIndex);
      
      xmlToString = oyGetDefaultProfileName (oyASSUMED_XYZ, 0);
-     profileSearchIndex = editXyzCombo->findText( xmlToString, Qt::MatchExactly);
-     assumeXyzCombo->setCurrentIndex(profileSearchIndex);
+     profileSearchIndex = combo_EDITING_XYZ->findText( xmlToString, Qt::MatchExactly);
+     combo_ASSUMED_XYZ->setCurrentIndex(profileSearchIndex);
     
      xmlToString = oyGetDefaultProfileName (oyASSUMED_LAB, 0);
-     profileSearchIndex = assumeLabCombo->findText( xmlToString, Qt::MatchExactly);
-     assumeLabCombo->setCurrentIndex(profileSearchIndex);  
+     profileSearchIndex = combo_ASSUMED_LAB->findText( xmlToString, Qt::MatchExactly);
+     combo_ASSUMED_LAB->setCurrentIndex(profileSearchIndex);  
 
      xmlToString = oyGetDefaultProfileName (oyASSUMED_GRAY, 0);
-     profileSearchIndex = assumeGrayCombo->findText( xmlToString, Qt::MatchExactly);
-     assumeGrayCombo->setCurrentIndex(profileSearchIndex);  
+     profileSearchIndex = combo_ASSUMED_GRAY->findText( xmlToString, Qt::MatchExactly);
+     combo_ASSUMED_GRAY->setCurrentIndex(profileSearchIndex);  
 
      xmlToString = oyGetDefaultProfileName (oyPROFILE_PROOF, 0);
-     profileSearchIndex = proofColorProfileCombo->findText( xmlToString, Qt::MatchExactly);
-     proofColorProfileCombo->setCurrentIndex(profileSearchIndex);    
+     profileSearchIndex = combo_PROFILE_PROOF->findText( xmlToString, Qt::MatchExactly);
+     combo_PROFILE_PROOF->setCurrentIndex(profileSearchIndex);    
 }
 
 void kmsettings::refreshPolicySettings()
@@ -467,75 +571,78 @@ void kmsettings::saveSettings()
     QString stringToXml;    
     int behaviorSetting;    
    
-    stringToXml = editRgbCombo->currentText();
+    stringToXml = combo_EDITING_RGB->currentText();
     oySetDefaultProfile(oyEDITING_RGB, stringToXml.toLocal8Bit()); 
  
-    stringToXml = editCmykCombo->currentText();
+    stringToXml = combo_EDITING_CMYK->currentText();
     oySetDefaultProfile(oyEDITING_CMYK, stringToXml.toLocal8Bit());
 
-    stringToXml = editXyzCombo->currentText();
+    stringToXml = combo_EDITING_XYZ->currentText();
     oySetDefaultProfile(oyEDITING_XYZ, stringToXml.toLocal8Bit());
 
-    stringToXml = editLabCombo->currentText();
+    stringToXml = combo_EDITING_LAB->currentText();
     oySetDefaultProfile(oyEDITING_LAB, stringToXml.toLocal8Bit());
 
-    stringToXml = editGrayCombo->currentText();
+    stringToXml = combo_EDITING_GRAY->currentText();
     oySetDefaultProfile(oyEDITING_GRAY, stringToXml.toLocal8Bit());
 
-    stringToXml = assumeRgbCombo->currentText();
+    stringToXml = combo_ASSUMED_RGB->currentText();
     oySetDefaultProfile(oyASSUMED_RGB, stringToXml.toLocal8Bit());
 
-    stringToXml = assumeCmykCombo->currentText();
+    stringToXml = combo_ASSUMED_CMYK->currentText();
     oySetDefaultProfile(oyASSUMED_CMYK, stringToXml.toLocal8Bit());
 
-    stringToXml = assumeLabCombo->currentText();
+    stringToXml = combo_ASSUMED_LAB->currentText();
     oySetDefaultProfile(oyASSUMED_LAB, stringToXml.toLocal8Bit());
 
-    stringToXml = assumeXyzCombo->currentText();
+    stringToXml = combo_ASSUMED_XYZ->currentText();
     oySetDefaultProfile(oyASSUMED_XYZ, stringToXml.toLocal8Bit());
 
-    stringToXml = assumeGrayCombo->currentText();
+    stringToXml = combo_ASSUMED_GRAY->currentText();
     oySetDefaultProfile(oyASSUMED_GRAY, stringToXml.toLocal8Bit());
+
+    stringToXml = combo_PROFILE_PROOF->currentText();
+    oySetDefaultProfile(oyPROFILE_PROOF, stringToXml.toLocal8Bit());
 
     //----------------------------------------------------------------
 
-    behaviorSetting = defaultRIntentCombo->currentIndex();
+    behaviorSetting = combo_RENDERING_INTENT->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_RENDERING_INTENT, behaviorSetting );
 
-    behaviorSetting = ifNoProfileCombo->currentIndex();
+    behaviorSetting = combo_ACTION_UNTAGGED_ASSIGN->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_ACTION_UNTAGGED_ASSIGN, behaviorSetting );
 
-    behaviorSetting = ifRgbMismatchCombo->currentIndex();
+    behaviorSetting = combo_ACTION_OPEN_MISMATCH_RGB->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_RGB , behaviorSetting );
   
-    behaviorSetting = ifCmykMismatchCombo->currentIndex();
+    behaviorSetting = combo_ACTION_OPEN_MISMATCH_CMYK->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_CMYK , behaviorSetting );
 
-    behaviorSetting = proofRIntentCombo->currentIndex();
+    behaviorSetting = combo_RENDERING_INTENT_PROOF->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_RENDERING_INTENT_PROOF , behaviorSetting );
 
-    behaviorSetting = monitorMixedCombo->currentIndex();
+    behaviorSetting = combo_MIXED_MOD_DOCUMENTS_SCREEN->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_SCREEN , behaviorSetting );
 
-    behaviorSetting = printerMixedCombo->currentIndex();
+    behaviorSetting = combo_MIXED_MOD_DOCUMENTS_PRINT->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_PRINT , behaviorSetting );
 
-    if (BPCcheckbox->isChecked())
+    if (check_RENDERING_BPC->isChecked())
         oySetBehaviour ( oyBEHAVIOUR_RENDERING_BPC , 1 );
     else
         oySetBehaviour ( oyBEHAVIOUR_RENDERING_BPC , 0 );
 
-    if (gamutWarnCheckbox->isChecked())
+    if (check_RENDERING_GAMUT_WARNING->isChecked())
         oySetBehaviour ( oyBEHAVIOUR_RENDERING_GAMUT_WARNING , 1 );
     else
         oySetBehaviour ( oyBEHAVIOUR_RENDERING_GAMUT_WARNING , 0 );
 
-    if (softProofCheckbox->isChecked())
+    if (check_PROOF_SOFT->isChecked())
         oySetBehaviour ( oyBEHAVIOUR_PROOF_SOFT , 1 );
     else
         oySetBehaviour ( oyBEHAVIOUR_PROOF_SOFT , 0 );
 
-    if (hardProofCheckbox->isChecked())
+    if (check_PROOF_HARD->isChecked())
         oySetBehaviour( oyBEHAVIOUR_PROOF_HARD , 1 );
     else 
         oySetBehaviour(oyBEHAVIOUR_PROOF_HARD  , 0 );
