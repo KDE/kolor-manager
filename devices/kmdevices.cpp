@@ -464,12 +464,12 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
          getProfileDescription = oyProfile_GetText( temp_profile, oyNAME_DESCRIPTION );
          temp_profile_file_name = oyProfile_GetFileName( temp_profile, 0);
  
+         current = -1;
          if(empty_added == -1 &&
             rank_list[i] < 1)
          {
            deviceProfileComboBox->addItem("");
            empty_added = i;
-           ++current;
          }
 
          getProfileDescription.append("\t(");
@@ -480,8 +480,8 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
             strcmp( profile_file_name, temp_profile_file_name ) == 0)
            current = i;
 
-         if(empty_added == -1 ||
-            show_only_device_related == Qt::Unchecked ||
+         if(show_only_device_related == Qt::Unchecked ||
+            rank_list[i] > 0 ||
             current == i)
            deviceProfileComboBox->addItem(getProfileDescription);
       oyProfile_Release( &temp_profile );
