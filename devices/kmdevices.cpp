@@ -174,7 +174,7 @@ int kmdevices::detectDevices(const char * device_type)
 
     // Must have at least one device detected to add to the list.
     if(device_num > 0)
-    {        
+    {
         QIcon device_icon;
         QSize icon_size(30, 30);
 
