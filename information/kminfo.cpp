@@ -182,7 +182,7 @@ void kminfo::launchICCExamin()
     QString exec;
 
     if(!directoryListingTag->text().isNull())
-      exec = iccExaminCommand + " " + directoryListingTag->text() + "&";
+      exec = iccExaminCommand + " \"" + directoryListingTag->text() + "\"&";
     else
     {
       // Write to a temporary file.
