@@ -427,7 +427,7 @@ void kmdevices::updateProfileList(oyConfig_s * device)
 // Populate "Assign Profile" combobox.  Depending on the device selected, the profile list will vary.
 void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 {
-    int size, i, current;
+    int size, i, current = -1, current_tmp, pos = 0;
     oyProfile_s * profile = 0, * temp_profile = 0;
     oyProfiles_s * patterns = 0, * iccs = 0;
     oyConfig_s * device = getCurrentDevice();
@@ -464,30 +464,45 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
          getProfileDescription = oyProfile_GetText( temp_profile, oyNAME_DESCRIPTION );
          temp_profile_file_name = oyProfile_GetFileName( temp_profile, 0);
  
-         current = -1;
+         current_tmp = -1;
+
+         if(profile_file_name && temp_profile_file_name &&
+            strcmp( profile_file_name, temp_profile_file_name ) == 0)
+           current_tmp = pos;
+
+         if(current == -1 && current_tmp != -1)
+           current = current_tmp;
+
          if(empty_added == -1 &&
             rank_list[i] < 1)
          {
            deviceProfileComboBox->addItem("");
-           empty_added = i;
+           empty_added = pos;
+           if(current != -1 &&
+              current == pos)
+             ++current;
+           ++pos;
          }
-
-         getProfileDescription.append("\t(");
-         getProfileDescription.append(temp_profile_file_name);
-         getProfileDescription.append(")");
-
-         if(profile_file_name && temp_profile_file_name &&
-            strcmp( profile_file_name, temp_profile_file_name ) == 0)
-           current = i;
 
          if(show_only_device_related == Qt::Unchecked ||
             rank_list[i] > 0 ||
-            current == i)
+            current_tmp != -1)
+         {
+           getProfileDescription.append("\t(");
+           getProfileDescription.append(temp_profile_file_name);
+           getProfileDescription.append(")");
            deviceProfileComboBox->addItem(getProfileDescription);
+           ++pos;
+         }
       oyProfile_Release( &temp_profile );
     }
   if(empty_added == -1)
+  {
     deviceProfileComboBox->addItem("");
+    ++pos;
+    if(current == -1 && current_tmp != -1)
+      current = pos;
+  }
   oyConfig_Release( &device );
   oyProfile_Release( &profile );
   oyProfiles_Release( &iccs );
