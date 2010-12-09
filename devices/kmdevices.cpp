@@ -175,42 +175,19 @@ int kmdevices::detectDevices(const char * device_type)
     // Must have at least one device detected to add to the list.
     if(device_num > 0)
     {
+        // Set up Kolor Manager gui "logistics" for a specified device.
+        QTreeWidgetItem * parent_item = new QTreeWidgetItem;
+        parent_item->setText(0, oyConfDomain_GetText( d, "device_class",
+                                                      oyNAME_NAME ));
+        QVariant v( device_class );
+        parent_item->setData( 0, Qt::UserRole, v );
+        deviceList->insertTopLevelItem(0, parent_item);
+
         QIcon device_icon;
         QSize icon_size(30, 30);
-
-        // Set up Kolor Manager gui "logistics" for a specified device.
-        if(strstr(reg_app, "monitor"))
-        {
-            device_icon.addFile( ":/resources/monitor.png", icon_size , QIcon::Normal, QIcon::On);
-
-            parent_monitor_item = new QTreeWidgetItem;
-            parent_monitor_item->setText(0, device_class);
-            deviceList->insertTopLevelItem(0, parent_monitor_item);
-        }
-        else if(strstr(reg_app, "printer"))
-        {
-            device_icon.addFile( ":/resources/printer1.png", icon_size , QIcon::Normal, QIcon::On);
-
-            parent_printer_item = new QTreeWidgetItem;
-            parent_printer_item->setText(0, device_class);
-            deviceList->insertTopLevelItem(0, parent_printer_item);
-        }
-        else if(strstr( reg_app, "scanner" ))
-        {
-            device_icon.addFile( ":/resources/scanner.png", icon_size , QIcon::Normal, QIcon::On);
-
-            parent_scanner_item = new QTreeWidgetItem;
-            parent_scanner_item->setText(0, device_class);
-            deviceList->insertTopLevelItem(0, parent_scanner_item);
-        }
-        else
-        {
-            //device_icon.addFile( ":/resources/other.png", icon_size , QIcon::Normal, QIcon::On);
-
-            parent_other_item = new QTreeWidgetItem;
-            parent_other_item->setText(0, device_class);
-            deviceList->insertTopLevelItem(0, parent_other_item);
-        }
+        QString icon;
+        icon = QString(":/resources/") + device_class + ".png";
+        device_icon.addFile( icon, icon_size , QIcon::Normal, QIcon::On);
 
         // Traverse through the available devices 
         for (j = 0; j < device_num; j++)
@@ -236,7 +213,7 @@ int kmdevices::detectDevices(const char * device_type)
             error = oyDeviceGetInfo(device, oyNAME_NICK, 0, &device_designation, malloc);
  
             // A printer will only take a "device model"
-            if (strcmp(reg_app,"printer") != 0)
+            if (strcmp(device_class,"printer") != 0)
             {
                 deviceItemString.append(device_manufacturer);
                 deviceItemString.append(" ");
@@ -267,16 +244,11 @@ int kmdevices::detectDevices(const char * device_type)
             deviceListPointer->setText(PROFILE_DESCRIPTION, deviceProfileDescription);   
             deviceListPointer->setText(PROFILE_FILENAME, profile_filename);
         
-            if (strstr(reg_app, "monitor"))
-                parent_monitor_item->addChild(deviceListPointer);
-            else if (strstr(reg_app, "printer"))
-                parent_printer_item->addChild(deviceListPointer);
-            else if (strstr(reg_app, "scanner"))
-                parent_scanner_item->addChild(deviceListPointer);
-            else
-                parent_other_item->addChild(deviceListPointer);
+            parent_item->addChild(deviceListPointer);
+
             oyConfig_Release(&device);
         }
+        
      }
      else
         error = -1;
@@ -291,17 +263,6 @@ int kmdevices::detectDevices(const char * device_type)
 // Display an item that will open a dialog to use camera functionality.
 void kmdevices::detectRaw()
 {
-    parent_camera_item = new QTreeWidgetItem;
-    parent_camera_item->setText(0, "Camera(s)");
-    deviceList->insertTopLevelItem(0, parent_camera_item);
-
-    deviceListPointer = new QTreeWidgetItem();
-
-    const char * dummy = "Click to add camera support...";
-
-    deviceListPointer->setText(0, dummy);
- 
-    parent_camera_item->addChild(deviceListPointer);
 }
 
 
@@ -317,10 +278,7 @@ void kmdevices::changeDeviceItem(int /*state*/)
 void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
 {     
     // Don't count top parent items as a "selected device".
-    if (selected_device == parent_monitor_item ||
-        selected_device == parent_printer_item ||
-        selected_device == parent_scanner_item ||
-        selected_device == parent_camera_item  )
+    if (selected_device->parent() == deviceListPointer)
     {         
          deviceProfileComboBox->setEnabled(false);
         
@@ -340,30 +298,30 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     raw_string = (currentDevice->text(DEVICE_NAME)).toLatin1();
     setCurrentDeviceName(raw_string.data());
         
-    // Change "Available Device Profiles" combobox to device-related profiles.
-    if ( selected_device->parent() == parent_monitor_item )      
-    {  
-             setCurrentDeviceClass("monitor");
-             populateDeviceComboBox(icSigDisplayClass);             
-             profileAssociationList->clear();
-    }
-    // NOTE First, the profile need to be fixed in order to be functional.
-    else if ( selected_device->parent() == parent_printer_item )
-    {
-            setCurrentDeviceClass("printer");
-            populateDeviceComboBox(icSigOutputClass);
-            profileAssociationList->clear();
-    }
-    
-     // TODO Does icSigInputClass return any profile?
-    else if ( selected_device->parent() == parent_scanner_item )
-    {
-             setCurrentDeviceClass("scanner");
-             populateDeviceComboBox(icSigInputClass);               
-    }
 
-    else if ( selected_device->parent() == parent_camera_item )
-             populateDeviceComboBox(icSigInputClass);
+    // Change "Available Device Profiles" combobox to device-related profiles.
+    if ( selected_device->parent() != deviceListPointer )
+    {  
+      QVariant v = selected_device->data( 0, Qt::UserRole );
+      QString qs_device_class = v.toString();
+      QByteArray raw_string;
+      raw_string = qs_device_class.toLatin1();
+      const char * device_class = raw_string.data();
+      oyConfDomain_s * d = oyConfDomain_FromReg( device_class, 0 );
+      const char * icc_profile_class = oyConfDomain_GetText( d,
+                                             "icc_profile_class", oyNAME_NICK );
+      setCurrentDeviceClass(device_class);
+
+          if(icc_profile_class && strcmp(icc_profile_class,"display") == 0)
+        populateDeviceComboBox(icSigDisplayClass);
+      else if(icc_profile_class && strcmp(icc_profile_class,"output") == 0)
+        populateDeviceComboBox(icSigOutputClass);
+      else if(icc_profile_class && strcmp(icc_profile_class,"input") == 0)
+        populateDeviceComboBox(icSigInputClass);
+      profileAssociationList->clear();
+
+      oyConfDomain_Release( &d );
+    }
 
     // Get the device that the user selected.
     oyConfig_s * device = 0;

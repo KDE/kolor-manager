@@ -116,13 +116,6 @@ private:
     // Pointer used to store address of 'recently clicked' device item widget.
     QTreeWidgetItem * currentDevice;
 
-    // Point to device list column.
-    QTreeWidgetItem * parent_monitor_item;
-    QTreeWidgetItem * parent_printer_item;
-    QTreeWidgetItem * parent_scanner_item;
-    QTreeWidgetItem * parent_camera_item;
-    QTreeWidgetItem * parent_other_item;
-    
     bool listModified;                // Was the list changed by the user?
 
     // Global string values for Oyranos device identification 
