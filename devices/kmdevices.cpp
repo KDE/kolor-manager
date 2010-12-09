@@ -298,15 +298,19 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     raw_string = (currentDevice->text(DEVICE_NAME)).toLatin1();
     setCurrentDeviceName(raw_string.data());
         
-
-    // Change "Available Device Profiles" combobox to device-related profiles.
-    if ( selected_device->parent() != deviceListPointer )
-    {  
-      QVariant v = selected_device->data( 0, Qt::UserRole );
+    char * device_class = 0;
+    if(selected_device && selected_device->parent())
+    {
+      QVariant v = selected_device->parent()->data( 0, Qt::UserRole );
       QString qs_device_class = v.toString();
       QByteArray raw_string;
       raw_string = qs_device_class.toLatin1();
-      const char * device_class = raw_string.data();
+      device_class = strdup(raw_string.data());
+    }
+
+    // Change "Available Device Profiles" combobox to device-related profiles.
+    if ( device_class )
+    {  
       oyConfDomain_s * d = oyConfDomain_FromReg( device_class, 0 );
       const char * icc_profile_class = oyConfDomain_GetText( d,
                                              "icc_profile_class", oyNAME_NICK );
@@ -321,6 +325,7 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
       profileAssociationList->clear();
 
       oyConfDomain_Release( &d );
+      free(device_class); device_class = 0;
     }
 
     // Get the device that the user selected.
