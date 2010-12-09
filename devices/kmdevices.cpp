@@ -75,7 +75,7 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
 {       
      KAboutData* about = new KAboutData(
         "kmdevices", 0, ki18n("KMDevices"), 0, KLocalizedString(),
-        KAboutData::License_GPL,
+        KAboutData::License_BSD,
         ki18n("(c) 2008 Joseph Simon III")
     );
     about->addAuthor( ki18n("Joseph Simon III"), KLocalizedString(),

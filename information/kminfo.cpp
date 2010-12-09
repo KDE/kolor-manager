@@ -280,12 +280,12 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
       if(strstr(reg_app,"monitor"))
         device_icon = QIcon(":/resources/monitor.png");
       else if(strstr(reg_app,"printer"))
-        device_icon = QIcon(":/resources/printer1.png");
+        device_icon = QIcon(":/resources/printer.png");
       else if(strstr(reg_app,"scanner"))
         device_icon = QIcon(":/resources/scanner.png");
 
       // pick the modules device class nick name
-      device_class = oyConfDomain_GetText( d, "device_class", oyNAME_NICK );
+      device_class = oyConfDomain_GetText( d, "device_class", oyNAME_NAME );
 
       QTreeWidgetItem * device_list_sub_tree = new QTreeWidgetItem;
       device_list_sub_tree->setText(0, device_class);
