@@ -2,7 +2,8 @@
 *   KDE Kolor Manager README  *
 *******************************
 
-started by Joe Simon in summer 2008
+started by Joe Simon in summer 2008-2009
+currently maintained by Kai-Uwe Behrmann 2010
 
 "Evaluation" Package
 
@@ -13,8 +14,8 @@ started by Joe Simon in summer 2008
 
 -----REQUIRED LIBRARIES---------------------------------------------
 
--This build is currently using the latest Oyranos build through "gits".  It is
-required that Oyranos be up to date using this
+-This build is currently using the latest Oyranos build through "git".  It is
+required that Oyranos be up to date using this.
 
 
 -----INSTALLATION----------------------------------------------------
@@ -57,7 +58,7 @@ ColourWiki: http://www.oyranos.org/wiki/index.php?title=Kolor-manager
 mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=~/.kde4/ -DCMAKE_BUILD_TYPE=debugfull ../kolor-manager
-#Possibly prepend the PKG_CONFIG_PATH variable to reflect Oyranos/lcms...
+#Possibly prepend the PKG_CONFIG_PATH variable to reflect Oyranos...
 kbuildsycoca4 # update KDEs internal icon and module cachings
 kcmshell4 kminfo & # start
 
@@ -85,7 +86,7 @@ The following issues, shall be forwarded as "FIXMEs" from here on:
 KMSETTINGS
 -The configuration has to be ported to a Oyranos configure object to manipulate
 settings and then apply at once. This is currently not possible, as each setting
-is imediately aplpied to the Oyranos settings DB.  
+is imediately applied to the Oyranos settings DB.  
 
 KMDEVICES
 -Camera support needs to be outlined first
