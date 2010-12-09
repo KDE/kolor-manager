@@ -124,11 +124,13 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
 {
        KAboutData* about = new KAboutData(
         "kminfo", 0, ki18n("KMInfo"), 0, KLocalizedString(),
-        KAboutData::License_GPL,
+        KAboutData::License_BSD,
         ki18n("(c) 2008 Joseph Simon III")
     );
-    about->addAuthor( ki18n("Joseph Simon III"), KLocalizedString(),
+    about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
+    about->addAuthor( ki18n("2010 Kai-Uwe Behrmann"), KLocalizedString(),
+                      "ku.b@gmx.de"  );
 
     setAboutData( about );
     current_profile = 0;
