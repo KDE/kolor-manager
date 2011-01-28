@@ -13,7 +13,7 @@ SET( ${PROJECT_NAME}_MINOR_VERSION 1)
 find_package(KDE4 REQUIRED )
 find_package(Oyranos REQUIRED)
 
-include_directories(${KDE4_INCLUDES} ${OYRANOS_INCLUDE_DIR})
+include_directories(${KDE4_INCLUDES} ${OYRANOS_INCLUDE_DIR} ${OYRANOS_INCLUDE_DIR}/alpha/object)
 
 
 SET( ${CMAKE_BUILD_TYPE} Debug)
