@@ -214,12 +214,12 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
 
    int k = 0, n = editableComboItems.size();
    // When a user clicks on any combo box, the "Apply" button will be enabled.
-   for(k = 0; k < n; k++)
+   for(k = 0; k < n; ++k)
     connect(editableComboItems.value(k), SIGNAL(activated(int)), this, SLOT(emitChanged()));
 
    n = editableCheckBoxItems.size();
    // When a user clicks on a radio box, the "Apply" button will be enabled.
-   for(k = 0; k < n; k++)
+   for(k = 0; k < n; ++k)
     connect(editableCheckBoxItems.value(k), SIGNAL(clicked()), this, SLOT(emitChanged()));    
 
 
@@ -291,7 +291,7 @@ void kmsettings::fillProfileComboBoxes(oyPROFILE_e profile_type, QComboBox * pro
     iccs = oyProfiles_ForStd( profile_type, &current, 0 );
 
     size = oyProfiles_Count(iccs);
-    for( i = 0; i < size; i++)
+    for( i = 0; i < size; ++i)
     {
        temp_prof = oyProfiles_Get( iccs, i );
        profile_text = oyProfile_GetText( temp_prof, oyNAME_DESCRIPTION );

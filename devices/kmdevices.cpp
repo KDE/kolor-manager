@@ -39,10 +39,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <QFileDialog>
-#include <KConfig>
 #include <QMouseEvent>
 #include <QDesktopWidget>
-#include <KConfig>
 #include <KSharedConfigPtr>
 #include <KAboutData>
 
@@ -149,7 +147,7 @@ void kmdevices::populateDeviceListing()
   oyConfigDomainList( "//"OY_TYPE_STD"/config.device.icc_profile",
                       &texts, &count, &rank_list ,0 );
 
-  for (i = 0; i < count; i++)
+  for (i = 0; i < count; ++i)
   {
     error = detectDevices( texts[i] );
   }
@@ -192,7 +190,7 @@ int kmdevices::detectDevices(const char * device_type)
         device_icon.addFile( icon, icon_size , QIcon::Normal, QIcon::On);
 
         // Traverse through the available devices 
-        for (j = 0; j < device_num; j++)
+        for (j = 0; j < device_num; ++j)
         {
             QString deviceItemString, deviceProfileDescription;
 
@@ -498,7 +496,7 @@ void kmdevices::openProfile(int /*index*/)
     baseFileName.remove(0, base_filename_index + 1); 
 
     // Error if user adds a duplicate profile.
-    for(i = 0; i < profileAssociationList->count(); i++)
+    for(i = 0; i < profileAssociationList->count(); ++i)
     {
           temp_item = profileAssociationList->item(i);
           if(temp_item->text() == baseFileName)
@@ -649,7 +647,7 @@ void kmdevices::assingProfile( QString & profile_name )
          if(strlen(pn))
            error = oyDeviceSetProfile ( device, pn );
          error = oyDeviceUnset( device ); /* unset the device */
-         /* completly unset the actual profile from DB */
+         /* completely unset the actual profile from DB */
          if(!strlen(pn))
          {
            error = oyConfig_EraseFromDB( device );

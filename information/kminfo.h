@@ -91,7 +91,7 @@ private:
      // Function to write tag descriptions to individual labels
      void setTagDescriptions(oyProfile_s *, icTagSignature, QLabel *);
  
-     // The following provide additonal tags to be displayed.
+     // The following provide additional tags to be displayed.
      void setPcsTag(oyProfile_s * profile, QLabel * pcsLabel);
      void setCSpaceTag(oyProfile_s * profile, QLabel * cSpaceLabel);
      void setIccsTag(oyProfile_s * profile, QLabel * iccsLabel);

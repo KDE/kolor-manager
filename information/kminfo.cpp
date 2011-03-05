@@ -73,7 +73,7 @@ bool kminfo::iccExaminIsInstalled(QString &iccExaminPath)
      const QString iccExamin = QString::fromLocal8Bit("iccexamin");
 # endif /* __WIN32__ */
 
-     QString Path = QString::fromLocal8Bit(getenv("PATH"));
+     QString Path = QString::fromLocal8Bit(qgetenv("PATH"));
      QFileInfo fileinfo;
 
      bool done = false;
@@ -200,7 +200,7 @@ void kminfo::launchICCExamin()
         file.flush();
         file.close();
         free(data); data = 0;
-        exec = iccExaminCommand + " " + "/tmp/icc_examin_temp.icc" + "&";
+        exec = iccExaminCommand + " /tmp/icc_examin_temp.icc&";
       } else
         return;
     }
@@ -270,7 +270,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
     oyConfigDomainList( "//"OY_TYPE_STD"/config.device.icc_profile",
                         &texts, &count, &rank_list ,0 );
 
-    for (i = 0; i < count; i++)
+    for (i = 0; i < count; ++i)
     {
       oyConfigs_s * devices = 0;
       const char * reg_app = strrchr(texts[i],'/')+1;
@@ -298,7 +298,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         oyConfig_s * device = oyConfigs_Get( devices, j );
         char * device_info = 0;
 
-        // get expensive informations to see the "model" option
+        // get expensive information to see the "model" option
         error = oyDeviceGetInfo( device, oyNAME_DESCRIPTION, 0,
                                  &device_info, malloc );
         error = oyDeviceGetInfo( device, oyNAME_NAME, 0,
