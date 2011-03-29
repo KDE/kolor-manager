@@ -187,7 +187,7 @@ int kmdevices::detectDevices(const char * device_type)
         QSize icon_size(30, 30);
         QString icon;
         icon = QString(":/resources/") + device_class + ".png";
-        device_icon.addFile( icon, icon_size , QIcon::Normal, QIcon::On);
+        device_icon.addFile( icon.toLower(), icon_size , QIcon::Normal, QIcon::On);
 
         // Traverse through the available devices 
         for (j = 0; j < device_num; ++j)
