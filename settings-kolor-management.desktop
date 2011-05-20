@@ -2,7 +2,7 @@
 Type=Service
 X-KDE-ServiceTypes=SystemSettingsCategory
 X-KDE-System-Settings-Category=kolor-management
-X-KDE-System-Settings-Parent-Category=computer-administration
+X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=oyranos_logo
 
 Name=Kolor Management
