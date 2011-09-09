@@ -1,27 +1,20 @@
+find_package(PkgConfig)
+pkg_check_modules(OYRANOS oyranos)
 
-INCLUDE(UsePkgConfig)
-PKGCONFIG(oyranos _OyranosIncDir _OyranosLinkDir _OyranosLinkFlags _OyranosCflags)
 
-set(OYRANOS_DEFINITIONS ${_OyranosCflags})
-set(OYRANOS_LIBRARIES ${_OyranosLinkFlags})
-set(OYRANOS_INCLUDE_DIR ${_OyranosIncDir})
-
-if(OYRANOS_DEFINITIONS AND OYRANOS_LIBRARIES)
-
-  # query pkg-config asking for Oyranos >= 0.1.7
-  EXEC_PROGRAM(${PKGCONFIG_EXECUTABLE} ARGS --atleast-version=0.1.7 oyranos RETURN_VALUE _return_VALUE OUTPUT_VARIABLE _pkgconfigDevNull )
+if(OYRANOS_CFLAGS AND OYRANOS_LIBRARY_DIRS)
 
   if(_return_VALUE STREQUAL "0")
     set(OYRANOS_FOUND TRUE)
     set(HAVE_OYRANOS TRUE)
   else(_return_VALUE STREQUAL "0")
-    message(STATUS "Oyranos >= 0.1.7 was found")
+    message(STATUS "Oyranos >= 0.3.0 was found")
   endif(_return_VALUE STREQUAL "0")
-endif(OYRANOS_DEFINITIONS AND OYRANOS_LIBRARIES)
+endif(OYRANOS_CFLAGS AND OYRANOS_LIBRARY_DIRS)
 
 if (OYRANOS_FOUND)
     if (NOT Oyranos_FIND_QUIETLY)
-        message(STATUS "Found OYRANOS: ${OYRANOS_LIBRARIES} ${OYRANOS_INCLUDE_DIR}")
+        message(STATUS "Found OYRANOS: ${OYRANOS_LIBRARY_DIRS} ${OYRANOS_INCLUDE_DIRS}")
     endif (NOT Oyranos_FIND_QUIETLY)
 else (OYRANOS_FOUND)
     if (NOT Oyranos_FIND_QUIETLY)
