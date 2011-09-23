@@ -57,7 +57,7 @@ ColourWiki: http://www.oyranos.org/wiki/index.php?title=Kolor-manager
 # local debug build
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/.kde4/ -DCMAKE_BUILD_TYPE=debugfull ../kolor-manager
+cmake -DCMAKE_INSTALL_PREFIX=~/.kde4/ -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_CXX_FLAGS="-g -Wall" ../kolor-manager
 #Possibly prepend the PKG_CONFIG_PATH variable to reflect Oyranos...
 kbuildsycoca4 # update KDEs internal icon and module cachings
 kcmshell4 kminfo & # start
