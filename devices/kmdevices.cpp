@@ -501,8 +501,9 @@ void kmdevices::openProfile(int /*index*/)
           temp_item = profileAssociationList->item(i);
           if(temp_item->text() == baseFileName)
           {
+              std::string t = baseFileName.toStdString();
               KMessageBox::error(this,
-                  i18n("Profile " + baseFileName.toLocal8Bit() + " is already associated with this device!"),
+                  i18n("Profile ") + baseFileName + i18n(" is already associated with this device!"),
                   i18n("Cannot add profile to list"));
 
                   return;
@@ -640,7 +641,8 @@ void kmdevices::assingProfile( QString & profile_name )
      {
          int error= 0;
          oyConfig_s * device = getCurrentDevice();
-         const char * profilename = profile_name.toLocal8Bit();
+         std::string t = profile_name.toStdString();
+         const char * profilename = t.c_str();
          char * pn = strdup(profilename);
 
          /* store a existing profile in DB */
@@ -698,7 +700,8 @@ QString kmdevices::convertFilenameToDescription(QString profileFilename)
     QString profileDescriptionName;
     oyProfile_s * profile_name;
     
-    profile_name = oyProfile_FromFile( profileFilename.toLocal8Bit(), 0, 0);
+    std::string t = profileFilename.toStdString();
+    profile_name = oyProfile_FromFile( t.c_str(), 0, 0);
     profileDescriptionName = oyProfile_GetText( profile_name, oyNAME_DESCRIPTION );
 
     return profileDescriptionName;

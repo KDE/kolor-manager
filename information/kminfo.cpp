@@ -204,7 +204,8 @@ void kminfo::launchICCExamin()
       } else
         return;
     }
-    system(exec.toLocal8Bit());
+    std::string t = exec.toStdString();
+    system(t.c_str());
 }
 
 // Populate the tree with detected profile items.
@@ -483,7 +484,7 @@ void kminfo::setDeviceClassTag(oyProfile_s * profile, QLabel * devClassLabel)
      QString string;
      string = oyICCDeviceClassDescription( (icProfileClassSignature)
                          oyProfile_GetSignature(profile, oySIGNATURE_CLASS) );
-     devClassLabel->setText(string.toLocal8Bit());
+     devClassLabel->setText(string);
 }
 
 void kminfo::setPcsTag(oyProfile_s * profile, QLabel * pcsLabel)
@@ -491,7 +492,7 @@ void kminfo::setPcsTag(oyProfile_s * profile, QLabel * pcsLabel)
      QString tagString;
      tagString = oyICCColourSpaceGetName( (icColorSpaceSignature)
                          oyProfile_GetSignature(profile, oySIGNATURE_PCS) );
-     pcsLabel->setText("CIE" + tagString.toLocal8Bit());
+     pcsLabel->setText("CIE" + tagString);
 }
 
 void kminfo::setCSpaceTag(oyProfile_s * profile, QLabel * cSpaceLabel)

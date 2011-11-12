@@ -373,7 +373,7 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
     if (settingsChanged == true && isCustom == true)   
     {
         if(KMessageBox::questionYesNo(this,
-        i18n("The policy settings for '" + selected_policy.toLocal8Bit() + "' have changed. \nDo you wish to save them?"),
+        i18n("The policy settings for '") + selected_policy + i18n("' have changed. \nDo you wish to save them?"),
         i18n("Policy settings have been modified...")) == KMessageBox::Yes)
             
             save();
@@ -385,15 +385,17 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
      selected_policy = selectedPolicyItem->text();
 
      char * full_name = 0;
-     oyPolicyFileNameGet( selected_policy.toLocal8Bit(), &full_name, malloc );
+     std::string t = selected_policy.toStdString();
+     oyPolicyFileNameGet( t.c_str(), &full_name, malloc );
+     t.clear();
      QFile file( full_name );
      if(file.permissions() & QFile::WriteOwner)
      {
          isCustom = true;             // This is a custom policy.
          
          removePolicyButton->setEnabled(true);
-          
-         oyPolicySet( selectedPolicyItem->text().toLocal8Bit(), 0 );
+         t = selectedPolicyItem->text().toStdString();
+         oyPolicySet( t.c_str(), 0 );
      }
      if(full_name) free( full_name );
 
@@ -527,7 +529,7 @@ void kmsettings::addNewPolicy()
             if (xmlFileName == temp_item->text())
             {
                 KMessageBox::error(this,
-                  i18n("The policy name '" + xmlFileName.toLocal8Bit() + "' already exists!"),
+                  i18n("The policy name '") + xmlFileName + i18n("' already exists!"),
                   i18n("Unable to add policy..."));
                 
                   return;
@@ -555,7 +557,8 @@ void kmsettings::removeCustomPolicy()
 
      // Remove actual Xml file from directory.
      char * full_name = 0;
-     oyPolicyFileNameGet( deleted_item->text().toLocal8Bit(),&full_name,malloc);
+     std::string t = deleted_item->text().toStdString();
+     oyPolicyFileNameGet( t.c_str(),&full_name,malloc);
      QFile file( full_name );
      file.remove();
      if(full_name) free( full_name );
@@ -570,64 +573,64 @@ void kmsettings::saveSettingsToXml()
 
 void kmsettings::saveSettings()
 { 
-    QString stringToXml;    
+    std::string t;
     int behaviorSetting;    
    
-    stringToXml = combo_EDITING_RGB->currentText();
-    oySetDefaultProfile(oyEDITING_RGB, stringToXml.toLocal8Bit()); 
+    t = combo_EDITING_RGB->currentText().toStdString();
+    oySetDefaultProfile(oyEDITING_RGB, t.c_str()); t.clear();
  
-    stringToXml = combo_EDITING_CMYK->currentText();
-    oySetDefaultProfile(oyEDITING_CMYK, stringToXml.toLocal8Bit());
+    t = combo_EDITING_CMYK->currentText().toStdString();
+    oySetDefaultProfile(oyEDITING_CMYK, t.c_str()); t.clear();
 
-    stringToXml = combo_EDITING_XYZ->currentText();
-    oySetDefaultProfile(oyEDITING_XYZ, stringToXml.toLocal8Bit());
+    t = combo_EDITING_XYZ->currentText().toStdString();
+    oySetDefaultProfile(oyEDITING_XYZ, t.c_str()); t.clear();
 
-    stringToXml = combo_EDITING_LAB->currentText();
-    oySetDefaultProfile(oyEDITING_LAB, stringToXml.toLocal8Bit());
+    t = combo_EDITING_LAB->currentText().toStdString();
+    oySetDefaultProfile(oyEDITING_LAB, t.c_str()); t.clear();
 
-    stringToXml = combo_EDITING_GRAY->currentText();
-    oySetDefaultProfile(oyEDITING_GRAY, stringToXml.toLocal8Bit());
+    t = combo_EDITING_GRAY->currentText().toStdString();
+    oySetDefaultProfile(oyEDITING_GRAY, t.c_str()); t.clear();
 
-    stringToXml = combo_ASSUMED_RGB->currentText();
-    oySetDefaultProfile(oyASSUMED_RGB, stringToXml.toLocal8Bit());
+    t = combo_ASSUMED_RGB->currentText().toStdString();
+    oySetDefaultProfile(oyASSUMED_RGB, t.c_str()); t.clear();
 
-    stringToXml = combo_ASSUMED_CMYK->currentText();
-    oySetDefaultProfile(oyASSUMED_CMYK, stringToXml.toLocal8Bit());
+    t = combo_ASSUMED_CMYK->currentText().toStdString();
+    oySetDefaultProfile(oyASSUMED_CMYK, t.c_str()); t.clear();
 
-    stringToXml = combo_ASSUMED_LAB->currentText();
-    oySetDefaultProfile(oyASSUMED_LAB, stringToXml.toLocal8Bit());
+    t = combo_ASSUMED_LAB->currentText().toStdString();
+    oySetDefaultProfile(oyASSUMED_LAB, t.c_str()); t.clear();
 
-    stringToXml = combo_ASSUMED_XYZ->currentText();
-    oySetDefaultProfile(oyASSUMED_XYZ, stringToXml.toLocal8Bit());
+    t = combo_ASSUMED_XYZ->currentText().toStdString();
+    oySetDefaultProfile(oyASSUMED_XYZ, t.c_str()); t.clear();
 
-    stringToXml = combo_ASSUMED_GRAY->currentText();
-    oySetDefaultProfile(oyASSUMED_GRAY, stringToXml.toLocal8Bit());
+    t = combo_ASSUMED_GRAY->currentText().toStdString();
+    oySetDefaultProfile(oyASSUMED_GRAY, t.c_str()); t.clear();
 
-    stringToXml = combo_PROFILE_PROOF->currentText();
-    oySetDefaultProfile(oyPROFILE_PROOF, stringToXml.toLocal8Bit());
+    t = combo_PROFILE_PROOF->currentText().toStdString();
+    oySetDefaultProfile(oyPROFILE_PROOF, t.c_str()); t.clear();
 
     //----------------------------------------------------------------
 
     behaviorSetting = combo_RENDERING_INTENT->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_RENDERING_INTENT, behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_RENDERING_INTENT, behaviorSetting ); t.clear();
 
     behaviorSetting = combo_ACTION_UNTAGGED_ASSIGN->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_ACTION_UNTAGGED_ASSIGN, behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_ACTION_UNTAGGED_ASSIGN, behaviorSetting ); t.clear();
 
     behaviorSetting = combo_ACTION_OPEN_MISMATCH_RGB->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_RGB , behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_RGB , behaviorSetting ); t.clear();
   
     behaviorSetting = combo_ACTION_OPEN_MISMATCH_CMYK->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_CMYK , behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_CMYK , behaviorSetting ); t.clear();
 
     behaviorSetting = combo_RENDERING_INTENT_PROOF->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_RENDERING_INTENT_PROOF , behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_RENDERING_INTENT_PROOF , behaviorSetting ); t.clear();
 
     behaviorSetting = combo_MIXED_MOD_DOCUMENTS_SCREEN->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_SCREEN , behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_SCREEN , behaviorSetting ); t.clear();
 
     behaviorSetting = combo_MIXED_MOD_DOCUMENTS_PRINT->currentIndex();
-    oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_PRINT , behaviorSetting );
+    oySetBehaviour ( oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_PRINT , behaviorSetting ); t.clear();
 
     if (check_RENDERING_BPC->isChecked())
         oySetBehaviour ( oyBEHAVIOUR_RENDERING_BPC , 1 );
@@ -654,7 +657,8 @@ void kmsettings::saveSettings()
 void kmsettings::saveCustomXmlFile()
 { 
     saveSettings();
-    oyPolicySaveActual(oyGROUP_ALL, selected_policy.toLocal8Bit()); 
+    std::string t = selected_policy.toStdString();
+    oyPolicySaveActual(oyGROUP_ALL, t.c_str()); 
 }
 
 // Used to enable the "Apply" button.
