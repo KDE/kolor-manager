@@ -503,7 +503,7 @@ void kmdevices::openProfile(int /*index*/)
           {
               std::string t = baseFileName.toStdString();
               KMessageBox::error(this,
-                  i18n("Profile ") + baseFileName + i18n(" is already associated with this device!"),
+                  i18n("Profile %1 is already associated with this device!", baseFileName),
                   i18n("Cannot add profile to list"));
 
                   return;
@@ -577,7 +577,7 @@ void kmdevices::profileListDoubleClicked( QListWidgetItem * item )
         }
       }
 
-      KMessageBox::information( this, i18n("Oyranos DB entry:\n") + d );
+      KMessageBox::information( this, i18n("Oyranos DB entry:\n%1", d) );
 
       oyConfig_Release( &config );
     }
