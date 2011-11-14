@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Devices
-Comment=Device settings for Kolor Management
+Comment=Device settings for Color Management
 Exec=kcprofiler
 Icon=preferences-desktop-display
 Type=Service

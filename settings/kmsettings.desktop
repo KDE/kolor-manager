@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Settings
-Comment=Kolor Management Settings
+Comment=Color Management Settings
 Exec=kmsettings
 Icon=configure
 Type=Service
