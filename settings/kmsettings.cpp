@@ -514,8 +514,8 @@ void kmsettings::addNewPolicy()
    bool ok;
    
    // New policy name dialog.
-   xmlFileName = QInputDialog::getText(this, tr("Add new policy"), 
-                      tr("Please enter a name for the new policy: "), 
+   xmlFileName = QInputDialog::getText(this, i18n("Add new policy"), 
+                      i18n("Please enter a name for the new policy: "), 
                       QLineEdit::Normal, QDir::home().dirName(), &ok);
  
    if(ok)   
