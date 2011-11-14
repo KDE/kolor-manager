@@ -374,7 +374,7 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
     {
         if(KMessageBox::questionYesNo(this,
         i18n("The policy settings for '%1' have changed. \nDo you wish to save them?", selected_policy),
-        i18n("Policy settings have been modified...")) == KMessageBox::Yes)
+        i18n("Policy settings have been modified.")) == KMessageBox::Yes)
             
             save();
 
@@ -530,7 +530,7 @@ void kmsettings::addNewPolicy()
             {
                 KMessageBox::error(this,
                   i18n("The policy name '%1' already exists!", xmlFileName),
-                  i18n("Unable to add policy..."));
+                  i18n("Unable to add policy."));
                 
                   return;
             }
