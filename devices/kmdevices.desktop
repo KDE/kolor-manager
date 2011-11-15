@@ -1,5 +1,9 @@
 [Desktop Entry]
 Name=Devices
+Name[pt]=Dispositivos
+Name[sv]=Enheter
+Name[uk]=Пристрої
+Name[x-test]=xxDevicesxx
 Comment=Device settings for Color Management
 Exec=kcprofiler
 Icon=preferences-desktop-display
