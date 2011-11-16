@@ -1,11 +1,13 @@
 [Desktop Entry]
 Name=Profile Information
 Name[pt]=Informação do Perfil
+Name[pt_BR]=Informação do perfil
 Name[sv]=Profilinformation
 Name[uk]=Дані профілю
 Name[x-test]=xxProfile Informationxx
 Comment=Display ICC-specific Profile Information
 Comment[pt]=Mostrar a informação específica do perfil de ICC
+Comment[pt_BR]=Mostrar a informação específica do perfil de ICC
 Comment[sv]=Visa ICC-specifik profilinformation
 Comment[uk]=Показати дані профілю, характерні для ICC
 Comment[x-test]=xxDisplay ICC-specific Profile Informationxx

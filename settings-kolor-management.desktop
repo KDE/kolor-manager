@@ -6,4 +6,9 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=oyranos_logo
 
 Name=Color Management
+Name[pt]=Gestão de Cores
+Name[pt_BR]=Gerenciamento de cores
+Name[sv]=Färghantering
+Name[uk]=Керування кольором
+Name[x-test]=xxColor Managementxx
 X-SuSE-translate=true

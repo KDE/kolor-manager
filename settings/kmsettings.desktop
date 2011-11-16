@@ -1,10 +1,16 @@
 [Desktop Entry]
 Name=Settings
 Name[pt]=Configuração
+Name[pt_BR]=Configurações
 Name[sv]=Inställningar
 Name[uk]=Параметри
 Name[x-test]=xxSettingsxx
 Comment=Color Management Settings
+Comment[pt]=Configuração da Gestão de Cores
+Comment[pt_BR]=Configurações do Gerenciamento de Cores
+Comment[sv]=Färghanteringsinställningar
+Comment[uk]=Параметри керування кольором
+Comment[x-test]=xxColor Management Settingsxx
 Exec=kmsettings
 Icon=configure
 Type=Service
