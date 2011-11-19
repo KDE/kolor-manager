@@ -1,11 +1,13 @@
 [Desktop Entry]
 Name=Devices
+Name[nl]=Apparaten
 Name[pt]=Dispositivos
 Name[pt_BR]=Dispositivos
 Name[sv]=Enheter
 Name[uk]=Пристрої
 Name[x-test]=xxDevicesxx
 Comment=Device settings for Color Management
+Comment[nl]=Apparaatinstellingen voor kleurbeheer
 Comment[pt]=Configuração do dispositivo de Gestão de Cores
 Comment[pt_BR]=Configurações do dispositivo de Gerenciamento de Cores
 Comment[sv]=Enhetsinställningar för färghantering
