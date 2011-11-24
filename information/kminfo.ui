@@ -218,8 +218,8 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>399</width>
-           <height>522</height>
+           <width>403</width>
+           <height>544</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_2">
@@ -245,89 +245,6 @@
             </property>
             <layout class="QGridLayout" name="gridLayout">
              <item row="0" column="0">
-              <widget class="QLabel" name="filenameLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>88</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>88</width>
-                 <height>16777215</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <weight>75</weight>
-                 <italic>false</italic>
-                 <bold>true</bold>
-                </font>
-               </property>
-               <property name="text">
-                <string>File Name:</string>
-               </property>
-               <property name="indent">
-                <number>-5</number>
-               </property>
-              </widget>
-             </item>
-             <item row="0" column="1">
-              <widget class="QLabel" name="filenameTagLabel">
-               <property name="sizePolicy">
-                <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
-                 <horstretch>0</horstretch>
-                 <verstretch>0</verstretch>
-                </sizepolicy>
-               </property>
-               <property name="minimumSize">
-                <size>
-                 <width>100</width>
-                 <height>0</height>
-                </size>
-               </property>
-               <property name="font">
-                <font>
-                 <italic>false</italic>
-                </font>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::NoFrame</enum>
-               </property>
-               <property name="lineWidth">
-                <number>1</number>
-               </property>
-               <property name="text">
-                <string>TextLabel</string>
-               </property>
-               <property name="textFormat">
-                <enum>Qt::AutoText</enum>
-               </property>
-               <property name="scaledContents">
-                <bool>false</bool>
-               </property>
-               <property name="alignment">
-                <set>Qt::AlignJustify|Qt::AlignVCenter</set>
-               </property>
-               <property name="wordWrap">
-                <bool>true</bool>
-               </property>
-               <property name="margin">
-                <number>0</number>
-               </property>
-               <property name="indent">
-                <number>-1</number>
-               </property>
-              </widget>
-             </item>
-             <item row="1" column="0">
               <widget class="QLabel" name="dateTextLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -354,7 +271,7 @@
                </property>
               </widget>
              </item>
-             <item row="1" column="1">
+             <item row="0" column="1">
               <widget class="QLabel" name="dateTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -373,7 +290,7 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="0">
+             <item row="1" column="0">
               <widget class="QLabel" name="dcTextLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -398,7 +315,7 @@
                </property>
               </widget>
              </item>
-             <item row="2" column="1">
+             <item row="1" column="1">
               <widget class="QLabel" name="deviceClassTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -417,7 +334,7 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="0">
+             <item row="2" column="0">
               <widget class="QLabel" name="manufacturerLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -442,7 +359,7 @@
                </property>
               </widget>
              </item>
-             <item row="3" column="1">
+             <item row="2" column="1">
               <widget class="QLabel" name="mfgTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -464,7 +381,7 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="0">
+             <item row="3" column="0">
               <widget class="QLabel" name="modelTexLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -489,7 +406,7 @@
                </property>
               </widget>
              </item>
-             <item row="4" column="1">
+             <item row="3" column="1">
               <widget class="QLabel" name="modelTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -511,7 +428,7 @@
                </property>
               </widget>
              </item>
-             <item row="5" column="0">
+             <item row="4" column="0">
               <widget class="QLabel" name="iccVersionLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -536,7 +453,7 @@
                </property>
               </widget>
              </item>
-             <item row="5" column="1">
+             <item row="4" column="1">
               <widget class="QLabel" name="iccVerTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -555,7 +472,7 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="0">
+             <item row="5" column="0">
               <widget class="QLabel" name="colorspaceLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -580,7 +497,7 @@
                </property>
               </widget>
              </item>
-             <item row="6" column="1">
+             <item row="5" column="1">
               <widget class="QLabel" name="colorspaceTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -599,7 +516,7 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="0">
+             <item row="6" column="0">
               <widget class="QLabel" name="pcsTypeLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -624,7 +541,7 @@
                </property>
               </widget>
              </item>
-             <item row="7" column="1">
+             <item row="6" column="1">
               <widget class="QLabel" name="pcsTagLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">
@@ -643,7 +560,7 @@
                </property>
               </widget>
              </item>
-             <item row="8" column="0">
+             <item row="7" column="0">
               <widget class="QLabel" name="profilePathLabel">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Fixed" vsizetype="Maximum">
@@ -672,7 +589,7 @@ p, li { white-space: pre-wrap; }
                </property>
               </widget>
              </item>
-             <item row="8" column="1">
+             <item row="7" column="1">
               <widget class="QLabel" name="directoryListingTag">
                <property name="sizePolicy">
                 <sizepolicy hsizetype="Ignored" vsizetype="Maximum">

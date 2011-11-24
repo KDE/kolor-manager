@@ -449,7 +449,6 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
         // Set default descriptions.
         descriptionTagLabel -> setText(i18n("No Profile Selected"));
         copyrightTagLabel -> setText(i18n("(Copyright not available)"));
-        filenameTagLabel -> setText(QString());
         mfgTagLabel -> setText(QString());
         modelTagLabel -> setText(QString());
 
