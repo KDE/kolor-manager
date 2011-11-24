@@ -507,7 +507,6 @@ void kminfo::setDateTag(oyProfile_s * profile, QLabel * dateLabel)
 {
      uint year, month, day; 
      //uint hours, minutes, seconds;
-     QString yearString, monthString, dayString;
 
      year = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_YEAR);
      month = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_MONTH);
@@ -518,7 +517,8 @@ void kminfo::setDateTag(oyProfile_s * profile, QLabel * dateLabel)
       //minutes = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_MINUTES);
       //seconds = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_SECONDS);
 
-     dateLabel->setText(monthString.setNum(month) + "/" + dayString.setNum(day) + "/" + yearString.setNum(year));
+     QString date = QString("%1-%2-%3").arg( year ).arg( month ).arg( day );
+     dateLabel->setText( date );
 }
 
 // Function to write signature head, based on profile, tag type, and QT Label.
