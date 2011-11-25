@@ -27,7 +27,6 @@
       <widget class="QLabel" name="currentPolicyLabel">
        <property name="font">
         <font>
-         <pointsize>12</pointsize>
          <weight>75</weight>
          <bold>true</bold>
         </font>
@@ -41,9 +40,6 @@
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QTabWidget" name="kmsettingsTab">
-     <property name="currentIndex">
-      <number>0</number>
-     </property>
      <widget class="QWidget" name="policySettingsTab">
       <attribute name="title">
        <string>Policy Settings</string>
@@ -53,9 +49,6 @@
         <widget class="QGroupBox" name="policySettingsBox">
          <property name="title">
           <string>Policy Settings</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
          </property>
          <layout class="QGridLayout" name="gridLayout_8">
           <item row="0" column="1">
@@ -67,48 +60,21 @@
           </item>
           <item row="1" column="1">
            <widget class="QListWidget" name="policySettingsList">
-            <property name="font">
-             <font>
-              <weight>50</weight>
-              <italic>false</italic>
-              <bold>false</bold>
-              <underline>false</underline>
-             </font>
-            </property>
-            <property name="contextMenuPolicy">
-             <enum>Qt::ActionsContextMenu</enum>
-            </property>
-            <property name="toolTip">
-             <string/>
-            </property>
             <property name="whatsThis">
-             <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select from a group of pre-set or user-defined policy settings that maintain all of the settings in Kolor Manager.  &lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;The four &quot;standard&quot; settings are as follows:&lt;/p&gt;
-&lt;p style=&quot;-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Graphic Design:&lt;/span&gt; Useful for digital illustration and web imaging work.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Home / Office: &lt;/span&gt;Settings that are used for everyday occurrences&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Photography:&lt;/span&gt; Optimized for photo-related work.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Printer: &lt;/span&gt;Settings used mainly for printer/proofing images.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-            </property>
-            <property name="editTriggers">
-             <set>QAbstractItemView::DoubleClicked|QAbstractItemView::EditKeyPressed</set>
-            </property>
-            <property name="alternatingRowColors">
-             <bool>false</bool>
+             <string>&lt;p&gt;Select from a group of pre-set or user-defined policy settings that maintain all of the settings in Kolor Manager.&lt;/p&gt;
+&lt;p&gt;The four &quot;standard&quot; settings are as follows:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Graphic Design:&lt;/b&gt; Useful for digital illustration and web imaging work.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Home / Office:&lt;/b&gt; Settings that are used for everyday occurrences.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Photography:&lt;/b&gt; Optimized for photo-related work.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Printer:&lt;/b&gt; Settings used mainly for printer/proofing images.&lt;/li&gt;
+&lt;/ul&gt;</string>
             </property>
             <property name="iconSize">
              <size>
               <width>16</width>
               <height>16</height>
              </size>
-            </property>
-            <property name="sortingEnabled">
-             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -159,17 +125,7 @@ p, li { white-space: pre-wrap; }
        <item row="3" column="0">
         <widget class="QGroupBox" name="assumedSourceGBox">
          <property name="toolTip">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the default &lt;span style=&quot; font-style:italic;&quot;&gt;assumed&lt;/span&gt; profiles for each of the corresponding color spaces.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="whatsThis">
-          <string/>
-         </property>
-         <property name="title">
-          <string/>
+          <string>&lt;p&gt;Select the default &lt;em&gt;assumed&lt;/em&gt; profiles for each of the corresponding color spaces.&lt;/p&gt;</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_17">
           <item row="0" column="0">
@@ -270,21 +226,7 @@ p, li { white-space: pre-wrap; }
        <item row="0" column="0">
         <widget class="QGroupBox" name="defaultProfilesBox">
          <property name="toolTip">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the default &lt;span style=&quot; font-style:italic;&quot;&gt;editing&lt;/span&gt; profiles for each of the corresponding color spaces.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="whatsThis">
-          <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Select the default &lt;span style=&quot; font-style:italic;&quot;&gt;editing&lt;/span&gt; profiles for each of the corresponding color spaces.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-         </property>
-         <property name="title">
-          <string/>
+          <string>&lt;p&gt;Select the default &lt;em&gt;editing&lt;/em&gt; profiles for each of the corresponding color spaces.&lt;/p&gt;</string>
          </property>
          <layout class="QGridLayout" name="gridLayout_11">
           <item row="2" column="0">
@@ -381,23 +323,11 @@ p, li { white-space: pre-wrap; }
          <item row="2" column="0">
           <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_MISSMATCH">
            <property name="toolTip">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Mismatch Handling &lt;/span&gt;settings lets you manage different handling situations for differing profiles.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="whatsThis">
-            <string/>
+            <string>&lt;p&gt;&lt;b&gt;Mismatch Handling&lt;/b&gt; settings lets you manage different handling situations for differing profiles.&lt;/p&gt;
+</string>
            </property>
            <property name="title">
             <string>Mismatch Handling</string>
-           </property>
-           <property name="flat">
-            <bool>false</bool>
-           </property>
-           <property name="checkable">
-            <bool>false</bool>
            </property>
            <layout class="QGridLayout" name="gridLayout_14">
             <item row="0" column="0">
@@ -425,21 +355,16 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="1" column="0">
                <widget class="QComboBox" name="combo_ACTION_UNTAGGED_ASSIGN">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Don't Assign Profile:&lt;/span&gt; Do nothing to the mismatched profile (leave as is).&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Assign Assumed Profile: &lt;/span&gt;Assign a profile.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Prompt User: &lt;/span&gt;Let the user decide on whether to assign a profile or not.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Do Not Assign Profile:&lt;/b&gt; Do nothing to the mismatched profile (leave as is).&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Assign Assumed Profile:&lt;/b&gt; Assign a profile.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Prompt User:&lt;/b&gt; Let the user decide on whether to assign a profile or not.&lt;/li&gt;
+&lt;/ul&gt;</string>
                 </property>
                 <item>
                  <property name="text">
-                  <string>Don't Assign Profile</string>
+                  <string>Do Not Assign Profile</string>
                  </property>
                 </item>
                 <item>
@@ -456,17 +381,12 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="1" column="2">
                <widget class="QComboBox" name="combo_ACTION_OPEN_MISMATCH_RGB">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Preserve Numbers: &lt;/span&gt;Allow the source RGB profile to be kept and unchanged from the destination.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Automatically Convert: &lt;/span&gt;Convert the source RGB profile to its destination.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Prompt User:&lt;/span&gt; Allow the user to choose which method to use.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Preserve Numbers:&lt;/b&gt; Allow the source RGB profile to be kept and unchanged from the destination.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Automatically Convert:&lt;/b&gt; Convert the source RGB profile to its destination.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Prompt User:&lt;/b&gt; Allow the user to choose which method to use.&lt;/li&gt;
+&lt;/ul&gt;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -487,17 +407,12 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="1" column="3">
                <widget class="QComboBox" name="combo_ACTION_OPEN_MISMATCH_CMYK">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Preserve Numbers: &lt;/span&gt;Allow the source CMYK profile to be kept and unchanged from the destination.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Automatically Convert: &lt;/span&gt;Convert the source CMYK profile to its destination.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Prompt User:&lt;/span&gt; Allow the user to choose which method to use.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Preserve Numbers:&lt;/b&gt; Allow the source CMYK profile to be kept and unchanged from the destination.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Automatically Convert:&lt;/b&gt; Convert the source CMYK profile to its destination.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Prompt User:&lt;/b&gt; Allow the user to choose which method to use.&lt;/li&gt;
+&lt;/ul&gt;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -537,20 +452,10 @@ p, li { white-space: pre-wrap; }
          <item row="4" column="0">
           <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_MIXED_MODE_DOCUMENTS">
            <property name="toolTip">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Mixed Color Space Settings&lt;/span&gt; lets you handle color space mismatch options for your monitor and printer.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="whatsThis">
-            <string/>
+            <string>&lt;p&gt;&lt;b&gt;Mixed Color Space Settings&lt;/b&gt; lets you handle color space mismatch options for your monitor and printer.&lt;/p&gt;</string>
            </property>
            <property name="title">
             <string>Mixed Color Space Settings</string>
-           </property>
-           <property name="flat">
-            <bool>false</bool>
            </property>
            <layout class="QGridLayout" name="gridLayout_16">
             <item row="0" column="0">
@@ -567,18 +472,13 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="0" column="1">
                <widget class="QComboBox" name="combo_MIXED_MOD_DOCUMENTS_SCREEN">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Preserve Numbers: &lt;/span&gt;Leave the non-RGB color space as is (no conversion).&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert to Editing RGB Space:&lt;/span&gt; Convert the non-RGB color space into the assigned editing color space.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert to Web: &lt;/span&gt;Convert the non-RGB color space into the web-appropriate sRGB color space.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Prompt User: &lt;/span&gt;Allow the user to select the appropriate color space conversion method.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Preserve Numbers:&lt;/b&gt; Leave the non-RGB color space as is (no conversion).&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Convert to Editing RGB Space:&lt;/b&gt; Convert the non-RGB color space into the assigned editing color space.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Convert to Web:&lt;/b&gt; Convert the non-RGB color space into the web-appropriate sRGB color space.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Prompt User:&lt;/b&gt; Allow the user to select the appropriate color space conversion method.&lt;/li&gt;
+&lt;/ul&gt;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -614,18 +514,13 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="1" column="1">
                <widget class="QComboBox" name="combo_MIXED_MOD_DOCUMENTS_PRINT">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Preserve Numbers: &lt;/span&gt;Leave the non-CMYK color space as is (no conversion).&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert to Editing CMYK:&lt;/span&gt; Convert the non-CMYK color space into an assigned editing CMYK color space.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Convert to Untagged CMYK: &lt;/span&gt;Convert the color space into a non-CMYK color space.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Prompt User: &lt;/span&gt;Allow the user to select the appropriate color space conversion method.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Preserve Numbers:&lt;/b&gt; Leave the non-CMYK color space as is (no conversion).&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Convert to Editing CMYK:&lt;/b&gt; Convert the non-CMYK color space into an assigned editing CMYK color space.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Convert to Untagged CMYK:&lt;/b&gt; Convert the color space into a non-CMYK color space.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Prompt User:&lt;/b&gt; Allow the user to select the appropriate color space conversion method.&lt;/li&gt;
+&lt;/ul&gt;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -657,20 +552,10 @@ p, li { white-space: pre-wrap; }
          <item row="3" column="0">
           <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_PROOF">
            <property name="toolTip">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Proofing &lt;/span&gt;will allow you to modify color proofing options, including color space, rendering intent, and hard/soft proofing.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="whatsThis">
-            <string/>
+            <string>&lt;p&gt;&lt;b&gt;Proofing&lt;/b&gt; will allow you to modify color proofing options, including color space, rendering intent, and hard/soft proofing.&lt;/b&gt;</string>
            </property>
            <property name="title">
             <string>Proofing</string>
-           </property>
-           <property name="flat">
-            <bool>false</bool>
            </property>
            <layout class="QGridLayout" name="gridLayout_15">
             <item row="0" column="0">
@@ -684,11 +569,8 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="0" column="2">
                <widget class="QComboBox" name="combo_PROFILE_PROOF">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
                 <property name="whatsThis">
-                 <string>Selet from a list of profiles applicable for proofing.</string>
+                 <string>Select from a list of profiles applicable for proofing.</string>
                 </property>
                </widget>
               </item>
@@ -701,22 +583,11 @@ p, li { white-space: pre-wrap; }
               </item>
               <item row="1" column="2">
                <widget class="QComboBox" name="combo_RENDERING_INTENT_PROOF">
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relative Colorimetric: &lt;/span&gt;Scales the white point of the source gamut into the white point of the target.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; font-weight:600;&quot;&gt;Absolute Colorimetric: &lt;span style=&quot; font-weight:400;&quot;&gt;Preserves in-gamut colors, and clips out-of-gamut colors to the nearest hue.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Relative Colorimetric:&lt;/b&gt; Scales the white point of the source gamut into the white point of the target.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Absolute Colorimetric:&lt;/b&gt; Preserves in-gamut colors, and clips out-of-gamut colors to the nearest hue.&lt;/li&gt;
+&lt;/ul&gt;</string>
                 </property>
                 <item>
                  <property name="text">
@@ -734,18 +605,8 @@ p, li { white-space: pre-wrap; }
                <layout class="QHBoxLayout" name="horizontalLayout_2">
                 <item>
                  <widget class="QCheckBox" name="check_PROOF_SOFT">
-                  <property name="contextMenuPolicy">
-                   <enum>Qt::DefaultContextMenu</enum>
-                  </property>
-                  <property name="toolTip">
-                   <string/>
-                  </property>
                   <property name="whatsThis">
-                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt;Select &lt;/span&gt;&lt;span style=&quot; font-size:9pt; font-weight:600;&quot;&gt;Soft Proof&lt;/span&gt;&lt;span style=&quot; font-size:9pt;&quot;&gt; as a means to preview the printer's color output on your monitor. (Mostly to match transmissive media.)&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;p&gt;Select &lt;b&gt;Soft Proof&lt;/b&gt; as a means to preview the printer's color output on your monitor. (Mostly to match transmissive media.)&lt;/p&gt;</string>
                   </property>
                   <property name="text">
                    <string>Soft Proof</string>
@@ -754,15 +615,8 @@ p, li { white-space: pre-wrap; }
                 </item>
                 <item>
                  <widget class="QCheckBox" name="check_PROOF_HARD">
-                  <property name="contextMenuPolicy">
-                   <enum>Qt::DefaultContextMenu</enum>
-                  </property>
                   <property name="whatsThis">
-                   <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;Check &lt;span style=&quot; font-weight:600;&quot;&gt;Hard Proof&lt;/span&gt; (or match print) to fully simulate colors that the printer will be using through a reflective surface. &lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                   <string>&lt;p&gt;Check &lt;b&gt;Hard Proof&lt;/b&gt; (or match print) to fully simulate colors that the printer will be using through a reflective surface.&lt;/p&gt;</string>
                   </property>
                   <property name="text">
                    <string>Hard Proof </string>
@@ -778,66 +632,25 @@ p, li { white-space: pre-wrap; }
          </item>
          <item row="0" column="0">
           <widget class="QGroupBox" name="box_GROUP_BEHAVIOUR_RENDERING">
-           <property name="acceptDrops">
-            <bool>false</bool>
-           </property>
            <property name="toolTip">
-            <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Rendering Settings&lt;/span&gt; allows you to change the global rendering intent.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-           </property>
-           <property name="statusTip">
-            <string/>
-           </property>
-           <property name="whatsThis">
-            <string/>
+            <string>&lt;p&gt;&lt;b&gt;Rendering Settings&lt;/b&gt; allows you to change the global rendering intent.&lt;/p&gt;</string>
            </property>
            <property name="title">
             <string>Rendering Intent</string>
-           </property>
-           <property name="flat">
-            <bool>false</bool>
            </property>
            <layout class="QVBoxLayout" name="verticalLayout_3">
             <item>
              <layout class="QGridLayout" name="gridLayout_19">
               <item row="0" column="0">
                <widget class="QComboBox" name="combo_RENDERING_INTENT">
-                <property name="mouseTracking">
-                 <bool>false</bool>
-                </property>
-                <property name="focusPolicy">
-                 <enum>Qt::WheelFocus</enum>
-                </property>
-                <property name="contextMenuPolicy">
-                 <enum>Qt::ActionsContextMenu</enum>
-                </property>
-                <property name="acceptDrops">
-                 <bool>false</bool>
-                </property>
-                <property name="toolTip">
-                 <string/>
-                </property>
-                <property name="statusTip">
-                 <string/>
-                </property>
                 <property name="whatsThis">
-                 <string>&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 4.0//EN&quot; &quot;http://www.w3.org/TR/REC-html40/strict.dtd&quot;&gt;
-&lt;html&gt;&lt;head&gt;&lt;meta name=&quot;qrichtext&quot; content=&quot;1&quot; /&gt;&lt;style type=&quot;text/css&quot;&gt;
-p, li { white-space: pre-wrap; }
-&lt;/style&gt;&lt;/head&gt;&lt;body style=&quot; font-family:'Sans Serif'; font-size:10pt; font-weight:400; font-style:normal;&quot;&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Perceptual: &lt;/span&gt;Preserves relationship between out-of-gamut colors.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Relative Colorimetric:&lt;/span&gt; The white point of the colorspace source is changed to the destination. &lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Saturation:&lt;/span&gt; Preserves accurate saturation, while modifying color hues.&lt;/p&gt;
-&lt;p style=&quot; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;&quot;&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Absolute Colorimetric: &lt;/span&gt;The white point of the destination colorspace will become the white point of the source.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
-                </property>
-                <property name="autoFillBackground">
-                 <bool>false</bool>
-                </property>
-                <property name="frame">
-                 <bool>false</bool>
+                 <string>&lt;ul&gt;
+&lt;li&gt;&lt;b&gt;Perceptual:&lt;/b&gt; Preserves relationship between out-of-gamut colors.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Relative Colorimetric:&lt;/b&gt; The white point of the colorspace source is changed to the destination.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Saturation:&lt;/b&gt; Preserves accurate saturation, while modifying color hues.&lt;/li&gt;
+&lt;li&gt;&lt;b&gt;Absolute Colorimetric:&lt;/b&gt; The white point of the destination colorspace will become the white point of the source.&lt;/li&gt;
+&lt;/ul&gt;
+</string>
                 </property>
                 <item>
                  <property name="text">
