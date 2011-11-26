@@ -617,7 +617,7 @@ p, li { white-space: pre-wrap; }
                 </font>
                </property>
                <property name="text">
-                <string>Directory Listng</string>
+                <string>Directory Listing</string>
                </property>
                <property name="textFormat">
                 <enum>Qt::LogText</enum>

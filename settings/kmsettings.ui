@@ -492,7 +492,7 @@
                 </item>
                 <item>
                  <property name="text">
-                  <string>Convert to Web </string>
+                  <string>Convert to Web</string>
                  </property>
                 </item>
                 <item>
@@ -619,7 +619,7 @@
                    <string>&lt;p&gt;Check &lt;b&gt;Hard Proof&lt;/b&gt; (or match print) to fully simulate colors that the printer will be using through a reflective surface.&lt;/p&gt;</string>
                   </property>
                   <property name="text">
-                   <string>Hard Proof </string>
+                   <string>Hard Proof</string>
                   </property>
                  </widget>
                 </item>

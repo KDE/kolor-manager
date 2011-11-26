@@ -503,7 +503,7 @@ void kmdevices::openProfile(int /*index*/)
           {
               std::string t = baseFileName.toStdString();
               KMessageBox::error(this,
-                  i18n("Profile %1 is already associated with this device!", baseFileName),
+                  i18n("Profile %1 is already associated with this device.", baseFileName),
                   i18n("Cannot add profile to list"));
 
                   return;

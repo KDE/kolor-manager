@@ -108,7 +108,7 @@
          </sizepolicy>
         </property>
         <property name="title">
-         <string>Available DeviceProfiles</string>
+         <string>Available Device Profiles</string>
         </property>
         <property name="flat">
          <bool>false</bool>

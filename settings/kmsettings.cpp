@@ -373,7 +373,7 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
     if (settingsChanged == true && isCustom == true)   
     {
         if(KMessageBox::questionYesNo(this,
-        i18n("The policy settings for '%1' have changed. \nDo you wish to save them?", selected_policy),
+        i18n("The policy settings for '%1' have changed.\nDo you wish to save them?", selected_policy),
         i18n("Policy settings have been modified.")) == KMessageBox::Yes)
             
             save();
@@ -515,7 +515,7 @@ void kmsettings::addNewPolicy()
    
    // New policy name dialog.
    xmlFileName = QInputDialog::getText(this, i18n("Add new policy"), 
-                      i18n("Please enter a name for the new policy: "), 
+                      i18n("Please enter a name for the new policy:"), 
                       QLineEdit::Normal, QDir::home().dirName(), &ok);
  
    if(ok)   
@@ -529,7 +529,7 @@ void kmsettings::addNewPolicy()
             if (xmlFileName == temp_item->text())
             {
                 KMessageBox::error(this,
-                  i18n("The policy name '%1' already exists!", xmlFileName),
+                  i18n("The policy name '%1' already exists.", xmlFileName),
                   i18n("Unable to add policy."));
                 
                   return;
