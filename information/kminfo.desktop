@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Profile Information
 Name[cs]=Informace o profilu
+Name[es]=Información del perfil
 Name[nds]=Profil-Informatschonen
 Name[nl]=Profielinformatie
 Name[pt]=Informação do Perfil
@@ -9,6 +10,7 @@ Name[sv]=Profilinformation
 Name[uk]=Дані профілю
 Name[x-test]=xxProfile Informationxx
 Comment=Display ICC-specific Profile Information
+Comment[es]=Mostrar información de perfil específico de ICC
 Comment[nds]=ICC-afhangen Profil-Informatschonen wiesen
 Comment[nl]=Toon ICC-specifieke profielinformatie
 Comment[pt]=Mostrar a informação específica do perfil de ICC

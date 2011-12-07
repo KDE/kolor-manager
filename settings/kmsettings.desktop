@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Settings
 Name[cs]=Nastavení
+Name[es]=Preferencias
 Name[nds]=Instellen
 Name[nl]=Instellingen
 Name[pt]=Configuração
@@ -10,6 +11,7 @@ Name[uk]=Параметри
 Name[x-test]=xxSettingsxx
 Comment=Color Management Settings
 Comment[cs]=Nastavení správy barev
+Comment[es]=Preferencias de la gestión de color
 Comment[nl]=Kleurbeheerinstellingen
 Comment[pt]=Configuração da Gestão de Cores
 Comment[pt_BR]=Configurações do Gerenciamento de Cores

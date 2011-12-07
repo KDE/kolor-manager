@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Devices
 Name[cs]=Zařízení
+Name[es]=Dispositivos
 Name[nds]=Reedschappen
 Name[nl]=Apparaten
 Name[pt]=Dispositivos
@@ -9,6 +10,7 @@ Name[sv]=Enheter
 Name[uk]=Пристрої
 Name[x-test]=xxDevicesxx
 Comment=Device settings for Color Management
+Comment[es]=Preferencias del dispositivo para la gestión de color
 Comment[nl]=Apparaatinstellingen voor kleurbeheer
 Comment[pt]=Configuração do dispositivo de Gestão de Cores
 Comment[pt_BR]=Configurações do dispositivo de Gerenciamento de Cores
