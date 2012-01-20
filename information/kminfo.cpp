@@ -343,7 +343,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         oyProfile_s * p = 0;
         oyOptions_s * options = 0;
         error = oyOptions_SetFromText( &options,
-                                       "//"OY_TYPE_STD"/config/icc_profile.net_color_region_target",
+                                       "//"OY_TYPE_STD"/config/icc_profile.x_color_region_target",
                                        "yes", OY_CREATE_NEW );
         oyDeviceGetProfile( device, options, &p );
         oyOptions_Release( &options );

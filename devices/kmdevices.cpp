@@ -121,7 +121,7 @@ int kmDeviceGetProfile( oyConfig_s * device, oyProfile_s ** profile )
 {
   oyOptions_s * options = 0;
   oyOptions_SetFromText( &options,
-                   "//"OY_TYPE_STD"/config/icc_profile.net_color_region_target",
+                   "//"OY_TYPE_STD"/config/icc_profile.x_color_region_target",
                          "yes", OY_CREATE_NEW );
   int error = oyDeviceGetProfile( device, options, profile );
   oyOptions_Release( &options );
@@ -598,7 +598,7 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   oyOptions_SetFromText( &options, "//" OY_TYPE_STD "/config/command", 
                          "properties", OY_CREATE_NEW );
   oyOptions_SetFromText( &options,
-                   "//"OY_TYPE_STD"/config/icc_profile.net_color_region_target",
+                   "//"OY_TYPE_STD"/config/icc_profile.x_color_region_target",
                          "yes", OY_CREATE_NEW );
   if(current_device_class && current_device_name)
     error = oyDeviceGet( OY_TYPE_STD, current_device_class, current_device_name,
