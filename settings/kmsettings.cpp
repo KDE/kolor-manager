@@ -70,6 +70,7 @@ void kmsettings::save()
     settingsChanged = false;
 }
 
+// Register the panel and initialise fro Oyranos.
 kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     KCModule( kmsettingsFactory::componentData(), parent)
 { 
@@ -106,42 +107,42 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
                         flags = 0;
         const char    * tooltip = NULL;
         const char   ** names = NULL;
-        const char    * name = NULL;
+        const char    * label = NULL;
         oyWIDGET_TYPE_e type = oyWIDGETTYPE_START;
 
-  
-  type = oyWidgetTitleGet( oyWIDGET_POLICY, NULL, &name, &tooltip, &flags );
-  qs = QString::fromLocal8Bit(name);
+  // Get widget strings.
+  type = oyWidgetTitleGet( oyWIDGET_POLICY, NULL, &label, &tooltip, &flags );
+  qs = QString::fromLocal8Bit(label);
   policySettingsBox->setTitle(qs);
   kmsettingsTab->setTabText(0,qs);
   qs = QString::fromLocal8Bit( tooltip );
   policyLabel->setText(qs);
 
-  type = oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES, NULL, &name, &tooltip, &flags );
-  qs = QString::fromLocal8Bit(name);
+  type = oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES, NULL, &label, &tooltip, &flags );
+  qs = QString::fromLocal8Bit(label);
   kmsettingsTab->setTabText(1,qs);
   
-  type = oyWidgetTitleGet( oyWIDGET_GROUP_BEHAVIOUR, NULL, &name, &tooltip, &flags );
-  qs = QString::fromLocal8Bit(name,-1);
+  type = oyWidgetTitleGet( oyWIDGET_GROUP_BEHAVIOUR, NULL, &label, &tooltip, &flags );
+  qs = QString::fromLocal8Bit(label,-1);
   kmsettingsTab->setTabText(2,qs);
 
 #define SET_OY_PROFILE_WIDGET( widget ) \
-  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
-  qs = QString::fromLocal8Bit(name); \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &label, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit(label); \
   label_##widget->setText( qs ); \
   qs = QString::fromLocal8Bit( tooltip ); \
   label_##widget->setToolTip( qs ); \
   combo_##widget->setToolTip( qs );
 
 #define SET_OY_BOX_WIDGET( widget ) \
-  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
-  qs = QString::fromLocal8Bit(name); \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &label, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit(label); \
   box_##widget->setTitle( qs ); \
   qs = QString::fromLocal8Bit( tooltip ); \
   box_##widget->setToolTip( qs );
 
 #define SET_OY_COMBO_WIDGET( widget ) \
-  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &label, &tooltip, &flags ); \
   oyOptionChoicesGet( oyWIDGET_##widget, &count, &names, &current ); \
   qs = QString::fromLocal8Bit( tooltip ); \
   combo_##widget->setToolTip( qs ); \
@@ -153,15 +154,15 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
   }
 
 #define SET_OY_CHECK_WIDGET( widget ) \
-  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
-  qs = QString::fromLocal8Bit( name ); \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &label, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit( label ); \
   check_##widget->setText( qs ); \
   qs = QString::fromLocal8Bit( tooltip ); \
   check_##widget->setToolTip( qs );
 
 #define SET_OY_LABEL_WIDGET( widget ) \
-  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &name, &tooltip, &flags ); \
-  qs = QString::fromLocal8Bit(name); \
+  oyWidgetTitleGet( oyWIDGET_##widget, NULL, &label, &tooltip, &flags ); \
+  qs = QString::fromLocal8Bit(label); \
   label_##widget->setText( qs ); \
   qs = QString::fromLocal8Bit( tooltip ); \
   label_##widget->setToolTip( qs );
@@ -205,6 +206,8 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
    refreshPolicySettings();
 
+   // We want to be able to observe changes of single settings and display
+   // the actual used policy. So track them.
    // QT-related SIGNAL/SLOT functions, such as button presses and clicking
    // on a particular item.
    connect(policySettingsList, SIGNAL(itemClicked(QListWidgetItem*)), 
@@ -467,6 +470,7 @@ void kmsettings::refreshProfileSettings()
      combo_PROFILE_PROOF->setCurrentIndex(profileSearchIndex);    
 }
 
+// Show the actual policy name after changes applied to Oyranos options.
 void kmsettings::refreshPolicySettings()
 {
    // Load policy.
