@@ -29,12 +29,6 @@
         <height>0</height>
        </size>
       </property>
-      <property name="maximumSize">
-       <size>
-        <width>600</width>
-        <height>16777215</height>
-       </size>
-      </property>
       <property name="alternatingRowColors">
        <bool>false</bool>
       </property>
@@ -185,8 +179,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>504</width>
-            <height>563</height>
+            <width>509</width>
+            <height>619</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
