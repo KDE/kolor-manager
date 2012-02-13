@@ -13,6 +13,7 @@ Name[sv]=Profilinformation
 Name[uk]=Дані профілю
 Name[x-test]=xxProfile Informationxx
 Comment=Display ICC-specific Profile Information
+Comment[de]=Anzeige ICC-spezifischer Profil-Informationen
 Comment[es]=Mostrar información de perfil específico de ICC
 Comment[et]= ICC profiiliga seotud teave
 Comment[nds]=ICC-afhangen Profil-Informatschonen wiesen
