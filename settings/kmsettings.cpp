@@ -28,6 +28,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "kmsettings.h"
 
+#include <KDebug>
 #include <KAboutData>
 #include <KComponentData>
 #include <KGenericFactory>
@@ -484,7 +485,7 @@ void kmsettings::refreshPolicySettings()
      selected_policy = names[current];
      // Set user selected policy as system default.
      currentPolicyLabel->setText(selected_policy);      // Update default policy label.
-     printf( "actual policy: %s\n", names[current] );
+     kDebug() << "actual policy: %s\n" << names[current];
    } else
      currentPolicyLabel->setText("----");
 }
