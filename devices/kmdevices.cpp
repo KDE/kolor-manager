@@ -233,7 +233,7 @@ int kmdevices::detectDevices(const char * device_type)
             {
                 deviceProfileDescription = oyProfile_GetText( profile, oyNAME_DESCRIPTION );
                 if(!deviceProfileDescription.count())
-                  deviceProfileDescription = "(No Profile Installed!)";
+                  deviceProfileDescription = i18n("(No Profile Installed)");
                 profile_filename = "------";
             }
             else
@@ -675,7 +675,7 @@ void kmdevices::assignProfile( QString & profile_name )
      description = oyProfile_GetText( profile, oyNAME_DESCRIPTION);
 
      if(!description.count())
-       description = "(No Profile Installed!)";
+       description = i18n("(No Profile Installed)");
 
      // Set third column of the device list with the profile description.
      currentDevice->setText(PROFILE_DESCRIPTION, description);

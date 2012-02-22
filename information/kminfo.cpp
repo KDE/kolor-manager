@@ -357,7 +357,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
           if(file_name)
             profile_child->setText(1, QString(file_name));
           else
-            profile_child->setText(1, "in memory");
+            profile_child->setText(1, i18n("in memory"));
           profile_child->setText(0, profile_name);
 
           // attach the profile to the widget
