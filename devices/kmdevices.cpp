@@ -390,7 +390,7 @@ void kmdevices::updateProfileList(oyConfig_s * device)
 // Populate "Assign Profile" combobox.  Depending on the device selected, the profile list will vary.
 void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 {
-    int size, i, current = -1, current_tmp, pos = 0;
+    int size, i, current = -1, current_tmp = 0, pos = 0;
     oyProfile_s * profile = 0, * temp_profile = 0;
     oyProfiles_s * patterns = 0, * iccs = 0;
     oyConfig_s * device = getCurrentDevice();
