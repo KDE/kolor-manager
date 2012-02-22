@@ -151,6 +151,7 @@ void kmdevices::populateDeviceListing()
   {
     error = detectDevices( texts[i] );
   }
+  Q_UNUSED(error);
 }
 
 // NEW General function to detect and retrieve devices via the Oyranos CMM backend.
@@ -590,7 +591,7 @@ void kmdevices::profileListDoubleClicked( QListWidgetItem * item )
 oyConfig_s * kmdevices::getCurrentDevice( void )
 {
   oyConfig_s * device = 0;
-  int error= 0;
+  int error = 0;
 
   oyOptions_s * options = 0;
   oyOptions_SetFromText( &options, "//" OY_TYPE_STD "/config/command", 
@@ -601,6 +602,7 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   if(current_device_class && current_device_name)
     error = oyDeviceGet( OY_TYPE_STD, current_device_class, current_device_name,
                          options, &device );
+  Q_UNUSED(error);
  
   /* clear */
   oyOptions_Release( &options );
@@ -660,7 +662,7 @@ void kmdevices::assingProfile( QString & profile_name )
             immediately we would get the old colour server profile */
          kmsleep(0.3);
          error = kmDeviceGetProfile( device, &profile ); /* reget profile */
-
+         Q_UNUSED(error);
          /* clear */
          oyConfig_Release( &device );
          if(pn) free(pn); pn = 0;

@@ -100,15 +100,15 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    settingsChanged = false;
 
   /* i18n */
-  QString qs;
-  int i;
-        int             count = 0,
-                        current = 0,
-                        flags = 0;
-        const char    * tooltip = NULL;
-        const char   ** names = NULL;
-        const char    * label = NULL;
-        oyWIDGET_TYPE_e type = oyWIDGETTYPE_START;
+   QString qs;
+   int i;
+   int count = 0,
+       current = 0,
+       flags = 0;
+   const char    * tooltip = NULL;
+   const char   ** names = NULL;
+   const char    * label = NULL;
+   oyWIDGET_TYPE_e type = oyWIDGETTYPE_START;
 
   // Get widget strings.
   type = oyWidgetTitleGet( oyWIDGET_POLICY, NULL, &label, &tooltip, &flags );
@@ -119,10 +119,12 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
   policyLabel->setText(qs);
 
   type = oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES, NULL, &label, &tooltip, &flags );
+  Q_UNUSED(type);
   qs = QString::fromLocal8Bit(label);
   kmsettingsTab->setTabText(1,qs);
   
   type = oyWidgetTitleGet( oyWIDGET_GROUP_BEHAVIOUR, NULL, &label, &tooltip, &flags );
+  Q_UNUSED(type);
   qs = QString::fromLocal8Bit(label,-1);
   kmsettingsTab->setTabText(2,qs);
 

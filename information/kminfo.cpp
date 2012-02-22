@@ -276,6 +276,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
       oyConfigs_s * devices = 0;
       const char * reg_app = strrchr(texts[i],'/')+1;
       error = oyDevicesGet( OY_TYPE_STD, reg_app, 0, &devices );
+      Q_UNUSED(error);
       n = oyConfigs_Count( devices );
       d = oyConfDomain_FromReg( texts[i], 0 );
 
