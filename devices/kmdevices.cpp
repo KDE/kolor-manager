@@ -356,6 +356,7 @@ void kmdevices::updateProfileList(oyConfig_s * device)
 
     profileAssociationList->clear();
 
+
     kmDeviceGetProfile( device, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
 
@@ -424,6 +425,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
     for( i = 0; i < size; ++i)
     {
       const char * temp_profile_file_name;
+      {
          temp_profile = oyProfiles_Get( iccs, i );
          getProfileDescription = oyProfile_GetText( temp_profile, oyNAME_DESCRIPTION );
          temp_profile_file_name = oyProfile_GetFileName( temp_profile, 0);
@@ -458,6 +460,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
            deviceProfileComboBox->addItem(getProfileDescription);
            ++pos;
          }
+      }
       oyProfile_Release( &temp_profile );
     }
   if(empty_added == -1)
