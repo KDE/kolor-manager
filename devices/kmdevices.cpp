@@ -614,15 +614,15 @@ void kmsleep(double seconds)
 {
 #          if defined(__GCC__) || defined(__APPLE__)
     timespec ts;
-    double ganz;
-    double rest = modf(sekunden, &ganz);
-    ts.tv_sec = (time_t)ganz;
+    double total;
+    double rest = modf(seconds, &total);
+    ts.tv_sec = (time_t)total;
     ts.tv_nsec = (time_t)(rest * 1000000000);
-    //DBG_PROG_V( sekunden<<" "<<ts.tv_sec<<" "<<ganz<<" "<<rest )
+    //DBG_PROG_V( seconds<<" "<<ts.tv_sec<<" "<<ganz<<" "<<total)
     nanosleep(&ts, 0);
 #          else
 #            if defined( WIN32 ) 
-    Sleep((DWORD)(sekunden*(double)CLOCKS_PER_SEC));
+    Sleep((DWORD)(seconds*(double)CLOCKS_PER_SEC));
 #            else
     usleep((time_t)(seconds*(double)CLOCKS_PER_SEC));
 #            endif
