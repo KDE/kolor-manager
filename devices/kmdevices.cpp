@@ -512,7 +512,7 @@ void kmdevices::openProfile(int /*index*/)
     emit changed(true); 
     listModified = true;
 
-    assingProfile( baseFileName );
+    assignProfile( baseFileName );
 
     // Convert QString to proper C string.
     QByteArray raw_string;
@@ -631,7 +631,7 @@ void kmsleep(double seconds)
 
 
 // Set default profile.
-void kmdevices::assingProfile( QString & profile_name )
+void kmdevices::assignProfile( QString & profile_name )
 {        
      oyProfile_s * profile;
      QString description;

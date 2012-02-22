@@ -98,7 +98,7 @@ private:
     void setDefaultProfile(QString new_default_profile); 
 
     // set the new profile to a Oyranos device
-    void assingProfile( QString & profile_name );
+    void assignProfile( QString & profile_name );
     
     // Refresh current profile list.
     void updateProfileList(oyConfig_s * device);
