@@ -40,6 +40,9 @@
    </item>
    <item row="1" column="0" colspan="2">
     <widget class="QTabWidget" name="kmsettingsTab">
+     <property name="currentIndex">
+      <number>2</number>
+     </property>
      <widget class="QWidget" name="policySettingsTab">
       <attribute name="title">
        <string>Policy Settings</string>
@@ -131,7 +134,7 @@
           <item row="0" column="0">
            <widget class="QLabel" name="label_ASSUMED_RGB">
             <property name="text">
-             <string>Assumed RGB Source</string>
+             <string>Assumed RGB Source:</string>
             </property>
            </widget>
           </item>
@@ -145,7 +148,7 @@
           <item row="1" column="0">
            <widget class="QLabel" name="label_ASSUMED_CMYK">
             <property name="text">
-             <string>Assumed CMYK Source</string>
+             <string>Assumed CMYK Source:</string>
             </property>
            </widget>
           </item>
@@ -159,7 +162,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_ASSUMED_XYZ">
             <property name="text">
-             <string>Assumed XYZ Source</string>
+             <string>Assumed XYZ Source:</string>
             </property>
            </widget>
           </item>
@@ -173,7 +176,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_ASSUMED_LAB">
             <property name="text">
-             <string>Assumed Lab Source</string>
+             <string>Assumed Lab Source:</string>
             </property>
            </widget>
           </item>
@@ -187,7 +190,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_ASSUMED_GRAY">
             <property name="text">
-             <string>Assumed Gray Source</string>
+             <string>Assumed Gray Source:</string>
             </property>
            </widget>
           </item>
@@ -204,7 +207,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="label_ASSUMED_WEB">
             <property name="text">
-             <string>Web Source</string>
+             <string>Web Source:</string>
             </property>
            </widget>
           </item>
@@ -232,7 +235,7 @@
           <item row="2" column="0">
            <widget class="QLabel" name="label_EDITING_RGB">
             <property name="text">
-             <string>Editing RGB</string>
+             <string>Editing RGB:</string>
             </property>
            </widget>
           </item>
@@ -246,7 +249,7 @@
           <item row="3" column="0">
            <widget class="QLabel" name="label_EDITING_CMYK">
             <property name="text">
-             <string>Editing CMYK</string>
+             <string>Editing CMYK:</string>
             </property>
            </widget>
           </item>
@@ -260,7 +263,7 @@
           <item row="4" column="0">
            <widget class="QLabel" name="label_EDITING_XYZ">
             <property name="text">
-             <string>Editing XYZ</string>
+             <string>Editing XYZ:</string>
             </property>
            </widget>
           </item>
@@ -274,7 +277,7 @@
           <item row="5" column="0">
            <widget class="QLabel" name="label_EDITING_LAB">
             <property name="text">
-             <string>Editing Lab</string>
+             <string>Editing Lab:</string>
             </property>
            </widget>
           </item>
@@ -288,7 +291,7 @@
           <item row="6" column="0">
            <widget class="QLabel" name="label_EDITING_GRAY">
             <property name="text">
-             <string>Editing Gray</string>
+             <string>Editing Gray:</string>
             </property>
            </widget>
           </item>
@@ -563,7 +566,7 @@
               <item row="0" column="0">
                <widget class="QLabel" name="label_PROFILE_PROOF">
                 <property name="text">
-                 <string>Color Space</string>
+                 <string>Color Space:</string>
                 </property>
                </widget>
               </item>
@@ -577,7 +580,7 @@
               <item row="1" column="0">
                <widget class="QLabel" name="label_RENDERING_INTENT_PROOF">
                 <property name="text">
-                 <string>Rendering Intent</string>
+                 <string>Rendering Intent:</string>
                 </property>
                </widget>
               </item>
