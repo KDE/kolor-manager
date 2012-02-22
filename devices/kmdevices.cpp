@@ -316,7 +316,7 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
                                              "icc_profile_class", oyNAME_NICK );
       setCurrentDeviceClass(device_class);
 
-          if(icc_profile_class && strcmp(icc_profile_class,"display") == 0)
+      if(icc_profile_class && strcmp(icc_profile_class,"display") == 0)
         populateDeviceComboBox(icSigDisplayClass);
       else if(icc_profile_class && strcmp(icc_profile_class,"output") == 0)
         populateDeviceComboBox(icSigOutputClass);
