@@ -658,8 +658,8 @@ void kmsettings::saveSettings()
     else 
         oySetBehaviour(oyBEHAVIOUR_PROOF_HARD  , 0 );
 }
-// Create a new file that's currently stored in the customProfileDirectory QString.
 
+// Create a new file that's currently stored in the customProfileDirectory QString.
 void kmsettings::saveCustomXmlFile()
 { 
     saveSettings();
