@@ -477,15 +477,13 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 void kmdevices::openProfile(int /*index*/)
 {
     int parenthesis_index = 0, base_filename_index = 0, str_size = 0, i;        
-    QString baseFileName = deviceProfileComboBox->currentText(),
-            tempProfile;
+    QString baseFileName = deviceProfileComboBox->currentText();
 
     QListWidgetItem * temp_item = new QListWidgetItem;
 
-    QString description = baseFileName;    
     parenthesis_index = baseFileName.indexOf("\t(");   
 
-    // Clean-up full text in the deviceComboBox (we will o>setText(2)nly use the file name to
+    // Clean-up full text in the deviceComboBox (we will only use the file name to
     //                                          add to the profiles list).
     str_size = baseFileName.size();
     baseFileName.remove(0, parenthesis_index + 2);
