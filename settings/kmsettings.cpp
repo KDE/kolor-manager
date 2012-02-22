@@ -517,7 +517,6 @@ void kmsettings::setEditableItems(bool itemStatus)
 
 void kmsettings::addNewPolicy()
 {   
-   QString newPolicyString;
    bool ok;
    
    // New policy name dialog.
