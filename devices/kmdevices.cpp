@@ -610,24 +610,24 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   return device;
 }
 
-  void kmsleep(double sekunden)
-  {
+void kmsleep(double seconds)
+{
 #          if defined(__GCC__) || defined(__APPLE__)
-             timespec ts;
-             double ganz;
-             double rest = modf(sekunden, &ganz);
-             ts.tv_sec = (time_t)ganz;
-             ts.tv_nsec = (time_t)(rest * 1000000000);
-             //DBG_PROG_V( sekunden<<" "<<ts.tv_sec<<" "<<ganz<<" "<<rest )
-             nanosleep(&ts, 0);
+    timespec ts;
+    double ganz;
+    double rest = modf(sekunden, &ganz);
+    ts.tv_sec = (time_t)ganz;
+    ts.tv_nsec = (time_t)(rest * 1000000000);
+    //DBG_PROG_V( sekunden<<" "<<ts.tv_sec<<" "<<ganz<<" "<<rest )
+    nanosleep(&ts, 0);
 #          else
 #            if defined( WIN32 ) 
-               Sleep((DWORD)(sekunden*(double)CLOCKS_PER_SEC));
+    Sleep((DWORD)(sekunden*(double)CLOCKS_PER_SEC));
 #            else
-               usleep((time_t)(sekunden*(double)CLOCKS_PER_SEC));
+    usleep((time_t)(seconds*(double)CLOCKS_PER_SEC));
 #            endif
 #          endif
-  }
+}
 
 
 // Set default profile.
