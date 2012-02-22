@@ -484,7 +484,7 @@ void kmsettings::refreshPolicySettings()
      selected_policy = names[current];
      // Set user selected policy as system default.
      currentPolicyLabel->setText(selected_policy);      // Update default policy label.
-     printf( "acual policy: %s\n", names[current] );
+     printf( "actual policy: %s\n", names[current] );
    } else
      currentPolicyLabel->setText("----");
 }
