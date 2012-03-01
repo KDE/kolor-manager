@@ -64,7 +64,7 @@ kcmshell4 kminfo & # start
 
 # Debug
 echo $!  # obtain process id from bashs most recent process - kcmshell4
-gdb kcmshell4
+KDE_DEBUG=1 gdb kcmshell4  # the variable avoid KDE's crash handler
 gdb > attach to process id
 gdb > breakpoint kminfo.cpp:line_number
 gdb > continue
