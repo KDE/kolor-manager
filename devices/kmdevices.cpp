@@ -636,7 +636,7 @@ void kmsleep(double seconds)
 // Set default profile.
 void kmdevices::assignProfile( QString & profile_name )
 {        
-     oyProfile_s * profile;
+     oyProfile_s * profile = NULL;
      QString description;
 
      // If current device pointer points to a MONITOR item, save default profile to Oyranos.
@@ -701,7 +701,7 @@ kmdevices::~kmdevices()
 QString kmdevices::convertFilenameToDescription(QString profileFilename)
 {    
     QString profileDescriptionName;
-    oyProfile_s * profile_name;
+    oyProfile_s * profile_name = NULL;
     
     std::string t = profileFilename.toStdString();
     profile_name = oyProfile_FromFile( t.c_str(), 0, 0);
