@@ -69,7 +69,10 @@ gdb > attach to process id
 gdb > breakpoint kminfo.cpp:line_number
 gdb > continue
 
-# svn diff Howto
+# create tar ball from git
+sha=`cat .git/refs/heads/master | head -c 8`
+git archive --format=tar --prefix=kolor-manager-$sha/ HEAD | bzip2 > kolor-manager-$sha.tar.bz2
+
 # add here
 
 -----MAJOR CHANGES FROM LAST TEST BUILDS---------------------------------------
