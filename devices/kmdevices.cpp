@@ -43,6 +43,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QDesktopWidget>
 #include <KSharedConfigPtr>
 #include <KAboutData>
+#include <QThread>            // sleep
 
 #include <oyranos.h>
 #include <oyranos_icc.h>
@@ -613,25 +614,13 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   return device;
 }
 
-void kmsleep(double seconds)
+#include <QThread>
+class kmSleep : public QThread
 {
-#          if defined(__GCC__) || defined(__APPLE__)
-    timespec ts;
-    double total;
-    double rest = modf(seconds, &total);
-    ts.tv_sec = (time_t)total;
-    ts.tv_nsec = (time_t)(rest * 1000000000);
-    //DBG_PROG_V( seconds<<" "<<ts.tv_sec<<" "<<ganz<<" "<<total)
-    nanosleep(&ts, 0);
-#          else
-#            if defined( WIN32 ) 
-    Sleep((DWORD)(seconds*(double)CLOCKS_PER_SEC));
-#            else
-    usleep((time_t)(seconds*(double)CLOCKS_PER_SEC));
-#            endif
-#          endif
-}
-
+  public:
+     static void sleep(double seconds)
+     { QThread::msleep((long unsigned int)(seconds*1000)); }
+};
 
 // Set default profile.
 void kmdevices::assignProfile( QString & profile_name )
@@ -663,7 +652,7 @@ void kmdevices::assignProfile( QString & profile_name )
          error = oyDeviceSetup( device ); /* reinitialise */
          /* compiz needs some time to exchange the profiles,
             immediately we would get the old colour server profile */
-         kmsleep(0.3);
+         kmSleep::sleep(0.3);
          error = kmDeviceGetProfile( device, &profile ); /* reget profile */
          Q_UNUSED(error);
          /* clear */
