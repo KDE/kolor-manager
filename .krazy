@@ -1,0 +1,2 @@
+# qclasses are useful to easy porting to a shared UI library
+EXCLUDE qclasses
