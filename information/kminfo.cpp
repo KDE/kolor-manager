@@ -475,7 +475,7 @@ void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)
     field2 = ((int)v[1]/16);
     field3 = ((int)v[1]%16);
 
-    iccsLabel->setText(field1.setNum(((int)v[0])) + "." + field2.setNum(((int)v[1]/16)) + "." +
+    iccsLabel->setText(field1.setNum(((int)v[0])) + '.' + field2.setNum(((int)v[1]/16)) + '.' +
                                field3.setNum(((int)v[1]%16)));
 }
 
