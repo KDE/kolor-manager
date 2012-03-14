@@ -84,6 +84,7 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     
     setAboutData( about );
 
+    currentDevice = 0;
     current_device_name = 0;
     current_device_class = 0;
 
@@ -272,16 +273,21 @@ void kmdevices::detectRaw()
 // Hitting the "Show only device related ICC profiles" button 
 // relatedDeviceCheckBox.
 void kmdevices::changeDeviceItem(int /*state*/)
-{     
+{
   changeDeviceItem( currentDevice );
 } 
 
 // When the user clicks on an item in the devices tree list.
 void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
-{     
+{
+    if(!selected_device)
+    {
+      return;
+    }
+
     // Don't count top parent items as a "selected device".
     if (selected_device->parent() == deviceListPointer)
-    {         
+    {
          deviceProfileComboBox->setEnabled(false);
         
          return;
@@ -353,10 +359,13 @@ void kmdevices::updateProfileList(oyConfig_s * device)
                              {"serial",0},
                              {0,0}};
 
-    if(!device) return;
+    if(!device)
+    {
+      changeDeviceItem((QTreeWidgetItem *)NULL);
+      return;
+    }
 
     profileAssociationList->clear();
-
 
     kmDeviceGetProfile( device, &profile );
     profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
