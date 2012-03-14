@@ -107,14 +107,14 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     deviceList->expandAll();
 
     // QT-related Signal/Slot calls (for button-press and item selection events)si.
-    connect( deviceList, SIGNAL(itemClicked( QTreeWidgetItem*, int)),
-             this, SLOT( changeDeviceItem( QTreeWidgetItem*)) );
-    connect( relatedDeviceCheckBox, SIGNAL(stateChanged( int )),
-             this, SLOT( changeDeviceItem( int )) );
+    connect( deviceList, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
+             this, SLOT(changeDeviceItem(QTreeWidgetItem*)) );
+    connect( relatedDeviceCheckBox, SIGNAL(stateChanged(int)),
+             this, SLOT(changeDeviceItem(int)) );
     connect( deviceProfileComboBox, SIGNAL(activated(int)),
-             this, SLOT( openProfile(int)) );
-    connect( profileAssociationList, SIGNAL( itemDoubleClicked( QListWidgetItem* )),
-             this, SLOT( profileListDoubleClicked( QListWidgetItem * )) );
+             this, SLOT(openProfile(int)) );
+    connect( profileAssociationList, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
+             this, SLOT(profileListDoubleClicked(QListWidgetItem*)) );
 }
 
 // small helper to obtain a profile from a device
