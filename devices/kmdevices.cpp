@@ -282,6 +282,8 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
 {
     if(!selected_device)
     {
+      deviceProfileComboBox->clear();
+      deviceProfileComboBox->setEnabled(false);
       return;
     }
 
