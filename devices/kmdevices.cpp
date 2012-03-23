@@ -142,9 +142,6 @@ void kmdevices::populateDeviceListing()
   char ** texts = 0;
   int error = 0;
 
-  while(i && getenv("DEBUG"))
-    sleep(1);
-
   // get all configuration filters
   oyConfigDomainList( "//"OY_TYPE_STD"/config.device.icc_profile",
                       &texts, &count, &rank_list ,0 );
