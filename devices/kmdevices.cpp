@@ -49,6 +49,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos_icc.h>
 #include <alpha/oyranos_alpha.h>
 #include <alpha/oyranos_cmm.h>
+#include <unistd.h> //for usleep()
 
 #define CONFIG_REGISTRATION ("//" OY_TYPE_STD "/config/command")
 
