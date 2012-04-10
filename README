@@ -14,8 +14,8 @@ currently maintained by Kai-Uwe Behrmann 2010
 
 -----REQUIRED LIBRARIES---------------------------------------------
 
--This build is currently using the latest Oyranos build through "git".  It is
-required that Oyranos be up to date using this.
+- The v0.95 tagged release builds fine using Oyranos-0.4.0 .
+- Actual git should the latest Oyranos from it's git repository. KolorManager gets updated pretty quick to Oyranos changes.
 
 
 -----INSTALLATION----------------------------------------------------
