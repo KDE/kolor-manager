@@ -53,6 +53,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <alpha/oyranos_alpha.h>
 #include <locale.h>
 
+// The number of policies that are available in KM by default.
+// NOTE These are listed *before* the user-defined policies.
+const int internalPolicyCount = 4;
+
 // Code to provide KDE module functionality for Kolor Management.
 K_PLUGIN_FACTORY( kmsettingsFactory, 
          registerPlugin<kmsettings>(); 
@@ -213,8 +217,8 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    // the actual used policy. So track them.
    // QT-related SIGNAL/SLOT functions, such as button presses and clicking
    // on a particular item.
-   connect(policySettingsList, SIGNAL(itemClicked(QListWidgetItem*)), 
-        this, SLOT(selectPolicy(QListWidgetItem*)));   
+   connect(policySettingsList, SIGNAL(currentRowChanged(int)), 
+        this, SLOT(selectPolicy(int)));   
    connect(addNewPolicyButton, SIGNAL(clicked()), this, SLOT(addNewPolicy()));
    connect(removePolicyButton, SIGNAL(clicked()), this, SLOT(removeCustomPolicy()));
 
@@ -373,8 +377,10 @@ void kmsettings::populateBehaviorSettings()
 }
 
 // Last "clicked on" policy by the user.
-void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
+void kmsettings::selectPolicy(int rowIndex)
 {
+    QListWidgetItem * selectedPolicyItem = policySettingsList->item(rowIndex);
+       
     // If user makes a settings change, and then clicks on a different policy...
     if (settingsChanged == true && isCustom == true)   
     {
@@ -404,17 +410,18 @@ void kmsettings::selectPolicy(QListWidgetItem* selectedPolicyItem)
          oyPolicySet( t.c_str(), 0 );
      }
      if(full_name) free( full_name );
-
-   
-     // Make sure the user doesn't delete the current policy settings!
-     if(default_policy == selectedPolicyItem->text())
-         removePolicyButton->setEnabled(false);
+     
+     // Do not remove "built-in" policies ('Office', 'Photographer', etc.)
+     if (rowIndex < internalPolicyCount)
+      removePolicyButton->setEnabled(false);
+     else
+      removePolicyButton->setEnabled(true);
 
      populateBehaviorSettings();       // Refresh settings in "Behavior Settings"
      refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
      refreshPolicySettings();
 
-     setEditableItems(isCustom);
+     setEditableItems(isCustom);      
 }
 
 //  Refresh profile combo boxes with profiles associated with the current policy.
@@ -684,11 +691,11 @@ void kmsettings::savePolicy()
      QString tempProfile;
      QStringList policyList;
 
-     if ( policySettingsList->count() >= 4)
+     if ( policySettingsList->count() >= internalPolicyCount)
      {
          QListWidgetItem * temp_item;
 
-         for (int i = 4; i < policySettingsList->count(); i++)
+         for (int i = internalPolicyCount; i < policySettingsList->count(); i++)
          {
               temp_item = policySettingsList->item(i);
               tempProfile = temp_item->text();
@@ -706,6 +713,7 @@ void kmsettings::loadPolicy()
 
   policySettingsList->clear();
 
+  // NOTE Built-in policies are loaded first.
   oyOptionChoicesGet( oyWIDGET_POLICY, &count, &names, &current );
   for(i = 0; i < count; ++i)
     policySettingsList->addItem( names[i] );

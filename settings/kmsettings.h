@@ -69,7 +69,7 @@ public Q_SLOTS:
 private slots:
     
     // Refreshes which policy is currently highlighted/selected.
-    void selectPolicy(QListWidgetItem*);  
+    void selectPolicy(int);  
 
     // Function used when user clicks on "Add Custom Policy".
     void addNewPolicy();
