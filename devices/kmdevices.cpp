@@ -115,8 +115,6 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
              this, SLOT(changeDeviceItem(int)) );
     connect( deviceProfileComboBox, SIGNAL(activated(int)),
              this, SLOT(openProfile(int)) );
-    connect( profileAssociationList, SIGNAL(itemDoubleClicked(QListWidgetItem*)),
-             this, SLOT(profileListDoubleClicked(QListWidgetItem*)) );
 }
 
 // small helper to obtain a profile from a device
@@ -330,7 +328,6 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
         populateDeviceComboBox(icSigOutputClass);
       else if(icc_profile_class && strcmp(icc_profile_class,"input") == 0)
         populateDeviceComboBox(icSigInputClass);
-      profileAssociationList->clear();
 
       oyConfDomain_Release( &d );
       free(device_class); device_class = 0;
@@ -340,63 +337,8 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     oyConfig_s * device = 0;
     device = getCurrentDevice();
 
-    updateProfileList(device); 
     oyConfig_Release(&device);
 }
-
-// Update profile association list every time a user clicks on a device item.
-void kmdevices::updateProfileList(oyConfig_s * device)
-{
-    int i, j;
-    oyProfile_s * profile = 0;
-    const char * profile_name = 0;
-    oyConfigs_s * db_list = 0,
-                * matches = 0;
-    oyConfig_s * config;
-    const char * pattern[][2] = {{"device_name",0},
-                             {"manufacturer",0},
-                             {"model",0},
-                             {"serial",0},
-                             {0,0}};
-
-    if(!device)
-    {
-      changeDeviceItem((QTreeWidgetItem *)NULL);
-      return;
-    }
-
-    profileAssociationList->clear();
-
-    kmDeviceGetProfile( device, &profile );
-    profile_name = oyProfile_GetText(profile, oyNAME_DESCRIPTION);
-
-    j = 0;
-    while(pattern[j][0])
-    {
-      pattern[j][1] = oyConfig_FindString( device, pattern[j][0], 0);
-
-      ++j;
-    }
-
-    oyConfigs_FromDB( device->registration, &db_list, 0 );
-    oyConfigs_SelectSimiliars( db_list, pattern, &matches );
-
-    int n = oyConfigs_Count( matches );
-    for(i = 0; i < n; ++i)
-    {
-      config = oyConfigs_Get( matches, i );
-      
-      profile_name = oyConfig_FindString( config, "profile_name", 0);
-      if( profile_name )
-        profileAssociationList->addItem( profile_name );
-
-      oyConfig_Release( &config );
-    }
-
-  oyConfigs_Release( &matches );
-  oyConfigs_Release( &db_list );
-}
-
 
 
 // Populate "Assign Profile" combobox.  Depending on the device selected, the profile list will vary.
@@ -490,10 +432,8 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 // Add a new profile to the list.
 void kmdevices::openProfile(int /*index*/)
 {
-    int parenthesis_index = 0, base_filename_index = 0, str_size = 0, i;        
+    int parenthesis_index = 0, base_filename_index = 0, str_size = 0;        
     QString baseFileName = deviceProfileComboBox->currentText();
-
-    QListWidgetItem * temp_item = new QListWidgetItem;
 
     parenthesis_index = baseFileName.indexOf("\t(");   
 
@@ -506,21 +446,6 @@ void kmdevices::openProfile(int /*index*/)
     baseFileName.remove(parenthesis_index, parenthesis_index + 1);
     base_filename_index = baseFileName.lastIndexOf("/");
     baseFileName.remove(0, base_filename_index + 1); 
-
-    // Error if user adds a duplicate profile.
-    for(i = 0; i < profileAssociationList->count(); ++i)
-    {
-          temp_item = profileAssociationList->item(i);
-          if(temp_item->text() == baseFileName)
-          {
-              std::string t = baseFileName.toStdString();
-              KMessageBox::error(this,
-                  i18n("Profile %1 is already associated with this device.", baseFileName),
-                  i18n("Cannot add profile to list"));
-
-                  return;
-          }
-    }
 
     emit changed(true); 
     listModified = true;
@@ -535,70 +460,8 @@ void kmdevices::openProfile(int /*index*/)
     // Get the device that the user selected.
     oyConfig_s * device = 0;     
     device = getCurrentDevice();
- 
-    updateProfileList(device); 
+     
     oyConfig_Release(&device);
-}
-
-void kmdevices::profileListDoubleClicked( QListWidgetItem * item )
-{
-  int i,j,n, k,k_n;
-  oyConfigs_s * db_list = 0,
-              * matches = 0;
-  oyConfig_s * config = 0;
-  const char * pattern[][2] = {{"device_name",0},
-                               {"manufacturer",0},
-                               {"model",0},
-                               {"serial",0},
-                               {0,0}};
-  char * t;
-  oyConfig_s * device = getCurrentDevice();
-  oyOptions_s * options = 0;
-  oyOption_s * o = 0;
-
-  j = 0;
-  while(pattern[j][0])
-  {
-    pattern[j][1] = oyConfig_FindString( device, pattern[j][0], 0);
-    ++j;
-  }
-
-  oyConfigs_FromDB( device->registration, &db_list, 0 );
-  oyConfigs_SelectSimiliars( db_list, pattern, &matches );
-
-  n = profileAssociationList->count();
-  for(i = 0; i < n; ++i)
-  {
-    if(profileAssociationList->item( i ) == item)
-    {
-      QString d;
-      config = oyConfigs_Get( matches, i );
-      
-      k_n = oyConfig_Count( config );
-      for(k = 0; k < k_n; ++k)
-      {
-        o = oyConfig_Get( config, k );
-        t = oyOption_GetValueText( o, malloc );
-        if(t)
-        {
-            d.append( strrchr( oyOption_GetRegistration(o), '/' ) + 1 );
-            d.append(":\t");
-            d.append( t );
-            d.append("\n");
-          free( t );
-        }
-      }
-
-      KMessageBox::information( this, i18n("Oyranos DB entry:\n%1", d) );
-
-      oyConfig_Release( &config );
-    }
-  }
-
-  oyConfig_Release( &device );
-  oyConfigs_Release( &db_list );
-  oyConfigs_Release( &matches );
-  oyOptions_Release( &options );
 }
 
 oyConfig_s * kmdevices::getCurrentDevice( void )

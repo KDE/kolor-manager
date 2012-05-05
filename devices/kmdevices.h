@@ -74,9 +74,6 @@ private slots:
 
     // Hitting the "Show only device related ICC profiles" button.
     void changeDeviceItem( int state );
-
-    // When user clicks on a profile list item
-    void profileListDoubleClicked( QListWidgetItem* );
 private:
 
     // General device detection 
@@ -99,9 +96,6 @@ private:
 
     // set the new profile to a Oyranos device
     void assignProfile( QString & profile_name );
-    
-    // Refresh current profile list.
-    void updateProfileList(oyConfig_s * device);
 
     // get the actual device from currentDevice
     oyConfig_s * getCurrentDevice( void );
