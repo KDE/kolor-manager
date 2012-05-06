@@ -96,17 +96,15 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     // Disable all buttons
     deviceProfileComboBox->setEnabled(false);    
 
-    // Set column width of device list.
-    deviceList->setColumnWidth(0, 350);
-    deviceList->setColumnWidth(1, 175);
-    deviceList->setColumnWidth(2, 175);
-    deviceList->setColumnWidth(3, 175);
-
     // Load directories and device listing.
     populateDeviceListing();   
     
     // Expand list for user.
     deviceList->expandAll();
+    
+    // Set column width of device list.
+    for(int i = 0; i < deviceList->columnCount(); i++)
+        deviceList->resizeColumnToContents(i);
 
     // QT-related Signal/Slot calls (for button-press and item selection events)si.
     connect( deviceList, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
@@ -460,6 +458,10 @@ void kmdevices::openProfile(int /*index*/)
     QByteArray raw_string;
     raw_string = (currentDevice->text(DEVICE_NAME)).toLatin1();
     setCurrentDeviceName(raw_string.data());
+    
+    // Update column width of device list.
+    for(int i = 0; i < deviceList->columnCount(); i++)
+        deviceList->resizeColumnToContents(i);
         
     // Get the device that the user selected.
     oyConfig_s * device = 0;     

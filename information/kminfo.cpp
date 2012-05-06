@@ -178,6 +178,9 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
       setProfileInfoPanelVisibility(true);
     else
       setProfileInfoPanelVisibility(false);
+    
+    for(int i = 0; i < installedProfilesTree->columnCount(); i++)
+      installedProfilesTree->resizeColumnToContents(i);
 
     // Whenever the user clicks on a QTreeWidget child, the description changes.
     connect( installedProfilesTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), 
@@ -380,9 +383,12 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         {
           QTreeWidgetItem * profile_child = new QTreeWidgetItem;
           const char* profile_name = oyProfile_GetText( p, oyNAME_DESCRIPTION );
-          const char* file_name = oyProfile_GetFileName( p, -1 );
-          if(file_name)
+          const char* file_path = oyProfile_GetFileName( p, -1 );
+          if(file_path)
+          {
+            const char* file_name = strrchr(file_path, '/')+1;
             profile_child->setText(1, QString(file_name));
+          }
           else
             profile_child->setText(1, i18n("in memory"));
           profile_child->setText(0, profile_name);
