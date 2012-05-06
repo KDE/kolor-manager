@@ -201,6 +201,7 @@ int kmdevices::detectDevices(const char * device_type)
             const char * device_serial = 0;
             char * device_designation = 0;
 
+            const char * profile_filepath = 0;
             const char * profile_filename = 0;
             oyProfile_s * profile = 0;
 
@@ -223,11 +224,11 @@ int kmdevices::detectDevices(const char * device_type)
             deviceItemString.append(device_serial);
 
             error = kmDeviceGetProfile(device, &profile);
-            profile_filename = oyProfile_GetFileName(profile, 0);
+            profile_filepath = oyProfile_GetFileName(profile, 0);
  
             deviceListPointer = new QTreeWidgetItem();
 
-            if (profile_filename == NULL)
+            if (profile_filepath == NULL)
             {
                 deviceProfileDescription = oyProfile_GetText( profile, oyNAME_DESCRIPTION );
                 if(!deviceProfileDescription.count())
@@ -235,7 +236,10 @@ int kmdevices::detectDevices(const char * device_type)
                 profile_filename = "------";
             }
             else
-                deviceProfileDescription = convertFilenameToDescription(profile_filename);
+            {
+                deviceProfileDescription = convertFilenameToDescription(profile_filepath);
+                profile_filename = strrchr(profile_filepath, '/')+1;
+            }
  
             deviceListPointer->setIcon(0, device_icon);
             deviceListPointer->setText(DEVICE_DESCRIPTION, deviceItemString);
