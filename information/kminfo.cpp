@@ -170,11 +170,20 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     
     scrollArea->setWidget(scrollAreaWidgetContents);
     scrollArea->setWidgetResizable(true);
+    
+    // FIXME The state of the checkbox should be saved upon exit.
+    showProfileInfoCheckBox->setCheckState(Qt::Checked);    
+    
+    if(showProfileInfoCheckBox->checkState() == Qt::Checked)
+      setProfileInfoPanelVisibility(true);
+    else
+      setProfileInfoPanelVisibility(false);
 
     // Whenever the user clicks on a QTreeWidget child, the description changes.
     connect( installedProfilesTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), 
                 this, SLOT(changeProfileTreeItem(QTreeWidgetItem*)));
-    
+    connect( showProfileInfoCheckBox, SIGNAL(stateChanged(int)), 
+                this, SLOT(toggleProfileInfoPanel(int)));
     connect( launchICCExaminButton, SIGNAL(clicked()), this, SLOT(launchICCExamin())); 
 }
 
@@ -206,6 +215,24 @@ void kminfo::launchICCExamin()
     }
     std::string t = exec.toStdString();
     system(t.c_str());
+}
+
+void kminfo::toggleProfileInfoPanel(int new_state)
+{
+    switch(new_state)
+    {
+      case Qt::Unchecked: 
+        setProfileInfoPanelVisibility(false);
+        break;
+      case Qt::Checked:
+        setProfileInfoPanelVisibility(true);
+        break;
+      case Qt::PartiallyChecked:
+        setProfileInfoPanelVisibility(true);
+        break;
+      default:
+        break;
+    }      
 }
 
 // Populate the tree with detected profile items.
@@ -462,6 +489,17 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
         directoryListingTag -> setText(QString());
     }
   
+}
+
+// Set visibility of the profile information box based on the
+// "Display profile information" checkbox.
+void kminfo::setProfileInfoPanelVisibility(bool state)
+{
+    if(state == true)
+      profileInfoGroupBox->setHidden(false);
+    else 
+      profileInfoGroupBox->setHidden(true);
+      
 }
 
 void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)

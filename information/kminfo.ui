@@ -10,7 +10,7 @@
     <height>684</height>
    </rect>
   </property>
-  <layout class="QHBoxLayout" name="horizontalLayout">
+  <layout class="QVBoxLayout" name="verticalLayout_2">
    <item>
     <widget class="QSplitter" name="splitter">
      <property name="orientation">
@@ -179,8 +179,8 @@
            <rect>
             <x>0</x>
             <y>0</y>
-            <width>509</width>
-            <height>619</height>
+            <width>506</width>
+            <height>557</height>
            </rect>
           </property>
           <layout class="QGridLayout" name="gridLayout_2">
@@ -642,6 +642,13 @@ p, li { white-space: pre-wrap; }
        </item>
       </layout>
      </widget>
+    </widget>
+   </item>
+   <item>
+    <widget class="QCheckBox" name="showProfileInfoCheckBox">
+     <property name="text">
+      <string>Display profile information</string>
+     </property>
     </widget>
    </item>
   </layout>

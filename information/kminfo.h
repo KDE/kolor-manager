@@ -73,6 +73,9 @@ private slots:
   
      // If "Analyze profile" button is un-hidden, launch iccexamin.
      void launchICCExamin();
+     
+     // Hides/Unhides information panel based on checkbox state.
+     void toggleProfileInfoPanel(int);
 
 private:
      
@@ -103,6 +106,8 @@ private:
      // Check for iccexamin functionality on user system.
      bool iccExaminIsInstalled(QString &iccExaminPath);
 
+     // Hides/Unhides information panel.
+     void setProfileInfoPanelVisibility(bool);
      
      // Pointers to current QTreeWidget parents (Devices, Editing Space, Assumed Space)
      QTreeWidgetItem * assumedCsTree;
