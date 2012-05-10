@@ -171,22 +171,15 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     scrollArea->setWidget(scrollAreaWidgetContents);
     scrollArea->setWidgetResizable(true);
     
-    // FIXME The state of the checkbox should be saved upon exit.
-    showProfileInfoCheckBox->setCheckState(Qt::Checked);    
-    
-    if(showProfileInfoCheckBox->checkState() == Qt::Checked)
-      setProfileInfoPanelVisibility(true);
-    else
-      setProfileInfoPanelVisibility(false);
-    
     for(int i = 0; i < installedProfilesTree->columnCount(); i++)
       installedProfilesTree->resizeColumnToContents(i);
+    
+    // Info panel will initially be hiding.
+    setProfileInfoPanelHiding(true);
 
     // Whenever the user clicks on a QTreeWidget child, the description changes.
     connect( installedProfilesTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), 
                 this, SLOT(changeProfileTreeItem(QTreeWidgetItem*)));
-    connect( showProfileInfoCheckBox, SIGNAL(stateChanged(int)), 
-                this, SLOT(toggleProfileInfoPanel(int)));
     connect( launchICCExaminButton, SIGNAL(clicked()), this, SLOT(launchICCExamin())); 
 }
 
@@ -218,24 +211,6 @@ void kminfo::launchICCExamin()
     }
     std::string t = exec.toStdString();
     system(t.c_str());
-}
-
-void kminfo::toggleProfileInfoPanel(int new_state)
-{
-    switch(new_state)
-    {
-      case Qt::Unchecked: 
-        setProfileInfoPanelVisibility(false);
-        break;
-      case Qt::Checked:
-        setProfileInfoPanelVisibility(true);
-        break;
-      case Qt::PartiallyChecked:
-        setProfileInfoPanelVisibility(true);
-        break;
-      default:
-        break;
-    }      
 }
 
 // Populate the tree with detected profile items.
@@ -477,35 +452,21 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
 
         oyProfile_Release( &current_profile );
         current_profile = oyProfile_Copy( profile, 0 );
+       
+        setProfileInfoPanelHiding(false);
     }
     else
     {
-        // Set default descriptions.
-        descriptionTagLabel -> setText(i18n("No Profile Selected"));
-        copyrightTagLabel -> setText(i18n("(Copyright not available)"));
-        mfgTagLabel -> setText(QString());
-        modelTagLabel -> setText(QString());
-
-        dateTagLabel -> setText(QString());
-        colorspaceTagLabel -> setText(QString());
-        iccVerTagLabel -> setText(QString());
-        pcsTagLabel -> setText(QString());
-        deviceClassTagLabel -> setText(QString());
-
-        directoryListingTag -> setText(QString());
+        setProfileInfoPanelHiding(true);
     }
   
 }
 
 // Set visibility of the profile information box based on the
 // "Display profile information" checkbox.
-void kminfo::setProfileInfoPanelVisibility(bool state)
+void kminfo::setProfileInfoPanelHiding(bool isHidden)
 {
-    if(state == true)
-      profileInfoGroupBox->setHidden(false);
-    else 
-      profileInfoGroupBox->setHidden(true);
-      
+    profileInfoGroupBox->setHidden(isHidden);      
 }
 
 void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)

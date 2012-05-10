@@ -73,9 +73,6 @@ private slots:
   
      // If "Analyze profile" button is un-hidden, launch iccexamin.
      void launchICCExamin();
-     
-     // Hides/Unhides information panel based on checkbox state.
-     void toggleProfileInfoPanel(int);
 
 private:
      
@@ -93,6 +90,9 @@ private:
  
      // Function to write tag descriptions to individual labels
      void setTagDescriptions(oyProfile_s *, icTagSignature, QLabel *);
+     
+     // Sets the profile information labels as hidden or unhidden.
+     void setInfoPanelLabelHiding(bool);
  
      // The following provide additional tags to be displayed.
      void setPcsTag(oyProfile_s * profile, QLabel * pcsLabel);
@@ -107,7 +107,7 @@ private:
      bool iccExaminIsInstalled(QString &iccExaminPath);
 
      // Hides/Unhides information panel.
-     void setProfileInfoPanelVisibility(bool);
+     void setProfileInfoPanelHiding(bool);
      
      // Pointers to current QTreeWidget parents (Devices, Editing Space, Assumed Space)
      QTreeWidgetItem * assumedCsTree;
@@ -117,7 +117,7 @@ private:
      // Pointers to device-specific (parent) items on list
      oyProfile_s * current_profile;
 
-     KSharedConfigPtr m_config;
+     KConfig m_config;
  
 };
 
