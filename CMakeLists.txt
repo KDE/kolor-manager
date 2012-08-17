@@ -22,7 +22,7 @@ link_directories(
 
 SET( ${CMAKE_BUILD_TYPE} Debug)
 
-SUBDIRS(devices information settings)
+SUBDIRS(devices kolor-server information settings)
 
 
 #kde4_add_plugin(settings-kolor-management ${kolor_manager_PART_SRCS})
