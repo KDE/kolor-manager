@@ -59,6 +59,11 @@ oyProfile_s *ColorOutput::profile()
     return m_cc.destinationProfile();
 }
 
+void ColorOutput::setProfile(oyProfile_s* profile)
+{
+    m_cc.setDestinationProfile(profile);
+}
+
 const QString& ColorOutput::name()
 {
     return m_name;

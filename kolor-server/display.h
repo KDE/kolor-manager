@@ -21,10 +21,11 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #ifndef KOLOR_SERVER_DISPLAY_H_
 #define KOLOR_SERVER_DISPLAY_H_
 
+#include <QObject>
+
 #include "x11-helpers.h"
 
 struct oyStructList_s;
-
 
 namespace KolorServer
 {
@@ -39,8 +40,10 @@ class Screen;
  *
  * \note PrivDisplay
  */
-class Display
+class Display : public QObject
 {
+    Q_OBJECT
+
     friend class KolorServer::Screen;
 
 public:
@@ -84,22 +87,6 @@ public:
      * Used by: setupOutputs
      */
     void clean();
-
-    /**
-     * \note pluginHandleEvent
-     * \todo
-     * - handle PropertyNotify
-     *  - iccColorProfiles
-     *  - iccColorOutputs (not yet? for windows?)
-     *  - iccColorDesktop
-     *  - the weird icc target profile in x base
-     *  - netDesktopGeometry
-     *  - iccDisplayAdvanced
-     * - handle ClientMessage, iccColorManagement (not yet? for windows?)
-     * - handle RandR event, outputChange
-     * - initialize stuff if necessary
-     */
-    void handleEvent(X11::XEvent *event);
 
     /**
      * \note updateNetColorDesktopAtom
@@ -173,9 +160,30 @@ private:
     // TODO doc
     void updateProfiles();
 
+    /**
+     * \note pluginHandleEvent
+     * \todo
+     * - handle PropertyNotify
+     *  - iccColorProfiles
+     *  - iccColorOutputs (not yet? for windows?)
+     *  - iccColorDesktop
+     *  - the weird icc target profile in x base
+     *  - netDesktopGeometry
+     *  - iccDisplayAdvanced
+     * - handle ClientMessage, iccColorManagement (not yet? for windows?)
+     * - handle RandR event, outputChange
+     * - initialize stuff if necessary
+     */
+    void handleEvent(X11::XEvent *event);
+
+private slots:
+    void checkX11Events();
+
 private:
     X11::Display *m_display;
-    Screen *m_screen;
+    KolorServer::Screen *m_screen;
+
+    X11::XcmeContext_s *m_xcmeContext;
 
     /* ClientMessage sent by the application */
     X11::Atom iccColorManagement;

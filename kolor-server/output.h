@@ -46,6 +46,9 @@ public:
      */
     oyProfile_s *profile();
 
+    // TODO doc
+    void setProfile(oyProfile_s *profile);
+
     /**
      * \return Name of the output
      */

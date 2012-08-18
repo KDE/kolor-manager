@@ -231,6 +231,60 @@ updateProfiles_out:
     X11::XFree(data);
 }
 
+void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
+{
+    int screen = 0;
+    bool ignoreProfile = false;
+    unsigned long n = 0;
+
+    Atom csAtom;
+    QByteArray colorServerProfileAtom = OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE;
+    if (strlen(atomName) > (size_t) colorServerProfileAtom.size() + 1)
+        sscanf((const char*) atomName, OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE"_%d", &screen);
+    if (screen) {
+        colorServerProfileAtom += "_";
+        colorServerProfileAtom += QByteArray::number(screen);
+    }
+
+    csAtom = X11::XInternAtom(m_display, colorServerProfileAtom.constData(), False);
+    if (csAtom) {
+        void *data = X11::fetchProperty(m_display, X11::rootWindow(m_display, 0), atom, XA_CARDINAL, &n, False);
+        if (data && n) {
+            oyProfile_s *serverProfile = oyProfile_FromMem(n, data, 0,0);
+            oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, 0); // sRGB
+
+            /* The distinction of sRGB profiles set by the server and ones
+                * coming from outside the colour server is rather fragile.
+                * So we ignore any sRGB profiles set into _ICC_PROFILE(_xxx).
+                * The correct way to omit colour correction is to tag window
+                * regions. As a last resort the colour server can be switched off.
+                */
+            if (oyProfile_Equal(serverProfile, dummyProfile)) {
+                oyProfile_Release(&serverProfile);
+                ignoreProfile = true;
+            }
+            oyProfile_Release(&dummyProfile);
+
+            if (serverProfile) {
+                if (screen < m_outputs.count()) {
+                    m_outputs[screen]->setProfile(serverProfile);
+                } else
+                    qWarning() << "Contexts not ready for screen" << screen;
+
+                X11::changeProperty(m_display, csAtom, XA_CARDINAL, (unsigned char *) 0, 0);
+            }
+
+            serverProfile = 0;
+            X11::XFree(data);
+        }
+    }
+
+    // Change only existing profiles, ignore removed ones
+    if (!ignoreProfile && n) {
+        updateOutputConfiguration(false);
+    }
+}
+
 int Screen::profileCount() const
 {
     int c = 0;
@@ -238,6 +292,11 @@ int Screen::profileCount() const
         if (m_outputs[i]->profile())
             c ++;
     return c;
+}
+
+int Screen::outputCount() const
+{
+    return m_outputs.size();
 }
 
 } // KolorServer namespace

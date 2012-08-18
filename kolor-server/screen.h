@@ -145,7 +145,13 @@ public:
     void updateProfiles();
 
     // TODO doc
+    void updateProfileForAtom(const char *atomName, X11::Atom atom);
+
+    // TODO doc
     int profileCount() const;
+
+    // TODO doc
+    int outputCount() const;
 
 private:
     Display *m_parent;

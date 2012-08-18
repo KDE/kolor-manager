@@ -55,6 +55,9 @@ public:
      */
     oyProfile_s *destinationProfile();
 
+    // TODO doc
+    void setDestinationProfile(oyProfile_s *profile);
+
     /**
      * \return Name of the intended output device
      */

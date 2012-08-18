@@ -19,6 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 
 #include <QDebug>
+#include <QTimer>
 
 #include "display.h"
 
@@ -28,6 +29,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 namespace KolorServer
 {
+
+static const int X11_EVENTS_POLL_INTERVAL         = 4000; //ms
 
 /*
  * Display
@@ -56,6 +59,7 @@ X11::Display *Display::x11Display() const
 
 Display::Display()
     : m_screen(0)
+    , m_xcmeContext(0)
     , m_colorDesktopActivated(true)
     , m_oyCache(0)
 {
@@ -85,6 +89,10 @@ Display::~Display()
     // Delete default screen
     delete m_screen;
 
+    // Uninit X11 Events monitoring
+    if (m_xcmeContext)
+        X11::XcmeContext_Release(&m_xcmeContext);
+
     // Delete cache
     oyStructList_Clear(m_oyCache);
     oyStructList_Release(&m_oyCache);
@@ -104,7 +112,19 @@ void Display::initialize()
     }
 #endif
 
-    //WRAP(pd, d, handleEvent, pluginHandleEvent); TODO
+    // Setup X11 event monitoring
+    m_xcmeContext = X11::XcmeContext_New();
+    if (m_xcmeContext) {
+        X11::XcmeContext_DisplaySet(m_xcmeContext, m_display);
+        if (X11::XcmeContext_Setup(m_xcmeContext, ""))
+            qWarning() << "Unable to setup X11 event monitor";
+    } else
+        qWarning() << "Unable to create X11 event monitor";
+
+    // Setup a timer for polling for X11 events
+    QTimer *eventTimer = new QTimer(this);
+    connect(eventTimer, SIGNAL(timeout()), this, SLOT(checkX11Events()));
+    eventTimer->start(X11_EVENTS_POLL_INTERVAL);
 
     iccColorManagement  = X11::XInternAtom(m_display, "_ICC_COLOR_MANAGEMENT", False);
 
@@ -304,5 +324,90 @@ void Display::updateProfiles()
 {
     m_screen->updateProfiles();
 }
+
+void Display::handleEvent(X11::XEvent* event)
+{
+    const char *atomName = 0;
+
+    if (!colorDesktopActivated())
+        return;
+
+    switch (event->type) {
+    case PropertyNotify:
+        atomName = X11::XGetAtomName(event->xany.display, event->xproperty.atom);
+
+        if (event->xproperty.atom == iccColorProfiles) {
+            qDebug() << Q_FUNC_INFO << "ICC Color Profiles atom changed";
+            m_screen->updateProfiles();
+        } else if (event->xproperty.atom == iccColorRegions) {
+            qDebug() << Q_FUNC_INFO << "ICC Color Regions atom changed";
+            // CompWindow *w = findWindowAtDisplay(d, event->xproperty.window);
+            // updateWindowRegions(w);
+            // colour_desktop_region_count = -1;
+            // TODO
+        } else if (event->xproperty.atom == iccColorOutputs) {
+            qDebug() << Q_FUNC_INFO << "ICC Color Outputs atom changed";
+            // CompWindow *w = findWindowAtDisplay(d, event->xproperty.window);
+            // updateWindowOutput(w);
+            // TODO
+        } else if (event->xproperty.atom == iccColorDesktop && atomName) {
+            // Possibly let others take over the colour server
+            qDebug() << Q_FUNC_INFO << "ICC Color Desktop atom changed";
+            updateNetColorDesktopAtom(false);
+        } else if (strstr(atomName, OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE) != 0) {
+            // Update for a changing monitor profile
+            qDebug() << Q_FUNC_INFO << "ICC Output Profile atom changed";
+            m_screen->updateProfileForAtom(atomName, event->xproperty.atom);
+        } else if (event->xproperty.atom == netDesktopGeometry) {
+            // Update for changing geometry
+            qDebug() << Q_FUNC_INFO << "Desktop geometry atom changed";
+            m_screen->setupOutputs();
+            m_screen->updateOutputConfiguration(true);
+        } else if (event->xproperty.atom == iccDisplayAdvanced) {
+            qDebug() << Q_FUNC_INFO << "ICC Display Advanced atom changed";
+            m_screen->updateOutputConfiguration(false);
+        }
+
+        break;
+
+    case ClientMessage:
+        if (event->xclient.message_type == iccColorManagement)
+        {
+            qDebug() << Q_FUNC_INFO << "ICC Color Management atom changed";
+            // CompWindow *w = findWindowAtDisplay (d, event->xclient.window);
+            // PrivWindow *pw = compObjectGetPrivate((CompObject *) w);
+            // pw->active = 1;
+            // TODO
+        }
+        break;
+
+#ifdef HAVE_XRANDR
+    case /*d->randrEvent + FIXME?*/ RRNotify: {
+        X11::XRRNotifyEvent *rrn = (X11::XRRNotifyEvent *) event;
+        if (rrn->subtype == RRNotify_OutputChange) {
+            qDebug() << Q_FUNC_INFO << "XRandR outputs changed";
+            m_screen->setupOutputs();
+            m_screen->updateOutputConfiguration(true);
+        }
+        break;
+    }
+#endif
+
+    default:
+        break;
+    }
+}
+
+void Display::checkX11Events()
+{
+    X11::XEvent event;
+    long eventMask = ExposureMask | PropertyChangeMask;
+
+    while (X11::XCheckMaskEvent(m_display, eventMask, &event) == True) {
+        X11::XcmeContext_InLoop(m_xcmeContext, &event);
+        handleEvent(&event);
+    }
+}
+
 
 } // KolorServer namespace

@@ -63,6 +63,12 @@ oyProfile_s *ColorContext::destinationProfile()
     return m_dstProfile;
 }
 
+void ColorContext::setDestinationProfile(oyProfile_s *profile)
+{
+    oyProfile_Release(&m_dstProfile);
+    m_dstProfile = profile;
+}
+
 const QString& ColorContext::outputName()
 {
     return m_outputName;
