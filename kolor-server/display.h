@@ -53,7 +53,7 @@ public:
     /**
      * \return The default screen for this display
      */
-    Screen *screen() const;
+    KolorServer::Screen *screen() const;
 
     /**
      * \return Oyranos cache for profiles and other structures
@@ -152,12 +152,8 @@ private:
     // TODO doc
     void initialize();
 
-    // TODO doc
-    void updateProfiles();
-
     /**
      * \note pluginHandleEvent
-     * \todo
      * - handle PropertyNotify
      *  - iccColorProfiles
      *  - iccColorOutputs (not yet? for windows?)

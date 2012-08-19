@@ -314,11 +314,6 @@ bool Display::isAdvancedIccDisplay()
     return advanced;
 }
 
-void Display::updateProfiles()
-{
-    m_screen->updateProfiles();
-}
-
 void Display::handleEvent(X11::XEvent* event)
 {
     const char *atomName = 0;
