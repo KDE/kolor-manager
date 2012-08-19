@@ -97,15 +97,6 @@ Display::~Display()
 
 void Display::initialize()
 {
-    // FIXME! find out if XRandR extension is present
-#if 0
-    if (d->randrExtension == False) {
-        kFatal() << "No XRandR extension for the X Server, display" << displayName;
-        s_colorDesktopActivated = false;
-        return;
-    }
-#endif
-
     // Setup X11 event monitoring
     m_xcmeContext = X11::XcmeContext_New();
     if (m_xcmeContext) {
@@ -370,8 +361,7 @@ void Display::handleEvent(X11::XEvent* event)
         }
         break;
 
-#ifdef HAVE_XRANDR
-    case /*d->randrEvent + FIXME?*/ RRNotify: {
+    case RRNotify: {
         X11::XRRNotifyEvent *rrn = (X11::XRRNotifyEvent *) event;
         if (rrn->subtype == RRNotify_OutputChange) {
             kDebug() << "XRandR outputs changed";
@@ -380,7 +370,6 @@ void Display::handleEvent(X11::XEvent* event)
         }
         break;
     }
-#endif
 
     default:
         break;

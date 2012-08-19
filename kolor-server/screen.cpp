@@ -57,9 +57,7 @@ Screen::Screen(X11::Display *display, int number, Display *parent)
     , m_display(display)
     , m_screen(number)
 {
-#ifdef HAVE_XRANDR
     X11::setupXRandR(display, number);
-#endif
 }
 
 Screen::~Screen()

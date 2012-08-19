@@ -27,11 +27,7 @@ namespace X11 {
 #include <X11/Xdefs.h>
 
 #include <X11/extensions/Xfixes.h>
-
-#define HAVE_XRANDR
-#ifdef HAVE_XRANDR
 #include <X11/extensions/Xrandr.h>
-#endif
 
 #include <X11/Xcm/Xcm.h>
 #include <X11/Xcm/XcmEvents.h>
@@ -106,7 +102,6 @@ static inline int defaultScreen(Display *display)
     return DefaultScreen(display);
 }
 
-#ifdef HAVE_XRANDR
 static inline void setupXRandR(Display *display, int screen)
 {
     XRRSelectInput(display, RootWindow(display, screen), RROutputPropertyNotifyMask);
@@ -115,7 +110,6 @@ static inline void setupXRandR(Display *display, int screen)
      * http://cgit.freedesktop.org/xorg/proto/randrproto/tree/randrproto.txt
      */
 }
-#endif // HAVE_XRANDR
 
 // TODO FIXME? shouldn't these be exported by XColor in it's headers?
 /* code from Tomas Carnecky */

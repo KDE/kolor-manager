@@ -1,4 +1,6 @@
 
+find_package(XRandR REQUIRED)
+
 set(kolor_server_SRCS
     color-context.cpp
     display.cpp
@@ -7,6 +9,10 @@ set(kolor_server_SRCS
     screen.cpp
 )
 
+set(CMAKE_REQUIRED_INCLUDES ${X11_Xrandr_INCLUDE_PATH}/Xrandr.h)
+set(CMAKE_REQUIRED_LIBRARIES ${X11_Xrandr_LIB})
+check_function_exists(XRRGetScreenResourcesCurrent HAVE_RANDR_1_3)
+check_function_exists(XRRGetScreenSizeRange HAVE_RANDR_1_2)
 
 kde4_add_plugin(kded_kolorserver ${kolor_server_SRCS})
 
