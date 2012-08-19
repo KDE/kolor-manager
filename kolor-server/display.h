@@ -51,11 +51,6 @@ public:
     static void cleanup();
 
     /**
-     * \return Pointer to X11 display structure
-     */
-    X11::Display *x11Display() const;
-
-    /**
      * \return The default screen for this display
      */
     Screen *screen() const;

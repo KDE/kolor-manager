@@ -293,9 +293,4 @@ int Screen::profileCount() const
     return c;
 }
 
-int Screen::outputCount() const
-{
-    return m_outputs.size();
-}
-
 } // KolorServer namespace

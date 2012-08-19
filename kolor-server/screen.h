@@ -152,9 +152,6 @@ public:
     // TODO doc
     int profileCount() const;
 
-    // TODO doc
-    int outputCount() const;
-
 signals:
     void outputClutsChanged();
 

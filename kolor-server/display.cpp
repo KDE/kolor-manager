@@ -52,11 +52,6 @@ void Display::cleanup()
     delete s_display;
 }
 
-X11::Display *Display::x11Display() const
-{
-    return m_display;
-}
-
 Display::Display()
     : m_screen(0)
     , m_xcmeContext(0)
