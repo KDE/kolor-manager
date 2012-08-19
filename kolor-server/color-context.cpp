@@ -150,18 +150,14 @@ void ColorContext::setupColorLookupTable(bool advanced)
     oyFilterGraph_s *conversionGraph = oyConversion_GetGraph(conversion);
     oyFilterNode_s *iccNode = oyFilterGraph_GetNode(conversionGraph, -1, "///icc", 0);
 
-    // FIXME
-    uint32_t exact_hash_size = 0; // FIXME
-    char *hash_text = 0;
-    const char *t = 0;
-    t = oyFilterNode_GetText(iccNode, oyNAME_NAME);
+    // See what to search for in the cache
+    QByteArray entryText;
+    const char *t = oyFilterNode_GetText(iccNode, oyNAME_NAME);
     if (t)
-        hash_text = strdup(t);
-    // FIXME free t?
+        entryText = t;
 
-    // FIXME
     oyStructList_s *cache = Display::getInstance()->cache();
-    oyHash_s *entry = oyCacheListGetEntry_(cache, exact_hash_size, hash_text);
+    oyHash_s *entry = oyCacheListGetEntry_(cache, 0, entryText.constData());
     oyArray2d_s *oyClut = (oyArray2d_s*) oyHash_GetPointer(entry, oyOBJECT_ARRAY2D_S);
 
     oyFilterNode_Release(&iccNode);
@@ -169,10 +165,10 @@ void ColorContext::setupColorLookupTable(bool advanced)
 
     if (oyClut) {
         // Found in cache
-        kDebug() << "clut" << oyClut << "obtained from cache using hash text" << hash_text;
+        kDebug() << "clut" << oyClut << "obtained from cache using entry" << entryText;
         memcpy(m_clut.data(), oyClut->array2d[0], CLUT_DATA_SIZE);
     } else {
-        kDebug() << "clut not found in cache using hash text" << hash_text << ", doing conversion";
+        kDebug() << "clut not found in cache using entry" << entryText << ", doing conversion";
 
         // Create dummy / identity clut data for conversion input
         buildDummyClut(m_clut);
@@ -195,11 +191,6 @@ void ColorContext::setupColorLookupTable(bool advanced)
             NULL);
         memcpy(oyClut->array2d[0], m_clut.data(), CLUT_DATA_SIZE);
         oyHash_SetPointer(entry, (oyStruct_s*) oyClut);
-    }
-
-    if (hash_text) {
-        free(hash_text);
-        hash_text = 0;
     }
 
     oyOptions_Release(&options);
