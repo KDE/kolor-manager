@@ -40,8 +40,10 @@ class Display;
  * \todo privatize some of those methods
  * \todo review the atoms and profiles stuff
  */
-class Screen
+class Screen : public QObject
 {
+    Q_OBJECT
+
 public:
     /**
      * \note pluginInitScreen
@@ -152,6 +154,9 @@ public:
 
     // TODO doc
     int outputCount() const;
+
+signals:
+    void outputClutsChanged();
 
 private:
     Display *m_parent;

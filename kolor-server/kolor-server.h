@@ -58,6 +58,9 @@ public slots:
     Q_NOREPLY void getRegionCluts(const QDBusMessage &message);
     Q_NOREPLY void getRegions(const QDBusMessage &message);
 
+signals:
+    void outputClutsChanged();
+
 private:
     Server *m_server;
 };

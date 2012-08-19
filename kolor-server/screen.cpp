@@ -52,7 +52,8 @@ namespace KolorServer
  */
 
 Screen::Screen(X11::Display *display, int number, Display *parent)
-    : m_parent(parent)
+    : QObject(parent)
+    , m_parent(parent)
     , m_display(display)
     , m_screen(number)
 {
@@ -168,9 +169,7 @@ void Screen::updateOutputConfiguration(bool init)
     for (int i = 0; i < m_outputs.size(); ++i)
         m_outputCluts << m_outputs[i]->colorLookupTable();
 
-    // TODO maybe some signals via dbus for this?
-//     int all = 1;
-//     forEachWindowOnScreen( s, damageWindow, &all );
+    emit outputClutsChanged();
 }
 
 void Screen::updateProfiles()

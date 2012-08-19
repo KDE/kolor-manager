@@ -49,9 +49,9 @@ Server::Server(QObject *parent, const QList<QVariant> &)
     qDBusRegisterMetaType< ClutList >();
     qDBusRegisterMetaType< QList<QRect> >();
 
-    new ServerDBusAdaptor(this);
-
     Display::getInstance();
+
+    new ServerDBusAdaptor(this);
 }
 
 Server::~Server()
@@ -68,6 +68,8 @@ ServerDBusAdaptor::ServerDBusAdaptor(Server *server)
     : QDBusAbstractAdaptor(server)
     , m_server(server)
 {
+    Display *d = Display::getInstance();
+    connect(d->screen(), SIGNAL(outputClutsChanged()), this, SIGNAL(outputClutsChanged()));
 }
 
 void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
