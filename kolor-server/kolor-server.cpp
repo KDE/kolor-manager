@@ -47,7 +47,8 @@ Server::Server(QObject *parent, const QList<QVariant> &)
 
     qDBusRegisterMetaType< Clut >();
     qDBusRegisterMetaType< ClutList >();
-    qDBusRegisterMetaType< QList<QRect> >();
+    qDBusRegisterMetaType< RegionalClut >();
+    qDBusRegisterMetaType< RegionalClutMap >();
 
     Display::getInstance();
 
@@ -92,15 +93,7 @@ void ServerDBusAdaptor::getRegionCluts(const QDBusMessage &message)
 {
     qDebug() << Q_FUNC_INFO;
     QDBusMessage reply = message.createReply(
-        QVariant::fromValue< ClutList >(Display::getInstance()->screen()->regionCluts()));
-    QDBusConnection::sessionBus().send(reply);
-}
-
-void ServerDBusAdaptor::getRegions(const QDBusMessage &message)
-{
-    qDebug() << Q_FUNC_INFO;
-    QDBusMessage reply = message.createReply(
-        QVariant::fromValue< QList<QRect> >(Display::getInstance()->screen()->regions()));
+        QVariant::fromValue< RegionalClutMap >(Display::getInstance()->screen()->regionCluts()));
     QDBusConnection::sessionBus().send(reply);
 }
 

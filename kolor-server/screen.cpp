@@ -87,14 +87,9 @@ const ClutList& Screen::outputCluts() const
     return m_outputCluts;
 }
 
-const ClutList& Screen::regionCluts() const
+const RegionalClutMap& Screen::regionCluts() const
 {
     return m_regionCluts;
-}
-
-const QList<QRect>& Screen::regions() const
-{
-    return m_regions;
 }
 
 void Screen::cleanProfileAtoms()

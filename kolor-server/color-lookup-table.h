@@ -23,18 +23,43 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QDBusMetaType>
 #include <QList>
+#include <QMultiMap>
+#include <QPair>
 #include <QRect>
 #include <QVector>
+
 
 /*
  * Clut
  */
 typedef QVector<quint16> Clut;
 typedef QList<Clut> ClutList;
+typedef struct { QRect r; Clut c; } RegionalClut;
+typedef QMultiMap<uint, RegionalClut> RegionalClutMap;
 
 Q_DECLARE_METATYPE(Clut)
 Q_DECLARE_METATYPE(ClutList)
-Q_DECLARE_METATYPE(QList<QRect>)
+Q_DECLARE_METATYPE(RegionalClut)
+Q_DECLARE_METATYPE(RegionalClutMap)
+
+// Marshall the RegionalClut data into a D-Bus argument
+inline QDBusArgument &operator<<(QDBusArgument &argument, const RegionalClut &rc)
+{
+    argument.beginStructure();
+    argument << rc.r << rc.c;
+    argument.endStructure();
+    return argument;
+}
+
+// Retrieve the RegionalClut data from the D-Bus argument
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, RegionalClut &rc)
+{
+    argument.beginStructure();
+    argument >> rc.r >> rc.c;
+    argument.endStructure();
+    return argument;
+}
+
 
 /*
  * Color lookup table

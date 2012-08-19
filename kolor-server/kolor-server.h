@@ -56,10 +56,10 @@ public slots:
     Q_NOREPLY void getVersionInfo(const QDBusMessage &message);
     Q_NOREPLY void getOutputCluts(const QDBusMessage &message);
     Q_NOREPLY void getRegionCluts(const QDBusMessage &message);
-    Q_NOREPLY void getRegions(const QDBusMessage &message);
 
 signals:
     void outputClutsChanged();
+    void regionClutsChanged();
 
 private:
     Server *m_server;

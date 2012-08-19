@@ -80,8 +80,7 @@ public:
 
     // TODO doc
     const ClutList& outputCluts() const;
-    const ClutList& regionCluts() const;
-    const QList<QRect>& regions() const;
+    const RegionalClutMap& regionCluts() const;
 
     /**
      * \note cleanDisplayProfiles
@@ -164,8 +163,7 @@ private:
 
 private:
     ClutList m_outputCluts;
-    ClutList m_regionCluts;     // TODO
-    QList<QRect> m_regions;     // TODO
+    RegionalClutMap m_regionCluts;     // TODO
 };
 
 } // KolorServer namespace
