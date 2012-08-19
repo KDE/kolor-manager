@@ -1,5 +1,5 @@
 /********************************************************************
- KWin - the KDE window manager
+ KolorServer - color server based on the X Color Management Specification
  This file is part of the KDE project.
 
 Copyright (C) 2012 Casian Andrei <skeletk13@gmail.com>
