@@ -79,7 +79,7 @@ Display::~Display()
         return;
 
     // Remove desktop colour management service mark
-    changeProperty(m_display, iccColorDesktop, XA_STRING, (unsigned char*) NULL, 0);
+    X11::changeProperty(m_display, iccColorDesktop, XA_STRING, (unsigned char*) NULL, 0);
 
     // Delete default screen
     delete m_screen;
@@ -236,7 +236,7 @@ int Display::updateNetColorDesktopAtom(bool init)
 
     X11::Window rootWindow = X11::rootWindow(m_display, 0);
     unsigned long n = 0;
-    char *data = (char*) fetchProperty(m_display, rootWindow, iccColorDesktop, XA_STRING, &n, False);
+    char *data = (char*) X11::fetchProperty(m_display, rootWindow, iccColorDesktop, XA_STRING, &n, False);
 
     pid_t pid = getpid();
     const char *oldData = 0;
@@ -284,10 +284,10 @@ int Display::updateNetColorDesktopAtom(bool init)
 
         // Set the colour management desktop service activity atom
         if (m_screen->profileCount() > 0)
-            changeProperty(m_display, iccColorDesktop, XA_STRING, (const unsigned char*) newData.constData(), newData.size());
+            X11::changeProperty(m_display, iccColorDesktop, XA_STRING, (const unsigned char*) newData.constData(), newData.size());
         else if (oldData) {
             /* switch off the plugin */
-            changeProperty(m_display, iccColorDesktop, XA_STRING, (const unsigned char*) NULL, 0);
+            X11::changeProperty(m_display, iccColorDesktop, XA_STRING, (const unsigned char*) NULL, 0);
             activateColorDesktop(false);
         }
     }
@@ -305,7 +305,7 @@ bool Display::isAdvancedIccDisplay()
     X11::Window rootWindow = X11::rootWindow(m_display, 0);
 
     // Optionally set advanced options from Oyranos
-    opt = (char*) fetchProperty(m_display, rootWindow, iccDisplayAdvanced, XA_STRING, &nBytes, False);
+    opt = (char*) X11::fetchProperty(m_display, rootWindow, iccDisplayAdvanced, XA_STRING, &nBytes, False);
     qDebug() << "iccDisplayAdvanced, nBytes:" << nBytes;
     if (opt && nBytes && atoi(opt) > 0)
         advanced = atoi(opt) != 0;

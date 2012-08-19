@@ -180,7 +180,7 @@ void Screen::updateProfiles()
     unsigned long nBytes;
     int screen = X11::defaultScreen(m_display);
     X11::Window rootWindow = X11::rootWindow(m_display, screen);
-    void *data = fetchProperty(m_display, rootWindow, m_parent->iccColorProfiles, XA_CARDINAL, &nBytes, True);
+    void *data = X11::fetchProperty(m_display, rootWindow, m_parent->iccColorProfiles, XA_CARDINAL, &nBytes, True);
     if (!data) {
         qDebug() << "No profiles from the applications to the color server";
         return;

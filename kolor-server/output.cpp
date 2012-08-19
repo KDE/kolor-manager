@@ -81,7 +81,7 @@ bool ColorOutput::hasProfileAtom()
     X11::Atom a = iccProfileAtom(display, m_index, true);
     long unsigned int n;
 
-    void *data = fetchProperty(display, rootWindow, a, XA_CARDINAL, &n, False);
+    void *data = X11::fetchProperty(display, rootWindow, a, XA_CARDINAL, &n, False);
     if (data)
         X11::XFree(data);
 
@@ -216,12 +216,12 @@ void ColorOutput::moveProfileAtoms(bool init)
     bool sourceExists = false, targetExists = false;
     bool updatedColorDesktopAtom = false;
 
-    fetchProperty(display, rootWindow, targetAtom, XA_CARDINAL, &targetSize, False);
+    X11::fetchProperty(display, rootWindow, targetAtom, XA_CARDINAL, &targetSize, False);
     targetExists = targetSize > 0;
 
     if (!targetExists || !init) {
         // Copy the real device atom
-        source = fetchProperty(display, rootWindow, sourceAtom, XA_CARDINAL, &sourceSize, False);
+        source = X11::fetchProperty(display, rootWindow, sourceAtom, XA_CARDINAL, &sourceSize, False);
         sourceExists = sourceSize > 0;
 
         // _ICC_COLOR_DESKTOP atom is set before any _ICC_PROFILE(_xxx) changes.
@@ -231,7 +231,7 @@ void ColorOutput::moveProfileAtoms(bool init)
         }
 
         if (sourceExists)
-            changeProperty(display, targetAtom, XA_CARDINAL, (const unsigned char *) source, sourceSize);
+            X11::changeProperty(display, targetAtom, XA_CARDINAL, (const unsigned char *) source, sourceSize);
         if (source)
             X11::XFree(source);
         source = 0;
@@ -262,7 +262,7 @@ void ColorOutput::moveProfileAtoms(bool init)
             }
 
             if (sourceExists)
-                changeProperty(display, sourceAtom, XA_CARDINAL, (const unsigned char *) source, sourceSize);
+                X11::changeProperty(display, sourceAtom, XA_CARDINAL, (const unsigned char *) source, sourceSize);
             if (source)
                 free(source);
             source = 0;
