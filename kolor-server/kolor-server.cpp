@@ -83,7 +83,6 @@ void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
 void ServerDBusAdaptor::getOutputCluts(const QDBusMessage &message)
 {
     qDebug() << Q_FUNC_INFO;
-    // TODO
     QDBusMessage reply = message.createReply(
         QVariant::fromValue< ClutList >(Display::getInstance()->screen()->outputCluts()));
     QDBusConnection::sessionBus().send(reply);
@@ -92,7 +91,6 @@ void ServerDBusAdaptor::getOutputCluts(const QDBusMessage &message)
 void ServerDBusAdaptor::getRegionCluts(const QDBusMessage &message)
 {
     qDebug() << Q_FUNC_INFO;
-    // TODO
     QDBusMessage reply = message.createReply(
         QVariant::fromValue< ClutList >(Display::getInstance()->screen()->regionCluts()));
     QDBusConnection::sessionBus().send(reply);
@@ -101,7 +99,6 @@ void ServerDBusAdaptor::getRegionCluts(const QDBusMessage &message)
 void ServerDBusAdaptor::getRegions(const QDBusMessage &message)
 {
     qDebug() << Q_FUNC_INFO;
-    // TODO
     QDBusMessage reply = message.createReply(
         QVariant::fromValue< QList<QRect> >(Display::getInstance()->screen()->regions()));
     QDBusConnection::sessionBus().send(reply);

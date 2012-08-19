@@ -69,7 +69,6 @@ Display::Display()
         qCritical() << "Cannot connect to X server" << displayName;
         activateColorDesktop(false);
         return;
-        // TODO handle error, quit?
     }
 }
 

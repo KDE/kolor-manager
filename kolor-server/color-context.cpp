@@ -44,8 +44,6 @@ ColorContext::~ColorContext()
 {
     qDebug() << Q_FUNC_INFO;
 
-    // TODO ensure this gets called
-
     // Release profiles
     if (m_srcProfile)
         oyProfile_Release(&m_srcProfile);
