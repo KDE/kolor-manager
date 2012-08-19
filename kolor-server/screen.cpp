@@ -18,8 +18,8 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 
+#include <KDebug>
 #include <QApplication>
-#include <QDebug>
 #include <QDesktopWidget>
 
 #include "screen.h"
@@ -94,14 +94,14 @@ const RegionalClutMap& Screen::regionCluts() const
 
 void Screen::cleanProfileAtoms()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
     for (int i = 0; i < m_outputs.size(); ++i)
         m_outputs[i]->cleanProfileAtom();
 }
 
 void Screen::cleanOutputs()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
     for (int i = 0; i < m_outputs.size(); ++i)
         delete m_outputs[i];
     m_outputs.clear();
@@ -110,7 +110,7 @@ void Screen::cleanOutputs()
 
 void Screen::setupOutputs()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
 
     // Cleanup old outputs
     cleanOutputs();
@@ -128,7 +128,7 @@ void Screen::setupOutputs()
 
 void Screen::updateOutputConfiguration(bool init)
 {
-    qDebug() << Q_FUNC_INFO << init;
+    kDebug() << init;
 
     int error;
     oyOptions_s *options = 0;
@@ -146,7 +146,7 @@ void Screen::updateOutputConfiguration(bool init)
     oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/device_rectangle", "true", OY_CREATE_NEW);
     error = oyDevicesGet(OY_TYPE_STD, "monitor", options, &devices);
     if(error > 0)
-        qCritical() << "Unable to get devices, error" << error;
+        kFatal() << "Unable to get devices, error" << error;
     oyOptions_Release(&options);
 
     if (Display::getInstance()->colorDesktopActivated()) {
@@ -169,7 +169,7 @@ void Screen::updateOutputConfiguration(bool init)
 
 void Screen::updateProfiles()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
 
     /* Fetch the profiles */
     unsigned long nBytes;
@@ -177,7 +177,7 @@ void Screen::updateProfiles()
     X11::Window rootWindow = X11::rootWindow(m_display, screen);
     void *data = X11::fetchProperty(m_display, rootWindow, m_parent->iccColorProfiles, XA_CARDINAL, &nBytes, True);
     if (!data) {
-        qDebug() << "No profiles from the applications to the color server";
+        kDebug() << "No profiles from the applications to the color server";
         return;
     }
 
@@ -207,7 +207,7 @@ void Screen::updateProfiles()
                      * If creating the Oyranos xcmProfile fails, don't try to parse
                      * any further profiles and just quit.
                      */
-                    qWarning() << "Could not create Oyranos xcmProfile" << hash_text;
+                    kWarning() << "Could not create Oyranos xcmProfile" << hash_text;
                     goto updateProfiles_out;
                 }
 
@@ -219,7 +219,7 @@ void Screen::updateProfiles()
         xcmProfile = X11::XcolorProfileNext(xcmProfile);
     }
 
-    qDebug() << "Added" << n << "of" << count << "screen profiles";
+    kDebug() << "Added" << n << "of" << count << "screen profiles";
 
 updateProfiles_out:
     X11::XFree(data);
@@ -263,7 +263,7 @@ void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
                 if (screen < m_outputs.count()) {
                     m_outputs[screen]->setProfile(serverProfile);
                 } else
-                    qWarning() << "Contexts not ready for screen" << screen;
+                    kWarning() << "Contexts not ready for screen" << screen;
 
                 X11::changeProperty(m_display, csAtom, XA_CARDINAL, (unsigned char *) 0, 0);
             }

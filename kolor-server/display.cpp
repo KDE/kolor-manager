@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 
-#include <QDebug>
+#include <KDebug>
 #include <QTimer>
 
 #include "display.h"
@@ -66,7 +66,7 @@ Display::Display()
     // Open connection to the X Server
     m_display = X11::XOpenDisplay(displayName.constData());
     if (!m_display) {
-        qCritical() << "Cannot connect to X server" << displayName;
+        kFatal() << "Cannot connect to X server" << displayName;
         activateColorDesktop(false);
         return;
     }
@@ -100,7 +100,7 @@ void Display::initialize()
     // FIXME! find out if XRandR extension is present
 #if 0
     if (d->randrExtension == False) {
-        qCritical() << "No XRandR extension for the X Server, display" << displayName;
+        kFatal() << "No XRandR extension for the X Server, display" << displayName;
         s_colorDesktopActivated = false;
         return;
     }
@@ -111,9 +111,9 @@ void Display::initialize()
     if (m_xcmeContext) {
         X11::XcmeContext_DisplaySet(m_xcmeContext, m_display);
         if (X11::XcmeContext_Setup(m_xcmeContext, ""))
-            qWarning() << "Unable to setup X11 event monitor";
+            kWarning() << "Unable to setup X11 event monitor";
     } else
-        qWarning() << "Unable to create X11 event monitor";
+        kWarning() << "Unable to create X11 event monitor";
 
     // Setup a timer for polling for X11 events
     QTimer *eventTimer = new QTimer(this);
@@ -161,7 +161,7 @@ void Display::activateColorDesktop (bool activate)
 
 void Display::clean()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
 
     int error;
     oyOptions_s *options = 0;
@@ -231,7 +231,7 @@ int Display::updateNetColorDesktopAtom(bool init)
     if (!colorDesktopActivated())
         return (int) statusInactive;
 
-    qDebug() << Q_FUNC_INFO << init;
+    kDebug() << init;
 
     X11::Window rootWindow = X11::rootWindow(m_display, 0);
     unsigned long n = 0;
@@ -258,22 +258,22 @@ int Display::updateNetColorDesktopAtom(bool init)
 
     if (n && data && oldPid != (int) pid) {
         if (oldData && currentTime - atomTime > 60) {
-            qWarning() << "Found old _ICC_COLOR_DESKTOP:" << otherSrv;
-            qWarning() << "Either there was a previous crash or your setup may be double color corrected";
+            kWarning() << "Found old _ICC_COLOR_DESKTOP:" << otherSrv;
+            kWarning() << "Either there was a previous crash or your setup may be double color corrected";
         }
 
         // Check for taking over of colour service
         if (colorServerAtomName != myID) {
             if (atomTime < lastUpdateTime || init) {
-                qDebug() << "Taking over color service from old _ICC_COLOR_DESKTOP:" << otherSrv;
+                kDebug() << "Taking over color service from old _ICC_COLOR_DESKTOP:" << otherSrv;
             } else {
                 if (atomTime > lastUpdateTime) {
-                    qDebug() << "Giving color service to _ICC_COLOR_DESKTOP:" << otherSrv;
+                    kDebug() << "Giving color service to _ICC_COLOR_DESKTOP:" << otherSrv;
                     activateColorDesktop(false);
                 }
             }
         } else {
-            qDebug() << "Taking over color service from old _ICC_COLOR_DESKTOP:" << otherSrv;
+            kDebug() << "Taking over color service from old _ICC_COLOR_DESKTOP:" << otherSrv;
         }
     }
 
@@ -305,7 +305,7 @@ bool Display::isAdvancedIccDisplay()
 
     // Optionally set advanced options from Oyranos
     opt = (char*) X11::fetchProperty(m_display, rootWindow, iccDisplayAdvanced, XA_STRING, &nBytes, False);
-    qDebug() << "iccDisplayAdvanced, nBytes:" << nBytes;
+    kDebug() << "iccDisplayAdvanced, nBytes:" << nBytes;
     if (opt && nBytes && atoi(opt) > 0)
         advanced = atoi(opt) != 0;
     if (opt)
@@ -331,34 +331,34 @@ void Display::handleEvent(X11::XEvent* event)
         atomName = X11::XGetAtomName(event->xany.display, event->xproperty.atom);
 
         if (event->xproperty.atom == iccColorProfiles) {
-            qDebug() << Q_FUNC_INFO << "ICC Color Profiles atom changed";
+            kDebug() << "ICC Color Profiles atom changed";
             m_screen->updateProfiles();
         } else if (event->xproperty.atom == iccColorRegions) {
-            qDebug() << Q_FUNC_INFO << "ICC Color Regions atom changed";
+            kDebug() << "ICC Color Regions atom changed";
             // CompWindow *w = findWindowAtDisplay(d, event->xproperty.window);
             // updateWindowRegions(w);
             // colour_desktop_region_count = -1;
             // TODO
         } else if (event->xproperty.atom == iccColorOutputs) {
-            qDebug() << Q_FUNC_INFO << "ICC Color Outputs atom changed";
+            kDebug() << "ICC Color Outputs atom changed";
             // CompWindow *w = findWindowAtDisplay(d, event->xproperty.window);
             // updateWindowOutput(w);
             // TODO
         } else if (event->xproperty.atom == iccColorDesktop && atomName) {
             // Possibly let others take over the colour server
-            qDebug() << Q_FUNC_INFO << "ICC Color Desktop atom changed";
+            kDebug() << "ICC Color Desktop atom changed";
             updateNetColorDesktopAtom(false);
         } else if (strstr(atomName, OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE) != 0) {
             // Update for a changing monitor profile
-            qDebug() << Q_FUNC_INFO << "ICC Output Profile atom changed";
+            kDebug() << "ICC Output Profile atom changed";
             m_screen->updateProfileForAtom(atomName, event->xproperty.atom);
         } else if (event->xproperty.atom == netDesktopGeometry) {
             // Update for changing geometry
-            qDebug() << Q_FUNC_INFO << "Desktop geometry atom changed";
+            kDebug() << "Desktop geometry atom changed";
             m_screen->setupOutputs();
             m_screen->updateOutputConfiguration(true);
         } else if (event->xproperty.atom == iccDisplayAdvanced) {
-            qDebug() << Q_FUNC_INFO << "ICC Display Advanced atom changed";
+            kDebug() << "ICC Display Advanced atom changed";
             m_screen->updateOutputConfiguration(false);
         }
 
@@ -367,7 +367,7 @@ void Display::handleEvent(X11::XEvent* event)
     case ClientMessage:
         if (event->xclient.message_type == iccColorManagement)
         {
-            qDebug() << Q_FUNC_INFO << "ICC Color Management atom changed";
+            kDebug() << "ICC Color Management atom changed";
             // CompWindow *w = findWindowAtDisplay (d, event->xclient.window);
             // PrivWindow *pw = compObjectGetPrivate((CompObject *) w);
             // pw->active = 1;
@@ -379,7 +379,7 @@ void Display::handleEvent(X11::XEvent* event)
     case /*d->randrEvent + FIXME?*/ RRNotify: {
         X11::XRRNotifyEvent *rrn = (X11::XRRNotifyEvent *) event;
         if (rrn->subtype == RRNotify_OutputChange) {
-            qDebug() << Q_FUNC_INFO << "XRandR outputs changed";
+            kDebug() << "XRandR outputs changed";
             m_screen->setupOutputs();
             m_screen->updateOutputConfiguration(true);
         }

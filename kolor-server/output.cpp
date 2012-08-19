@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 
-#include <QDebug>
+#include <KDebug>
 
 #include "display.h"
 #include "output.h"
@@ -37,13 +37,10 @@ ColorOutput::ColorOutput(Screen *parent, int index)
     : m_parent(parent)
     , m_index(index)
 {
-    qDebug() << Q_FUNC_INFO;
 }
 
 ColorOutput::~ColorOutput()
 {
-    qDebug() << Q_FUNC_INFO;
-
     if (profile()) {
         // Move profile atoms back
         moveProfileAtoms(false);
@@ -90,7 +87,7 @@ bool ColorOutput::hasProfileAtom()
 
 void ColorOutput::cleanProfileAtom()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
     X11::Display *display = m_parent->display();
     X11::Window rootWindow = m_parent->rootWindow();
     X11::Atom a = iccProfileAtom(display, m_index, true);
@@ -100,17 +97,17 @@ void ColorOutput::cleanProfileAtom()
 
 void ColorOutput::updateConfiguration(oyConfig_s *device, bool init)
 {
-    qDebug() << Q_FUNC_INFO << device << init;
+    kDebug() << device << init;
 
     if (init) {
         if (!m_cc.getDeviceProfile(device))
-            qCritical() << "Unable to get device profile";
+            kFatal() << "Unable to get device profile";
     }
 
     if (profile()) {
         moveProfileAtoms(true); // TODO really true?
     } else {
-        qDebug() << "No profile found for output" << m_index << m_name;
+        kDebug() << "No profile found for output" << m_index << m_name;
     }
 
     setup();
@@ -135,7 +132,7 @@ X11::Atom ColorOutput::iccProfileAtom(X11::Display *display, int num, bool forSe
 
 bool ColorOutput::getDeviceProfile(oyConfig_s *device)
 {
-    qDebug() << Q_FUNC_INFO << device;
+    kDebug() << device;
 
     oyOption_s *o = 0;
     oyRectangle_s *r = 0;
@@ -144,12 +141,12 @@ bool ColorOutput::getDeviceProfile(oyConfig_s *device)
 
     o = oyConfig_Find(device, "device_rectangle");
     if (!o) {
-        qWarning() << "Request for monitor rectangle failed";
+        kWarning() << "Request for monitor rectangle failed";
         return false;
     }
     r = (oyRectangle_s*) oyOption_StructGet(o, oyOBJECT_RECTANGLE_S);
     if (!r) {
-        qWarning() << "Request for monitor rectangle failed";
+        kWarning() << "Request for monitor rectangle failed";
         return false;
     }
     oyOption_Release(&o);
@@ -160,7 +157,7 @@ bool ColorOutput::getDeviceProfile(oyConfig_s *device)
     if (device_name && device_name[0]) {
         m_name = device_name;
     } else {
-        qWarning() << "Unable to get device name";
+        kWarning() << "Unable to get device name";
         m_name = QString::number(m_parent->screenNumber());
     }
 
@@ -171,7 +168,7 @@ bool ColorOutput::getDeviceProfile(oyConfig_s *device)
 
 void ColorOutput::setup()
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
     m_cc.setup(m_name);
 }
 
@@ -193,7 +190,7 @@ the _ICC_PROFILE(_xxx) atom to sRGB as well.
  */
 void ColorOutput::moveProfileAtoms(bool init)
 {
-    qDebug() << Q_FUNC_INFO << init;
+    kDebug() << init;
 
     X11::Display *display = m_parent->display();
     X11::Window rootWindow = m_parent->rootWindow();
@@ -250,7 +247,7 @@ void ColorOutput::moveProfileAtoms(bool init)
                 sourceSize = size;
                 sourceExists = sourceSize > 0;
             } else {
-                qWarning() << "Could not get oyASSUMED_WEB profile";
+                kWarning() << "Could not get oyASSUMED_WEB profile";
                 source = 0;
                 sourceSize = 0;
                 sourceExists = false;
@@ -274,7 +271,7 @@ void ColorOutput::moveProfileAtoms(bool init)
         }
     } else
         if (targetAtom && init)
-            qWarning() << "ICC Color Server Atom already present:" << targetAtom << "size" << targetSize;
+            kWarning() << "ICC Color Server Atom already present:" << targetAtom << "size" << targetSize;
 }
 
 } // KolorServer namespace

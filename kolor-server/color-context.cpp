@@ -18,7 +18,7 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 
-#include <QDebug>
+#include <KDebug>
 
 #include "color-context.h"
 
@@ -37,13 +37,10 @@ ColorContext::ColorContext()
     : m_srcProfile(NULL)
     , m_dstProfile(NULL)
 {
-    qDebug() << Q_FUNC_INFO;
 }
 
 ColorContext::~ColorContext()
 {
-    qDebug() << Q_FUNC_INFO;
-
     // Release profiles
     if (m_srcProfile)
         oyProfile_Release(&m_srcProfile);
@@ -79,7 +76,7 @@ const Clut& ColorContext::colorLookupTable() const
 
 void ColorContext::setupColorLookupTable(bool advanced)
 {
-    qDebug() << Q_FUNC_INFO << m_outputName;
+    kDebug() << m_outputName;
 
     oyProfile_s *dummyProfile = 0;
     oyOptions_s *options = 0;
@@ -97,7 +94,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
     if (!m_srcProfile) {
         m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
         if (!m_srcProfile)
-            qWarning() << "Output" << m_outputName << ":" << "no assumed dummyProfile source profile";
+            kWarning() << "Output" << m_outputName << ":" << "no assumed dummyProfile source profile";
     }
 
     int error = 0;
@@ -110,7 +107,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
     // Allocate memory for clut data
     m_clut.resize(CLUT_ELEMENT_COUNT);
 
-    qDebug() << "Color conversion for" << m_outputName << "flags" << flags << (advanced ? "advanced" : "");
+    kDebug() << "Color conversion for" << m_outputName << "flags" << flags << (advanced ? "advanced" : "");
     oyImage_s *imageIn = oyImage_Create(
         LUT_GRID_POINTS,
         LUT_GRID_POINTS * LUT_GRID_POINTS,
@@ -128,7 +125,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
 
     oyConversion_s *conversion = oyConversion_CreateBasicPixels(imageIn, imageOut, options, 0);
     if (!conversion) {
-        qWarning() << "No conversion created for" << m_outputName;
+        kWarning() << "No conversion created for" << m_outputName;
         if (dummyProfile)
             oyProfile_Release(&dummyProfile);
         return;
@@ -137,14 +134,14 @@ void ColorContext::setupColorLookupTable(bool advanced)
 
     error = oyOptions_SetFromText(&options, "//"OY_TYPE_STD"/config/display_mode", "1", OY_CREATE_NEW);
     if (error) {
-        qWarning() << "Oy options error:" << error;
+        kWarning() << "Oy options error:" << error;
         if (dummyProfile)
             oyProfile_Release(&dummyProfile);
         return;
     }
     error = oyConversion_Correct(conversion, "//"OY_TYPE_STD"/icc", flags, options);
     if (error) {
-        qWarning() << "Failed to correct conversion for" << m_outputName << "flags" << flags;
+        kWarning() << "Failed to correct conversion for" << m_outputName << "flags" << flags;
         if (dummyProfile)
             oyProfile_Release(&dummyProfile);
         return;
@@ -172,10 +169,10 @@ void ColorContext::setupColorLookupTable(bool advanced)
 
     if (oyClut) {
         // Found in cache
-        qDebug() << "clut" << oyClut << "obtained from cache using hash text" << hash_text;
+        kDebug() << "clut" << oyClut << "obtained from cache using hash text" << hash_text;
         memcpy(m_clut.data(), oyClut->array2d[0], CLUT_DATA_SIZE);
     } else {
-        qDebug() << "clut not found in cache using hash text" << hash_text << ", doing conversion";
+        kDebug() << "clut not found in cache using hash text" << hash_text << ", doing conversion";
 
         // Create dummy / identity clut data for conversion input
         buildDummyClut(m_clut);
@@ -183,7 +180,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
         // Do conversion
         error = oyConversion_RunPixels(conversion, 0);
         if (error) {
-            qWarning() << "Output" << m_outputName << "Error" << error << "in conversion run pixels";
+            kWarning() << "Output" << m_outputName << "Error" << error << "in conversion run pixels";
             if (dummyProfile)
                 oyProfile_Release(&dummyProfile);
             return;
@@ -211,26 +208,26 @@ void ColorContext::setupColorLookupTable(bool advanced)
     oyConversion_Release(&conversion);
 
     if (!m_dstProfile)
-        qDebug() << "Output" << m_outputName << "no profile";
+        kDebug() << "Output" << m_outputName << "no profile";
 }
 
 void ColorContext::setup(const QString &name)
 {
-    qDebug() << Q_FUNC_INFO;
+    kDebug();
     if (!Display::getInstance()->colorDesktopActivated())
         return;
 
     m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
     m_outputName = name;
     if (!m_srcProfile)
-        qWarning() << "Output" << name << "no sRGB source profile";
+        kWarning() << "Output" << name << "no sRGB source profile";
 
     setupColorLookupTable(Display::getInstance()->isAdvancedIccDisplay());
 }
 
 bool ColorContext::getDeviceProfile(oyConfig_s *device)
 {
-    qDebug() << Q_FUNC_INFO << device;
+    kDebug() << device;
 
     oyProfile_Release(&m_dstProfile);
 
@@ -247,7 +244,7 @@ bool ColorContext::getDeviceProfile(oyConfig_s *device)
         if (error) {
             oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
             if (oyProfile_Equal(dummyProfile, m_dstProfile)) {
-                qWarning() << "Output" << m_outputName << "ignoring fallback, error" << error;
+                kWarning() << "Output" << m_outputName << "ignoring fallback, error" << error;
                 oyProfile_Release(&m_dstProfile);
                 error = 1;
             } else
@@ -255,7 +252,7 @@ bool ColorContext::getDeviceProfile(oyConfig_s *device)
             oyProfile_Release(&dummyProfile);
         }
     } else {
-        qWarning() << "Output" << m_outputName << ": no ICC profile found, error" << error;
+        kWarning() << "Output" << m_outputName << ": no ICC profile found, error" << error;
         error = 1;
     }
 

@@ -18,7 +18,6 @@ You should have received a copy of the GNU General Public License
 along with this program.  If not, see <http://www.gnu.org/licenses/>.
 *********************************************************************/
 
-#include <QDebug>
 #include <KPluginFactory>
 #include <KPluginLoader>
 
@@ -43,8 +42,6 @@ namespace KolorServer
 Server::Server(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent)
 {
-    qDebug() << Q_FUNC_INFO;
-
     qDBusRegisterMetaType< Clut >();
     qDBusRegisterMetaType< ClutList >();
     qDBusRegisterMetaType< RegionalClut >();
@@ -75,7 +72,6 @@ ServerDBusAdaptor::ServerDBusAdaptor(Server *server)
 
 void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
 {
-    qDebug() << Q_FUNC_INFO;
     //message.setDelayedReply(true);
     QDBusMessage reply = message.createReply(QVariant((uint) 0x00000001));
     QDBusConnection::sessionBus().send(reply);
@@ -83,7 +79,6 @@ void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
 
 void ServerDBusAdaptor::getOutputCluts(const QDBusMessage &message)
 {
-    qDebug() << Q_FUNC_INFO;
     QDBusMessage reply = message.createReply(
         QVariant::fromValue< ClutList >(Display::getInstance()->screen()->outputCluts()));
     QDBusConnection::sessionBus().send(reply);
@@ -91,7 +86,6 @@ void ServerDBusAdaptor::getOutputCluts(const QDBusMessage &message)
 
 void ServerDBusAdaptor::getRegionCluts(const QDBusMessage &message)
 {
-    qDebug() << Q_FUNC_INFO;
     QDBusMessage reply = message.createReply(
         QVariant::fromValue< RegionalClutMap >(Display::getInstance()->screen()->regionCluts()));
     QDBusConnection::sessionBus().send(reply);
