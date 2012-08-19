@@ -46,7 +46,10 @@ public:
      */
     oyProfile_s *profile();
 
-    // TODO doc
+    /**
+     * Set a custom profile for this output (the embedded context's
+     * destination profile). Any existing profile will be discarded.
+     */
     void setProfile(oyProfile_s *profile);
 
     /**
@@ -78,10 +81,18 @@ public:
      */
     void cleanProfileAtom();
 
-    // TODO doc
+    /**
+     * \param init operate in initialization mode
+     * \param device device (output) to be used for this color output
+     * In init mode, first grabs the device profile.
+     * Moves profile atoms according to XCM spec.
+     * Finally, configures the color lookup table.
+     */
     void updateConfiguration(oyConfig_s *device, bool init);
 
-    // TODO doc
+    /**
+     * \return The right X11 atom for the output given by \param num.
+     */
     static X11::Atom iccProfileAtom(X11::Display *display, int num, bool forServer);
 
 private:

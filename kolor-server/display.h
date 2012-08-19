@@ -149,7 +149,10 @@ private:
      */
     virtual ~Display();
 
-    // TODO doc
+    /**
+     * Initializes the color server, mainly X11 related, like grab atoms, setup
+     * event monitoring, etc.
+     */
     void initialize();
 
     /**

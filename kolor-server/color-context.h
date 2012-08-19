@@ -55,7 +55,10 @@ public:
      */
     oyProfile_s *destinationProfile();
 
-    // TODO doc
+    /**
+     * Set a custom destination profile for this color context.
+     * Any existing destination profile will be discarded.
+     */
     void setDestinationProfile(oyProfile_s *profile);
 
     /**

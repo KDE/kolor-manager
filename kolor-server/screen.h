@@ -78,8 +78,14 @@ public:
      */
     X11::Window rootWindow() const;
 
-    // TODO doc
+    /**
+     * \return A list with the color lookup tables for all the outputs.
+     */
     const ClutList& outputCluts() const;
+
+    /**
+     * \return A map of region-specific lookup tables to window XID's.
+     */
     const RegionalClutMap& regionCluts() const;
 
     /**
@@ -145,10 +151,17 @@ public:
      */
     void updateProfiles();
 
-    // TODO doc
+    /**
+     * Updates the profile for an output deduced from \param atomName,
+     * with the new profile data being in \param atom. Tries to conform
+     * to the XCM spec.
+     * \see Display::handleEvent
+     */
     void updateProfileForAtom(const char *atomName, X11::Atom atom);
 
-    // TODO doc
+    /**
+     * \return The number of outputs that have a valid profile set up.
+     */
     int profileCount() const;
 
 signals:
