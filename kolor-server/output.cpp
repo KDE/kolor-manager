@@ -20,6 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <KDebug>
 
+#include "color-lookup-table.h"
 #include "display.h"
 #include "output.h"
 #include "screen.h"

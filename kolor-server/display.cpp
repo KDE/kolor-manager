@@ -21,6 +21,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <KDebug>
 #include <QTimer>
 
+#include "color-lookup-table.h"
+
 #include "display.h"
 
 #include "screen.h"
