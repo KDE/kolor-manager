@@ -12,11 +12,13 @@ SET( ${PROJECT_NAME}_MINOR_VERSION 1)
 
 find_package(KDE4 REQUIRED )
 find_package(Oyranos REQUIRED)
+find_package(Xcm REQUIRED)
 
-include_directories(${KDE4_INCLUDES} ${OYRANOS_INCLUDE_DIRS})
+include_directories(${KDE4_INCLUDES} ${OYRANOS_INCLUDE_DIRS} ${XCM_INCLUDE_DIRS})
 link_directories(
     ${KDE4_LIBRARY_DIRS}
     ${OYRANOS_LIBRARY_DIRS}
+    ${XCM_LIBRARY_DIRS}
 )
 
 
