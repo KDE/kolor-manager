@@ -29,11 +29,12 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KDebug>
 #include <QTimer>
 
+#include <unistd.h>
+
 #include "color-lookup-table.h"
+#include "screen.h"
 
 #include "display.h"
-
-#include "screen.h"
 
 #include <alpha/oyranos_alpha.h>
 
@@ -399,3 +400,5 @@ void Display::checkX11Events()
 
 
 } // KolorServer namespace
+
+#include "moc_display.cpp"

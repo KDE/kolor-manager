@@ -295,3 +295,6 @@ int Screen::profileCount() const
 }
 
 } // KolorServer namespace
+
+#include "moc_screen.cpp"
+

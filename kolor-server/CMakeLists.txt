@@ -16,6 +16,8 @@ check_function_exists(XRRGetScreenSizeRange HAVE_RANDR_1_2)
 
 kde4_add_plugin(kded_kolorserver ${kolor_server_SRCS})
 
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
+
 target_link_libraries(kded_kolorserver
     ${KDE4_KDECORE_LIBS}
     ${OYRANOS_LIBRARIES}

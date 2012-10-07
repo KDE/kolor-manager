@@ -32,8 +32,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "kolor-server.h"
 
 #include "color-lookup-table.h"
-#include "display.h"
 #include "screen.h"
+
+#include "display.h"
 
 
 K_PLUGIN_FACTORY(KolorServerFactory, registerPlugin<KolorServer::Server>();)
@@ -100,3 +101,5 @@ void ServerDBusAdaptor::getRegionCluts(const QDBusMessage &message)
 }
 
 } // KolorServer namespace
+
+#include "moc_kolor-server.cpp"
