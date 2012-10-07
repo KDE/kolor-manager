@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Service
+X-KDE-ServiceType=KDEDModule
+X-KDE-Library=kolorserver
+X-KDE-Kded-autoload=false
+X-KDE-Kded-load-on-demand=true
+Name=Color Management Server
+Comment=Allows applications to communicate with the color management system and implements the X Color Management specification
