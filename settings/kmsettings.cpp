@@ -295,11 +295,11 @@ void kmsettings::fillProfileComboBoxes(oyPROFILE_e profile_type, QComboBox * pro
                   sizeofProfilename,
                   indexofProfilename;
     oyProfile_s * temp_prof = 0;
-    oyProfiles_s * iccs = oyProfiles_New(0);
+    oyProfiles_s * iccs;
 
     QString profile_text, profile_filename;
 
-    oyProfiles_ForStd( profile_type, &current, 0 );
+    iccs = oyProfiles_ForStd( profile_type, &current, 0 );
 
     size = oyProfiles_Count(iccs);
     for( i = 0; i < size; ++i)
