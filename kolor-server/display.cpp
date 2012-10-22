@@ -36,7 +36,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "display.h"
 
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_devices.h>
 
 namespace KolorServer
 {

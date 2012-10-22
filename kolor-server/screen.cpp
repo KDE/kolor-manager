@@ -35,7 +35,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "display.h"
 #include "output.h"
 
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_devices.h>
 
 
 /**
@@ -200,7 +200,7 @@ void Screen::updateProfiles()
     XcolorProfile *xcmProfile = (XcolorProfile*) data;
     for (unsigned long i = 0; i < count; ++i) {
         const char *hash_text = md5string(xcmProfile->md5);
-        entry = oyCacheListGetEntry_(cache, exact_hash_size, hash_text);
+        entry = oyStructList_GetHash(cache, exact_hash_size, hash_text);
         oyProfile = (oyProfile_s *) oyHash_GetPointer(entry, oyOBJECT_PROFILE_S);
 
         /* XcolorProfile::length == 0 means the clients wants to delete the xcmProfile. */

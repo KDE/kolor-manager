@@ -49,7 +49,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <oyranos.h>
 #include <oyranos_config.h>
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_devices.h>
 
 // Code to provide KDE module functionality for color manager.
 

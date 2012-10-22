@@ -50,7 +50,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <oyranos.h>
 #include <oyranos_config.h>
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_devices.h>
+#include <oyProfiles_s.h>
 #include <locale.h>
 
 // The number of policies that are available in KM by default.
@@ -294,11 +295,11 @@ void kmsettings::fillProfileComboBoxes(oyPROFILE_e profile_type, QComboBox * pro
                   sizeofProfilename,
                   indexofProfilename;
     oyProfile_s * temp_prof = 0;
-    oyProfiles_s * iccs = 0;
+    oyProfiles_s * iccs = oyProfiles_New(0);
 
     QString profile_text, profile_filename;
 
-    iccs = oyProfiles_ForStd( profile_type, &current, 0 );
+    oyProfiles_ForStd( profile_type, &current, 0 );
 
     size = oyProfiles_Count(iccs);
     for( i = 0; i < size; ++i)

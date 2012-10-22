@@ -33,7 +33,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "output.h"
 #include "screen.h"
 
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_devices.h>
+#include <oyRectangle_s.h>
 
 namespace KolorServer
 {
@@ -127,9 +128,9 @@ X11::Atom ColorOutput::iccProfileAtom(X11::Display *display, int num, bool forSe
     QByteArray atomName;
 
     if (forServer)
-        atomName = OY_ICC_COLOUR_SERVER_TARGET_PROFILE_IN_X_BASE;
+        atomName = XCM_DEVICE_PROFILE;
     else
-        atomName = OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE;
+        atomName = XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE;
 
     if (num) {
         atomName += "_";
@@ -153,14 +154,17 @@ bool ColorOutput::getDeviceProfile(oyConfig_s *device)
         kWarning() << "Request for monitor rectangle failed";
         return false;
     }
-    r = (oyRectangle_s*) oyOption_StructGet(o, oyOBJECT_RECTANGLE_S);
+    r = (oyRectangle_s*) oyOption_GetStruct(o, oyOBJECT_RECTANGLE_S);
     if (!r) {
         kWarning() << "Request for monitor rectangle failed";
         return false;
     }
     oyOption_Release(&o);
 
-    m_rect = QRect(r->x, r->y, r->width, r->height);
+    m_rect = QRect(oyRectangle_GetGeo1( r, 0),
+                   oyRectangle_GetGeo1( r, 1),
+                   oyRectangle_GetGeo1( r, 2),
+                   oyRectangle_GetGeo1( r, 3));
 
     device_name = oyConfig_FindString(device, "device_name", 0);
     if (device_name && device_name[0]) {

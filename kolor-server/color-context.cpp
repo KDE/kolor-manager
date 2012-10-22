@@ -32,7 +32,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "display.h"
 
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_devices.h>
+#include <oyConversion_s.h>
 
 namespace KolorServer
 {
@@ -165,8 +166,9 @@ void ColorContext::setupColorLookupTable(bool advanced)
         entryText = t;
 
     oyStructList_s *cache = Display::getInstance()->cache();
-    oyHash_s *entry = oyCacheListGetEntry_(cache, 0, entryText.constData());
+    oyHash_s *entry = oyStructList_GetHash(cache, 0, entryText.constData());
     oyArray2d_s *oyClut = (oyArray2d_s*) oyHash_GetPointer(entry, oyOBJECT_ARRAY2D_S);
+    char ** array2d = (char**)oyArray2d_GetData( oyClut );
 
     oyFilterNode_Release(&iccNode);
     oyFilterGraph_Release(&conversionGraph);
@@ -174,7 +176,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
     if (oyClut) {
         // Found in cache
         kDebug() << "clut" << oyClut << "obtained from cache using entry" << entryText;
-        memcpy(m_clut.data(), oyClut->array2d[0], CLUT_DATA_SIZE);
+        memcpy(m_clut.data(), array2d[0], CLUT_DATA_SIZE);
     } else {
         kDebug() << "clut not found in cache using entry" << entryText << ", doing conversion";
 
@@ -197,7 +199,8 @@ void ColorContext::setupColorLookupTable(bool advanced)
             LUT_GRID_POINTS * LUT_GRID_POINTS,
             oyUINT16,
             NULL);
-        memcpy(oyClut->array2d[0], m_clut.data(), CLUT_DATA_SIZE);
+        array2d = (char**)oyArray2d_GetData( oyClut );
+        memcpy(array2d[0], m_clut.data(), CLUT_DATA_SIZE);
         oyHash_SetPointer(entry, (oyStruct_s*) oyClut);
     }
 
