@@ -398,7 +398,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
          if(empty_added == -1 &&
             rank_list[i] < 1)
          {
-           deviceProfileComboBox->addItem("");
+           deviceProfileComboBox->addItem(i18n("automatic"));
            empty_added = pos;
            if(current != -1 &&
               current == pos)
@@ -421,7 +421,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
     }
   if(empty_added == -1)
   {
-    deviceProfileComboBox->addItem("");
+    deviceProfileComboBox->addItem(i18n("automatic"));
     ++pos;
     if(current == -1 && current_tmp != -1)
       current = pos;
@@ -436,22 +436,25 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 // Add a new profile to the list.
 void kmdevices::openProfile(int /*index*/)
 {
-    int parenthesis_index = 0, base_filename_index = 0, str_size = 0;        
+    int parenthesis_index = 0, base_filename_index = 0, str_size = 0;
     QString baseFileName = deviceProfileComboBox->currentText();
 
-    parenthesis_index = baseFileName.indexOf("\t(");   
+    if(QString::localeAwareCompare( baseFileName, i18n("automatic")))
+    {
+      parenthesis_index = baseFileName.indexOf("\t(");
 
-    // Clean-up full text in the deviceComboBox (we will only use the file name to
-    //                                          add to the profiles list).
-    str_size = baseFileName.size();
-    baseFileName.remove(0, parenthesis_index + 2);
-    baseFileName.remove(str_size - 2, 1);
-    parenthesis_index = baseFileName.indexOf(")");
-    baseFileName.remove(parenthesis_index, parenthesis_index + 1);
-    base_filename_index = baseFileName.lastIndexOf("/");
-    baseFileName.remove(0, base_filename_index + 1); 
+      // Clean-up full text in the deviceComboBox (we will only use the file name to
+      //                                          add to the profiles list).
+      str_size = baseFileName.size();
+      baseFileName.remove(0, parenthesis_index + 2);
+      baseFileName.remove(str_size - 2, 1);
+      parenthesis_index = baseFileName.indexOf(")");
+      baseFileName.remove(parenthesis_index, parenthesis_index + 1);
+      base_filename_index = baseFileName.lastIndexOf("/");
+      baseFileName.remove(0, base_filename_index + 1);
+    }
 
-    emit changed(true); 
+    emit changed(true);
     listModified = true;
 
     assignProfile( baseFileName );
@@ -518,11 +521,11 @@ void kmdevices::assignProfile( QString & profile_name )
          char * pn = strdup(profilename);
 
          /* store a existing profile in DB */
-         if(strlen(pn))
+         if(strlen(pn) && QString::localeAwareCompare( QString(pn), i18n("automatic")))
            error = oyDeviceSetProfile ( device, pn );
          error = oyDeviceUnset( device ); /* unset the device */
          /* completely unset the actual profile from DB */
-         if(!strlen(pn))
+         if(!strlen(pn) || !QString::localeAwareCompare(QString(pn), i18n("automatic")))
          {
            error = oyConfig_EraseFromDB( device );
            oyConfig_Release( &device );
