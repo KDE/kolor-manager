@@ -37,6 +37,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "display.h"
 
 #include <oyranos_devices.h>
+#include <X11/Xcm/XcmEvents.h>
 
 namespace KolorServer
 {
@@ -345,7 +346,7 @@ void Display::handleEvent(X11::XEvent* event)
             // Possibly let others take over the colour server
             kDebug() << "ICC Color Desktop atom changed";
             updateNetColorDesktopAtom(false);
-        } else if (strstr(atomName, OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE) != 0) {
+        } else if (strstr(atomName, XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE) != 0) {
             // Update for a changing monitor profile
             kDebug() << "ICC Output Profile atom changed";
             m_screen->updateProfileForAtom(atomName, event->xproperty.atom);

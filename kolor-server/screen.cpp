@@ -238,9 +238,9 @@ void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
     unsigned long n = 0;
 
     Atom csAtom;
-    QByteArray colorServerProfileAtom = OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE;
+    QByteArray colorServerProfileAtom = XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE;
     if (strlen(atomName) > (size_t) colorServerProfileAtom.size() + 1)
-        sscanf((const char*) atomName, OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE"_%d", &screen);
+        sscanf((const char*) atomName, XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE"_%d", &screen);
     if (screen) {
         colorServerProfileAtom += "_";
         colorServerProfileAtom += QByteArray::number(screen);
