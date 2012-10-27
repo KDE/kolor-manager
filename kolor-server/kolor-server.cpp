@@ -28,6 +28,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include <KPluginFactory>
 #include <KPluginLoader>
+#include <KDebug>
 
 #include "kolor-server.h"
 
@@ -36,10 +37,63 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "display.h"
 
+#include <stdio.h>
+#include <string.h>
+#include <stdarg.h>
+
+#include <oyranos_core.h>
+#include <oyStruct_s.h>
 
 K_PLUGIN_FACTORY(KolorServerFactory, registerPlugin<KolorServer::Server>();)
 K_EXPORT_PLUGIN(KolorServerFactory("kolorserver"))
 
+/* allow debug output from Oyranos */
+extern "C" {
+int ksOyMessage ( int/*oyMSG_e*/      code, 
+                                       const oyPointer     context_object,
+                                       const char        * format,
+                                       ... )
+{
+  char * text = 0, * msg = 0;
+  int error = 0;
+  va_list list;
+  size_t sz = 0;
+  int len = 0,
+      l;
+  oyStruct_s * c = (oyStruct_s*) context_object;
+
+  va_start( list, format);
+  len = vsnprintf( text, sz, format, list);
+  va_end  ( list );
+
+  {
+    text = (char*) calloc( sizeof(char), len + 1 );
+    va_start( list, format);
+    l = vsnprintf( text, len+1, format, list);
+    if(l != len)
+      fprintf(stderr, "vsnprintf lengths differ: %d %d\n", l,len );
+    va_end  ( list );
+  }
+
+  error = oyMessageFormat( &msg, code, c, text );
+
+  if(msg)
+  {
+    if(code == oyMSG_ERROR)
+      kError() << msg;
+    else
+    if(code == oyMSG_WARN)
+      kWarning() << msg;
+    else
+      kDebug() << msg;
+  }
+
+  free( text ); text = 0;
+  if(msg) free( msg ); msg = 0;
+
+  return error;
+}
+}
 
 namespace KolorServer
 {
@@ -51,6 +105,8 @@ namespace KolorServer
 Server::Server(QObject *parent, const QList<QVariant> &)
     : KDEDModule(parent)
 {
+    oyMessageFuncSet( ksOyMessage );
+
     qDBusRegisterMetaType< Clut >();
     qDBusRegisterMetaType< ClutList >();
     qDBusRegisterMetaType< RegionalClut >();
