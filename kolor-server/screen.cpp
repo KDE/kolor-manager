@@ -152,7 +152,7 @@ void Screen::updateOutputConfiguration(bool init)
     oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/device_rectangle", "true", OY_CREATE_NEW);
     error = oyDevicesGet(OY_TYPE_STD, "monitor", options, &devices);
     if(error > 0)
-        kFatal() << "Unable to get devices, error" << error;
+        kError() << "Unable to get devices, error" << error;
     oyOptions_Release(&options);
 
     if (Display::getInstance()->colorDesktopActivated()) {

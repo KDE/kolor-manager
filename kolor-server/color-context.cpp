@@ -46,6 +46,7 @@ ColorContext::ColorContext()
     : m_srcProfile(NULL)
     , m_dstProfile(NULL)
 {
+    buildDummyClut(m_clut);
 }
 
 ColorContext::~ColorContext()
@@ -102,8 +103,12 @@ void ColorContext::setupColorLookupTable(bool advanced)
 
     if (!m_srcProfile) {
         m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
-        if (!m_srcProfile)
-            kWarning() << "Output" << m_outputName << ":" << "no assumed dummyProfile source profile";
+        if (!m_srcProfile) {
+            kError() << "Output" << m_outputName << ":" << "no assumed dummyProfile source profile";
+            kWarning() << "Output" << m_outputName << "using dummy clut";
+            buildDummyClut(m_clut);
+            return;
+        }
     }
 
     int error = 0;

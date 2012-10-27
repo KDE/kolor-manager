@@ -111,7 +111,7 @@ void ColorOutput::updateConfiguration(oyConfig_s *device, bool init)
 
     if (init) {
         if (!m_cc.getDeviceProfile(device))
-            kFatal() << "Unable to get device profile";
+            kError() << "Unable to get device profile";
     }
 
     if (profile()) {
