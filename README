@@ -73,7 +73,12 @@ gdb > continue
 sha=`cat .git/refs/heads/master | head -c 8`
 git archive --format=tar --prefix=kolor-manager-$sha/ HEAD | bzip2 > kolor-manager-$sha.tar.bz2
 
-# add here
+# show kolorserver
+qdbus org.kde.kded /kded loadedModules | grep kolorserver
+# restart kded
+kquitapp kded; sleep 1s; kdeinit4_wrapper kded4
+# kdebugdialog --fullmode   might be useful
+
 
 -----MAJOR CHANGES FROM LAST TEST BUILDS---------------------------------------
 
