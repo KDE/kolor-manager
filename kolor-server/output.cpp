@@ -102,7 +102,7 @@ void ColorOutput::cleanProfileAtom()
     X11::Window rootWindow = m_parent->rootWindow();
     X11::Atom a = iccProfileAtom(display, m_index, true);
     X11::XFlush(display);
-    X11::XDeleteProperty(display, rootWindow, a);
+    X11::deleteProperty(display, a);
 }
 
 void ColorOutput::updateConfiguration(oyConfig_s *device, bool init)
@@ -280,7 +280,7 @@ void ColorOutput::moveProfileAtoms(bool init)
             sourceExists = false;
         } else {
             // Clear / erase the _ICC_DEVICE_PROFILE(_xxx) atom
-            X11::XDeleteProperty(display, rootWindow, sourceAtom);
+            X11::deleteProperty(display, sourceAtom);
         }
     } else
         if (targetAtom && init)

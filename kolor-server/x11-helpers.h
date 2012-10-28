@@ -79,6 +79,7 @@ static inline void *fetchProperty(
     XFlush(dpy);
 
     int result = XGetWindowProperty(dpy, w, prop, 0, ~0, del, type, &actual, &format, n, &left, &data);
+    kDebug() << "looking for " << X11::XGetAtomName( dpy,prop ) << " found:" << *n;
     if (result == Success)
         return (void *) data;
 
@@ -98,6 +99,18 @@ static inline void changeProperty(
     XChangeProperty(display, RootWindow(display, 0),
         target_atom, type, 8, PropModeReplace,
         data, size);
+    kDebug() << "Change " << X11::XGetAtomName( display,target_atom ) << " size:" << size;
+}
+
+/**
+ * Generic function to remove a property
+ */
+static inline void deleteProperty(
+    Display *display,
+    Atom     atom )
+{
+    XDeleteProperty(display, RootWindow(display, 0), atom);
+    kDebug() << "Remove " << X11::XGetAtomName( display,atom );
 }
 
 static inline Window rootWindow(Display *display, int screen)
