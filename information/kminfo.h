@@ -33,7 +33,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KColorScheme>
 #include <KPushButton>
 
-#include <alpha/oyranos_alpha.h>
+#include <oyranos_icc.h>
+#include <oyProfiles_s.h>
 
 class QPushButton;
 class QListWidget;
