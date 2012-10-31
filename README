@@ -14,7 +14,7 @@ currently maintained by Kai-Uwe Behrmann 2010
 
 -----REQUIRED LIBRARIES---------------------------------------------
 
-- The v0.95 tagged release builds fine using Oyranos-0.4.0 .
+- The v0.96 tagged release builds fine using Oyranos-0.9.0 .
 - Actual git should the latest Oyranos from it's git repository. KolorManager gets updated pretty quick to Oyranos changes.
 
 
@@ -50,6 +50,7 @@ CMakeLists.txt (build instructions for each module)
 
 -----LINKS---------------------------------------------------------------------
 
+http://www.oyranos.org/kolormanager
 ColourWiki: http://www.oyranos.org/wiki/index.php?title=Kolor-manager
 
 -----DEVELOPMENT---------------------------------------------------------------
@@ -75,7 +76,7 @@ git archive --format=tar --prefix=kolor-manager-$sha/ HEAD | bzip2 > kolor-manag
 
 # show kolorserver
 qdbus org.kde.kded /kded loadedModules | grep kolorserver
-# restart kded
+# restart kded (omit kdeinit4_wrapper to see LD_LIBRARY_PATH)
 kquitapp kded; sleep 1s; kdeinit4_wrapper kded4
 # kdebugdialog --fullmode   might be useful
 
