@@ -493,7 +493,7 @@ void kmsettings::refreshPolicySettings()
      selected_policy = names[current];
      // Set user selected policy as system default.
      currentPolicyLabel->setText(selected_policy);      // Update default policy label.
-     kDebug() << "actual policy: %s\n" << names[current];
+     kDebug() << "actual policy:" << names[current];
    } else
      currentPolicyLabel->setText("----");
 }
