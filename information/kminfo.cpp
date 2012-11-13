@@ -46,19 +46,22 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <QDesktopWidget>
 #include <KConfigGroup>
 #include <QString>
+#include <QTemporaryFile>
+#include <KRun>
+#include <KProcess>
 
 #include <oyranos.h>
 #include <oyranos_config.h>
 #include <oyranos_devices.h>
 
-// Code to provide KDE module functionality for color manager.
+// Code to provide KDE module functionality for color manager
 
-K_PLUGIN_FACTORY( kminfoFactory, 
-         registerPlugin<kminfo>(); 
+K_PLUGIN_FACTORY( kminfoFactory,
+         registerPlugin<kminfo>();
          )
 K_EXPORT_PLUGIN( kminfoFactory("kminfo") )
 
-// Detect iccexamin for integrated 3D Profile support.
+// Detect iccexamin for integrated 3D Profile support
 bool kminfo::iccExaminIsInstalled(QString &iccExaminPath)
 {
 
@@ -66,10 +69,10 @@ bool kminfo::iccExaminIsInstalled(QString &iccExaminPath)
      QChar pathSep = QChar::fromLatin1(';');
      const QString iccExamin = QString::fromLocal8Bit("iccexamin.exe");
 #elif defined (__APPLE__)
-     QChar pathSep = QChar::fromLatin1(':'); 
+     QChar pathSep = QChar::fromLatin1(':');
      const QString iccExamin = QString::fromLocal8Bit("iccexamin.app/Contents/MacOS/ICC Examin");
 # else
-     QChar pathSep = QChar::fromLatin1(':');  
+     QChar pathSep = QChar::fromLatin1(':');
      const QString iccExamin = QString::fromLocal8Bit("iccexamin");
 # endif /* __WIN32__ */
 
@@ -94,10 +97,10 @@ bool kminfo::iccExaminIsInstalled(QString &iccExaminPath)
               fileinfo.setFile(iccExaminPath);
               // check to see if it exists
              if (fileinfo.exists())
-             {  
+             {
                  done = true;
                  found = true;
-                
+
              }
              // check to see if this was last path
              if (Path.length() <= iccExaminPath.length())
@@ -114,9 +117,9 @@ void kminfo::load()
 }
 
 void kminfo::save()
-{ 
+{
     installedProfilesTree->clear();
-    populateInstalledProfileList();  
+    populateInstalledProfileList();
 }
 
 kminfo::kminfo(QWidget *parent, const QVariantList &) :
@@ -136,7 +139,7 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     current_profile = 0;
 
     setupUi(this);              // Load Gui.
-    
+
     installedProfilesTree->setColumnWidth(0, 350);
     installedProfilesTree->setColumnWidth(1, 150);
 
@@ -147,45 +150,44 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     editingCsTree = installedProfilesTree->topLevelItem(1);
     oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES_EDIT, NULL, &g_name,
                       NULL, NULL );
-    editingCsTree->setText(0, name.fromLatin1(g_name));
+    editingCsTree->setText(0, name.fromUtf8(g_name));
     assumedCsTree = installedProfilesTree->topLevelItem(2);
     oyWidgetTitleGet( oyWIDGET_GROUP_DEFAULT_PROFILES_ASSUMED, NULL, &g_name,
                       NULL, NULL );
-    assumedCsTree->setText(0, name.fromLatin1(g_name));
+    assumedCsTree->setText(0, name.fromUtf8(g_name));
 
     // For convenience, we expand colorspace trees.
     installedProfilesTree->expandItem(editingCsTree);
     installedProfilesTree->expandItem(assumedCsTree);
 
     installedProfilesTree->expandAll();
-    
-    // Display oyEDITING_XYZ info for now. 
+
+    // Display oyEDITING_XYZ info for now.
     populateInstalledProfileList();
     profileInfoGroupBox -> setEnabled(false);
 
     if (iccExaminIsInstalled(iccExaminCommand))
         launchICCExaminButton->show();
     else
-        launchICCExaminButton->hide(); 
-    
+        launchICCExaminButton->hide();
+
     scrollArea->setWidget(scrollAreaWidgetContents);
     scrollArea->setWidgetResizable(true);
-    
+
     for(int i = 0; i < installedProfilesTree->columnCount(); i++)
       installedProfilesTree->resizeColumnToContents(i);
-    
+
     // Info panel will initially be hiding.
     setProfileInfoPanelHiding(true);
 
     // Whenever the user clicks on a QTreeWidget child, the description changes.
-    connect( installedProfilesTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)), 
+    connect( installedProfilesTree, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
                 this, SLOT(changeProfileTreeItem(QTreeWidgetItem*)));
-    connect( launchICCExaminButton, SIGNAL(clicked()), this, SLOT(launchICCExamin())); 
+    connect( launchICCExaminButton, SIGNAL(clicked()), this, SLOT(launchICCExamin()));
 }
 
 void kminfo::launchICCExamin()
 {
-    
     QString exec;
 
     if(!directoryListingTag->text().isNull())
@@ -226,38 +228,38 @@ void kminfo::populateInstalledProfileList()
 
      const char * g_name = NULL;
      QString name;
-            
+
      // Populate colorspace items.
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_RGB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-         addProfileTreeItem( oyEDITING_RGB, name.fromLatin1(g_name), editingCsTree);
+         addProfileTreeItem( oyEDITING_RGB, name.fromUtf8(g_name), editingCsTree);
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_CMYK, NULL, &g_name, NULL,NULL );
      if (strlen(g_name) > 0)
-        addProfileTreeItem( oyEDITING_CMYK, name.fromLatin1(g_name), editingCsTree);
+        addProfileTreeItem( oyEDITING_CMYK, name.fromUtf8(g_name), editingCsTree);
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_XYZ, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-         addProfileTreeItem( oyEDITING_XYZ, name.fromLatin1(g_name), editingCsTree );
+         addProfileTreeItem( oyEDITING_XYZ, name.fromUtf8(g_name), editingCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_LAB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-         addProfileTreeItem( oyEDITING_LAB, name.fromLatin1(g_name), editingCsTree );
+         addProfileTreeItem( oyEDITING_LAB, name.fromUtf8(g_name), editingCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyEDITING_GRAY, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-         addProfileTreeItem( oyEDITING_GRAY, name.fromLatin1(g_name), editingCsTree );
+         addProfileTreeItem( oyEDITING_GRAY, name.fromUtf8(g_name), editingCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_RGB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-        addProfileTreeItem( oyASSUMED_RGB, name.fromLatin1(g_name), assumedCsTree );
+        addProfileTreeItem( oyASSUMED_RGB, name.fromUtf8(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_CMYK, NULL, &g_name, NULL,NULL );
      if (strlen(g_name) > 0)
-         addProfileTreeItem( oyASSUMED_CMYK, name.fromLatin1(g_name), assumedCsTree );
+         addProfileTreeItem( oyASSUMED_CMYK, name.fromUtf8(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_XYZ, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-        addProfileTreeItem( oyASSUMED_XYZ, name.fromLatin1(g_name), assumedCsTree );
+        addProfileTreeItem( oyASSUMED_XYZ, name.fromUtf8(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_LAB, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-        addProfileTreeItem( oyASSUMED_LAB, name.fromLatin1(g_name), assumedCsTree );
+        addProfileTreeItem( oyASSUMED_LAB, name.fromUtf8(g_name), assumedCsTree );
      oyWidgetTitleGet( (oyWIDGET_e)oyASSUMED_GRAY, NULL, &g_name, NULL, NULL );
      if (strlen(g_name) > 0)
-        addProfileTreeItem( oyASSUMED_GRAY, name.fromLatin1(g_name), assumedCsTree );
+        addProfileTreeItem( oyASSUMED_GRAY, name.fromUtf8(g_name), assumedCsTree );
 }
 
 void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
@@ -315,11 +317,11 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         QString device_item_string;
         const char * device_manufacturer = 0;
         const char * device_model = 0;
-        const char * device_serial = 0;   
+        const char * device_serial = 0;
 
         device_manufacturer = oyConfig_FindString( device, "manufacturer", 0);
         device_model = oyConfig_FindString( device, "model", 0);
-        device_serial = oyConfig_FindString( device, "serial", 0);  
+        device_serial = oyConfig_FindString( device, "serial", 0);
 
         device_item_string.append(device_manufacturer);
         device_item_string.append(" ");
@@ -344,7 +346,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         device_child->setText(0, QString(model));
         if(model) free(model); model = 0;
         device_child->setIcon(0, device_icon);
-        device_list_sub_tree->addChild(device_child);   
+        device_list_sub_tree->addChild(device_child);
 
         oyProfile_s * p = 0;
         oyOptions_s * options = 0;
@@ -388,7 +390,7 @@ void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description,
 {
       oyProfile_s * profile = oyProfile_FromStd( profile_type, 0);
       const char * text = oyProfile_GetText( profile, oyNAME_DESCRIPTION );
-      
+
       // Add new item.
       QTreeWidgetItem * new_child = new QTreeWidgetItem();
       new_child->setText(1, description);
@@ -397,22 +399,22 @@ void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description,
       // attach the profile to the widget
       QVariant v((qulonglong) oyProfile_Copy(profile,0));
       new_child->setData( 0, Qt::UserRole, v );
- 
-      parent_item->addChild(new_child);    
+
+      parent_item->addChild(new_child);
       oyProfile_Release( &profile );
-} 
+}
 
 // Whenever a user clicks on a child in the tree list, the "profile information"
 // window is updated.
 void kminfo::changeProfileTreeItem(QTreeWidgetItem* currentProfileItem)
-{     
+{
       // get the profile from the widget
       QVariant v = currentProfileItem->data( 0, Qt::UserRole );
       oyProfile_s * p = (oyProfile_s *) v.toULongLong();
 
       if(p && p->type_ == oyOBJECT_PROFILE_S)
       {
-        populateDeviceProfileDescriptions(p, true);    
+        populateDeviceProfileDescriptions(p, true);
         profileInfoGroupBox->setEnabled(true);
         return;
       }
@@ -430,11 +432,11 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
     {
         // Output Oyranos-specified profile descriptions.
         setTagDescriptions(profile, icSigCopyrightTag, copyrightTagLabel);
-        
+
 	setTagDescriptions(profile, icSigDeviceMfgDescTag, mfgTagLabel);
-        
+
 	setTagDescriptions(profile, icSigDeviceModelDescTag, modelTagLabel);
-        
+
 	setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
 
         setDateTag(profile, dateTagLabel);
@@ -452,21 +454,38 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
 
         oyProfile_Release( &current_profile );
         current_profile = oyProfile_Copy( profile, 0 );
-       
+
         setProfileInfoPanelHiding(false);
+
+	m_tempFile.open();
+
+	KProcess * process = new KProcess();
+	connect(process, SIGNAL(finished(int)), SLOT(loadProfileGraph()));
+
+	QString program = QString("oyranos-profile-graph -o \"%1\" -w 200 \"%2\"").arg(m_tempFile.fileName()).arg(profilePathName);
+	process->setShellCommand(program);
+	process->start();
     }
     else
     {
         setProfileInfoPanelHiding(true);
     }
-  
 }
+
+void kminfo::loadProfileGraph()
+{
+    QPixmap mypix(m_tempFile.fileName());
+    launchICCExaminButton->setIcon(QIcon(mypix));
+
+    m_tempFile.close();
+}
+
 
 // Set visibility of the profile information box based on the
 // "Display profile information" checkbox.
 void kminfo::setProfileInfoPanelHiding(bool isHidden)
 {
-    profileInfoGroupBox->setHidden(isHidden);      
+    profileInfoGroupBox->setHidden(isHidden);
 }
 
 void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)
@@ -475,7 +494,7 @@ void kminfo::setIccsTag(oyProfile_s * profile, QLabel * iccsLabel)
 
     icSignature vs = oyValueUInt32( oyProfile_GetSignature(profile, oySIGNATURE_VERSION) );
     char * v = (char*)&vs;
-    
+
     field1 = (((int)v[0]));
     field2 = ((int)v[1]/16);
     field3 = ((int)v[1]%16);
@@ -510,13 +529,13 @@ void kminfo::setCSpaceTag(oyProfile_s * profile, QLabel * cSpaceLabel)
 
 void kminfo::setDateTag(oyProfile_s * profile, QLabel * dateLabel)
 {
-     uint year, month, day; 
+     uint year, month, day;
      //uint hours, minutes, seconds;
 
      year = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_YEAR);
      month = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_MONTH);
      day = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_DAY);
-     
+
      // NOTE (If we need hours/minutes/seconds, uncomment)
       //hours = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_HOURS);
       //minutes = oyProfile_GetSignature(profile, oySIGNATURE_DATETIME_MINUTES);
@@ -531,24 +550,23 @@ void kminfo::setTagDescriptions(oyProfile_s * profile_name, icTagSignature tagTy
 {
      int text_n;
      bool error;
-     
+
      //oyObject_s  object;
      char** tagText = 0;
      oyProfileTag_s * tagID;
 
      tagID = oyProfile_GetTagById( profile_name, tagType  );
-    
+
      error = !tagID;
-     
+
      if(!error)
          tagText = oyProfileTag_GetText( tagID, &text_n, 0,0, 0, 0 );
-     
+
      if(text_n && tagText && tagText[0])
-             tagLabel->setText(*tagText);          
+             tagLabel->setText(*tagText);
      else
         tagLabel->setText("-----");
 }
-
 
 kminfo::~kminfo()
 {

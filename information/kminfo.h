@@ -32,6 +32,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KCModule>
 #include <KColorScheme>
 #include <KPushButton>
+#include <QTemporaryFile>
 
 #include <oyranos_icc.h>
 #include <oyProfiles_s.h>
@@ -49,12 +50,12 @@ class QListWidgetItem;
 
 // "kminfo" - Class to view profile information.
 class kminfo : public KCModule, Ui::kminfo
-{        
+{
     Q_OBJECT
 
-public:    
+public:
     kminfo(QWidget *parent, const QVariantList &);
-    ~kminfo();   
+    ~kminfo();
 
 QString iccExaminCommand;
 public Q_SLOTS:
@@ -68,33 +69,35 @@ public Q_SLOTS:
 
 // User-defined QT slots.
 private slots:
-     
+
      // Function to change profile information description
      void changeProfileTreeItem(QTreeWidgetItem*);
-  
+
      // If "Analyze profile" button is un-hidden, launch iccexamin.
      void launchICCExamin();
 
+     void loadProfileGraph();
+
 private:
-     
+
      // Build profile listing tree.
      void populateInstalledProfileList();
 
      // Add an item to the tree.
      void addProfileTreeItem( oyPROFILE_e, QString description, QTreeWidgetItem * parent_item );
-    
+
      // Populate tree list items relating to device-specific profiles (printers, monitors, etc.)
      void populateDeviceProfiles( /*QStringList listOfDevices,*/ QTreeWidgetItem * deviceListSubTree /*, QIcon device_icon*/);
 
      // Populate tag descriptions for device-specific profiles.
      void populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid);
- 
+
      // Function to write tag descriptions to individual labels
      void setTagDescriptions(oyProfile_s *, icTagSignature, QLabel *);
-     
+
      // Sets the profile information labels as hidden or unhidden.
      void setInfoPanelLabelHiding(bool);
- 
+
      // The following provide additional tags to be displayed.
      void setPcsTag(oyProfile_s * profile, QLabel * pcsLabel);
      void setCSpaceTag(oyProfile_s * profile, QLabel * cSpaceLabel);
@@ -109,7 +112,7 @@ private:
 
      // Hides/Unhides information panel.
      void setProfileInfoPanelHiding(bool);
-     
+
      // Pointers to current QTreeWidget parents (Devices, Editing Space, Assumed Space)
      QTreeWidgetItem * assumedCsTree;
      QTreeWidgetItem * editingCsTree;
@@ -119,7 +122,8 @@ private:
      oyProfile_s * current_profile;
 
      KConfig m_config;
- 
+     QTemporaryFile m_tempFile;
+
 };
 
-#endif 
+#endif
