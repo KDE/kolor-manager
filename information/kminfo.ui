@@ -612,7 +612,7 @@
                      </font>
                     </property>
                     <property name="text">
-                     <string>ProfilePath:</string>
+                     <string>Profile Path:</string>
                     </property>
                    </widget>
                   </item>
