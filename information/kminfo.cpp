@@ -385,7 +385,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
 }
 
 // Function to add profile items into the tree listing.
-void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description, 
+void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description,
                                         QTreeWidgetItem * parent_item )
 {
       oyProfile_s * profile = oyProfile_FromStd( profile_type, 0);
@@ -440,13 +440,13 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
 	setTagDescriptions(profile, icSigProfileDescriptionTag, descriptionTagLabel);
 
         setDateTag(profile, dateTagLabel);
-	
+
         setCSpaceTag(profile, colorspaceTagLabel);
-	
+
         setIccsTag(profile, iccVerTagLabel);
-	
+
         setPcsTag(profile, pcsTagLabel);
-	
+
         setDeviceClassTag(profile, deviceClassTagLabel);
 
         QString profilePathName = oyProfile_GetFileName( profile, 0 );

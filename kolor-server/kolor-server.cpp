@@ -49,7 +49,7 @@ K_EXPORT_PLUGIN(KolorServerFactory("kolorserver"))
 
 /* allow debug output from Oyranos */
 extern "C" {
-int ksOyMessage ( int/*oyMSG_e*/      code, 
+int ksOyMessage ( int/*oyMSG_e*/      code,
                                        const oyPointer     context_object,
                                        const char        * format,
                                        ... )

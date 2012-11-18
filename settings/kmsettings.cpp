@@ -59,14 +59,14 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 const int internalPolicyCount = 4;
 
 // Code to provide KDE module functionality for Kolor Management.
-K_PLUGIN_FACTORY( kmsettingsFactory, 
-         registerPlugin<kmsettings>(); 
+K_PLUGIN_FACTORY( kmsettingsFactory,
+         registerPlugin<kmsettings>();
          )
 K_EXPORT_PLUGIN( kmsettingsFactory("kmsettings") )
 
 
 void kmsettings::load()
-{                  
+{
      loadPolicy();
 }
 
@@ -79,8 +79,8 @@ void kmsettings::save()
 // Register the panel and initialise fro Oyranos.
 kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     KCModule( kmsettingsFactory::componentData(), parent)
-{ 
-   
+{
+
    KAboutData* about = new KAboutData(
         "kmsettings", 0, ki18n("KMSettings"), 0, KLocalizedString(),
         KAboutData::License_BSD,
@@ -128,7 +128,7 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
   Q_UNUSED(type);
   qs = QString::fromLocal8Bit(label);
   kmsettingsTab->setTabText(1,qs);
-  
+
   type = oyWidgetTitleGet( oyWIDGET_GROUP_BEHAVIOUR, NULL, &label, &tooltip, &flags );
   Q_UNUSED(type);
   qs = QString::fromLocal8Bit(label,-1);
@@ -218,8 +218,8 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    // the actual used policy. So track them.
    // QT-related SIGNAL/SLOT functions, such as button presses and clicking
    // on a particular item.
-   connect(policySettingsList, SIGNAL(currentRowChanged(int)), 
-        this, SLOT(selectPolicy(int)));   
+   connect(policySettingsList, SIGNAL(currentRowChanged(int)),
+        this, SLOT(selectPolicy(int)));
    connect(addNewPolicyButton, SIGNAL(clicked()), this, SLOT(addNewPolicy()));
    connect(removePolicyButton, SIGNAL(clicked()), this, SLOT(removeCustomPolicy()));
 
@@ -231,7 +231,7 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
    n = editableCheckBoxItems.size();
    // When a user clicks on a radio box, the "Apply" button will be enabled.
    for(k = 0; k < n; ++k)
-    connect(editableCheckBoxItems.value(k), SIGNAL(clicked()), this, SLOT(emitChanged()));    
+    connect(editableCheckBoxItems.value(k), SIGNAL(clicked()), this, SLOT(emitChanged()));
 
 
 }
@@ -240,33 +240,33 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
 // Load editable comboboxe and checkbox items into a list
 //  (this is convenient to detect each settings change by the user).
 void kmsettings::loadEditableItems()
-{      
+{
      editableComboItems.push_front(combo_EDITING_RGB);
-     editableComboItems.push_front(combo_EDITING_CMYK);   
+     editableComboItems.push_front(combo_EDITING_CMYK);
      editableComboItems.push_front(combo_EDITING_XYZ);
      editableComboItems.push_front(combo_EDITING_LAB);
      editableComboItems.push_front(combo_ASSUMED_RGB);
-     editableComboItems.push_front(combo_ASSUMED_CMYK);   
+     editableComboItems.push_front(combo_ASSUMED_CMYK);
      editableComboItems.push_front(combo_ASSUMED_XYZ);
      editableComboItems.push_front(combo_ASSUMED_LAB);
 
      editableComboItems.push_front(combo_EDITING_GRAY);
-     editableComboItems.push_front(combo_ASSUMED_GRAY);   
-     
+     editableComboItems.push_front(combo_ASSUMED_GRAY);
+
      editableComboItems.push_front(combo_RENDERING_INTENT);
-     editableComboItems.push_front(combo_ACTION_UNTAGGED_ASSIGN);    
+     editableComboItems.push_front(combo_ACTION_UNTAGGED_ASSIGN);
      editableComboItems.push_front(combo_ACTION_OPEN_MISMATCH_RGB);
      editableComboItems.push_front(combo_ACTION_OPEN_MISMATCH_CMYK);
-     editableComboItems.push_front(combo_RENDERING_INTENT_PROOF);    
+     editableComboItems.push_front(combo_RENDERING_INTENT_PROOF);
      editableComboItems.push_front(combo_MIXED_MOD_DOCUMENTS_SCREEN);
-     editableComboItems.push_front(combo_MIXED_MOD_DOCUMENTS_PRINT);     
+     editableComboItems.push_front(combo_MIXED_MOD_DOCUMENTS_PRINT);
      editableComboItems.push_front(combo_PROFILE_PROOF);
 
      editableCheckBoxItems.push_front(check_PROOF_SOFT);
      editableCheckBoxItems.push_front(check_PROOF_HARD);
      editableCheckBoxItems.push_front(check_RENDERING_BPC);
      editableCheckBoxItems.push_front(check_RENDERING_GAMUT_WARNING);
-     
+
 }
 
 //  Fill the combo boxes in the "Default Profiles" tab with Oyranos-installed profiles.
@@ -283,7 +283,7 @@ void kmsettings::populateProfiles()
     fillProfileComboBoxes(oyASSUMED_CMYK, combo_ASSUMED_CMYK);
     fillProfileComboBoxes(oyASSUMED_LAB, combo_ASSUMED_LAB);
     fillProfileComboBoxes(oyASSUMED_XYZ, combo_ASSUMED_XYZ);
-    fillProfileComboBoxes(oyASSUMED_GRAY, combo_ASSUMED_GRAY);  
+    fillProfileComboBoxes(oyASSUMED_GRAY, combo_ASSUMED_GRAY);
 
     fillProfileComboBoxes(oyPROFILE_PROOF, combo_PROFILE_PROOF);
 }
@@ -321,14 +321,14 @@ void kmsettings::fillProfileComboBoxes(oyPROFILE_e profile_type, QComboBox * pro
 
 // Populate each setting in "Behavior Settings".
 void kmsettings::populateBehaviorSettings()
-{ 
+{
      int behavior_setting;
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_INTENT);
      combo_RENDERING_INTENT->setCurrentIndex(behavior_setting);
 
 //  Populate Mismatch Handling Settings
-   
+
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_ACTION_UNTAGGED_ASSIGN);
      combo_ACTION_UNTAGGED_ASSIGN->setCurrentIndex(behavior_setting);
 
@@ -338,34 +338,34 @@ void kmsettings::populateBehaviorSettings()
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_ACTION_OPEN_MISMATCH_CMYK);
      combo_ACTION_OPEN_MISMATCH_CMYK->setCurrentIndex(behavior_setting);
 
-//  Set up Proofing Settings  
-  
+//  Set up Proofing Settings
+
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_INTENT_PROOF);
      combo_RENDERING_INTENT_PROOF->setCurrentIndex(behavior_setting);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_BPC);
      if(behavior_setting == 1)
           check_RENDERING_BPC->setChecked(true);
-     else 
+     else
           check_RENDERING_BPC->setChecked(false);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_RENDERING_GAMUT_WARNING);
      if(behavior_setting == 1)
           check_RENDERING_GAMUT_WARNING->setChecked(true);
-     else 
+     else
           check_RENDERING_GAMUT_WARNING->setChecked(false);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_PROOF_SOFT);
      if(behavior_setting == 1)
           check_PROOF_SOFT->setChecked(true);
-     else 
+     else
           check_PROOF_SOFT->setChecked(false);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_PROOF_HARD);
 
      if(behavior_setting == 1)
           check_PROOF_HARD->setChecked(true);
-     else 
+     else
           check_PROOF_HARD->setChecked(false);
 
 // Set up Mixed Color Settings
@@ -374,21 +374,21 @@ void kmsettings::populateBehaviorSettings()
      combo_MIXED_MOD_DOCUMENTS_SCREEN->setCurrentIndex(behavior_setting);
 
      behavior_setting = oyGetBehaviour(oyBEHAVIOUR_MIXED_MOD_DOCUMENTS_PRINT);
-     combo_MIXED_MOD_DOCUMENTS_PRINT->setCurrentIndex(behavior_setting);     
+     combo_MIXED_MOD_DOCUMENTS_PRINT->setCurrentIndex(behavior_setting);
 }
 
 // Last "clicked on" policy by the user.
 void kmsettings::selectPolicy(int rowIndex)
 {
     QListWidgetItem * selectedPolicyItem = policySettingsList->item(rowIndex);
-       
+
     // If user makes a settings change, and then clicks on a different policy...
-    if (settingsChanged == true && isCustom == true)   
+    if (settingsChanged == true && isCustom == true)
     {
         if(KMessageBox::questionYesNo(this,
         i18n("The policy settings for '%1' have changed.\nDo you wish to save them?", selected_policy),
         i18n("Policy settings have been modified.")) == KMessageBox::Yes)
-            
+
             save();
 
             settingsChanged = false;
@@ -405,13 +405,13 @@ void kmsettings::selectPolicy(int rowIndex)
      if(file.permissions() & QFile::WriteOwner)
      {
          isCustom = true;             // This is a custom policy.
-         
+
          removePolicyButton->setEnabled(true);
          t = selectedPolicyItem->text().toStdString();
          oyPolicySet( t.c_str(), 0 );
      }
      if(full_name) free( full_name );
-     
+
      // Do not remove "built-in" policies ('Office', 'Photographer', etc.)
      if (rowIndex < internalPolicyCount)
       removePolicyButton->setEnabled(false);
@@ -422,7 +422,7 @@ void kmsettings::selectPolicy(int rowIndex)
      refreshProfileSettings();         // Refresh comboboxes in "Default Profiles"
      refreshPolicySettings();
 
-     setEditableItems(isCustom);      
+     setEditableItems(isCustom);
 }
 
 //  Refresh profile combo boxes with profiles associated with the current policy.
@@ -436,49 +436,49 @@ void kmsettings::refreshProfileSettings()
      /* Each item will grab the default profile, and match it with an available profile
         under each combo box in "Default Profiles".  The combobox will then display
         the default profile.                                                     */
-     xmlToString = oyGetDefaultProfileName (oyEDITING_RGB, 0); 
+     xmlToString = oyGetDefaultProfileName (oyEDITING_RGB, 0);
      profileSearchIndex = combo_EDITING_RGB->findText( xmlToString, Qt::MatchExactly);
      combo_EDITING_RGB->setCurrentIndex(profileSearchIndex);
-     
+
      xmlToString = oyGetDefaultProfileName (oyEDITING_CMYK, 0);
      profileSearchIndex = combo_EDITING_CMYK->findText( xmlToString, Qt::MatchExactly);
      combo_EDITING_CMYK->setCurrentIndex(profileSearchIndex);
-     
+
      xmlToString = oyGetDefaultProfileName (oyEDITING_XYZ, 0);
      profileSearchIndex = combo_EDITING_XYZ->findText( xmlToString, Qt::MatchExactly);
      combo_EDITING_XYZ->setCurrentIndex(profileSearchIndex);
-    
+
      xmlToString = oyGetDefaultProfileName (oyEDITING_LAB, 0);
      profileSearchIndex = combo_EDITING_LAB->findText( xmlToString, Qt::MatchExactly);
      combo_EDITING_LAB->setCurrentIndex(profileSearchIndex);
 
      xmlToString = oyGetDefaultProfileName (oyEDITING_GRAY, 0);
      profileSearchIndex = combo_EDITING_GRAY->findText( xmlToString, Qt::MatchExactly);
-     combo_EDITING_GRAY->setCurrentIndex(profileSearchIndex);  
-     
+     combo_EDITING_GRAY->setCurrentIndex(profileSearchIndex);
+
      xmlToString = oyGetDefaultProfileName (oyASSUMED_RGB, 0);
      profileSearchIndex = combo_ASSUMED_RGB->findText( xmlToString, Qt::MatchExactly);
      combo_ASSUMED_RGB->setCurrentIndex(profileSearchIndex);
-     
+
      xmlToString = oyGetDefaultProfileName (oyASSUMED_CMYK, 0);
      profileSearchIndex = combo_EDITING_CMYK->findText( xmlToString, Qt::MatchExactly);
      combo_ASSUMED_CMYK->setCurrentIndex(profileSearchIndex);
-     
+
      xmlToString = oyGetDefaultProfileName (oyASSUMED_XYZ, 0);
      profileSearchIndex = combo_EDITING_XYZ->findText( xmlToString, Qt::MatchExactly);
      combo_ASSUMED_XYZ->setCurrentIndex(profileSearchIndex);
-    
+
      xmlToString = oyGetDefaultProfileName (oyASSUMED_LAB, 0);
      profileSearchIndex = combo_ASSUMED_LAB->findText( xmlToString, Qt::MatchExactly);
-     combo_ASSUMED_LAB->setCurrentIndex(profileSearchIndex);  
+     combo_ASSUMED_LAB->setCurrentIndex(profileSearchIndex);
 
      xmlToString = oyGetDefaultProfileName (oyASSUMED_GRAY, 0);
      profileSearchIndex = combo_ASSUMED_GRAY->findText( xmlToString, Qt::MatchExactly);
-     combo_ASSUMED_GRAY->setCurrentIndex(profileSearchIndex);  
+     combo_ASSUMED_GRAY->setCurrentIndex(profileSearchIndex);
 
      xmlToString = oyGetDefaultProfileName (oyPROFILE_PROOF, 0);
      profileSearchIndex = combo_PROFILE_PROOF->findText( xmlToString, Qt::MatchExactly);
-     combo_PROFILE_PROOF->setCurrentIndex(profileSearchIndex);    
+     combo_PROFILE_PROOF->setCurrentIndex(profileSearchIndex);
 }
 
 // Show the actual policy name after changes applied to Oyranos options.
@@ -502,7 +502,7 @@ void kmsettings::refreshPolicySettings()
 
 // This function controls whether or not the settings are read-only.
 void kmsettings::setEditableItems(bool itemStatus)
-{   
+{
      QComboBox * combobox;
      for (int i = 0; i < editableComboItems.size(); i++)
      {
@@ -519,20 +519,20 @@ void kmsettings::setEditableItems(bool itemStatus)
 }
 
 /*
-   When the user wants to add a custom policy, 
-   the program will prompt user for new policy name 
+   When the user wants to add a custom policy,
+   the program will prompt user for new policy name
    and add to the installed policies list.      */
 
 void kmsettings::addNewPolicy()
-{   
+{
    bool ok;
-   
+
    // New policy name dialog.
-   xmlFileName = QInputDialog::getText(this, i18n("Add new policy"), 
-                      i18n("Please enter a name for the new policy:"), 
+   xmlFileName = QInputDialog::getText(this, i18n("Add new policy"),
+                      i18n("Please enter a name for the new policy:"),
                       QLineEdit::Normal, QDir::home().dirName(), &ok);
- 
-   if(ok)   
+
+   if(ok)
    {
        int i;
        QListWidgetItem * temp_item;
@@ -545,16 +545,16 @@ void kmsettings::addNewPolicy()
                 KMessageBox::error(this,
                   i18n("The policy name '%1' already exists.", xmlFileName),
                   i18n("Unable to add policy."));
-                
+
                   return;
             }
-       }    
-       
+       }
+
        policySettingsList->addItem(xmlFileName);     // Add policy name to list.
    }
-   else 
+   else
       return;
-  
+
    savePolicy();
 
    // Create a "blank" XML file based on entered name.
@@ -579,20 +579,20 @@ void kmsettings::removeCustomPolicy()
 }
 
 void kmsettings::saveSettingsToXml()
-{     
+{
    saveCustomXmlFile();
    refreshPolicySettings();
 }
 
 
 void kmsettings::saveSettings()
-{ 
+{
     std::string t;
-    int behaviorSetting;    
-   
+    int behaviorSetting;
+
     t = combo_EDITING_RGB->currentText().toStdString();
     oySetDefaultProfile(oyEDITING_RGB, t.c_str()); t.clear();
- 
+
     t = combo_EDITING_CMYK->currentText().toStdString();
     oySetDefaultProfile(oyEDITING_CMYK, t.c_str()); t.clear();
 
@@ -633,7 +633,7 @@ void kmsettings::saveSettings()
 
     behaviorSetting = combo_ACTION_OPEN_MISMATCH_RGB->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_RGB , behaviorSetting ); t.clear();
-  
+
     behaviorSetting = combo_ACTION_OPEN_MISMATCH_CMYK->currentIndex();
     oySetBehaviour ( oyBEHAVIOUR_ACTION_OPEN_MISMATCH_CMYK , behaviorSetting ); t.clear();
 
@@ -663,24 +663,24 @@ void kmsettings::saveSettings()
 
     if (check_PROOF_HARD->isChecked())
         oySetBehaviour( oyBEHAVIOUR_PROOF_HARD , 1 );
-    else 
+    else
         oySetBehaviour(oyBEHAVIOUR_PROOF_HARD  , 0 );
 }
 
 // Create a new file that's currently stored in the customProfileDirectory QString.
 void kmsettings::saveCustomXmlFile()
-{ 
+{
     saveSettings();
     std::string t = selected_policy.toStdString();
-    oyPolicySaveActual(oyGROUP_ALL, t.c_str()); 
+    oyPolicySaveActual(oyGROUP_ALL, t.c_str());
 }
 
 // Used to enable the "Apply" button.
 void kmsettings::emitChanged()
 {
-     // Ungrey "Apply" button. 
+     // Ungrey "Apply" button.
      settingsChanged = true;
-     emit changed(true);     
+     emit changed(true);
 
      saveSettings();
      refreshPolicySettings();
@@ -722,6 +722,6 @@ void kmsettings::loadPolicy()
 
 kmsettings::~kmsettings()
 {
-     
+
 }
 

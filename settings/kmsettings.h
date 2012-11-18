@@ -47,10 +47,10 @@ class QListWidgetItem;
 ******************************************************************/
 
 class kmsettings : public KCModule, Ui::kmsettings
-{        
+{
     Q_OBJECT
 
-public:    
+public:
     kmsettings(QWidget *parent, const QVariantList &);
     ~kmsettings();
 
@@ -58,7 +58,7 @@ public:
     const char* qStringToChar(QString);
 
 public Q_SLOTS:
-     
+
     // load the settings from the config
     virtual void load();
 
@@ -67,16 +67,16 @@ public Q_SLOTS:
 
 // User-defined QT slots.
 private slots:
-    
+
     // Refreshes which policy is currently highlighted/selected.
-    void selectPolicy(int);  
+    void selectPolicy(int);
 
     // Function used when user clicks on "Add Custom Policy".
     void addNewPolicy();
 
     // Function to remove custom policy.
     void removeCustomPolicy();
- 
+
     // Write changes to the custom Xml File.
     void saveCustomXmlFile();
 
@@ -87,15 +87,15 @@ private slots:
     void saveSettingsToXml();
 
 private:
- 
+
     // Used to fill in "Default Profiles" tab.
     void populateProfiles();
 
     // Used to fill in "Behavior Settings" tab.
     void populateBehaviorSettings();
-   
+
     // Refresh profile list with changed policy settings.
-    void refreshProfileSettings();    
+    void refreshProfileSettings();
 
     // Refresh policy displaying
     void refreshPolicySettings();
@@ -105,18 +105,18 @@ private:
 
     // Function to 'create' a new xml file.
     void writeNewXmlFile(QString policyname, QString filename);
-  
-    // Filter default profiles. 
+
+    // Filter default profiles.
     void fillProfileComboBoxes(oyPROFILE_e, QComboBox *);
 
-    // Save policies 
+    // Save policies
     void savePolicy();
 
     // Load policies
     void loadPolicy();
 
     // Set up all available widgets that are editable into lists.
-    void loadEditableItems();  
+    void loadEditableItems();
 
     // Store the settings in the Oyranos database
     void saveSettings();
@@ -131,11 +131,11 @@ private:
 
     // Strings to store policy names.
     QString selected_policy;
-    QString default_policy;  
+    QString default_policy;
 
     // String to hold new custom XML filename.
     QString xmlFileName;
-   
+
     // String used to store the path of a recently installed custom policy.
     QString customProfileDirectory;
 
@@ -144,4 +144,4 @@ private:
 
 };
 
-#endif 
+#endif
