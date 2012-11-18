@@ -55,25 +55,25 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define CONFIG_REGISTRATION ("//" OY_TYPE_STD "/config/command")
 
 // Code to provide KDE module functionality for color manager.
-K_PLUGIN_FACTORY( kmdevicesFactory, 
-         registerPlugin<kmdevices>(); 
+K_PLUGIN_FACTORY( kmdevicesFactory,
+         registerPlugin<kmdevices>();
          )
 K_EXPORT_PLUGIN( kmdevicesFactory("kmdevices") )
 
 
 void kmdevices::load()
 {
-    
+
 }
 
 void kmdevices::save()
 {
-                 
+
 }
 
 kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     KCModule( kmdevicesFactory::componentData(), parent)
-{       
+{
      KAboutData* about = new KAboutData(
         "kmdevices", 0, ki18n("KMDevices"), 0, KLocalizedString(),
         KAboutData::License_BSD,
@@ -83,7 +83,7 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
                      "j.simon.iii@astound.net" );
     about->addAuthor( ki18n("2010 Kai-Uwe Behrmann"), KLocalizedString(),
                       "ku.b@gmx.de"  );
-    
+
     setAboutData( about );
 
     currentDevice = 0;
@@ -92,17 +92,22 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
 
     listModified = false;       // avoid action on signals
 
-    setupUi(this);              // Load Gui. 
- 
-    // Disable all buttons
-    deviceProfileComboBox->setEnabled(false);    
+    setupUi(this);              // Load Gui.
 
-    // Load directories and device listing.
-    populateDeviceListing();   
-    
+    msgWidget->setCloseButtonVisible(false);
+    msgWidget->setWordWrap(true);
+    msgWidget->setMessageType(KMessageWidget::Information);
+    msgWidget->setText(i18n("You have not selected any device"));
+
+    // Disable all buttons
+    deviceProfileComboBox->setEnabled(false);
+
+    // Load directories and device listing
+    populateDeviceListing();
+
     // Expand list for user.
     deviceList->expandAll();
-    
+
     // Set column width of device list.
     for(int i = 0; i < deviceList->columnCount(); i++)
         deviceList->resizeColumnToContents(i);
@@ -114,6 +119,8 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
              this, SLOT(changeDeviceItem(int)) );
     connect( deviceProfileComboBox, SIGNAL(activated(int)),
              this, SLOT(openProfile(int)) );
+    connect( installProfileButton, SIGNAL(clicked()),
+	     this, SLOT(installProfile()));
 }
 
 // small helper to obtain a profile from a device
@@ -133,7 +140,7 @@ int kmDeviceGetProfile( oyConfig_s * device, oyProfile_s ** profile )
 void kmdevices::populateDeviceListing()
 {
   // TODO Work out a solution to use raw/camera stuff.
-  detectRaw();  
+  detectRaw();
 
   uint32_t count = 0, i = 1,
          * rank_list = 0;
@@ -153,7 +160,7 @@ void kmdevices::populateDeviceListing()
 
 // NEW General function to detect and retrieve devices via the Oyranos CMM backend.
 int kmdevices::detectDevices(const char * device_type)
-{ 
+{
     int error = 0;
     oyConfigs_s * device_list = 0;
     oyOptions_s * options = oyOptions_New(0);
@@ -162,12 +169,12 @@ int kmdevices::detectDevices(const char * device_type)
     const char * device_class = oyConfDomain_GetText( d, "device_class",
                                                       oyNAME_NICK );
 
-    oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/command", 
+    oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/config/command",
                           "properties", OY_CREATE_NEW);
 
-    oyDevicesGet( OY_TYPE_STD, reg_app, 0, &device_list); 
-        
-    int j = 0, 
+    oyDevicesGet( OY_TYPE_STD, reg_app, 0, &device_list);
+
+    int j = 0,
         device_num = oyConfigs_Count(device_list);
 
     // Must have at least one device detected to add to the list.
@@ -187,14 +194,14 @@ int kmdevices::detectDevices(const char * device_type)
         icon = QString(":/resources/") + device_class + ".png";
         device_icon.addFile( icon.toLower(), icon_size , QIcon::Normal, QIcon::On);
 
-        // Traverse through the available devices 
+        // Traverse through the available devices
         for (j = 0; j < device_num; ++j)
         {
             QString deviceItemString, deviceProfileDescription;
 
             oyConfig_s * device = oyConfigs_Get(device_list, j);
             error = oyDeviceBackendCall(device, options);
- 
+
             const char * device_manufacturer = 0;
             const char * device_model = 0;
             const char * device_serial = 0;
@@ -210,7 +217,7 @@ int kmdevices::detectDevices(const char * device_type)
 
             // Get device designation.
             error = oyDeviceGetInfo(device, oyNAME_NICK, 0, &device_designation, malloc);
- 
+
             // A printer will only take a "device model"
             if (strcmp(device_class,"printer") != 0)
             {
@@ -224,7 +231,7 @@ int kmdevices::detectDevices(const char * device_type)
 
             error = kmDeviceGetProfile(device, &profile);
             profile_filepath = oyProfile_GetFileName(profile, 0);
- 
+
             deviceListPointer = new QTreeWidgetItem();
 
             if (profile_filepath == NULL)
@@ -239,18 +246,18 @@ int kmdevices::detectDevices(const char * device_type)
                 deviceProfileDescription = convertFilenameToDescription(profile_filepath);
                 profile_filename = strrchr(profile_filepath, '/')+1;
             }
- 
+
             deviceListPointer->setIcon(0, device_icon);
             deviceListPointer->setText(DEVICE_DESCRIPTION, deviceItemString);
             deviceListPointer->setText(DEVICE_NAME, device_designation);
-            deviceListPointer->setText(PROFILE_DESCRIPTION, deviceProfileDescription);   
+            deviceListPointer->setText(PROFILE_DESCRIPTION, deviceProfileDescription);
             deviceListPointer->setText(PROFILE_FILENAME, profile_filename);
-        
+
             parent_item->addChild(deviceListPointer);
 
             oyConfig_Release(&device);
         }
-        
+
      }
      else
         error = -1;
@@ -258,7 +265,7 @@ int kmdevices::detectDevices(const char * device_type)
      oyOptions_Release ( &options );
      oyConfigs_Release ( &device_list );
     oyConfDomain_Release( &d );
- 
+
      return error;
 }
 
@@ -268,13 +275,13 @@ void kmdevices::detectRaw()
 }
 
 
-//        ** SIGNAL/SLOT Related Functions **  
-// Hitting the "Show only device related ICC profiles" button 
+//        ** SIGNAL/SLOT Related Functions **
+// Hitting the "Show only device related ICC profiles" button
 // relatedDeviceCheckBox.
 void kmdevices::changeDeviceItem(int /*state*/)
 {
   changeDeviceItem( currentDevice );
-} 
+}
 
 // When the user clicks on an item in the devices tree list.
 void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
@@ -282,15 +289,19 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     if(!selected_device)
     {
       deviceProfileComboBox->clear();
+      deviceProfileTaxiDBComboBox->clear();
       deviceProfileComboBox->setEnabled(false);
+      deviceProfileTaxiDBComboBox->setEnabled(false);
+
       return;
     }
 
     // Don't count top parent items as a "selected device".
     if (selected_device->parent() == deviceListPointer)
     {
-         deviceProfileComboBox->setEnabled(false);
-        
+        deviceProfileComboBox->setEnabled(false);
+	deviceProfileTaxiDBComboBox->setEnabled(false);
+
          return;
     }
 
@@ -299,14 +310,15 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
 
     // If we click on a device item, the current device is stored and options are available.
     deviceProfileComboBox->setEnabled(true);
+    deviceProfileTaxiDBComboBox->setEnabled(true);
 
     currentDevice = selected_device;
- 
+
     // Convert QString to proper C string.
     QByteArray raw_string;
     raw_string = (currentDevice->text(DEVICE_NAME)).toLatin1();
     setCurrentDeviceName(raw_string.data());
-        
+
     char * device_class = 0;
     if(selected_device && selected_device->parent())
     {
@@ -319,7 +331,7 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
 
     // Change "Available Device Profiles" combobox to device-related profiles.
     if ( device_class )
-    {  
+    {
       oyConfDomain_s * d = oyConfDomain_FromReg( device_class, 0 );
       const char * icc_profile_class = oyConfDomain_GetText( d,
                                              "icc_profile_class", oyNAME_NICK );
@@ -337,12 +349,61 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     }
 
     // Get the device that the user selected.
+
+    // TODO - remove it because this code does nothing
     oyConfig_s * device = 0;
     device = getCurrentDevice();
 
     oyConfig_Release(&device);
 }
 
+void kmdevices::installProfile()
+{
+    oyProfile_s * ip = 0;
+    oyOptions_s * options = 0;
+    char * id = (char*)calloc(sizeof(char), 1024);
+
+    snprintf(id, 1024, "%s/0", deviceProfileTaxiDBComboBox->itemData(deviceProfileTaxiDBComboBox->currentIndex()).toString().toStdString().c_str());
+
+    oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/db/TAXI_id",
+                          id,
+                          OY_CREATE_NEW);
+
+    ip = oyProfile_FromTaxiDB(options, NULL);
+
+    oyOptions_Release(&options);
+
+    oyOptions_SetFromText(&options,
+			  "////device", "1",
+			  OY_CREATE_NEW);
+
+    int error = oyProfile_Install(ip, options);
+
+    if(!ip) {
+	msgWidget->setText(i18n("No valid profile obtained"));
+    }
+
+    if(error == oyERROR_DATA_AMBIGUITY) {
+	msgWidget->setMessageType(KMessageWidget::Information);
+	msgWidget->setText(i18n("Profile already installed"));
+    } else if(error == oyERROR_DATA_WRITE) {
+	msgWidget->setMessageType(KMessageWidget::Error);
+	msgWidget->setText(i18n("User Path can not be written"));
+    } else if(error == oyCORRUPTED) {
+	msgWidget->setMessageType(KMessageWidget::Error);
+	msgWidget->setText(i18n("Profile not useable"));
+    } else if(error > 0) {
+	QString text = i18n("Internal error") + " - " + QString::number(error);
+	msgWidget->setMessageType(KMessageWidget::Error);
+	msgWidget->setText(text);
+    } else {
+	msgWidget->setMessageType(KMessageWidget::Positive);
+	msgWidget->setText(i18n("Profile has been installed"));
+    }
+
+    oyOptions_Release(&options);
+    oyProfile_Release(&ip);
+}
 
 // Populate "Assign Profile" combobox.  Depending on the device selected, the profile list will vary.
 void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
@@ -359,7 +420,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 
     iccs = oyProfiles_Create( patterns, 0 );
     oyProfiles_Release( &patterns );
- 
+
     QString getProfileDescription;
 
     size = oyProfiles_Count(iccs);
@@ -374,7 +435,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
     kmDeviceGetProfile( device, &profile ); /* reget profile */
     profile_file_name = oyProfile_GetFileName( profile, 0 );
 
-    Qt::CheckState show_only_device_related = 
+    Qt::CheckState show_only_device_related =
                                             relatedDeviceCheckBox->checkState();
     int empty_added = -1;
 
@@ -385,7 +446,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
          temp_profile = oyProfiles_Get( iccs, i );
          getProfileDescription = oyProfile_GetText( temp_profile, oyNAME_DESCRIPTION );
          temp_profile_file_name = oyProfile_GetFileName( temp_profile, 0);
- 
+
          current_tmp = -1;
 
          if(profile_file_name && temp_profile_file_name &&
@@ -419,18 +480,52 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
       }
       oyProfile_Release( &temp_profile );
     }
-  if(empty_added == -1)
-  {
-    deviceProfileComboBox->addItem(i18n("automatic"));
-    ++pos;
-    if(current == -1 && current_tmp != -1)
-      current = pos;
-  }
-  oyConfig_Release( &device );
-  oyProfile_Release( &profile );
-  oyProfiles_Release( &iccs );
 
-  deviceProfileComboBox->setCurrentIndex( current );
+    if (empty_added == -1)
+    {
+	deviceProfileComboBox->addItem(i18n("automatic"));
+	++pos;
+	if(current == -1 && current_tmp != -1)
+	current = pos;
+    }
+
+    deviceProfileComboBox->setCurrentIndex( current );
+
+    deviceProfileTaxiDBComboBox->clear();
+
+    oyConfigs_s * taxi_devices = 0;
+    oyDevicesFromTaxiDB(device, 0, &taxi_devices, 0);
+    int count = oyConfigs_Count(taxi_devices);
+
+    int32_t rank = 0;
+    oyConfig_s * taxi_device;
+    for (int i = 0; i < count; i++) {
+	taxi_device = oyConfigs_Get( taxi_devices, i );
+
+	oyConfig_Compare(device, taxi_device, &rank);
+
+	if (rank > 0) {
+	    QString text = "[" + QString::number(rank) + "]";
+	    text += " ";
+	    text += oyConfig_FindString(taxi_device, "TAXI_profile_description", 0);
+	    deviceProfileTaxiDBComboBox->addItem(text, oyConfig_FindString(taxi_device, "TAXI_id", 0));
+	}
+    }
+
+    msgWidget->setMessageType(KMessageWidget::Information);
+    if (deviceProfileTaxiDBComboBox->count() > 0) {
+	msgWidget->setText(i18n("Installs selected profile"));
+	installProfileButton->setEnabled(true);
+    } else {
+	msgWidget->setText(i18n("Not found any profile for the selected device in Taxi DB"));
+	installProfileButton->setEnabled(false);
+    }
+
+    oyConfig_Release(&device);
+    oyProfile_Release(&profile);
+    oyProfiles_Release(&iccs);
+    oyConfig_Release(&taxi_device);
+    oyConfigs_Release(&taxi_devices);
 }
 
 // Add a new profile to the list.
@@ -463,15 +558,15 @@ void kmdevices::openProfile(int /*index*/)
     QByteArray raw_string;
     raw_string = (currentDevice->text(DEVICE_NAME)).toLatin1();
     setCurrentDeviceName(raw_string.data());
-    
+
     // Update column width of device list.
     for(int i = 0; i < deviceList->columnCount(); i++)
         deviceList->resizeColumnToContents(i);
-        
+
     // Get the device that the user selected.
-    oyConfig_s * device = 0;     
+    oyConfig_s * device = 0;
     device = getCurrentDevice();
-     
+
     oyConfig_Release(&device);
 }
 
@@ -481,7 +576,7 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   int error = 0;
 
   oyOptions_s * options = 0;
-  oyOptions_SetFromText( &options, "//" OY_TYPE_STD "/config/command", 
+  oyOptions_SetFromText( &options, "//" OY_TYPE_STD "/config/command",
                          "properties", OY_CREATE_NEW );
   oyOptions_SetFromText( &options,
                    "//"OY_TYPE_STD"/config/icc_profile.x_color_region_target",
@@ -490,7 +585,7 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
     error = oyDeviceGet( OY_TYPE_STD, current_device_class, current_device_name,
                          options, &device );
   Q_UNUSED(error);
- 
+
   /* clear */
   oyOptions_Release( &options );
 
@@ -507,7 +602,7 @@ class kmSleep : public QThread
 
 // Set default profile.
 void kmdevices::assignProfile( QString & profile_name )
-{        
+{
      oyProfile_s * profile = NULL;
      QString description;
 
@@ -520,9 +615,10 @@ void kmdevices::assignProfile( QString & profile_name )
          const char * profilename = t.c_str();
          char * pn = strdup(profilename);
 
+
          /* store a existing profile in DB */
          if(strlen(pn) && QString::localeAwareCompare( QString(pn), i18n("automatic")))
-           error = oyDeviceSetProfile ( device, pn );
+	    error = oyDeviceSetProfile ( device, pn );
          error = oyDeviceUnset( device ); /* unset the device */
          /* completely unset the actual profile from DB */
          if(!strlen(pn) || !QString::localeAwareCompare(QString(pn), i18n("automatic")))
@@ -551,7 +647,7 @@ void kmdevices::assignProfile( QString & profile_name )
 
      // Set third column of the device list with the profile description.
      currentDevice->setText(PROFILE_DESCRIPTION, description);
- 
+
      if(!profile_name.count())
        profile_name = "------";
      currentDevice->setText(PROFILE_FILENAME, profile_name);
@@ -559,22 +655,20 @@ void kmdevices::assignProfile( QString & profile_name )
 
 
 kmdevices::~kmdevices()
-{     
-    
+{
+
 }
 
-/*                  
+/*
            ************* Oyranos DB Settings *************
 */
 
-
-
 // This is so we can obtain a profile name description from a profile file name.
 QString kmdevices::convertFilenameToDescription(QString profileFilename)
-{    
+{
     QString profileDescriptionName;
     oyProfile_s * profile_name = NULL;
-    
+
     std::string t = profileFilename.toStdString();
     profile_name = oyProfile_FromFile( t.c_str(), 0, 0);
     profileDescriptionName = oyProfile_GetText( profile_name, oyNAME_DESCRIPTION );

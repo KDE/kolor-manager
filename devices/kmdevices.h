@@ -50,7 +50,7 @@ class kmdevices : public KCModule, Ui::kmdevices
 {
     Q_OBJECT
 
-public:    
+public:
     kmdevices(QWidget *parent, const QVariantList &);
     ~kmdevices();
 
@@ -65,17 +65,20 @@ public Q_SLOTS:
 // User-defined QT slots.
 private slots:
 
-    // When the "Assign Profile" button is pressed...
+    // When the "Assign Profile" button is pressed
     void openProfile(int index);
- 
+
     // When user clicks on a device tree item.
     void changeDeviceItem( QTreeWidgetItem* );
 
     // Hitting the "Show only device related ICC profiles" button.
     void changeDeviceItem( int state );
+
+    void installProfile();
+
 private:
 
-    // General device detection 
+    // General device detection
     int detectDevices(const char * device_type);
 
     // Detect camera
@@ -89,9 +92,9 @@ private:
 
      // Function to convert directory string of a profile into a file name.
     void changeDefaultItem(QString selected_profile);
-    
+
     // Function to refresh device list and node with the new default profile.
-    void setDefaultProfile(QString new_default_profile); 
+    void setDefaultProfile(QString new_default_profile);
 
     // set the new profile to a Oyranos device
     void assignProfile( QString & profile_name );
@@ -100,7 +103,7 @@ private:
     oyConfig_s * getCurrentDevice( void );
 
     // Convert profile filename into profile description (using Oyranos).
-    QString convertFilenameToDescription(QString profileFilename);  
+    QString convertFilenameToDescription(QString profileFilename);
 
     // KConfig calls to save, load, and delete associated profiles.
     void addNewDeviceConfig(QString device_name);
@@ -117,7 +120,7 @@ private:
 // PRIVATE DATA MEMBERS
 // -----------------------------------------------
 
-    // String used when user wants to add a new profile...
+    // String used when user wants to add a new profile
     QString recentlyAddedProfile;
 
     // Directory name variables.
@@ -136,9 +139,9 @@ private:
 
     bool listModified;                // Was the list changed by the user?
 
-    // Global string values for Oyranos device identification 
+    // Global string values for Oyranos device identification
     char * current_device_name;
-    char * current_device_class;  
+    char * current_device_class;
     void setCurrentDeviceName(const char * name)
     { if(current_device_name) free(current_device_name);
       current_device_name = strdup(name); }
@@ -147,4 +150,4 @@ private:
       current_device_class = strdup(name); }
 };
 
-#endif 
+#endif
