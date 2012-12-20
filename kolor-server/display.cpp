@@ -123,8 +123,6 @@ void Display::initialize()
     connect(eventTimer, SIGNAL(timeout()), this, SLOT(checkX11Events()));
     eventTimer->start(X11_EVENTS_POLL_INTERVAL);
 
-    iccColorManagement  = X11::XInternAtom(m_display, "_ICC_COLOR_MANAGEMENT", False);
-
     iccColorProfiles    = X11::XInternAtom(m_display, XCM_COLOR_PROFILES, False);
     iccColorRegions     = X11::XInternAtom(m_display, XCM_COLOR_REGIONS, False);
     iccColorOutputs     = X11::XInternAtom(m_display, XCM_COLOR_OUTPUTS, False);
@@ -229,7 +227,7 @@ int Display::updateNetColorDesktopAtom(bool init)
         statusError             = 3
     } status = statusOk;
     const QByteArray myID = "kolorserver";
-    const QByteArray myCaps = "|ICP|ICO|V0.4|"; // TODO add other capabilities?
+    const QByteArray myCaps = "|ICM|V0.4|"; // TODO add other capabilities?
 
     if (!colorDesktopActivated())
         return (int) statusInactive;
@@ -360,17 +358,6 @@ void Display::handleEvent(X11::XEvent* event)
             m_screen->updateOutputConfiguration(false);
         }
 
-        break;
-
-    case ClientMessage:
-        if (event->xclient.message_type == iccColorManagement)
-        {
-            kDebug() << "ICC Color Management atom changed";
-            // CompWindow *w = findWindowAtDisplay (d, event->xclient.window);
-            // PrivWindow *pw = compObjectGetPrivate((CompObject *) w);
-            // pw->active = 1;
-            // TODO
-        }
         break;
 
     case RRNotify: {
