@@ -120,6 +120,7 @@ Server::Server(QObject *parent, const QList<QVariant> &)
 Server::~Server()
 {
     Display::cleanup();
+    kDebug() << "going to leave";
 }
 
 

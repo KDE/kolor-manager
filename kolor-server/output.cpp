@@ -192,7 +192,7 @@ The colour server shall if no _ICC_DEVICE_PROFILE(_xxx) is set, copy the
 _ICC_PROFILE(_xxx) profiles to each equivalent _ICC_DEVICE_PROFILE(_xxx) atom.
 The _ICC_PROFILE(_xxx) profiles shall be replaced by a sRGB ICC profile.
 The counting in the atoms (_xxx) name section follows the rules outlined in
-the ICC Profile in X recommendation. After finishing the session the the old
+the ICC Profile in X recommendation. After finishing the session the old
 state has to be recovered by copying any _ICC_DEVICE_PROFILE(_xxx) atoms
 content into the appropriate _ICC_PROFILE(_xxx) atoms and removing all
 _ICC_DEVICE_PROFILE(_xxx) atoms.

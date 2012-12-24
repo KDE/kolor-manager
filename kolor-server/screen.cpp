@@ -193,7 +193,7 @@ void Screen::updateProfiles()
     oyStructList_s *cache = Display::getInstance()->cache();
     int n = 0;
 
-    // Grow or shring the array as needed
+    // Grow or shrink the array as needed
     unsigned long count = X11::XcolorProfileCount(data, nBytes);
 
     // Copy the profiles into the array, and create the Oyranos handles
