@@ -49,6 +49,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos_icc.h>
 #include <oyranos_devices.h>
 #include <oyProfiles_s.h>
+#include <oyObject_s.h>
 
 #include <unistd.h> //for usleep()
 
@@ -369,6 +370,9 @@ void kmdevices::installProfile()
                           id,
                           OY_CREATE_NEW);
 
+    msgWidget->setMessageType(KMessageWidget::Information);
+    msgWidget->setText(i18n("Downloading Profile from Taxi DB ..."));
+
     ip = oyProfile_FromTaxiDB(options, NULL);
 
     oyOptions_Release(&options);
@@ -493,12 +497,28 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 
     deviceProfileTaxiDBComboBox->clear();
 
-    oyConfigs_s * taxi_devices = 0;
-    oyDevicesFromTaxiDB(device, 0, &taxi_devices, 0);
+    msgWidget->setText(i18n("Looking for Device Profiles in Taxi DB ..."));
+    installProfileButton->setEnabled(false);
+
+    // asynchronous Taxi DB query
+    TaxiLoad * loader = new TaxiLoad( oyConfig_Copy( device, oyObject_New() ) );
+    connect(loader, SIGNAL(finishedSignal( oyConfigs_s * )), this, SLOT( getTaxiSlot( oyConfigs_s* )));
+    loader->start();
+
+    oyConfig_Release(&device);
+    oyProfile_Release(&profile);
+    oyProfiles_Release(&iccs);
+}
+
+// obtain the Taxi DB query result
+void kmdevices::getTaxiSlot( oyConfigs_s * taxi_devices )
+{
     int count = oyConfigs_Count(taxi_devices);
 
     int32_t rank = 0;
     oyConfig_s * taxi_device;
+    oyConfig_s * device = getCurrentDevice();
+
     for (int i = 0; i < count; i++) {
 	taxi_device = oyConfigs_Get( taxi_devices, i );
 
@@ -510,6 +530,7 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 	    text += oyConfig_FindString(taxi_device, "TAXI_profile_description", 0);
 	    deviceProfileTaxiDBComboBox->addItem(text, oyConfig_FindString(taxi_device, "TAXI_id", 0));
 	}
+        oyConfig_Release(&taxi_device);
     }
 
     msgWidget->setMessageType(KMessageWidget::Information);
@@ -520,12 +541,8 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 	msgWidget->setText(i18n("Not found any profile for the selected device in Taxi DB"));
 	installProfileButton->setEnabled(false);
     }
-
-    oyConfig_Release(&device);
-    oyProfile_Release(&profile);
-    oyProfiles_Release(&iccs);
-    oyConfig_Release(&taxi_device);
     oyConfigs_Release(&taxi_devices);
+    oyConfig_Release(&device);
 }
 
 // Add a new profile to the list.
@@ -592,7 +609,6 @@ oyConfig_s * kmdevices::getCurrentDevice( void )
   return device;
 }
 
-#include <QThread>
 class kmSleep : public QThread
 {
   public:

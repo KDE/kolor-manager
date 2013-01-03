@@ -31,6 +31,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KCModule>
 #include <KColorScheme>
 #include <KPushButton>
+#include <QThread>
 
 class QPushButton;
 class QListWidget;
@@ -75,6 +76,9 @@ private slots:
     void changeDeviceItem( int state );
 
     void installProfile();
+
+    // obtain the Taxi DB finished event
+    void getTaxiSlot( oyConfigs_s * );
 
 private:
 
@@ -148,6 +152,29 @@ private:
     void setCurrentDeviceClass(const char * name)
     { if(current_device_name) free(current_device_class);
       current_device_class = strdup(name); }
+};
+
+class TaxiLoad : public QThread
+{
+    Q_OBJECT
+
+    oyConfig_s * d_;
+
+        TaxiLoad( ) { d_ = 0; }
+    public:
+        TaxiLoad( oyConfig_s * device ) { d_ = device; }
+        ~TaxiLoad( ) { }
+     
+    signals:
+        void finishedSignal( oyConfigs_s * taxi_devices );
+     
+    protected:
+        void run() {
+            oyConfigs_s * taxi_devices = 0;
+            oyDevicesFromTaxiDB( d_, 0, &taxi_devices, 0);
+            oyConfig_Release( &d_ );
+            emit finishedSignal( taxi_devices );
+        }
 };
 
 #endif
