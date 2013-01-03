@@ -238,8 +238,8 @@ void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
     unsigned long n = 0;
 
     Atom csAtom;
-    QByteArray colorServerProfileAtom = XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE;
-    if (strlen(atomName) > (size_t) colorServerProfileAtom.size() + 1)
+    QByteArray colorServerProfileAtom = XCM_DEVICE_PROFILE;
+    if (strlen(atomName) > (size_t) strlen(XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE) + 1)
         sscanf((const char*) atomName, XCM_ICC_V0_3_TARGET_PROFILE_IN_X_BASE"_%d", &screen);
     if (screen) {
         colorServerProfileAtom += "_";
@@ -250,7 +250,7 @@ void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
     if (csAtom) {
         void *data = X11::fetchProperty(m_display, X11::rootWindow(m_display, 0), atom, XA_CARDINAL, &n, False);
         if (data && n) {
-            oyProfile_s *serverProfile = oyProfile_FromMem(n, data, 0,0);
+            oyProfile_s *baseProfile = oyProfile_FromMem(n, data, 0,0);
             oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, 0); // sRGB
 
             /* The distinction of sRGB profiles set by the server and ones
@@ -259,22 +259,22 @@ void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
                 * The correct way to omit colour correction is to tag window
                 * regions. As a last resort the colour server can be switched off.
                 */
-            if (oyProfile_Equal(serverProfile, dummyProfile)) {
-                oyProfile_Release(&serverProfile);
+            if (oyProfile_Equal(baseProfile, dummyProfile)) {
+                oyProfile_Release(&baseProfile);
                 ignoreProfile = true;
             }
             oyProfile_Release(&dummyProfile);
 
-            if (serverProfile) {
+            if (baseProfile) {
                 if (screen < m_outputs.count()) {
-                    m_outputs[screen]->setProfile(serverProfile);
+                    m_outputs[screen]->setProfile(baseProfile);
                 } else
                     kWarning() << "Contexts not ready for screen" << screen;
 
                 X11::changeProperty(m_display, csAtom, XA_CARDINAL, (unsigned char *) 0, 0);
             }
 
-            serverProfile = 0;
+            baseProfile = 0;
             X11::XFree(data);
         }
     }
