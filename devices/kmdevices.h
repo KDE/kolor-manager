@@ -67,7 +67,7 @@ public Q_SLOTS:
 private slots:
 
     // When the "Assign Profile" button is pressed
-    void openProfile(int index);
+    void selectLocalProfile(int index);
 
     // When user clicks on a device tree item.
     void changeDeviceItem( QTreeWidgetItem* );
@@ -75,7 +75,7 @@ private slots:
     // Hitting the "Show only device related ICC profiles" button.
     void changeDeviceItem( int state );
 
-    void installProfile();
+    void installTaxiProfile();
 
     // obtain the Taxi DB finished event
     void getTaxiSlot( oyConfigs_s * );
@@ -95,18 +95,24 @@ private:
     void populateDeviceListing();
 
     // Populate device-specified profile combo box listing.
-    void populateDeviceComboBox(icProfileClassSignature deviceSignature);
+    void populateLocalProfileComboBox(icProfileClassSignature deviceSignature, bool new_device);
 
      // Function to convert directory string of a profile into a file name.
     void changeDefaultItem(QString selected_profile);
 
+    // Update the Profile list.
+    void updateLocalProfileList(QTreeWidgetItem * selected_device, bool new_device);
+
     // Function to refresh device list and node with the new default profile.
     void setDefaultProfile(QString new_default_profile);
 
-    // set the new profile to a Oyranos device
+    // Set the new profile to a Oyranos device
     void assignProfile( QString & profile_name );
 
-    // get the actual device from currentDevice
+    // Set new profile and update UI
+    void setProfile( QString baseFileName );
+
+    // Get the actual device from currentDevice
     oyConfig_s * getCurrentDevice( void );
 
     // Convert profile filename into profile description (using Oyranos).

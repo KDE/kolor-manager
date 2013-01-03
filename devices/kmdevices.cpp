@@ -122,9 +122,9 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     connect( relatedDeviceCheckBox, SIGNAL(stateChanged(int)),
              this, SLOT(changeDeviceItem(int)) );
     connect( deviceProfileComboBox, SIGNAL(activated(int)),
-             this, SLOT(openProfile(int)) );
+             this, SLOT(selectLocalProfile(int)) );
     connect( installProfileButton, SIGNAL(clicked()),
-	     this, SLOT(installProfile()));
+	     this, SLOT(installTaxiProfile()));
 }
 
 // small helper to obtain a profile from a device
@@ -288,7 +288,8 @@ void kmdevices::changeDeviceItem(int /*state*/)
 }
 
 // When the user clicks on an item in the devices tree list.
-void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
+void kmdevices::updateLocalProfileList(QTreeWidgetItem * selected_device,
+                                 bool new_device)
 {
     if(!selected_device)
     {
@@ -342,11 +343,11 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
       setCurrentDeviceClass(device_class);
 
       if(icc_profile_class && strcmp(icc_profile_class,"display") == 0)
-        populateDeviceComboBox(icSigDisplayClass);
+        populateLocalProfileComboBox(icSigDisplayClass, new_device);
       else if(icc_profile_class && strcmp(icc_profile_class,"output") == 0)
-        populateDeviceComboBox(icSigOutputClass);
+        populateLocalProfileComboBox(icSigOutputClass, new_device);
       else if(icc_profile_class && strcmp(icc_profile_class,"input") == 0)
-        populateDeviceComboBox(icSigInputClass);
+        populateLocalProfileComboBox(icSigInputClass, new_device);
 
       oyConfDomain_Release( &d );
       free(device_class); device_class = 0;
@@ -361,7 +362,13 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
     oyConfig_Release(&device);
 }
 
-void kmdevices::installProfile()
+// When the user clicks on an item in the devices tree list.
+void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
+{
+  updateLocalProfileList( selected_device, true );
+}
+
+void kmdevices::installTaxiProfile()
 {
     msgWidget->setMessageType(KMessageWidget::Information);
     msgWidget->setText(i18n("Downloading Profile from Taxi DB ..."));
@@ -392,12 +399,15 @@ void kmdevices::downloadFromTaxiDB( )
     int error = oyProfile_Install(ip, options);
 
     if(!ip) {
+        msgWidget->setMessageType(KMessageWidget::Information);
 	msgWidget->setText(i18n("No valid profile obtained"));
     }
 
     if(error == oyERROR_DATA_AMBIGUITY) {
 	msgWidget->setMessageType(KMessageWidget::Information);
 	msgWidget->setText(i18n("Profile already installed"));
+        setProfile( QString(oyProfile_GetFileName( ip, 0 )) );
+        updateLocalProfileList( currentDevice, false );
     } else if(error == oyERROR_DATA_WRITE) {
 	msgWidget->setMessageType(KMessageWidget::Error);
 	msgWidget->setText(i18n("User Path can not be written"));
@@ -411,6 +421,8 @@ void kmdevices::downloadFromTaxiDB( )
     } else {
 	msgWidget->setMessageType(KMessageWidget::Positive);
 	msgWidget->setText(i18n("Profile has been installed"));
+        setProfile( QString(oyProfile_GetFileName( ip, 0 )) );
+        updateLocalProfileList( currentDevice, false );
     }
 
     oyOptions_Release(&options);
@@ -418,7 +430,7 @@ void kmdevices::downloadFromTaxiDB( )
 }
 
 // Populate "Assign Profile" combobox.  Depending on the device selected, the profile list will vary.
-void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
+void kmdevices::populateLocalProfileComboBox(icProfileClassSignature deviceSignature, bool new_device)
 {
     int size, i, current = -1, current_tmp = 0, pos = 0;
     oyProfile_s * profile = 0, * temp_profile = 0;
@@ -507,15 +519,19 @@ void kmdevices::populateDeviceComboBox(icProfileClassSignature deviceSignature)
 
     deviceProfileComboBox->setCurrentIndex( current );
 
-    deviceProfileTaxiDBComboBox->clear();
-
-    msgWidget->setText(i18n("Looking for Device Profiles in Taxi DB ..."));
-    installProfileButton->setEnabled(false);
-
     // asynchronous Taxi DB query
-    TaxiLoad * loader = new TaxiLoad( oyConfig_Copy( device, oyObject_New() ) );
-    connect(loader, SIGNAL(finishedSignal( oyConfigs_s * )), this, SLOT( getTaxiSlot( oyConfigs_s* )));
-    loader->start();
+    if(new_device)
+    {
+      deviceProfileTaxiDBComboBox->clear();
+
+      msgWidget->setMessageType(KMessageWidget::Information);
+      msgWidget->setText(i18n("Looking for Device Profiles in Taxi DB ..."));
+      installProfileButton->setEnabled(false);
+
+      TaxiLoad * loader = new TaxiLoad( oyConfig_Copy( device, oyObject_New() ) );
+      connect(loader, SIGNAL(finishedSignal( oyConfigs_s * )), this, SLOT( getTaxiSlot( oyConfigs_s* )));
+      loader->start();
+    }
 
     oyConfig_Release(&device);
     oyProfile_Release(&profile);
@@ -558,10 +574,10 @@ void kmdevices::getTaxiSlot( oyConfigs_s * taxi_devices )
 }
 
 // Add a new profile to the list.
-void kmdevices::openProfile(int /*index*/)
+void kmdevices::selectLocalProfile(int /*index*/)
 {
-    int parenthesis_index = 0, base_filename_index = 0, str_size = 0;
     QString baseFileName = deviceProfileComboBox->currentText();
+    int parenthesis_index = 0, base_filename_index = 0, str_size = 0;
 
     if(QString::localeAwareCompare( baseFileName, i18n("automatic")))
     {
@@ -578,6 +594,12 @@ void kmdevices::openProfile(int /*index*/)
       baseFileName.remove(0, base_filename_index + 1);
     }
 
+    setProfile( baseFileName );
+}
+
+// Set a new Profile and update UI.
+void kmdevices::setProfile( QString baseFileName )
+{
     emit changed(true);
     listModified = true;
 
