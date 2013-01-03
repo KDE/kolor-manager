@@ -99,7 +99,6 @@ void ColorOutput::cleanProfileAtom()
 {
     kDebug();
     X11::Display *display = m_parent->display();
-    X11::Window rootWindow = m_parent->rootWindow();
     X11::Atom a = iccProfileAtom(display, m_index, true);
     X11::XFlush(display);
     X11::deleteProperty(display, a);
@@ -203,7 +202,7 @@ the _ICC_PROFILE(_xxx) atom to sRGB as well.
  */
 void ColorOutput::moveProfileAtoms(bool init)
 {
-    kDebug() << init;
+    kDebug() << "init: " << init;
 
     X11::Display *display = m_parent->display();
     X11::Window rootWindow = m_parent->rootWindow();
@@ -229,7 +228,8 @@ void ColorOutput::moveProfileAtoms(bool init)
     X11::fetchProperty(display, rootWindow, targetAtom, XA_CARDINAL, &targetSize, False);
     targetExists = targetSize > 0;
 
-    if (!targetExists || !init) {
+    if (!targetExists ||
+        ( targetExists && !init)) {
         // Copy the real device atom
         source = X11::fetchProperty(display, rootWindow, sourceAtom, XA_CARDINAL, &sourceSize, False);
         sourceExists = sourceSize > 0;
