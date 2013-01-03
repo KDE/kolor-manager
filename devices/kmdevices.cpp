@@ -44,6 +44,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KSharedConfigPtr>
 #include <KAboutData>
 #include <QThread>            // sleep
+#include <QTimer>
 
 #include <oyranos.h>
 #include <oyranos_icc.h>
@@ -112,6 +113,8 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     // Set column width of device list.
     for(int i = 0; i < deviceList->columnCount(); i++)
         deviceList->resizeColumnToContents(i);
+
+    installProfileButton->setEnabled(false);
 
     // QT-related Signal/Slot calls (for button-press and item selection events)si.
     connect( deviceList, SIGNAL(itemClicked(QTreeWidgetItem*,int)),
@@ -360,6 +363,14 @@ void kmdevices::changeDeviceItem(QTreeWidgetItem * selected_device)
 
 void kmdevices::installProfile()
 {
+    msgWidget->setMessageType(KMessageWidget::Information);
+    msgWidget->setText(i18n("Downloading Profile from Taxi DB ..."));
+
+    QTimer::singleShot(100, this, SLOT(downloadFromTaxiDB()));
+}
+
+void kmdevices::downloadFromTaxiDB( )
+{
     oyProfile_s * ip = 0;
     oyOptions_s * options = 0;
     char * id = (char*)calloc(sizeof(char), 1024);
@@ -369,9 +380,6 @@ void kmdevices::installProfile()
     oyOptions_SetFromText(&options, "//" OY_TYPE_STD "/db/TAXI_id",
                           id,
                           OY_CREATE_NEW);
-
-    msgWidget->setMessageType(KMessageWidget::Information);
-    msgWidget->setText(i18n("Downloading Profile from Taxi DB ..."));
 
     ip = oyProfile_FromTaxiDB(options, NULL);
 
@@ -539,7 +547,7 @@ void kmdevices::getTaxiSlot( oyConfigs_s * taxi_devices )
 
     msgWidget->setMessageType(KMessageWidget::Information);
     if (deviceProfileTaxiDBComboBox->count() > 0) {
-	msgWidget->setText(i18n("Installs selected profile"));
+	msgWidget->setText(i18n("You can selected and install a profile"));
 	installProfileButton->setEnabled(true);
     } else {
 	msgWidget->setText(i18n("Not found any profile for the selected device in Taxi DB"));

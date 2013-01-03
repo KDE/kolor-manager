@@ -80,6 +80,9 @@ private slots:
     // obtain the Taxi DB finished event
     void getTaxiSlot( oyConfigs_s * );
 
+    // get the ICC profile
+    void downloadFromTaxiDB( );
+
 private:
 
     // General device detection
@@ -171,7 +174,8 @@ class TaxiLoad : public QThread
     protected:
         void run() {
             oyConfigs_s * taxi_devices = 0;
-            oyDevicesFromTaxiDB( d_, 0, &taxi_devices, 0);
+            if(d_)
+              oyDevicesFromTaxiDB( d_, 0, &taxi_devices, 0);
             oyConfig_Release( &d_ );
             emit finishedSignal( taxi_devices );
         }
