@@ -563,7 +563,7 @@ void kmdevices::getTaxiSlot( oyConfigs_s * taxi_devices )
 
     msgWidget->setMessageType(KMessageWidget::Information);
     if (deviceProfileTaxiDBComboBox->count() > 0) {
-	msgWidget->setText(i18n("You can selected and install a profile"));
+	msgWidget->setText(i18n("You can select and install a profile"));
 	installProfileButton->setEnabled(true);
     } else {
 	msgWidget->setText(i18n("Not found any profile for the selected device in Taxi DB"));
