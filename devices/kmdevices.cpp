@@ -469,8 +469,7 @@ void kmdevices::populateLocalProfileComboBox(icProfileClassSignature deviceSigna
       {
          temp_profile = oyProfiles_Get( iccs, i );
          // show rank number
-	 if (rank_list[i] > 0)
-	    getProfileDescription = "[" + QString::number(rank_list[i]) + "] ";
+         getProfileDescription = "[" + QString::number(rank_list[i]) + "] ";
 
          getProfileDescription += oyProfile_GetText( temp_profile, oyNAME_DESCRIPTION );
          temp_profile_file_name = oyProfile_GetFileName( temp_profile, 0);
