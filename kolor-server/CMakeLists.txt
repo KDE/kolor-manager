@@ -7,6 +7,7 @@ set(kolor_server_SRCS
     kolor-server.cpp
     output.cpp
     screen.cpp
+    window.cpp
 )
 
 set(CMAKE_REQUIRED_INCLUDES ${X11_Xrandr_INCLUDE_PATH}/Xrandr.h)
@@ -22,7 +23,7 @@ target_link_libraries(kded_kolorserver
     ${KDE4_KDECORE_LIBS}
     ${OYRANOS_LIBRARIES}
     ${QT_LIBRARIES} ${QT_QTGUI_LIBRARIES}
-    X11 Xrandr Xcm
+    X11 Xrandr Xcm Xfixes
 )
 
 install(TARGETS kded_kolorserver DESTINATION ${PLUGIN_INSTALL_DIR})

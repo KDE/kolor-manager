@@ -34,6 +34,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "display.h"
 #include "output.h"
+#include "window.h"
 
 #include <oyranos_devices.h>
 
@@ -292,6 +293,40 @@ int Screen::profileCount() const
         if (m_outputs[i]->profile())
             c ++;
     return c;
+}
+
+void Screen::updateWindowRegions(uint windowId)
+{
+    Window *w = NULL;
+    for (int i = 0; i < m_windows.size(); ++i)
+        if (m_windows[i]->id() == (X11::Window) windowId) {
+            w = m_windows[i];
+            break;
+        }
+
+    if (!w) {
+        w = new Window((X11::Window) windowId);
+        m_windows.append(w);
+    }
+
+    w->updateRegions(m_outputs);
+
+    // Recreate region clut list
+    m_regionCluts.clear();
+    for (int i = 0; i < m_windows.size(); ++i) {
+        for (int i_region = 0; i_region < m_windows[i]->regionCount(); ++i_region) {
+            RegionalClut rclut;
+            rclut.region = m_windows[i]->region(i_region);
+            rclut.windowId = windowId;
+            for (int i_output = 0; i_output < m_outputs.size(); ++i_output) {
+                rclut.outputIndex = i_output;
+                rclut.clut = m_windows[i]->regionColorContext(i_region, i_output)->colorLookupTable();
+                m_regionCluts.insert((uint) m_windows[i]->id(), rclut);
+            }
+        }
+    }
+
+    emit regionClutsChanged();
 }
 
 } // KolorServer namespace

@@ -154,6 +154,32 @@ static inline unsigned long XcolorProfileCount(void *data, unsigned long nBytes)
 }
 /* end of code from Tomas Carnecky */
 
+static inline XcolorRegion *XcolorRegionNext(XcolorRegion *region)
+{
+  unsigned char *ptr = (unsigned char *) region;
+  return (XcolorRegion *) (ptr + sizeof(XcolorRegion));
+}
+
+static inline unsigned long XcolorRegionCount(void *, unsigned long nBytes)
+{
+  return nBytes / sizeof(XcolorRegion);
+}
+
+static inline Region getRegionFromId(Display *dpy, XserverRegion src)
+{
+  Region ret = XCreateRegion();
+
+  int nRects = 0;
+  XRectangle *rect = XFixesFetchRegion(dpy, src, &nRects);
+
+  for (int i = 0; i < nRects; ++i)
+    XUnionRectWithRegion(&rect[i], ret, ret);
+
+  XFree(rect);
+
+  return ret;
+}
+
 } // X11 namespace
 
 #endif // X11_HELPERS_H_

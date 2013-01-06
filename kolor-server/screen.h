@@ -37,6 +37,7 @@ namespace KolorServer
 
 class ColorOutput;
 class Display;
+class Window;
 
 /**
  * X11 Screen
@@ -172,8 +173,20 @@ public:
      */
     int profileCount() const;
 
+    /**
+     * For the window with the given \param id, grab the window regions
+     * contained in the _ICC_COLOR_REGIONS atom.
+     * Creates a new Window instance if it does not yet exist.
+     *
+     * "The atom is attached to windows and lists the XcolorRegion's defined for that
+     * specific window. The application is responsible to update the contained
+     * informations, e.g. on region resize or move inside the window.
+     */
+    void updateWindowRegions(uint windowId);
+
 signals:
     void outputClutsChanged();
+    void regionClutsChanged();
 
 private:
     Display *m_parent;
@@ -181,6 +194,7 @@ private:
     int m_screen;
 
     QList<ColorOutput*> m_outputs; // or contexts
+    QList<Window*> m_windows;
 
 private:
     ClutList m_outputCluts;

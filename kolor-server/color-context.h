@@ -59,6 +59,12 @@ public:
     oyProfile_s *sourceProfile();
 
     /**
+     * Set a custom source profile for this color context.
+     * Any existing source profile will be discarded.
+     */
+    void setSourceProfile(oyProfile_s *profile);
+
+    /**
      * \return Destination profile for this context
      */
     oyProfile_s *destinationProfile();
@@ -84,8 +90,15 @@ public:
      * - put cc.src_profile as sRGB (web)
      * - copy output name into cc
      * - call setupColourTable
+     * \param name name for output
      */
-    void setup(const QString &name);
+    void setupForOutput(const QString &name);
+
+    /**
+     * Basically calls \ref setupColorLookupTable
+     * \param outputName will set the output name to this
+     */
+    void setupForRegion(const QString &outputName);
 
     /**
      * Fetches the device profile for the given device.

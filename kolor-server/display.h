@@ -39,6 +39,7 @@ namespace KolorServer
 {
 
 class Screen;
+class Window;
 
 /**
  * Implements a color server conforming to the X Color Management
@@ -53,6 +54,7 @@ class Display : public QObject
     Q_OBJECT
 
     friend class KolorServer::Screen;
+    friend class KolorServer::Window;
 
 public:
     static Display *getInstance();

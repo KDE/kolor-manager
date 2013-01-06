@@ -63,6 +63,12 @@ oyProfile_s *ColorContext::sourceProfile()
     return m_srcProfile;
 }
 
+void ColorContext::setSourceProfile(oyProfile_s *profile)
+{
+    oyProfile_Release(&m_srcProfile);
+    m_srcProfile = profile;
+}
+
 oyProfile_s *ColorContext::destinationProfile()
 {
     return m_dstProfile;
@@ -218,7 +224,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
         kDebug() << "Output" << m_outputName << "no profile";
 }
 
-void ColorContext::setup(const QString &name)
+void ColorContext::setupForOutput(const QString &name)
 {
     kDebug();
     if (!Display::getInstance()->colorDesktopActivated())
@@ -229,6 +235,12 @@ void ColorContext::setup(const QString &name)
     if (!m_srcProfile)
         kWarning() << "Output" << name << "no sRGB source profile";
 
+    setupColorLookupTable(Display::getInstance()->isAdvancedIccDisplay());
+}
+
+void ColorContext::setupForRegion(const QString& outputName)
+{
+    m_outputName = outputName;
     setupColorLookupTable(Display::getInstance()->isAdvancedIccDisplay());
 }
 

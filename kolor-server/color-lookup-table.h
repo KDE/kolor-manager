@@ -42,7 +42,12 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
 typedef QVector<quint16> Clut;
 typedef QList<Clut> ClutList;
-typedef struct { QRect r; Clut c; } RegionalClut;
+typedef struct {
+    uint windowId;
+    int outputIndex;
+    QRect region;
+    Clut clut;
+} RegionalClut;
 typedef QMultiMap<uint, RegionalClut> RegionalClutMap;
 
 Q_DECLARE_METATYPE(Clut)
@@ -54,7 +59,7 @@ Q_DECLARE_METATYPE(RegionalClutMap)
 inline QDBusArgument &operator<<(QDBusArgument &argument, const RegionalClut &rc)
 {
     argument.beginStructure();
-    argument << rc.r << rc.c;
+    argument << rc.windowId << rc.outputIndex << rc.region << rc.clut;
     argument.endStructure();
     return argument;
 }
@@ -63,7 +68,7 @@ inline QDBusArgument &operator<<(QDBusArgument &argument, const RegionalClut &rc
 inline const QDBusArgument &operator>>(const QDBusArgument &argument, RegionalClut &rc)
 {
     argument.beginStructure();
-    argument >> rc.r >> rc.c;
+    argument >> rc.windowId >> rc.outputIndex >> rc.region >> rc.clut;
     argument.endStructure();
     return argument;
 }

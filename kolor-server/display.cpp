@@ -227,7 +227,7 @@ int Display::updateNetColorDesktopAtom(bool init)
         statusError             = 3
     } status = statusOk;
     const QByteArray myID = "kolorserver";
-    const QByteArray myCaps = "|ICM|V0.4|"; // TODO add other capabilities?
+    const QByteArray myCaps = "|ICP|ICR|V0.4|";
 
     if (!colorDesktopActivated())
         return (int) statusInactive;
@@ -330,16 +330,14 @@ void Display::handleEvent(X11::XEvent* event)
             kDebug() << "ICC Color Profiles atom changed";
             m_screen->updateProfiles();
         } else if (event->xproperty.atom == iccColorRegions) {
-            kDebug() << "ICC Color Regions atom changed";
-            // CompWindow *w = findWindowAtDisplay(d, event->xproperty.window);
-            // updateWindowRegions(w);
-            // colour_desktop_region_count = -1;
-            // TODO
+            kDebug() << "ICC Color Regions atom changed, wid" << event->xproperty.window;
+            m_screen->updateWindowRegions(event->xproperty.window);
         } else if (event->xproperty.atom == iccColorOutputs) {
-            kDebug() << "ICC Color Outputs atom changed";
+            kDebug() << "ICC Color Outputs atom changed, wid" << event->xproperty.window;
+            kWarning() << "Not yet supported";
             // CompWindow *w = findWindowAtDisplay(d, event->xproperty.window);
             // updateWindowOutput(w);
-            // TODO
+            // TODO when _ICC_COLOR_OUTPUTS will be supported
         } else if (event->xproperty.atom == iccColorDesktop && atomName) {
             // Possibly let others take over the colour server
             kDebug() << "ICC Color Desktop atom changed";
@@ -358,6 +356,11 @@ void Display::handleEvent(X11::XEvent* event)
             m_screen->updateOutputConfiguration(false);
         }
 
+        break;
+
+    case ClientMessage:
+        if (event->xclient.message_type == iccColorManagement)
+            kDebug() << "ICC Color Management atom changed, ignoring";
         break;
 
     case RRNotify: {

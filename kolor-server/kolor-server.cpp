@@ -134,6 +134,7 @@ ServerDBusAdaptor::ServerDBusAdaptor(Server *server)
 {
     Display *d = Display::getInstance();
     connect(d->screen(), SIGNAL(outputClutsChanged()), this, SIGNAL(outputClutsChanged()));
+    connect(d->screen(), SIGNAL(regionClutsChanged()), this, SIGNAL(regionClutsChanged()));
 }
 
 void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)

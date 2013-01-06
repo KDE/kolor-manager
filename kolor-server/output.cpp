@@ -181,7 +181,7 @@ bool ColorOutput::getDeviceProfile(oyConfig_s *device)
 void ColorOutput::setup()
 {
     kDebug();
-    m_cc.setup(m_name);
+    m_cc.setupForOutput(m_name);
 }
 
 /*
