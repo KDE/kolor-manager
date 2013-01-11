@@ -78,7 +78,7 @@ private slots:
     void installTaxiProfile();
 
     // obtain the Taxi DB finished event
-    void getTaxiSlot( oyConfigs_s * );
+    void getTaxiSlot( char * for_device, oyConfigs_s * taxi_devices );
 
     // get the ICC profile
     void downloadFromTaxiDB( );
@@ -175,15 +175,19 @@ class TaxiLoad : public QThread
         ~TaxiLoad( ) { }
      
     signals:
-        void finishedSignal( oyConfigs_s * taxi_devices );
+        void finishedSignal( char * device_name, oyConfigs_s * taxi_devices );
      
     protected:
         void run() {
             oyConfigs_s * taxi_devices = 0;
+            char * device_name = 0;
             if(d_)
+            {
               oyDevicesFromTaxiDB( d_, 0, &taxi_devices, 0);
+              device_name = strdup(oyConfig_FindString( d_, "device_name", NULL ));
+            }
             oyConfig_Release( &d_ );
-            emit finishedSignal( taxi_devices );
+            emit finishedSignal( device_name, taxi_devices );
         }
 };
 

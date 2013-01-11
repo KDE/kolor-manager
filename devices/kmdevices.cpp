@@ -528,7 +528,7 @@ void kmdevices::populateLocalProfileComboBox(icProfileClassSignature deviceSigna
       installProfileButton->setEnabled(false);
 
       TaxiLoad * loader = new TaxiLoad( oyConfig_Copy( device, oyObject_New() ) );
-      connect(loader, SIGNAL(finishedSignal( oyConfigs_s * )), this, SLOT( getTaxiSlot( oyConfigs_s* )));
+      connect(loader, SIGNAL(finishedSignal( char *, oyConfigs_s * )), this, SLOT( getTaxiSlot( char*, oyConfigs_s* )));
       loader->start();
     }
 
@@ -538,13 +538,21 @@ void kmdevices::populateLocalProfileComboBox(icProfileClassSignature deviceSigna
 }
 
 // obtain the Taxi DB query result
-void kmdevices::getTaxiSlot( oyConfigs_s * taxi_devices )
+void kmdevices::getTaxiSlot( char * for_device, oyConfigs_s * taxi_devices )
 {
     int count = oyConfigs_Count(taxi_devices);
 
     int32_t rank = 0;
     oyConfig_s * taxi_device;
     oyConfig_s * device = getCurrentDevice();
+
+    if(!oyConfig_FindString( device, "device_name", for_device) )
+    {
+      QString text = i18n("wrong device") + " ... " + QString(for_device);
+      if(oy_debug)
+        msgWidget->setText(text);
+      goto clean_getTaxiSlot;
+    }
 
     for (int i = 0; i < count; i++) {
 	taxi_device = oyConfigs_Get( taxi_devices, i );
@@ -568,8 +576,11 @@ void kmdevices::getTaxiSlot( oyConfigs_s * taxi_devices )
 	msgWidget->setText(i18n("Not found any profile for the selected device in Taxi DB"));
 	installProfileButton->setEnabled(false);
     }
+
+  clean_getTaxiSlot:
     oyConfigs_Release(&taxi_devices);
     oyConfig_Release(&device);
+    if( for_device ) free( for_device );
 }
 
 // Add a new profile to the list.
