@@ -42,9 +42,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KPluginFactory>
 #include <KPluginLoader>
 #include <QFileDialog>
-#include <KConfig>
 #include <QDesktopWidget>
-#include <KConfigGroup>
 #include <QString>
 #include <QTemporaryFile>
 #include <KRun>
