@@ -121,7 +121,6 @@ private:
      // Pointers to device-specific (parent) items on list
      oyProfile_s * current_profile;
 
-     KConfig m_config;
      QTemporaryFile m_tempFile;
 
 };

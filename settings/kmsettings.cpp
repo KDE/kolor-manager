@@ -32,7 +32,6 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <KAboutData>
 #include <KComponentData>
 #include <KGenericFactory>
-//#include <KConfigGroup>
 #include <KGlobal>
 #include <KGlobalSettings>
 #include <KInputDialog>

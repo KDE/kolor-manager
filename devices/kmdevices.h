@@ -118,7 +118,7 @@ private:
     // Convert profile filename into profile description (using Oyranos).
     QString convertFilenameToDescription(QString profileFilename);
 
-    // KConfig calls to save, load, and delete associated profiles.
+    // Oyranos calls to save, load, and delete associated profiles.
     void addNewDeviceConfig(QString device_name);
     void addDeviceProfile(QString device_name, QString profile);
     bool isProfileDuplicate(QString, QStringList);
