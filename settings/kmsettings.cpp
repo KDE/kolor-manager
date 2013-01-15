@@ -88,7 +88,7 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     );
     about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
-    about->addAuthor( ki18n("2010 Kai-Uwe Behrmann"), KLocalizedString(),
+    about->addAuthor( ki18n("2010-2013 Kai-Uwe Behrmann"), KLocalizedString(),
                       "ku.b@gmx.de"  );
 
     setAboutData( about );
