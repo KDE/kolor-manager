@@ -31,6 +31,7 @@ Name[zh_TW]=顏色管理伺服器
 Comment=Allows applications to communicate with the color management system and implements the X Color Management specification
 Comment[ca]=Permet a les aplicacions comunicar-se amb el sistema per a la gestió del color i implementa l'especificació per a la gestió del color de X
 Comment[da]=Lader programmer kommunikere med farvehåndteringssystemet og implementerer X farvehåndteringsspecifikationen
+Comment[de]=Ermöglicht Anwendungen die Kommunikation mit dem Farbverwaltungssystem und implementiert die „X Color Management“-Spezifikation.
 Comment[el]=Επιτρέπει σε εφαρμογές να επικοινωνούν με το σύστημα διαχείρισης χρώματος και εφαρμόζει την προδιαγραφή διαχείρισης χρώματος Χ
 Comment[es]=Permite a las aplicaciones comunicarse con el sistema de gestión de color e implementa la especificación de gestión de colores de X
 Comment[et]=Võimaldab rakendustel suhelda värvihalduse süsteemiga ja teostab X'i värvihalduse spetsifikatsiooni
