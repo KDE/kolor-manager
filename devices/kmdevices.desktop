@@ -2,6 +2,7 @@
 Name=Devices
 Name[bs]=uređaji
 Name[ca]=Dispositius
+Name[ca@valencia]=Dispositius
 Name[cs]=Zařízení
 Name[da]=Enheder
 Name[de]=Geräte
@@ -33,6 +34,7 @@ Name[x-test]=xxDevicesxx
 Name[zh_TW]=裝置
 Comment=Device settings for Color Management
 Comment[ca]=Ajustaments del dispositiu per a la gestió del color
+Comment[ca@valencia]=Ajustaments del dispositiu per a la gestió del color
 Comment[da]=Enhedsindstillinger for farvehåndtering
 Comment[de]=Geräte-Einstellungen für Farbverwaltung
 Comment[el]=Ρυθμίσεις συσκευών για διαχείριση χρώματος

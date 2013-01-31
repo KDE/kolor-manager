@@ -1,6 +1,7 @@
 [Desktop Entry]
 Name=Profile Information
 Name[ca]=Informació del perfil
+Name[ca@valencia]=Informació del perfil
 Name[cs]=Informace o profilu
 Name[da]=Profilinformation
 Name[de]=Profil-Information
@@ -31,6 +32,7 @@ Name[x-test]=xxProfile Informationxx
 Name[zh_TW]=設定檔資訊
 Comment=Display ICC-specific Profile Information
 Comment[ca]=Mostra la informació del perfil específica de ICC
+Comment[ca@valencia]=Mostra la informació del perfil específica d'ICC
 Comment[da]=Vis ICC-specifik profilinformation
 Comment[de]=Anzeige ICC-spezifischer Profil-Informationen
 Comment[el]=Εμφάνιση ειδικά για ICC πληροφοριών προφίλ

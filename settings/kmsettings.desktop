@@ -2,6 +2,7 @@
 Name=Settings
 Name[bs]=Postavke
 Name[ca]=Arranjament
+Name[ca@valencia]=Arranjament
 Name[cs]=Nastavení
 Name[da]=Indstillinger
 Name[de]=Einstellungen
@@ -33,6 +34,7 @@ Name[x-test]=xxSettingsxx
 Name[zh_TW]=設定
 Comment=Color Management Settings
 Comment[ca]=Arranjament de la gestió del color
+Comment[ca@valencia]=Arranjament de la gestió del color
 Comment[cs]=Nastavení správy barev
 Comment[da]=Indstillinger for farvehåndtering
 Comment[de]=Einstellungen zur Farbverwaltung
