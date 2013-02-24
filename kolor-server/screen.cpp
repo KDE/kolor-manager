@@ -322,6 +322,10 @@ void Screen::updateWindowRegions(uint windowId)
                 rclut.outputIndex = i_output;
                 rclut.clut = m_windows[i]->regionColorContext(i_region, i_output)->colorLookupTable();
                 m_regionCluts.insert((uint) m_windows[i]->id(), rclut);
+
+                kDebug() << "Regional clut:" << "windowId:" << rclut.windowId <<
+                    "outputIndex:" << rclut.outputIndex << "region:" << rclut.region <<
+                    "clutChecksum:" << clutChecksum(rclut.clut);
             }
         }
     }

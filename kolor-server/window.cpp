@@ -123,8 +123,10 @@ void Window::updateRegions(const QList<ColorOutput*> &outputs)
          * typedef struct { short x1, x2, y1, y2;} Box, BOX, BoxRec, *BoxPtr;
          * typedef struct _XRegion { long size; long numRects; BOX *rects; BOX extents; } REGION;
          */
+        kDebug() << "Region" << i_region;
         for (int i_box = 0; i_box < xregion->numRects; ++i_box) {
             const X11::Box &b = xregion->rects[i_box];
+            kDebug() << "Box" << i_box << "x1" << b.x1 << "y1" << b.y1 << "x2" << b.x2 << "y2" << b.y2;
             region.region |= QRect(QPoint(b.x1, b.y1), QPoint(b.x2, b.y2));
         }
 

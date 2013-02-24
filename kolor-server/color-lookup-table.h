@@ -105,4 +105,12 @@ inline static void buildDummyClut(Clut &c)
     }
 }
 
+inline static quint16 clutChecksum(const Clut &c)
+{
+    quint16 checksum = 0;
+    for (int i = 0; i < c.size(); ++i)
+        checksum ^= c[i];
+    return checksum;
+}
+
 #endif // COLOR_LOOKUP_TABLE_H_
