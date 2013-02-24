@@ -125,7 +125,7 @@ void Window::updateRegions(const QList<ColorOutput*> &outputs)
          */
         for (int i_box = 0; i_box < xregion->numRects; ++i_box) {
             const X11::Box &b = xregion->rects[i_box];
-            region.region |= QRect(QPoint(b.x1, b.x2), QPoint(b.y1, b.y2));
+            region.region |= QRect(QPoint(b.x1, b.y1), QPoint(b.x2, b.y2));
         }
 
         /*
