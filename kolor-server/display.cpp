@@ -227,7 +227,7 @@ int Display::updateNetColorDesktopAtom(bool init)
         statusError             = 3
     } status = statusOk;
     const QByteArray myID = "kolorserver";
-    const QByteArray myCaps = "|ICP|ICR|V0.4|";
+    const QByteArray myCaps = "|ICM|ICP|ICR|V0.4|";
 
     if (!colorDesktopActivated())
         return (int) statusInactive;
