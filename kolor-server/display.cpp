@@ -42,7 +42,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace KolorServer
 {
 
-static const int X11_EVENTS_POLL_INTERVAL         = 4000; //ms
+static const int X11_EVENTS_POLL_INTERVAL         = 50; //ms
 
 /*
  * Display
@@ -354,6 +354,9 @@ void Display::handleEvent(X11::XEvent* event)
         } else if (event->xproperty.atom == iccDisplayAdvanced) {
             kDebug() << "ICC Display Advanced atom changed";
             m_screen->updateOutputConfiguration(false);
+        } else if (strstr(atomName, "_NET_CLIENT_LIST") != 0) {
+            kDebug() << "_NET_CLIENT_LIST atom changed";
+            m_screen->updateWindows();
         }
 
         break;
@@ -381,11 +384,11 @@ void Display::handleEvent(X11::XEvent* event)
 void Display::checkX11Events()
 {
     X11::XEvent event;
-    long eventMask = ExposureMask | PropertyChangeMask;
 
-    while (X11::XCheckMaskEvent(m_display, eventMask, &event) == True) {
-        X11::XcmeContext_InLoop(m_xcmeContext, &event);
-        handleEvent(&event);
+    while (X11::XPending(m_display)) {
+        XNextEvent(m_display,  &event);
+        if(X11::XcmeContext_InLoop(m_xcmeContext, &event) == 0)
+            handleEvent(&event);
     }
 }
 

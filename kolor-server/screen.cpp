@@ -339,6 +339,34 @@ void Screen::updateWindowRegions(uint windowId)
     emit regionClutsChanged();
 }
 
+void Screen::updateWindows()
+{
+    unsigned long nWindows = 0;
+    X11::Window * windows = (X11::Window*)X11::fetchProperty(m_display, rootWindow(),
+                                          X11::XInternAtom( m_display, "_NET_CLIENT_LIST", False),
+                                          XA_WINDOW, &nWindows, False);
+
+    if (windows) {
+        QList<Window*>::iterator it = m_windows.begin();
+        while (it != m_windows.end()) {
+            bool found = false;
+            for (unsigned i = 0; i < nWindows; ++i) {
+                if (windows[i] == (*it)->id()) {
+                    found = true;
+                    break;
+                }
+            }
+            if (found == false)
+                it = m_windows.erase(it);
+            else
+                ++it;
+        }
+
+        kDebug() << "Windows found: " << nWindows << "|" << m_windows.size();
+        X11::XFree(windows);
+    }
+}
+
 } // KolorServer namespace
 
 #include "moc_screen.cpp"

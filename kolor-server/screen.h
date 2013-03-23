@@ -184,6 +184,15 @@ public:
      */
     void updateWindowRegions(uint windowId);
 
+    /**
+     * The window list can change as new windows appear and disappear.
+     * In order to see only existing windows the _NET_CLIENT_LIST must be
+     * examined upon their change and the window list must be updated.
+     *
+     * This function is to be called upon _NET_CLIENT_LIST property changes.
+     */
+    void updateWindows();
+
 signals:
     void outputClutsChanged();
     void regionClutsChanged();
