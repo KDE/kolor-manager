@@ -149,6 +149,10 @@ void Window::updateRegions(const QList<ColorOutput*> &outputs)
 
                 region.contexts.append(cc);
             }
+        } else {
+            for (int i_output = 0; i_output < outputs.size(); ++i_output) {
+                region.contexts.append(NULL);
+            }
         }
 
         m_regions.append(region);

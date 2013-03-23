@@ -311,16 +311,22 @@ void Screen::updateWindowRegions(uint windowId)
 
     w->updateRegions(m_outputs);
 
+    kDebug() << "Windows to update: " << m_windows.size();
+
     // Recreate region clut list
     m_regionCluts.clear();
     for (int i = 0; i < m_windows.size(); ++i) {
         for (int i_region = 0; i_region < m_windows[i]->regionCount(); ++i_region) {
             RegionalClut rclut;
             rclut.region = m_windows[i]->region(i_region);
-            rclut.windowId = windowId;
+            rclut.windowId = m_windows[i]->id();
             for (int i_output = 0; i_output < m_outputs.size(); ++i_output) {
                 rclut.outputIndex = i_output;
-                rclut.clut = m_windows[i]->regionColorContext(i_region, i_output)->colorLookupTable();
+                ColorContext * cc =  m_windows[i]->regionColorContext(i_region, i_output);
+                if (cc)
+                    rclut.clut = cc->colorLookupTable();
+                else
+                    buildDummyClut(rclut.clut);
                 m_regionCluts.insert((uint) m_windows[i]->id(), rclut);
 
                 kDebug() << "Regional clut:" << "windowId:" << rclut.windowId <<
