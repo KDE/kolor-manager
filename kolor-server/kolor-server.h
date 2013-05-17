@@ -40,6 +40,13 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace KolorServer
 {
 
+static const uint VERSION_MAJOR     = 1;
+static const uint VERSION_MINOR     = 0;
+static const uint VERSION_RELEASE   = 0;
+static const uint VERSION_NUMBER    =
+    VERSION_MAJOR << 16 | VERSION_MINOR << 8 | VERSION_RELEASE;
+
+
 class Server : public KDEDModule
 {
     Q_OBJECT

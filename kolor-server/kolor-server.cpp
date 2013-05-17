@@ -140,7 +140,7 @@ ServerDBusAdaptor::ServerDBusAdaptor(Server *server)
 void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
 {
     //message.setDelayedReply(true);
-    QDBusMessage reply = message.createReply(QVariant((uint) 0x00000001));
+    QDBusMessage reply = message.createReply(QVariant(VERSION_NUMBER));
     QDBusConnection::sessionBus().send(reply);
 }
 
