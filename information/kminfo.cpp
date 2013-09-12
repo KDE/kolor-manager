@@ -512,7 +512,7 @@ void kminfo::setDeviceClassTag(oyProfile_s * profile, QLabel * devClassLabel)
 void kminfo::setPcsTag(oyProfile_s * profile, QLabel * pcsLabel)
 {
      QString tagString;
-     tagString = oyICCColourSpaceGetName( (icColorSpaceSignature)
+     tagString = oyICCColorSpaceGetName( (icColorSpaceSignature)
                          oyProfile_GetSignature(profile, oySIGNATURE_PCS) );
      pcsLabel->setText("CIE" + tagString);
 }
@@ -520,8 +520,8 @@ void kminfo::setPcsTag(oyProfile_s * profile, QLabel * pcsLabel)
 void kminfo::setCSpaceTag(oyProfile_s * profile, QLabel * cSpaceLabel)
 {
      QString tagString;
-     tagString = oyICCColourSpaceGetName( (icColorSpaceSignature)
-                         oyProfile_GetSignature(profile, oySIGNATURE_COLOUR_SPACE) );
+     tagString = oyICCColorSpaceGetName( (icColorSpaceSignature)
+                         oyProfile_GetSignature(profile, oySIGNATURE_COLOR_SPACE) );
      cSpaceLabel->setText(tagString);
 }
 
