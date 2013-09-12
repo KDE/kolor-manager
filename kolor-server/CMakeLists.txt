@@ -22,7 +22,7 @@ target_link_libraries(kded_kolorserver
     ${KDE4_KDECORE_LIBS}
     ${OYRANOS_LIBRARIES}
     ${QT_LIBRARIES} ${QT_QTGUI_LIBRARIES}
-    X11 Xrandr Xcm
+    X11 Xrandr ${XCM_LDFLAGS}
 )
 
 install(TARGETS kded_kolorserver DESTINATION ${PLUGIN_INSTALL_DIR})
