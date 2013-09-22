@@ -90,12 +90,12 @@ public:
     /**
      * \return A list with the color lookup tables for all the outputs.
      */
-    const ClutList& outputCluts() const;
+    const ColorLookupTableList& outputCluts() const;
 
     /**
      * \return A map of region-specific lookup tables to window XID's.
      */
-    const RegionalClutMap& regionCluts() const;
+    const RegionColorLookupTableList& regionCluts() const;
 
     /**
      * \note cleanDisplayProfiles
@@ -206,8 +206,8 @@ private:
     QList<Window*> m_windows;
 
 private:
-    ClutList m_outputCluts;
-    RegionalClutMap m_regionCluts;     // TODO
+    ColorLookupTableList m_outputCluts;
+    RegionColorLookupTableList m_regionCluts;
 };
 
 } // KolorServer namespace

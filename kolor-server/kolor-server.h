@@ -40,8 +40,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 namespace KolorServer
 {
 
-static const uint VERSION_MAJOR     = 1;
-static const uint VERSION_MINOR     = 0;
+static const uint VERSION_MAJOR     = 2;
+static const uint VERSION_MINOR     = 1;
 static const uint VERSION_RELEASE   = 0;
 static const uint VERSION_NUMBER    =
     VERSION_MAJOR << 16 | VERSION_MINOR << 8 | VERSION_RELEASE;
@@ -71,10 +71,13 @@ public slots:
     Q_NOREPLY void getVersionInfo(const QDBusMessage &message);
     Q_NOREPLY void getOutputCluts(const QDBusMessage &message);
     Q_NOREPLY void getRegionCluts(const QDBusMessage &message);
+    Q_NOREPLY void getClutPoolKey(const QDBusMessage &message);
 
 signals:
     void outputClutsChanged();
     void regionClutsChanged();
+    void clutPoolKeyChanged(const QString &newKey);
+    void clutPoolReady();
 
 private:
     Server *m_server;

@@ -83,7 +83,7 @@ public:
     /**
      * \return The color lookup table for this context
      */
-    const Clut& colorLookupTable() const;
+    const ColorLookupTable& colorLookupTable() const;
 
     /**
      * Setup for an output with the given name.
@@ -129,7 +129,7 @@ private:
     QString m_outputName;               ///< the intended output device
 
     /// Color lookup table (for color conversion)
-    Clut m_clut;
+    ColorLookupTable m_clut;
 };
 
 } // KolorServer namespace

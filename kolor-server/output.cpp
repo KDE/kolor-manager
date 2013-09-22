@@ -76,7 +76,7 @@ const QString& ColorOutput::name()
     return m_name;
 }
 
-const Clut& ColorOutput::colorLookupTable() const
+const ColorLookupTable& ColorOutput::colorLookupTable() const
 {
     return m_cc.colorLookupTable();
 }

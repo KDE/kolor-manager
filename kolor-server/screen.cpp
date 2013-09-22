@@ -89,12 +89,12 @@ X11::Window Screen::rootWindow() const
     return X11::rootWindow(m_display, m_screen);
 }
 
-const ClutList& Screen::outputCluts() const
+const ColorLookupTableList& Screen::outputCluts() const
 {
     return m_outputCluts;
 }
 
-const RegionalClutMap& Screen::regionCluts() const
+const RegionColorLookupTableList& Screen::regionCluts() const
 {
     return m_regionCluts;
 }
@@ -317,21 +317,18 @@ void Screen::updateWindowRegions(uint windowId)
     m_regionCluts.clear();
     for (int i = 0; i < m_windows.size(); ++i) {
         for (int i_region = 0; i_region < m_windows[i]->regionCount(); ++i_region) {
-            RegionalClut rclut;
-            rclut.region = m_windows[i]->region(i_region);
-            rclut.windowId = m_windows[i]->id();
             for (int i_output = 0; i_output < m_outputs.size(); ++i_output) {
-                rclut.outputIndex = i_output;
+                RegionColorLookupTable rclut(m_windows[i]->id(), i_output, m_windows[i]->region(i_region));
                 ColorContext * cc =  m_windows[i]->regionColorContext(i_region, i_output);
                 if (cc)
-                    rclut.clut = cc->colorLookupTable();
+                    rclut.copyTableData(cc->colorLookupTable());
                 else
-                    buildDummyClut(rclut.clut);
-                m_regionCluts.insert((uint) m_windows[i]->id(), rclut);
+                    rclut.fillWithDummyValues();
+                m_regionCluts << rclut;
 
-                kDebug() << "Regional clut:" << "windowId:" << rclut.windowId <<
-                    "outputIndex:" << rclut.outputIndex << "region:" << rclut.region <<
-                    "clutChecksum:" << clutChecksum(rclut.clut);
+                kDebug() << "Regional clut:" << "windowId:" << rclut.windowId() <<
+                    "outputIndex:" << rclut.outputIndex() << "region:" << rclut.region() <<
+                    "clutChecksum:" << rclut.checksum();
             }
         }
     }

@@ -45,8 +45,9 @@ namespace KolorServer
 ColorContext::ColorContext()
     : m_srcProfile(NULL)
     , m_dstProfile(NULL)
+    , m_clut(true)
 {
-    buildDummyClut(m_clut);
+
 }
 
 ColorContext::~ColorContext()
@@ -85,7 +86,7 @@ const QString& ColorContext::outputName()
     return m_outputName;
 }
 
-const Clut& ColorContext::colorLookupTable() const
+const ColorLookupTable& ColorContext::colorLookupTable() const
 {
     return m_clut;
 }
@@ -112,7 +113,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
         if (!m_srcProfile) {
             kError() << "Output" << m_outputName << ":" << "no assumed dummyProfile source profile";
             kWarning() << "Output" << m_outputName << "using dummy clut";
-            buildDummyClut(m_clut);
+            m_clut.fillWithDummyValues();
             return;
         }
     }
@@ -124,21 +125,18 @@ void ColorContext::setupColorLookupTable(bool advanced)
     if (advanced)
         flags = oyOPTIONATTRIBUTE_ADVANCED;
 
-    // Allocate memory for clut data
-    m_clut.resize(CLUT_ELEMENT_COUNT);
-
     kDebug() << "Color conversion for" << m_outputName << "flags" << flags << (advanced ? "advanced" : "");
     oyImage_s *imageIn = oyImage_Create(
         LUT_GRID_POINTS,
         LUT_GRID_POINTS * LUT_GRID_POINTS,
-        m_clut.data(),
+        m_clut.table(),
         OY_TYPE_123_16,
         m_srcProfile,
         0);
     oyImage_s *imageOut = oyImage_Create(
         LUT_GRID_POINTS,
         LUT_GRID_POINTS * LUT_GRID_POINTS,
-        m_clut.data(),
+        m_clut.table(),
         OY_TYPE_123_16,
         m_dstProfile,
         0);
@@ -187,12 +185,12 @@ void ColorContext::setupColorLookupTable(bool advanced)
     if (oyClut) {
         // Found in cache
         kDebug() << "clut" << oyClut << "obtained from cache using entry" << entryText;
-        memcpy(m_clut.data(), array2d[0], CLUT_DATA_SIZE);
+        memcpy(m_clut.table(), array2d[0], CLUT_DATA_SIZE);
     } else {
         kDebug() << "clut not found in cache using entry" << entryText << ", doing conversion";
 
         // Create dummy / identity clut data for conversion input
-        buildDummyClut(m_clut);
+        m_clut.fillWithDummyValues();
 
         // Do conversion
         error = oyConversion_RunPixels(conversion, 0);
@@ -211,7 +209,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
             oyUINT16,
             NULL);
         array2d = (char**)oyArray2d_GetData( oyClut );
-        memcpy(array2d[0], m_clut.data(), CLUT_DATA_SIZE);
+        memcpy(array2d[0], m_clut.table(), CLUT_DATA_SIZE);
         oyHash_SetPointer(entry, (oyStruct_s*) oyClut);
     }
 
@@ -236,12 +234,14 @@ void ColorContext::setupForOutput(const QString &name)
         kWarning() << "Output" << name << "no sRGB source profile";
 
     setupColorLookupTable(Display::getInstance()->isAdvancedIccDisplay());
+    ColorLookupTablePool::instance()->addColorLookupTable(m_clut);
 }
 
 void ColorContext::setupForRegion(const QString& outputName)
 {
     m_outputName = outputName;
     setupColorLookupTable(Display::getInstance()->isAdvancedIccDisplay());
+    ColorLookupTablePool::instance()->addColorLookupTable(m_clut);
 }
 
 bool ColorContext::getDeviceProfile(oyConfig_s *device)

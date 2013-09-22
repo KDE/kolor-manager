@@ -107,11 +107,12 @@ Server::Server(QObject *parent, const QList<QVariant> &)
 {
     oyMessageFuncSet( ksOyMessage );
 
-    qDBusRegisterMetaType< Clut >();
-    qDBusRegisterMetaType< ClutList >();
-    qDBusRegisterMetaType< RegionalClut >();
-    qDBusRegisterMetaType< RegionalClutMap >();
+    qDBusRegisterMetaType< ColorLookupTable >();
+    qDBusRegisterMetaType< ColorLookupTableList >();
+    qDBusRegisterMetaType< RegionColorLookupTable >();
+    qDBusRegisterMetaType< RegionColorLookupTableList >();
 
+    ColorLookupTablePool::instance();
     Display::getInstance();
 
     new ServerDBusAdaptor(this);
@@ -135,6 +136,7 @@ ServerDBusAdaptor::ServerDBusAdaptor(Server *server)
     Display *d = Display::getInstance();
     connect(d->screen(), SIGNAL(outputClutsChanged()), this, SIGNAL(outputClutsChanged()));
     connect(d->screen(), SIGNAL(regionClutsChanged()), this, SIGNAL(regionClutsChanged()));
+    connect(ColorLookupTablePool::instance(), SIGNAL(keyChanged(QString)), this, SIGNAL(clutPoolKeyChanged(QString)));
 }
 
 void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
@@ -147,14 +149,20 @@ void ServerDBusAdaptor::getVersionInfo(const QDBusMessage &message)
 void ServerDBusAdaptor::getOutputCluts(const QDBusMessage &message)
 {
     QDBusMessage reply = message.createReply(
-        QVariant::fromValue< ClutList >(Display::getInstance()->screen()->outputCluts()));
+        QVariant::fromValue< ColorLookupTableList >(Display::getInstance()->screen()->outputCluts()));
     QDBusConnection::sessionBus().send(reply);
 }
 
 void ServerDBusAdaptor::getRegionCluts(const QDBusMessage &message)
 {
     QDBusMessage reply = message.createReply(
-        QVariant::fromValue< RegionalClutMap >(Display::getInstance()->screen()->regionCluts()));
+        QVariant::fromValue< RegionColorLookupTableList >(Display::getInstance()->screen()->regionCluts()));
+    QDBusConnection::sessionBus().send(reply);
+}
+
+void ServerDBusAdaptor::getClutPoolKey(const QDBusMessage& message)
+{
+    QDBusMessage reply = message.createReply(ColorLookupTablePool::instance()->key());
     QDBusConnection::sessionBus().send(reply);
 }
 

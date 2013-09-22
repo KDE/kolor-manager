@@ -3,6 +3,7 @@ find_package(XRandR REQUIRED)
 
 set(kolor_server_SRCS
     color-context.cpp
+    color-lookup-table.cpp
     display.cpp
     kolor-server.cpp
     output.cpp

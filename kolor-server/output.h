@@ -68,7 +68,7 @@ public:
     /**
      * \return The color lookup table for this context
      */
-    const Clut& colorLookupTable() const;
+    const ColorLookupTable& colorLookupTable() const;
 
     /**
      * \note hasScreenProfile
