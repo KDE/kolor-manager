@@ -37,6 +37,7 @@ Name[x-test]=xxSettingsxx
 Name[zh_CN]=设置
 Name[zh_TW]=設定
 Comment=Color Management Settings
+Comment[bs]=Postavke upravljanja bojama
 Comment[ca]=Arranjament de la gestió del color
 Comment[ca@valencia]=Arranjament de la gestió del color
 Comment[cs]=Nastavení správy barev

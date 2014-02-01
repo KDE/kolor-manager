@@ -37,6 +37,7 @@ Name[x-test]=xxDevicesxx
 Name[zh_CN]=设备
 Name[zh_TW]=裝置
 Comment=Device settings for Color Management
+Comment[bs]=Postavke uređaja za upravljanje bojama
 Comment[ca]=Ajustaments del dispositiu per a la gestió del color
 Comment[ca@valencia]=Ajustaments del dispositiu per a la gestió del color
 Comment[cs]=Nastavení zařízení pro správu barev

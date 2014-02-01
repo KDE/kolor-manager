@@ -6,6 +6,7 @@ X-KDE-System-Settings-Parent-Category=application-appearance-and-behavior
 Icon=oyranos_logo
 
 Name=Color Management
+Name[bs]=Upravljanje bojama
 Name[ca]=Gestió del color
 Name[ca@valencia]=Gestió del color
 Name[cs]=Správa barev

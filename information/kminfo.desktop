@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Profile Information
+Name[bs]=Podaci o profilu
 Name[ca]=Informació del perfil
 Name[ca@valencia]=Informació del perfil
 Name[cs]=Informace o profilu
@@ -34,6 +35,7 @@ Name[x-test]=xxProfile Informationxx
 Name[zh_CN]=配置信息
 Name[zh_TW]=設定檔資訊
 Comment=Display ICC-specific Profile Information
+Comment[bs]=Prikaži ICC-specifične informacije profila
 Comment[ca]=Mostra la informació del perfil específica de ICC
 Comment[ca@valencia]=Mostra la informació del perfil específica d'ICC
 Comment[da]=Vis ICC-specifik profilinformation
