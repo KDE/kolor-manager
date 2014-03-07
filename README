@@ -3,7 +3,7 @@
 *******************************
 
 started by Joe Simon in summer 2008-2009
-KolorManager maintained by Kai-Uwe Behrmann 2010-2013
+KolorManager maintained by Kai-Uwe Behrmann 2010-2014
 KolorServer maintained by Casian Andrei 2012
 
 *kmdevices (Kolor Management Devices - Monitor/Printer/etc. profile setup)
@@ -13,7 +13,7 @@ KolorServer maintained by Casian Andrei 2012
 
 -----REQUIRED LIBRARIES---------------------------------------------
 
-- The v1.0 tagged release builds fine using Oyranos-0.9.3 .
+- The v1.0.2 tagged release builds fine using Oyranos-0.9.5 .
 - Actual git should the latest Oyranos from it's git repository. KolorManager gets updated pretty quick to Oyranos changes.
 
 
