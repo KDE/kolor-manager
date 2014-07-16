@@ -49,6 +49,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos.h>
 #include <oyranos_icc.h>
 #include <oyranos_devices.h>
+#include <oyFilterNode_s.h>
 #include <oyProfiles_s.h>
 #include <oyObject_s.h>
 
@@ -83,7 +84,7 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     );
     about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
-    about->addAuthor( ki18n("2010-2013 Kai-Uwe Behrmann"), KLocalizedString(),
+    about->addAuthor( ki18n("2010-2014 Kai-Uwe Behrmann"), KLocalizedString(),
                       "ku.b@gmx.de"  );
     about->addAuthor( ki18n("2012 Jan Gruhlich"), KLocalizedString(),
                       "ku.b@gmx.de"  );
@@ -95,6 +96,14 @@ kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
     current_device_class = 0;
 
     listModified = false;       // avoid action on signals
+
+    /* select profiles matching actual capabilities */
+    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
+    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
+    const char * reg = oyFilterNode_GetRegistration( node );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
+    oyFilterNode_Release( &node );
+    free( pattern );
 
     setupUi(this);              // Load Gui.
 
@@ -444,7 +453,7 @@ void kmdevices::populateLocalProfileComboBox(icProfileClassSignature deviceSigna
     profile = oyProfile_FromSignature( deviceSignature, oySIGNATURE_CLASS, 0 );
     oyProfiles_MoveIn( patterns, &profile, -1 );
 
-    iccs = oyProfiles_Create( patterns, 0 );
+    iccs = oyProfiles_Create( patterns, icc_profile_flags, 0 );
     oyProfiles_Release( &patterns );
 
     QString getProfileDescription;

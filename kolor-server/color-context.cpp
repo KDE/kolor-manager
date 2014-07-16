@@ -47,6 +47,14 @@ ColorContext::ColorContext()
     , m_dstProfile(NULL)
 {
     buildDummyClut(m_clut);
+    /* select profiles matching actual capabilities */
+    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
+    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
+    const char * reg = oyFilterNode_GetRegistration( node );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
+    oyFilterNode_Release( &node );
+    free( pattern );
+
 }
 
 ColorContext::~ColorContext()
@@ -92,7 +100,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
     oyOptions_s *options = 0;
 
     if (!m_dstProfile)
-        m_dstProfile = dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
+        m_dstProfile = dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, icc_profile_flags, 0);
 
     /* skip dummyProfile to dummyProfile conversion */
     if (!m_srcProfile && dummyProfile) {
@@ -102,7 +110,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
     }
 
     if (!m_srcProfile) {
-        m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
+        m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, icc_profile_flags, 0);
         if (!m_srcProfile) {
             kError() << "Output" << m_outputName << ":" << "no assumed dummyProfile source profile";
             kWarning() << "Output" << m_outputName << "using dummy clut";
@@ -224,7 +232,7 @@ void ColorContext::setup(const QString &name)
     if (!Display::getInstance()->colorDesktopActivated())
         return;
 
-    m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
+    m_srcProfile = oyProfile_FromStd(oyASSUMED_WEB, icc_profile_flags, 0);
     m_outputName = name;
     if (!m_srcProfile)
         kWarning() << "Output" << name << "no sRGB source profile";
@@ -249,7 +257,7 @@ bool ColorContext::getDeviceProfile(oyConfig_s *device)
     if (m_dstProfile) {
         /* check that no sRGB is delivered */
         if (error) {
-            oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
+            oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, icc_profile_flags, 0);
             if (oyProfile_Equal(dummyProfile, m_dstProfile)) {
                 kWarning() << "Output" << m_outputName << "ignoring fallback, error" << error;
                 oyProfile_Release(&m_dstProfile);

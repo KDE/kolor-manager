@@ -114,6 +114,7 @@ private:
     oyProfile_s *m_srcProfile;          ///< the data profile or device link
     oyProfile_s *m_dstProfile;          ///< the monitor profile or none
     QString m_outputName;               ///< the intended output device
+    int icc_profile_flags;              ///< profile selection flags from oyProfile_s.h
 
     /// Color lookup table (for color conversion)
     Clut m_clut;

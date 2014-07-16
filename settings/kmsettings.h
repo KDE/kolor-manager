@@ -142,6 +142,7 @@ private:
     // Variable to specify if current policy is a custom one.
     bool isCustom, settingsChanged;
 
+    int icc_profile_flags;              ///< profile selection flags from oyProfile_s.h
 };
 
 #endif

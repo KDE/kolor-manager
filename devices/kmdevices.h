@@ -152,6 +152,8 @@ private:
 
     bool listModified;                // Was the list changed by the user?
 
+    int icc_profile_flags;            // profile selection flags from oyProfile_s.h
+
     // Global string values for Oyranos device identification
     char * current_device_name;
     char * current_device_class;

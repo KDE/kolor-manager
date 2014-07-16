@@ -34,6 +34,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "screen.h"
 
 #include <oyranos_devices.h>
+#include <oyFilterNode_s.h>
 #include <oyRectangle_s.h>
 
 namespace KolorServer
@@ -47,6 +48,13 @@ ColorOutput::ColorOutput(Screen *parent, int index)
     : m_parent(parent)
     , m_index(index)
 {
+    /* select profiles matching actual capabilities */
+    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
+    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
+    const char * reg = oyFilterNode_GetRegistration( node );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
+    oyFilterNode_Release( &node );
+    free( pattern );
 }
 
 ColorOutput::~ColorOutput()
@@ -251,7 +259,7 @@ void ColorOutput::moveProfileAtoms(bool init)
         if (init) {
             /* setup the OY_ICC_V0_3_TARGET_PROFILE_IN_X_BASE(_xxx) atom as document colour space */
             size_t size = 0;
-            oyProfile_s *screenDocumentProfile = oyProfile_FromStd(oyASSUMED_WEB, 0);
+            oyProfile_s *screenDocumentProfile = oyProfile_FromStd(oyASSUMED_WEB, icc_profile_flags, 0);
 
             if (screenDocumentProfile) {
                 // Make sure the profile is ignored

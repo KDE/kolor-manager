@@ -50,6 +50,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos.h>
 #include <oyranos_config.h>
 #include <oyranos_devices.h>
+#include <oyFilterNode_s.h>
 #include <oyProfiles_s.h>
 #include <locale.h>
 
@@ -87,10 +88,18 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     );
     about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
-    about->addAuthor( ki18n("2010-2013 Kai-Uwe Behrmann"), KLocalizedString(),
+    about->addAuthor( ki18n("2010-2014 Kai-Uwe Behrmann"), KLocalizedString(),
                       "ku.b@gmx.de"  );
 
     setAboutData( about );
+
+    /* select profiles matching actual capabilities */
+    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
+    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
+    const char * reg = oyFilterNode_GetRegistration( node );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
+    oyFilterNode_Release( &node );
+    free( pattern );
 
    setupUi(this);              // Load Gui.
 
@@ -298,7 +307,7 @@ void kmsettings::fillProfileComboBoxes(oyPROFILE_e profile_type, QComboBox * pro
 
     QString profile_text, profile_filename;
 
-    iccs = oyProfiles_ForStd( profile_type, &current, 0 );
+    iccs = oyProfiles_ForStd( profile_type, icc_profile_flags, &current, 0 );
 
     size = oyProfiles_Count(iccs);
     for( i = 0; i < size; ++i)
@@ -393,6 +402,9 @@ void kmsettings::selectPolicy(int rowIndex)
             settingsChanged = false;
             changed(false);
      }
+
+     if(!selectedPolicyItem)
+       return;
 
      selected_policy = selectedPolicyItem->text();
 
