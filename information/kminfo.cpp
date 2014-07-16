@@ -51,6 +51,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <oyranos.h>
 #include <oyranos_config.h>
 #include <oyranos_devices.h>
+#include <oyFilterNode_s.h>
 
 // Code to provide KDE module functionality for color manager
 
@@ -130,11 +131,19 @@ kminfo::kminfo(QWidget *parent, const QVariantList &) :
     );
     about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
                      "j.simon.iii@astound.net" );
-    about->addAuthor( ki18n("2010-2013 Kai-Uwe Behrmann"), KLocalizedString(),
+    about->addAuthor( ki18n("2010-2014 Kai-Uwe Behrmann"), KLocalizedString(),
                       "ku.b@gmx.de"  );
 
     setAboutData( about );
     current_profile = 0;
+
+    /* select profiles matching actual capabilities */
+    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
+    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
+    const char * reg = oyFilterNode_GetRegistration( node );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
+    oyFilterNode_Release( &node );
+    free( pattern );
 
     setupUi(this);              // Load Gui.
 
@@ -351,6 +360,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
         error = oyOptions_SetFromText( &options,
                                        "//"OY_TYPE_STD"/config/icc_profile.x_color_region_target",
                                        "yes", OY_CREATE_NEW );
+        oyOptions_SetFromInt( &options, "///icc_profile_flags", icc_profile_flags, 0, OY_CREATE_NEW );
         oyDeviceGetProfile( device, options, &p );
         oyOptions_Release( &options );
 
@@ -386,7 +396,7 @@ void kminfo::populateDeviceProfiles( QTreeWidgetItem * deviceListTree )
 void kminfo::addProfileTreeItem( oyPROFILE_e profile_type, QString description,
                                         QTreeWidgetItem * parent_item )
 {
-      oyProfile_s * profile = oyProfile_FromStd( profile_type, 0);
+      oyProfile_s * profile = oyProfile_FromStd( profile_type, icc_profile_flags, 0 );
       const char * text = oyProfile_GetText( profile, oyNAME_DESCRIPTION );
 
       // Add new item.
@@ -447,7 +457,7 @@ void kminfo::populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid
 
         setDeviceClassTag(profile, deviceClassTagLabel);
 
-        QString profilePathName = oyProfile_GetFileName( profile, 0 );
+        QString profilePathName = oyProfile_GetFileName( profile, -1 );
         directoryListingTag->setText(profilePathName);
 
         oyProfile_Release( &current_profile );

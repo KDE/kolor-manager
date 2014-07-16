@@ -37,7 +37,7 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include "window.h"
 
 #include <oyranos_devices.h>
-
+#include <oyFilterNode_s.h>
 
 /**
  * Helper function to convert a MD5 into a readable string.
@@ -67,6 +67,14 @@ Screen::Screen(X11::Display *display, int number, Display *parent)
     , m_screen(number)
 {
     X11::setupXRandR(display, number);
+
+    /* select profiles matching actual capabilities */
+    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
+    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
+    const char * reg = oyFilterNode_GetRegistration( node );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
+    oyFilterNode_Release( &node );
+    free( pattern );
 }
 
 Screen::~Screen()
@@ -252,7 +260,7 @@ void Screen::updateProfileForAtom(const char *atomName, X11::Atom atom)
         void *data = X11::fetchProperty(m_display, X11::rootWindow(m_display, 0), atom, XA_CARDINAL, &n, False);
         if (data && n) {
             oyProfile_s *baseProfile = oyProfile_FromMem(n, data, 0,0);
-            oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, 0); // sRGB
+            oyProfile_s *dummyProfile = oyProfile_FromStd(oyASSUMED_WEB, icc_profile_flags, 0); // sRGB
 
             /* The distinction of sRGB profiles set by the server and ones
                 * coming from outside the colour server is rather fragile.

@@ -201,6 +201,7 @@ private:
     Display *m_parent;
     X11::Display *m_display;
     int m_screen;
+    int icc_profile_flags;              ///< profile selection flags from oyProfile_s.h
 
     QList<ColorOutput*> m_outputs; // or contexts
     QList<Window*> m_windows;

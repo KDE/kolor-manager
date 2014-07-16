@@ -145,6 +145,7 @@ private:
     QString m_name;
     ColorContext m_cc;
     QRect m_rect;
+    int icc_profile_flags;              ///< profile selection flags from oyProfile_s.h
 };
 
 } // KolorServer namespace
