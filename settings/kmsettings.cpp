@@ -94,12 +94,7 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &) :
     setAboutData( about );
 
     /* select profiles matching actual capabilities */
-    char * pattern = oyGetCMMPattern( oyCMM_CONTEXT, 0, malloc );
-    oyFilterNode_s * node = oyFilterNode_NewWith( pattern, NULL, 0 );
-    const char * reg = oyFilterNode_GetRegistration( node );
-    icc_profile_flags = oyICCProfileSelectionFlagsFromRegistration( reg );
-    oyFilterNode_Release( &node );
-    free( pattern );
+    icc_profile_flags = oyICCProfileSelectionFlagsFromOptions( OY_CMM_STD, "//" OY_TYPE_STD "/icc_color", NULL, 0 );
 
    setupUi(this);              // Load Gui.
 
