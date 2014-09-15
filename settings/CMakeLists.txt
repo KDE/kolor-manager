@@ -1,20 +1,13 @@
-
- 
-find_package(KDE4 REQUIRED)
-include_directories(${KDE4_INCLUDES} ${CMAKE_CURRENT_BINARY_DIR})
+include_directories(${CMAKE_CURRENT_BINARY_DIR})
  
 set(kmsettings_PART_SRCS 
-      kmsettings.cpp      
+      kmsettings.cpp
       )
-
-kde4_add_ui_files(kmsettings_PART_SRCS kmsettings.ui)
 
 kde4_add_plugin(kmsettings ${kmsettings_PART_SRCS})
 
-target_link_libraries(kmsettings ${KDE4_KFILE_LIBS} ${KDE4_KNEWSTUFF2_LIBS} ${KDE4_KDEUI_LIBS} ${OYRANOS_LIBRARIES} ${ELEKTRA_LIBRARIES})
+target_link_libraries(kmsettings ${SYNNEFO_LIBRARIES} ${KDE4_KDEUI_LIBS})
 
 install(TARGETS kmsettings DESTINATION ${PLUGIN_INSTALL_DIR})
 install( FILES kmsettings.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
-
-
 

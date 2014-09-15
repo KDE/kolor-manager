@@ -28,20 +28,8 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef KMINFO_H
 #define KMINFO_H
 
-#include <QtGui/QDialogButtonBox>
 #include <KCModule>
-#include <KColorScheme>
-#include <KPushButton>
-#include <QTemporaryFile>
-
-#include <oyranos_icc.h>
-#include <oyProfiles_s.h>
-
-class QPushButton;
-class QListWidget;
-class QListWidgetItem;
-
-#include "ui_kminfo.h"     // Gui header.
+#include <sy_info.h>
 
 /******************************************************************
           KM Information Class Definition                         *
@@ -49,7 +37,7 @@ class QListWidgetItem;
 
 
 // "kminfo" - Class to view profile information.
-class kminfo : public KCModule, Ui::kminfo
+class kminfo : public KCModule
 {
     Q_OBJECT
 
@@ -57,73 +45,8 @@ public:
     kminfo(QWidget *parent, const QVariantList &);
     ~kminfo();
 
-QString iccExaminCommand;
-public Q_SLOTS:
-
-    // load the settings from the config
-    virtual void load();
-
-    // save the current settings
-    virtual void save();
-
-
-// User-defined QT slots.
-private slots:
-
-     // Function to change profile information description
-     void changeProfileTreeItem(QTreeWidgetItem*);
-
-     // If "Analyze profile" button is un-hidden, launch iccexamin.
-     void launchICCExamin();
-
-     void loadProfileGraph();
-
 private:
-
-     // Build profile listing tree.
-     void populateInstalledProfileList();
-
-     // Add an item to the tree.
-     void addProfileTreeItem( oyPROFILE_e, QString description, QTreeWidgetItem * parent_item );
-
-     // Populate tree list items relating to device-specific profiles (printers, monitors, etc.)
-     void populateDeviceProfiles( /*QStringList listOfDevices,*/ QTreeWidgetItem * deviceListSubTree /*, QIcon device_icon*/);
-
-     // Populate tag descriptions for device-specific profiles.
-     void populateDeviceProfileDescriptions(oyProfile_s * profile, bool valid);
-
-     // Function to write tag descriptions to individual labels
-     void setTagDescriptions(oyProfile_s *, icTagSignature, QLabel *);
-
-     // Sets the profile information labels as hidden or unhidden.
-     void setInfoPanelLabelHiding(bool);
-
-     // The following provide additional tags to be displayed.
-     void setPcsTag(oyProfile_s * profile, QLabel * pcsLabel);
-     void setCSpaceTag(oyProfile_s * profile, QLabel * cSpaceLabel);
-     void setIccsTag(oyProfile_s * profile, QLabel * iccsLabel);
-     void setDeviceClassTag(oyProfile_s * profile, QLabel * devClassLabel);
-
-     // Function to write date tag to a label.
-     void setDateTag(oyProfile_s *, QLabel *);
-
-     // Check for iccexamin functionality on user system.
-     bool iccExaminIsInstalled(QString &iccExaminPath);
-
-     // Hides/Unhides information panel.
-     void setProfileInfoPanelHiding(bool);
-
-     // Pointers to current QTreeWidget parents (Devices, Editing Space, Assumed Space)
-     QTreeWidgetItem * assumedCsTree;
-     QTreeWidgetItem * editingCsTree;
-     QTreeWidgetItem * devicesParentTree;
-
-     // Pointers to device-specific (parent) items on list
-     oyProfile_s * current_profile;
-
-     QTemporaryFile m_tempFile;
-
-     int icc_profile_flags;              ///< profile selection flags from oyProfile_s.h
+    SyInfoModule* module;
 };
 
 #endif

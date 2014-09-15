@@ -15,6 +15,7 @@ KolorServer maintained by Casian Andrei 2012
 
 - The v1.0.2 tagged release builds fine using Oyranos-0.9.5 .
 - Actual git should the latest Oyranos from it's git repository. KolorManager gets updated pretty quick to Oyranos changes.
+- Synnefo's libsynnefo is used for the program logic
 
 
 -----INSTALLATION----------------------------------------------------
@@ -83,8 +84,6 @@ kquitapp kded; sleep 1s; kdeinit4_wrapper kded4
 -----MAJOR CHANGES FROM LAST TEST BUILDS---------------------------------------
 
 GENERAL
--Icons should now be visible (kmdevices/kminfo)
--Column widths are now tidied up.
 
 
 -----CURRENT ISSUES (FIXME)----------------------------------------------------
