@@ -29,6 +29,9 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #ifndef X11_HELPERS_H_
 #define X11_HELPERS_H_
 
+#include <stdint.h> /* uint32_t */
+#include <arpa/inet.h> /* ntohl() */
+
 namespace X11 {
 #include <X11/Xlib.h>
 #include <X11/Xatom.h>
@@ -44,14 +47,6 @@ namespace X11 {
 
 using X11::Atom;
 using X11::XcolorProfile;
-using X11::intmax_t;
-using X11::uint8_t;
-using X11::uint16_t;
-using X11::uint32_t;
-using X11::uintmax_t;
-
-using X11::ntohl;
-using X11::htonl;
 
 
 /*
