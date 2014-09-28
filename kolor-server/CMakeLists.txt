@@ -21,7 +21,7 @@ include_directories(${CMAKE_CURRENT_BINARY_DIR})
 target_link_libraries(kded_kolorserver
     ${KDE4_KDECORE_LIBS}
     ${OYRANOS_LIBRARIES}
-    ${QT_LIBRARIES} ${QT_QTGUI_LIBRARIES}
+    ${QT_QTGUI_LIBRARIES} ${QT_CORE_LIBRARIES}
     X11 Xrandr ${XCM_LDFLAGS}
 )
 
