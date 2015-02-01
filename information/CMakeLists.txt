@@ -1,5 +1,3 @@
-INCLUDE( "../settings")
- 
 set(kminfo_PART_SRCS 
       kminfo.cpp    
       )
