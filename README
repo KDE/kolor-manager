@@ -79,7 +79,8 @@ qdbus org.kde.kded /kded loadedModules | grep kolorserver
 # restart kded (omit kdeinit4_wrapper to see LD_LIBRARY_PATH)
 kquitapp kded; sleep 1s; kdeinit4_wrapper kded4
 # kdebugdialog --fullmode   might be useful
-
+# unload kolorserver
+qdbus org.kde.kded /kded unloadModule kolorserver
 
 -----MAJOR CHANGES FROM LAST TEST BUILDS---------------------------------------
 
