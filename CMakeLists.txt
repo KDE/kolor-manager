@@ -42,7 +42,7 @@ SET( ${CMAKE_BUILD_TYPE} Debug)
 
 SUBDIRS( devices
          information
-         #settings
+         settings
        )
 
 

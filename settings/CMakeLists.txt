@@ -1,13 +1,20 @@
-include_directories(${CMAKE_CURRENT_BINARY_DIR})
+INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
  
-set(kmsettings_PART_SRCS 
+SET(kmsettings_PART_SRCS 
       kmsettings.cpp
       )
 
-kde4_add_plugin(kmsettings ${kmsettings_PART_SRCS})
+ADD_LIBRARY( kmsettings MODULE ${kmsettings_PART_SRCS} )
+SET_TARGET_PROPERTIES( kminfo PROPERTIES PREFIX "${CMAKE_SHARED_LIBRARY_PREFIX}" )
+TARGET_LINK_LIBRARIES( kmsettings
+                       KF5::CoreAddons
+                       KF5::ConfigWidgets
+                       KF5::I18n
+                       ${SYNNEFO_LIBRARIES}
+                       Qt5::Core
+                       Qt5::Widgets
+                     )
 
-target_link_libraries(kmsettings ${SYNNEFO_LIBRARIES} ${KDE4_KDEUI_LIBS})
-
-install(TARGETS kmsettings DESTINATION ${PLUGIN_INSTALL_DIR})
-install( FILES kmsettings.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+INSTALL(TARGETS kmsettings DESTINATION ${PLUGIN_INSTALL_DIR})
+INSTALL( FILES kmsettings.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
