@@ -41,7 +41,7 @@ LINK_DIRECTORIES(
 SET( ${CMAKE_BUILD_TYPE} Debug)
 
 SUBDIRS( devices
-         #information
+         information
          #settings
        )
 

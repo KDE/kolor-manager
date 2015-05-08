@@ -28,8 +28,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "kminfo.h"
 
-#include <KAboutData>
-#include <KGenericFactory>
+#include <kcmodule.h>
+#include <kaboutdata.h>
+#include <KLocalizedString>
+#include <kpluginfactory.h>
 
 #include <oyranos.h>
 #include <sy_info.h>
@@ -39,23 +41,30 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 K_PLUGIN_FACTORY( kminfoFactory,
          registerPlugin<kminfo>();
          )
-K_EXPORT_PLUGIN( kminfoFactory("kminfo") )
 
 
-kminfo::kminfo(QWidget *parent, const QVariantList &) :
-    KCModule( kminfoFactory::componentData(), parent)
+kminfo::kminfo(QWidget *parent, const QVariantList &args ) :
+    KCModule( parent, args )
 {
-       KAboutData* about = new KAboutData(
-        "kminfo", 0, ki18n("KMInfo"), 0, KLocalizedString(),
-        KAboutData::License_BSD,
-        ki18n("(c) 2008 Joseph Simon III")
-    );
-    about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
-                     "j.simon.iii@astound.net" );
-    about->addAuthor( ki18n("2010-2014 Kai-Uwe Behrmann"), KLocalizedString(),
-                      "ku.b@gmx.de"  );
+    KAboutData about("kminfo", i18n("KMInfo"), "1.0.2",
+                   i18n("KDE version of Synnefo"),
+                   KAboutLicense::BSDL,
+                   i18n("(c) 2008 Joseph Simon III"));
 
-    setAboutData( about );
+    about.addAuthor(i18n("Joseph Simon III"), i18n("developer"), "j.simon.iii@astound.net", 0);
+    about.addAuthor(i18n("Kai-Uwe Behrmann"), i18n("developer"), "ku.b@gmx.de", 0);
+    about.addAuthor(i18n("Jan Gruhlich"), i18n("developer"), "jgrulich@redhat.com", 0);
+
+    about.addAuthor(i18n("Albert Astals Cid"), i18n("developer"), "tsdgeos@terra.es", 0);
+    about.addAuthor(i18n("Christoph Feck"), i18n("developer"), "christoph@maxiom.de", 0);
+    about.addAuthor(i18n("Boudewijn Rempt "), i18n("developer"), "boud@valdyas.org", 0);
+    about.addAuthor(i18n("Pino Toscano"), i18n("developer"), "pino@kde.org", 0);
+    about.addAuthor(i18n("Laurent Montel"), i18n("developer"), "montel@kde.org", 0);
+    about.addAuthor(i18n("Cyrille Berger Skott"), i18n("developer"), "cberger@cberger.net", 0);
+    about.addAuthor(i18n("Hal Van Engel"), i18n("developer"), "hvengel@gmail.com", 0);
+
+    QList<KAboutPerson> people = about.authors();
+    about.addCredit(people[0].name(), people[0].task());
 
     oyMessageFuncSet( oyGuiMessageFunc );
 
@@ -73,3 +82,4 @@ kminfo::~kminfo()
     delete module;
 }
 
+#include "kminfo.moc"

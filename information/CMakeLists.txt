@@ -5,12 +5,18 @@ set(kmdevices_RCCS
       icons.qrc
       )
 
-QT4_ADD_RESOURCES(kminfo_RCC_SRCS ${kmdevices_RCCS})
+ADD_LIBRARY( kminfo MODULE ${kminfo_PART_SRCS} ${kminfo_RCC_SRCS} )
+SET_TARGET_PROPERTIES( kminfo PROPERTIES PREFIX "${CMAKE_SHARED_LIBRARY_PREFIX}" )
+TARGET_LINK_LIBRARIES( kminfo
+                       KF5::CoreAddons
+                       KF5::ConfigWidgets
+                       KF5::I18n
+                       ${SYNNEFO_LIBRARIES}
+                       Qt5::Core
+                       Qt5::Widgets
+                     )
 
-kde4_add_plugin(kminfo ${kminfo_PART_SRCS} ${kminfo_RCC_SRCS})
 
-target_link_libraries(kminfo ${SYNNEFO_LIBRARIES} ${KDE4_KDEUI_LIBS})
-
-install(TARGETS kminfo DESTINATION ${PLUGIN_INSTALL_DIR})
-install( FILES kminfo.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+INSTALL( TARGETS kminfo DESTINATION ${PLUGIN_INSTALL_DIR} )
+INSTALL( FILES kminfo.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
