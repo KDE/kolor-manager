@@ -26,8 +26,10 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 #include "kmdevices.h"
 
-#include <KGenericFactory>
-#include <KAboutData>
+#include <kcmodule.h>
+#include <kaboutdata.h>
+#include <KLocalizedString>
+#include <kpluginfactory.h>
 
 #include <oyranos.h> // oyMessageFuncSet()
 
@@ -36,24 +38,29 @@ THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 K_PLUGIN_FACTORY( kmdevicesFactory,
          registerPlugin<kmdevices>();
          )
-K_EXPORT_PLUGIN( kmdevicesFactory("kmdevices") )
 
-kmdevices::kmdevices(QWidget *parent, const QVariantList &) :
-    KCModule( kmdevicesFactory::componentData(), parent)
+kmdevices::kmdevices(QWidget *parent, const QVariantList &args ) :
+    KCModule( parent, args )
 {
-     KAboutData* about = new KAboutData(
-        "kmdevices", 0, ki18n("KMDevices"), 0, KLocalizedString(),
-        KAboutData::License_BSD,
-        ki18n("(c) 2008 Joseph Simon III")
-    );
-    about->addAuthor( ki18n("2008-2009 Joseph Simon III"), KLocalizedString(),
-                     "j.simon.iii@astound.net" );
-    about->addAuthor( ki18n("2010-2014 Kai-Uwe Behrmann"), KLocalizedString(),
-                      "ku.b@gmx.de"  );
-    about->addAuthor( ki18n("2012 Jan Gruhlich"), KLocalizedString(),
-                      "ku.b@gmx.de"  );
+    KAboutData about("kmdevices", i18n("KMDevices"), "1.0.2",
+                   i18n("KDE version of Synnefo"),
+                   KAboutLicense::BSDL,
+                   i18n("(c) 2008 Joseph Simon III"));
 
-    setAboutData( about );
+    about.addAuthor(i18n("Joseph Simon III"), i18n("developer"), "j.simon.iii@astound.net", 0);
+    about.addAuthor(i18n("Kai-Uwe Behrmann"), i18n("developer"), "ku.b@gmx.de", 0);
+    about.addAuthor(i18n("Jan Gruhlich"), i18n("developer"), "jgrulich@redhat.com", 0);
+
+    about.addAuthor(i18n("Albert Astals Cid"), i18n("developer"), "tsdgeos@terra.es", 0);
+    about.addAuthor(i18n("Christoph Feck"), i18n("developer"), "christoph@maxiom.de", 0);
+    about.addAuthor(i18n("Boudewijn Rempt "), i18n("developer"), "boud@valdyas.org", 0);
+    about.addAuthor(i18n("Pino Toscano"), i18n("developer"), "pino@kde.org", 0);
+    about.addAuthor(i18n("Laurent Montel"), i18n("developer"), "montel@kde.org", 0);
+    about.addAuthor(i18n("Cyrille Berger Skott"), i18n("developer"), "cberger@cberger.net", 0);
+    about.addAuthor(i18n("Hal Van Engel"), i18n("developer"), "hvengel@gmail.com", 0);
+
+    QList<KAboutPerson> people = about.authors();
+    about.addCredit(people[0].name(), people[0].task());
 
     oyMessageFuncSet( oyGuiMessageFunc );
 
@@ -71,3 +78,4 @@ kmdevices::~kmdevices()
   delete devicesModule;
 }
 
+#include "kmdevices.moc"

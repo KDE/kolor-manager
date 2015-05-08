@@ -1,19 +1,22 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
-INCLUDE(   ${QT_USE_FILE}   )
 
-set(kmdevices_PART_SRCS 
+SET(kmdevices_PART_SRCS 
       kmdevices.cpp   
       )
-set(kmdevices_RCCS
+SET(kmdevices_RCCS
       icons.qrc
       )
 
-QT4_ADD_RESOURCES(kmdevices_RCC_SRCS ${kmdevices_RCCS})
+QT5_ADD_RESOURCES(kmdevices_RCC_SRCS ${kmdevices_RCCS})
+ADD_LIBRARY( kmdevices MODULE ${kmdevices_PART_SRCS} ${kmdevices_RCC_SRCS})
+TARGET_LINK_LIBRARIES( kmdevices 
+                       KF5::CoreAddons
+                       KF5::ConfigWidgets
+                       KF5::I18n
+                       ${SYNNEFO_LIBRARIES}
+                       Qt5::Core
+                       Qt5::Widgets )
 
-kde4_add_plugin(kmdevices ${kmdevices_PART_SRCS} ${kmdevices_RCC_SRCS})
-
-target_link_libraries(kmdevices ${SYNNEFO_LIBRARIES} ${KDE4_KDEUI_LIBS} ${QT_LIBRARIES} )
-
-install(TARGETS kmdevices DESTINATION ${PLUGIN_INSTALL_DIR})
-install( FILES kmdevices.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+INSTALL( TARGETS kmdevices DESTINATION ${PLUGIN_INSTALL_DIR})
+INSTALL( FILES kmdevices.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
 
