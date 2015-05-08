@@ -3,7 +3,7 @@
 *******************************
 
 started by Joe Simon in summer 2008-2009
-KolorManager maintained by Kai-Uwe Behrmann 2010-2014
+KolorManager maintained by Kai-Uwe Behrmann 2010-2015
 KolorServer maintained by Casian Andrei 2012
 
 *kmdevices (Kolor Management Devices - Monitor/Printer/etc. profile setup)
@@ -13,7 +13,7 @@ KolorServer maintained by Casian Andrei 2012
 
 -----REQUIRED LIBRARIES---------------------------------------------
 
-- The v1.0.2 tagged release builds fine using Oyranos-0.9.5 .
+- The v1.1.0 tagged release builds fine using Oyranos-0.9.6 .
 - Actual git should the latest Oyranos from it's git repository. KolorManager gets updated pretty quick to Oyranos changes.
 - Synnefo's libsynnefo is used for the program logic
 
@@ -29,7 +29,7 @@ make install
 
 -----RUNNING-------------------------------------------------------
 
--This build should install a "Kolor Management" icon in the KDE4 settings window, under "Computer Administration".  An alternative method for running the individual modules would be to type this in a terminal:
+-This build should install a "Kolor Management" icon in the KF5 settings window, under "Computer Administration".  An alternative method for running the individual modules would be to type this in a terminal:
 
 kcmshell4 [KMMODULE]     (Where KMMODULE is "kmdevices", "kminfo", or "kmsettings")  
 
@@ -58,7 +58,7 @@ ColourWiki: http://www.oyranos.org/wiki/index.php?title=Kolor-manager
 # local debug build
 mkdir build
 cd build
-cmake -DCMAKE_INSTALL_PREFIX=~/.kde4/ -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_CXX_FLAGS="-g -Wall" ../kolor-manager
+cmake -DCMAKE_INSTALL_PREFIX=~/.local -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_CXX_FLAGS="-g -Wall" ../kolor-manager
 #Possibly prepend the PKG_CONFIG_PATH variable to reflect Oyranos...
 kbuildsycoca4 # update KDEs internal icon and module cachings
 kcmshell4 kminfo & # start
@@ -100,5 +100,3 @@ KMDEVICES
 -Camera support needs to be outlined first
 
 KMINFO
--There needs to be a way to refresh the profile listing every time a change has been made in 'devices' and 'settings' modules.  Right now, the user must restart Kolor Manager in order to see 
-the profile listing to be changed in Information.

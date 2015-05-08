@@ -46,7 +46,7 @@ K_PLUGIN_FACTORY( kminfoFactory,
 kminfo::kminfo(QWidget *parent, const QVariantList &args ) :
     KCModule( parent, args )
 {
-    KAboutData about("kminfo", i18n("KMInfo"), "1.0.2",
+    KAboutData about("kminfo", i18n("KMInfo"), "1.1.0",
                    i18n("KDE version of Synnefo"),
                    KAboutLicense::BSDL,
                    i18n("(c) 2008 Joseph Simon III"));
