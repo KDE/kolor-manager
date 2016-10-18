@@ -1,12 +1,15 @@
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
  
-SET(kmsettings_PART_SRCS 
+SET(kmsettings_PART_SRCS
       kmsettings.cpp
       )
+SET(kmsettings_RCCS
+      icons.qrc
+      )
 
-ADD_LIBRARY( kmsettings MODULE ${kmsettings_PART_SRCS} )
-SET_TARGET_PROPERTIES( kminfo PROPERTIES PREFIX "${CMAKE_SHARED_LIBRARY_PREFIX}" )
-TARGET_LINK_LIBRARIES( kmsettings
+QT5_ADD_RESOURCES(kcm_kmsettings_RCC_SRCS ${kmsettings_RCCS})
+ADD_LIBRARY( kcm_kmsettings MODULE ${kmsettings_PART_SRCS} )
+TARGET_LINK_LIBRARIES( kcm_kmsettings
                        KF5::CoreAddons
                        KF5::ConfigWidgets
                        KF5::I18n
@@ -15,6 +18,6 @@ TARGET_LINK_LIBRARIES( kmsettings
                        Qt5::Widgets
                      )
 
-INSTALL(TARGETS kmsettings DESTINATION ${PLUGIN_INSTALL_DIR})
-INSTALL( FILES kmsettings.desktop  DESTINATION  ${SERVICES_INSTALL_DIR} )
+INSTALL(TARGETS kcm_kmsettings          DESTINATION ${PLUGIN_INSTALL_DIR})
+INSTALL(FILES   kcm_kmsettings.desktop  DESTINATION ${SERVICES_INSTALL_DIR} )
 
