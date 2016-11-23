@@ -77,13 +77,13 @@ Comment[uk]=Параметри керування кольорами
 Comment[x-test]=xxColor Management Settingsxx
 Comment[zh_CN]=色彩管理设置
 Comment[zh_TW]=顏色管理設定
-Exec=kmsettings
+Exec=kcm_kmsettings
 Icon=configure
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
 X-KDE-FactoryName=kmsettingsFactory
-X-KDE-Library=kmsettings
+X-KDE-Library=kcm_kmsettings
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=kolor-management

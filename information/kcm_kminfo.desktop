@@ -73,13 +73,13 @@ Comment[uk]=Показати специфічні для ICC дані щодо �
 Comment[x-test]=xxDisplay ICC-specific Profile Informationxx
 Comment[zh_CN]=显示 ICC 色彩配置信息
 Comment[zh_TW]=顯示 ICC 相關設定檔資訊
-Exec=kminfo
+Exec=kcm_kminfo
 Icon=help-about
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
 X-KDE-FactoryName=kminfoFactory
-X-KDE-Library=kminfo
+X-KDE-Library=kcm_kminfo
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=kolor-management

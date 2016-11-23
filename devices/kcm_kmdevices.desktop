@@ -78,13 +78,13 @@ Comment[uk]=Параметри пристроїв для керування ко
 Comment[x-test]=xxDevice settings for Color Managementxx
 Comment[zh_CN]=色彩管理设备设置
 Comment[zh_TW]=顏色管理的裝置設定
-Exec=kcprofiler
+Exec=kcm_kmdevices
 Icon=preferences-desktop-display
 Type=Service
 X-KDE-ServiceTypes=KCModule
 
 X-KDE-FactoryName=kmdevicesFactory
-X-KDE-Library=kmdevices
+X-KDE-Library=kcm_kmdevices
 X-KDE-ParentApp=kcontrol
 
 X-KDE-System-Settings-Parent-Category=kolor-management
