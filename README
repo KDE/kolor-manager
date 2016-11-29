@@ -9,7 +9,6 @@ KolorServer maintained by Casian Andrei 2012
 *kmdevices (Kolor Management Devices - Monitor/Printer/etc. profile setup)
 *kminfo (Kolor Management Information - Displays specific profile information)
 *kmsettings (Kolor Management Settings - Change behavior and policy settings)
-*kolorserver (X Color Management support for KWin)
 
 -----REQUIRED LIBRARIES---------------------------------------------
 
@@ -31,7 +30,7 @@ make install
 
 -This build should install a "Kolor Management" icon in the KF5 settings window, under "Computer Administration".  An alternative method for running the individual modules would be to type this in a terminal:
 
-kcmshell4 [KMMODULE]     (Where KMMODULE is "kmdevices", "kminfo", or "kmsettings")  
+kcmshell5 [KMMODULE]     (Where KMMODULE is "kmdevices", "kminfo", or "kmsettings")  
 
 This is handy for displaying debug information through the console.
 
@@ -60,12 +59,12 @@ mkdir build
 cd build
 cmake -DCMAKE_INSTALL_PREFIX=~/.local -DCMAKE_BUILD_TYPE=debugfull -DCMAKE_CXX_FLAGS="-g -Wall" ../kolor-manager
 #Possibly prepend the PKG_CONFIG_PATH variable to reflect Oyranos...
-kbuildsycoca4 # update KDEs internal icon and module cachings
-kcmshell4 kminfo & # start
+kbuildsycoca5 # update KDEs internal icon and module cachings
+kcmshell5 kminfo & # start
 
 # Debug
-echo $!  # obtain process id from bashs most recent process - kcmshell4
-KDE_DEBUG=1 gdb kcmshell4  # the variable avoid KDE's crash handler
+echo $!  # obtain process id from bashs most recent process - kcmshell5
+KDE_DEBUG=1 gdb kcmshell5  # the variable avoid KDE's crash handler
 gdb > attach to process id
 gdb > breakpoint kminfo.cpp:line_number
 gdb > continue
@@ -74,10 +73,10 @@ gdb > continue
 sha=`cat .git/refs/heads/master | head -c 8`
 git archive --format=tar --prefix=kolor-manager-$sha/ HEAD | bzip2 > kolor-manager-$sha.tar.bz2
 
-# show kolorserver
-qdbus org.kde.kded /kded loadedModules | grep kolorserver
-# restart kded (omit kdeinit4_wrapper to see LD_LIBRARY_PATH)
-kquitapp kded; sleep 1s; kdeinit4_wrapper kded4
+# list modules
+qdbus org.kde.kded /kded loadedModules
+# restart kded (omit kdeinit5_wrapper to see LD_LIBRARY_PATH)
+kquitapp kded5; sleep 1s; kdeinit5_wrapper kded5
 # kdebugdialog --fullmode   might be useful
 # unload kolorserver
 qdbus org.kde.kded /kded unloadModule kolorserver
