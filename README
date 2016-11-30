@@ -74,7 +74,7 @@ sha=`cat .git/refs/heads/master | head -c 8`
 git archive --format=tar --prefix=kolor-manager-$sha/ HEAD | bzip2 > kolor-manager-$sha.tar.bz2
 
 # list modules
-qdbus org.kde.kded /kded loadedModules
+qdbus org.kde.kded5 /kded org.kde.kded5.loadedModules
 # restart kded (omit kdeinit5_wrapper to see LD_LIBRARY_PATH)
 kquitapp kded5; sleep 1s; kdeinit5_wrapper kded5
 # kdebugdialog --fullmode   might be useful
