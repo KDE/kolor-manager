@@ -80,8 +80,8 @@ CMakeLists.txt (build instructions for each module)
     qdbus org.kde.kded /kded unloadModule kolorserver
 
 ## History
-* started by Joe Simon in summer 2008-2009
-* KolorManager maintained by Kai-Uwe Behrmann 2010-2016
+* started by [Joe Simon](jsimon3.wordpress.com/category/synnefo/)in summer 2008-2009
+* KolorManager maintained by [Kai-Uwe Behrmann](www.behrmann.name) 2010-2016
 * KolorServer was maintained by Casian Andrei 2012 (It is now a separate project.)
 
 ## Known Issues
