@@ -42,25 +42,31 @@ K_PLUGIN_FACTORY( kmdevicesFactory,
 kmdevices::kmdevices(QWidget *parent, const QVariantList &args ) :
     KCModule( parent, args )
 {
-    KAboutData about("kmdevices", i18n("KMDevices"), "1.1.0",
-                   i18n("KDE version of Synnefo"),
-                   KAboutLicense::BSDL,
-                   i18n("(c) 2008 Joseph Simon III"));
+    const char    * name = NULL;
+    oyWidgetTitleGet( oyWIDGET_GROUP_DEVICES, NULL, &name,
+                      NULL, NULL );
+    QString title = QString("KolorManager Oyranos %1").arg(name);
+    KAboutData * about = new KAboutData("kmdevices",
+		    title, "1.1.0",
+                    i18n("KDE version of Oyranos Synnefo"),
+                    KAboutLicense::BSDL,
+                    i18n("(c) 2008 Joseph Simon III"),
+		    "",
+		    "http://www.oyranos.org/kolormanager");
 
-    about.addAuthor(i18n("Joseph Simon III"), i18n("developer"), "j.simon.iii@astound.net", 0);
-    about.addAuthor(i18n("Kai-Uwe Behrmann"), i18n("developer"), "ku.b@gmx.de", 0);
-    about.addAuthor(i18n("Jan Gruhlich"), i18n("developer"), "jgrulich@redhat.com", 0);
+    about->addAuthor(i18n("Joseph Simon III"), i18n("developer"), "j.simon.iii@astound.net", "https://jsimon3.wordpress.com/");
+    about->addAuthor(i18n("Kai-Uwe Behrmann"), i18n("developer"), "ku.b@gmx.de", "http://www.behrmann.name/");
+    about->addAuthor(i18n("Jan Gruhlich"), i18n("developer"), "jgrulich@redhat.com", 0);
 
-    about.addAuthor(i18n("Albert Astals Cid"), i18n("developer"), "tsdgeos@terra.es", 0);
-    about.addAuthor(i18n("Christoph Feck"), i18n("developer"), "christoph@maxiom.de", 0);
-    about.addAuthor(i18n("Boudewijn Rempt "), i18n("developer"), "boud@valdyas.org", 0);
-    about.addAuthor(i18n("Pino Toscano"), i18n("developer"), "pino@kde.org", 0);
-    about.addAuthor(i18n("Laurent Montel"), i18n("developer"), "montel@kde.org", 0);
-    about.addAuthor(i18n("Cyrille Berger Skott"), i18n("developer"), "cberger@cberger.net", 0);
-    about.addAuthor(i18n("Hal Van Engel"), i18n("developer"), "hvengel@gmail.com", 0);
+    about->addAuthor(i18n("Albert Astals Cid"), i18n("developer"), "tsdgeos@terra.es", 0);
+    about->addAuthor(i18n("Christoph Feck"), i18n("developer"), "christoph@maxiom.de", 0);
+    about->addAuthor(i18n("Boudewijn Rempt "), i18n("developer"), "boud@valdyas.org", "http://www.valdyas.org/fading/index.cgi");
+    about->addAuthor(i18n("Pino Toscano"), i18n("developer"), "pino@kde.org", 0);
+    about->addAuthor(i18n("Laurent Montel"), i18n("developer"), "montel@kde.org", 0);
+    about->addAuthor(i18n("Cyrille Berger Skott"), i18n("developer"), "cberger@cberger.net", 0);
+    about->addAuthor(i18n("Hal Van Engel"), i18n("developer"), "hvengel@gmail.com", 0);
 
-    QList<KAboutPerson> people = about.authors();
-    about.addCredit(people[0].name(), people[0].task());
+    setAboutData(about);
 
     oyMessageFuncSet( oyGuiMessageFunc );
 
