@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY title "<application>KolorManager KCM</application>">
+<!ENTITY version "1.1.1">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE">
+]>
+<article id="oyranos_settings" lang="&language;"> 
+    <articleinfo> 
+    <title>Oyranos Benutzerhandbuch</title> 
+ 
+    <authorgroup> 
+        <author> 
+            <firstname>Kai-Uwe</firstname> 
+            <surname>Behrmann</surname> 
+            <affiliation> 
+                <address><email>ku.b@gmx.de</email></address> 
+            </affiliation> 
+        </author> 
+        <!-- TRANS:ROLES_OF_TRANSLATORS --> 
+    </authorgroup> 
+    <copyright> 
+        <year>2017</year> 
+        <holder>Kai-Uwe Behrmann</holder> 
+    </copyright> 
+ 
+    <date>2017-04-05</date><!-- Date of (re)writing, or update.--> 
+    <releaseinfo>&version;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.--> 
+ 
+    <abstract> 
+        <para>Das ist die Dokumentation für &title; welches das Oyranos Farbmanagementsystem konfiguriert.</para> 
+    </abstract> 
+ 
+    <keywordset> 
+        <keyword>KDE</keyword> 
+        <keyword>System Settings</keyword> 
+        <keyword>Oyranos</keyword> 
+        <keyword>Color Management</keyword> 
+        <keyword>KolorManager</keyword> 
+        <keyword>Synnefo</keyword> 
+    </keywordset> 
+ 
+    </articleinfo>
+           <sect1>
+             <title>Einführung</title>
+          <para>
+Internet: <ulink url="http://www.oyranos.org">www.oyranos.org</ulink> 
+          </para>
+
+           <para>
+Oyranos ist ein auf dem ICC Standard (<ulink url="http://www.color.org">www.color.org</ulink>) für Farbraumbescheibungen beruhendes Farbmanagementsystem (CMS). Die Benutzung von ICC Farbprofilen soll einen reibungslosen und automatisierten Datenaustausch zwischen unterschiedlichen Farbräumen und den Abgleich auf verschiedenen Geräten mit ihren jeweiligen physikalischen Gegebenheiten ermöglichen. 
+          </para>
+
+           <para>
+Farbabgleich zwischen verschiedenen Geräten ist möglich, vorausgesetzt die farbmetrischen Eigenschaften der beteiligten Geräte sind bekannt. Die Qualität einer Farbumwandlung von einem Farbgerät zu einem anderen hängt überwiegend von der Genauigkeit der Farbmessung und dem Berechnungsverfahren  für das Erstellen des Farbprofiles ab. Farbraumdefinitionen geschehen in Bezug zu dem Profilverbindungsfarbraum (PCS). Der PCS wurde von der CIE auf Grund der Farbeindrücke von menschlichen Beobachtern ermittelt. 
+          </para>
+
+           <para>
+Farbprofile sind oftmals erhältlich von Herstellern solcher Farbgeräte wie Digitalkameras, Bildschirmen oder Druckern. In Oyranos wird ein ICC Profil mit dem Kalibrierzustand dieser Geräte verknüpft, um möglichst nahe an das  Farbverhalten wärend der ICC Profilerzeugung zu gelangen. 
+          </para>
+
+           <para>
+Oyranos erlaubt detailierte Einstellungen, wie z.B. zu bevorzugende Editierfarbräumen, das Verhalten von Farbumwandlungen oder Simulation. Oyranos verringert den Aufwand für Farbmanagemententscheidungen durch Automation, sinnvolle Voreinstellungen und wählbare Richtlinien. 
+          </para>
+
+        </sect1>
+        <sect1>
+          <title>Voreingestellte ICC Profile</title>
+          <para>Alle Farben sollten auf einem Rechner mit ICC Farbprofilen definiert sein. Für nicht definierte Farben können Benutzer ICC Farbprofile in Oyranos voreinstellen.</para>
+    <sect2>
+      <title>Editier XYZ</title>
+      <para>Der bevorzugter XYZ Editierfarbraum soll CIE*XYZ definieren.</para>
+    </sect2>
+    <sect2>
+      <title>Editier Lab</title>
+      <para>Der bevorzugter CIE*Lab Editierfarbraum soll CIE*Lab beschreiben.</para>
+    </sect2>
+    <sect2>
+      <title>Editier Rgb</title>
+      <para>Der bevorzugte Rgb Editierfarbraum sollte wohlgeformt sein.</para>
+    </sect2>
+    <sect2>
+      <title>Editier Cmyk</title>
+      <para>Der bevorzugte Cmyk Editierfarbraum sollte standard Druckbedingungen wie FOGRA oder SWOP representieren.</para>
+    </sect2>
+    <sect2>
+      <title>Editier Grau</title>
+      <para>Der bevorzugte Grautonfarbraum soll Farben mit einem einzigen Helligkeitsfarbkanal beschreiben.</para>
+    </sect2>
+    <sect2>
+      <title>Vermutete XYZ Quelle</title>
+      <para>Der gewählte Farbraum wird einem XYZ ohne ICC Farbprofil zugewiesen werden und Farben für die weitere Verarbeitung bestimmen.</para>
+    </sect2>
+    <sect2>
+      <title>Vermutete Lab Quelle</title>
+      <para>Der gewählte Farbraum wird CIE*Lab ohne ICC Farbprofil zugewiesen werden und Farben für die weitere Verarbeitung bestimmen.</para>
+    </sect2>
+    <sect2>
+      <title>Vermutete Rgb Quelle</title>
+      <para>Der gewählte Farbraum wird Rgb ohne ICC Farbprofil zugewiesen werden und Farben für die weitere Verarbeitung bestimmen.</para>
+    </sect2>
+    <sect2>
+      <title>Vermutete Web Quelle</title>
+      <para>Weise einem Rgb Bild ohne ICC Profile aus dem WWW diesen Farbraum zu. Das wird sRGB wie vom W3C vorgegeben sein.</para>
+    </sect2>
+    <sect2>
+      <title>Vermutete Cmyk Quelle</title>
+      <para>Der gewählte Farbraum wird Cmyk ohne ICC Farbprofil zugewiesen werden und Farben für die weitere Verarbeitung bestimmen.</para>
+    </sect2>
+    <sect2>
+      <title>Vermutete Grau Quelle</title>
+      <para>Der gewählte Farbraum wird einen Helligkeitsfarbraum ohne ICC Farbprofil zugewiesen werden und Farben für die weitere Verarbeitung bestimmen.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Übertragung</title>
+          <para>Die Umwandlung zwischen Farbräumen mit verschiedener Form und Größe kann auf verschiedene Arten stattfinden. Die Fotografische Übertragungsart ist oftmals die beste Wahl für Fotos und künstlerische Inhalte. Sie wird in vielen automatischen Systemen verwendet. Die Relativ Farbmetrische Übertragung bietet eine vorhersehbare standardisierte eins zu eins Übertragung mit unverändertem Weißpunkt. Die Relativ Farbmetrisch Übertragung wird oft zusammen mit der Schwarzpunktkompensation verwendet. Die Sättigende Übertragung soll eine optimale Ausnutzung von satten Gerätefarben ermöglichen. Die Absolut Farbmetrische Übertragung wirkt wie die Relativ Farbmetrische Übertragung, nur mit Weißpunktanpassung. Die Farbtabellen allen Übertragungsarten,  ausser die der Farbmetrischen, werden von den Profilerstellern gestaltet.</para>
+    <sect2>
+      <title>Übertragungsart</title>
+      <para>Die Übertragungsart für Farbumwandlungen ist typischerweise Fotografisch oder Relativ Farbmetrisch mit Schwarzpunktkompensation.</para>
+    </sect2>
+    <sect2>
+      <title>Benutze Schwarzpunktkompensation (BPC)</title>
+      <para>BPC beeinflusst oft nur die Relativ Farbmetrische Übertragungsart.</para>
+    </sect2>
+    <sect2>
+      <title>Farbumfangswarnung</title>
+      <para>Viele Benutzer möchten eine einfache Farbdarstellungen und wollen nicht prüfen ob Farben in den Simulationsfarbraum passen.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Speichere Dokumente mit gemischten Farbräumen</title>
+          <para>Gemischte Farbräume in einem Dokument können in einigen Systemen zu Problemen führen. Die Einstellung bietet die Möglichkeit den Farbraum zu vereinheitlichen.</para>
+    <sect2>
+      <title>Bildschirm</title>
+      <para>Behandlung von uneinheitlichen Farbräumen in Vorbereitung eines Dokumentes für die Bildschirmausgabe. Eine Umwandlung nach sRGB hilft für einen einfacheren Datenaustausch und ist, was die meisten Benutzer wünschen.</para>
+    </sect2>
+    <sect2>
+      <title>Für den Druck</title>
+      <para>Behandlung von uneinheitlichen Farbräumen in Vorbereitung eines Dokumentes für die Druckausgabe. Die Umwandlung in den voreingestellten Editierfarbraum ist, was die meisten Benutzer benötigen.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Abweichung</title>
+          <para>Was ist zu tuen falls Standardfarbräume nicht mit den Eingestellten übereinstimmen.</para>
+    <sect2>
+      <title>Kein Profil am Bild</title>
+      <para>Die Einstellung entscheidet was mit Farben ohne Farbprofil geschehen soll. Typischerweise wird das vermutete Farbprofil automatisch zugewiesen.</para>
+    </sect2>
+    <sect2>
+      <title>Bei Rgb Ungleichheit</title>
+      <para>Eingehende Farbräume können von der Voreinstellung abweichen. Für viele Benutzer ist eine automatische Umwandlung kein Problem. Für anspruchsvollere Anwendungen sollten die Zahlenwerte stets erhalten bleiben.</para>
+    </sect2>
+    <sect2>
+      <title>Bei Cmyk Ungleichheit</title>
+      <para>Eingehende Farbräume können von der Voreinstellung abweichen. Für viele Benutzer ist eine automatische Umwandlung kein Problem. Für anspruchsvollere Anwendungen sollten die Zahlenwerte stets erhalten bleiben.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Simulation</title>
+          <para>Simulationseinstellungen erlauben die Simulation eines zusätzlichen Farbraumes.</para>
+    <sect2>
+      <title>Simulation</title>
+      <para>Diese Option wählt ein Farbprofil, welches ein zu simulierendes Gerät farblich abbildet. Das Profile wird nur wirksam bei aktivierter Simulation.</para>
+    </sect2>
+    <sect2>
+      <title>Nachbildungsübertragung</title>
+      <para>Verhalten der Farbübertragung bei der Simulation. Die meisten Nutzer wünschen eine Simulation nur an einem Bildschirm. Die relativ farbmetrische Übertragung ist richtig dafür. Die absolut farbmetrische Übertragung benötigt eine sorgfältige komplizierte Einrichtung für Seit an Seit Vergleiche.</para>
+    </sect2>
+    <sect2>
+      <title>Nachbildung am Bildschirm</title>
+      <para>Simuliere einen Ausgabefarbraum auf dem Bildschirm. Die meisten Benutzer arbeiten nicht für spezielle Ausgabemedien und überlassen die Farbanpassung dem System. Sie möchten keine Simulation.</para>
+    </sect2>
+    <sect2>
+      <title>Nachbildung beim Ausdruck</title>
+      <para>Simuliere einen Ausgabefarbraum auf einem lokalen Drucker. Die meisten Benutzer arbeiten nicht für spezielle Ausgabemedien und überlassen die Farbanpassung dem System. Sie möchten keine Simulation.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Effekt</title>
+          <para>Effektinstellungen erlauben die Benutzung eines Farbprofiles zur Farbveränderung.</para>
+    <sect2>
+      <title>Effekt</title>
+      <para>Füge einen Farbeffekt hinzu.</para>
+    </sect2>
+    <sect2>
+      <title>Benutze Effekt</title>
+      <para>Schalter für das ausgewählte ICC Effektprofil.</para>
+    </sect2>
+        </sect1>
+      </article>

@@ -1,0 +1,191 @@
+<?xml version="1.0" ?>
+<!DOCTYPE article PUBLIC "-//KDE//DTD DocBook XML V4.5-Based Variant V1.1//EN" "dtd/kdedbx45.dtd" [
+<!ENTITY title "<application>KolorManager KCM</application>">
+<!ENTITY version "1.1.1">
+<!ENTITY % addindex "IGNORE">
+<!ENTITY % English "INCLUDE">
+]>
+<article id="oyranos_settings" lang="&language;"> 
+    <articleinfo> 
+    <title>Oyranos User Manual</title> 
+ 
+    <authorgroup> 
+        <author> 
+            <firstname>Kai-Uwe</firstname> 
+            <surname>Behrmann</surname> 
+            <affiliation> 
+                <address><email>ku.b@gmx.de</email></address> 
+            </affiliation> 
+        </author> 
+        <!-- TRANS:ROLES_OF_TRANSLATORS --> 
+    </authorgroup> 
+    <copyright> 
+        <year>2017</year> 
+        <holder>Kai-Uwe Behrmann</holder> 
+    </copyright> 
+ 
+    <date>2017-04-05</date><!-- Date of (re)writing, or update.--> 
+    <releaseinfo>&version;</releaseinfo><!-- Application version number. Use the variable definitions within header to change this value.--> 
+ 
+    <abstract> 
+        <para>This is the documentation for the &title; that configures the Oyranos Color Management System.</para> 
+    </abstract> 
+ 
+    <keywordset> 
+        <keyword>KDE</keyword> 
+        <keyword>System Settings</keyword> 
+        <keyword>Oyranos</keyword> 
+        <keyword>Color Management</keyword> 
+        <keyword>KolorManager</keyword> 
+        <keyword>Synnefo</keyword> 
+    </keywordset> 
+ 
+    </articleinfo>
+           <sect1>
+             <title>Introduction</title>
+          <para>
+Internet: <ulink url="http://www.oyranos.org">www.oyranos.org</ulink> 
+          </para>
+
+           <para>
+Oyranos is a Color Management System (CMS), which relies one the ICC file format standard (<ulink url="http://www.color.org">www.color.org</ulink>) for color space definitions. The use of ICC color profiles shall enable a flawless and automated color data exchange between different color spaces and various devices with their respective physical color behaviours. 
+          </para>
+
+           <para>
+Mapování barev mezi různými zařízeními je možné za předpokladu, že známe barvovou charakteristiku dotčených zařízení. Kvalita transformace barev pro zařízení z jednoho barvového prostoru do druhého závisí zvláště na kvalitě měření barev a charakterizačních algoritmů použitých při přípravě profilu ICC. Definice každého barvového prostoru obsahuje referenci na tzv. propojovací prostory (PCS). PCS je dobře známý barvový prostor založený na průměrném "lidském pozorovateli" dle definice CIE. 
+          </para>
+
+           <para>
+Barvové profily jsou poskytnuty výrobci obrazových zařízení jako jsou digitální fotoaparáty, monitory a tiskárny. V Oyranosu jsou profily ICC přiřazeny ke kalibrovaným stavům jednotlivých zařízení, aby se zajistilo shodné chování zařízení jako při přípravě profilu ICC. 
+          </para>
+
+           <para>
+Oyranos allowes detailed settings like preferred editing color spaces and the behaviour of color conversions or simulation. Oyranos reduces the work involved in all color management related decisions through automation, useful defaults and grouping of settings in selectable policies. 
+          </para>
+
+        </sect1>
+        <sect1>
+          <title>Výchozí profily</title>
+          <para>Profily ICC by vždy měly být přiřazeny ke všem barvám. Pro nedefinované barvy mohou uživatelé nastavit různé výchozí profily ICC v nastaveních Oyranosu.</para>
+    <sect2>
+      <title>Editace XYZ</title>
+      <para>Preferovaný barvový prostor editace XYZ by měl popisovat CIE*XYZ.</para>
+    </sect2>
+    <sect2>
+      <title>Editace Lab</title>
+      <para>Preferovaný barvový prostor editace CIE*Lab by měl popisovat CIE*Lab.</para>
+    </sect2>
+    <sect2>
+      <title>Editace RGB</title>
+      <para>Preferovaný barvový prostor editace RGB by měl popisovat dobře se chovající barvový prostor jako např. sRGB.</para>
+    </sect2>
+    <sect2>
+      <title>Editace CMYK</title>
+      <para>Preferovaný barvový prostor editace CMYK by měl popisovat barvový prostor, který je kompatibilní s dobře definovaným standardem jako např. FOGRA či SWOP.</para>
+    </sect2>
+    <sect2>
+      <title>Editace v šedi</title>
+      <para>Preferovaný barvový prostor editace v šedi by měl popisovat barvový prostor s jedním kanálem jasu pro monochromatické obrázky.</para>
+    </sect2>
+    <sect2>
+      <title>Předpokládaný vstupní XYZ</title>
+      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu XYZ a definuje barvy pro další zpracování.</para>
+    </sect2>
+    <sect2>
+      <title>Předpokládaný vstupní Lab</title>
+      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu CIE*Lab a definuje barvy pro další zpracování.</para>
+    </sect2>
+    <sect2>
+      <title>Předpokládaný vstupní RGB</title>
+      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám RGB a definuje barvy pro další zpracování.</para>
+    </sect2>
+    <sect2>
+      <title>Předpokládaný vstupní Web</title>
+      <para>Přiřadí tento barvový prostor neoznačenému obrázku RGB pocházejícího z WWW. Toto bude vždy sRGB dle definice W3C.</para>
+    </sect2>
+    <sect2>
+      <title>Předpokládaný vstupní CMYK</title>
+      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám CMYK a definuje barvy pro další zpracování.</para>
+    </sect2>
+    <sect2>
+      <title>Předpokládaný pr. vstup. šedi</title>
+      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu Gray (šeď) a definuje odstíny pro další zpracování.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Transformace</title>
+          <para>Transformace mezi barvovými prostory rozdílných tvarů a velikostí lze provádět různými způsoby. Perceptuální záměr transformace je obvykle nejlepší volbou pro fotografie a umělecké obrazy. Používá se v mnoha automatizovaných systémech. Relativní kolorimetrický záměr poskytuje dobře definovaný standard, mapování barev jedna-k-jedné spolu s adaptací bílého bodu. To může vést k "oříznutí" barev mimo cílový gamut, což je cena za jinak kolorimetrickou přesnost. Relativní kolorimetrický záměr se často používá spolu s kompenzací černého bodu. Záměr dle saturace má poskytnout optimální využití sytých barev zařízení. Absolutní kolorimetrický záměr transformace funguje stejně jako relativní kolorimetrický záměr s tím rozdílem, že bílý bod není přizpůsoben (zůstává zachován). Všechny záměry transformace kromě těch kolorimetrických závisejí na tabulkách mapování barev vložených do profilu ICC jejich tvůrcem.</para>
+    <sect2>
+      <title>Záměr transformace</title>
+      <para>Záměr pro transformace mezi různými barvovými prostory se obvykle volí relativní kolorimetrický vč. kompenzace černého bodu nebo perceptuální.</para>
+    </sect2>
+    <sect2>
+      <title>Použít kompenzaci černého bodu (BPC)</title>
+      <para>BPC ovlivňuje pouze relativní kolorimetrický záměr transformace.</para>
+    </sect2>
+    <sect2>
+      <title>Varování gamutu</title>
+      <para>Většina uživatelů nemá potřebu kontrolovat, zda se jednotlivé barvy vejdou do barvového prostoru simulace.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Uložit dokumenty se smíšenými barvovými prostory</title>
+          <para>Smíšené barvové prostory v rámci jednoho dokumentu mohou být pro některé systémy obtížně zpracovatelné. Je možné nastavit preferenci pro převod do jediného prostoru barev.</para>
+    <sect2>
+      <title>Pro obrazovku</title>
+      <para>Zacházení se smíšenými barvovými prostory při přípravě dokumentu pro výstup na obrazovku. Většina uživatelů použije transformaci do sRGB (vhodné pro snadnou výměnu dat).</para>
+    </sect2>
+    <sect2>
+      <title>Pro tisk</title>
+      <para>Zacházení se smíšenými barvovými prostory při přípravě dokumentu pro tiskový výstup. Většina uživatelů použije transformaci do barvového prostoru pro editaci.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Nesoulad</title>
+          <para>Rozhodnout co dělat, když se vstupní barvový prostor nerovná aktuálnímu nastavení.</para>
+    <sect2>
+      <title>Žádný profil obrázku</title>
+      <para>Toto nastavení rozhoduje, co se má dělat v případě, že barvy nemají přiřazen žádný barvový prostor. Obvykle by měl být přiřazen příslušný předpokládaný profil ICC.</para>
+    </sect2>
+    <sect2>
+      <title>V případě nesouladu RGB</title>
+      <para>Vstupní barvové prostory se mohou lišit od výchozího prostoru pro editaci. Pro většinu uživatelů je vhodná automatická transformace. Avšak pro náročnější práci může být vhodné zachovat hodnoty barev.</para>
+    </sect2>
+    <sect2>
+      <title>V případě nesouladu CMYK</title>
+      <para>Vstupní barvové prostory se mohou lišit od výchozího prostoru pro editaci. Pro většinu uživatelů je vhodná automatická transformace. Avšak pro náročnější práci může být vhodné zachovat hodnoty barev.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Simulace</title>
+          <para>Nastavení simulace umožňují stanovit barvový prostor pro napodobení jiného zařízení.</para>
+    <sect2>
+      <title>Simulace</title>
+      <para>Zvolte barvový profil charakterizující zařízení, které má být simulováno. Tento profil bude použit pouze v případě použití funkce simulace.</para>
+    </sect2>
+    <sect2>
+      <title>Záměr transformace pro simulaci</title>
+      <para>Způsob transformace barev pro simulaci. Většina uživatelů použije funkci simulace pouze na obrazovce, pro což se hodí relativní kolorimetrický záměr. Absolutní kolorimetrický záměr přepodkládá velmi pečlivou charakterizaci zařízení a komplikované nastavení, nicméně umožňuje porovnání barev "vedle sebe" (např. na monitoru a výtisku).</para>
+    </sect2>
+    <sect2>
+      <title>SofProof</title>
+      <para>Umožnit simulaci tiskového výstupu na monitoru. Většina uživatelů nepracuje s preferencí konkrétního média (papíru, inkoustu) a ponechá zpracování na systému. Tzn., že nepotřebují simulaci.</para>
+    </sect2>
+    <sect2>
+      <title>Hardproof</title>
+      <para>Umožní simulaci výstupního barvového profilu na místní tiskárně. Většina uživatelů nepracuje se záměrem výstupu na konkrétním médiu a proto ponechává správu barev na systému. Tzn., že nepotřebují použít tuto simulaci.</para>
+    </sect2>
+        </sect1>
+        <sect1>
+          <title>Effect</title>
+          <para>Effect Settings allows one to decide about a abstract effect color space.</para>
+    <sect2>
+      <title>Effect</title>
+      <para>Select a color profile for adding a effect.</para>
+    </sect2>
+    <sect2>
+      <title>Use Effect</title>
+      <para>Switch for enabling the effect profile.</para>
+    </sect2>
+        </sect1>
+      </article>
