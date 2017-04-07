@@ -72,6 +72,7 @@ kmsettings::kmsettings(QWidget *parent, const QVariantList &args ) :
     //about->addCredit(people[0].name(), people[0].task());
 
     setAboutData(about);
+    setButtons( Help );
 
     oyMessageFuncSet( oyGuiMessageFunc );
 
