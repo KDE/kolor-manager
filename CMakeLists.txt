@@ -24,7 +24,7 @@ INCLUDE(FeatureSummary)
 INCLUDE(GenerateExportHeader)
 
 FIND_PACKAGE(Qt5 REQUIRED COMPONENTS Core Widgets)
-FIND_PACKAGE(KF5 REQUIRED COMPONENTS ConfigWidgets CoreAddons I18n)
+FIND_PACKAGE(KF5 REQUIRED COMPONENTS ConfigWidgets CoreAddons I18n DocTools)
 
 FIND_PACKAGE(Oyranos REQUIRED)
 FIND_PACKAGE(Synnefo REQUIRED)
@@ -42,6 +42,7 @@ SET( ${CMAKE_BUILD_TYPE} Debug)
 SUBDIRS( devices
          information
          settings
+         doc
        )
 
 
