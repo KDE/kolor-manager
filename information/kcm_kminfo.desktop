@@ -1,11 +1,11 @@
 [Desktop Entry]
-Name=Profile Information
+Name=ICC Profile Information
 Name[bs]=Podaci o profilu
 Name[ca]=Informació del perfil
 Name[ca@valencia]=Informació del perfil
 Name[cs]=Informace o profilu
 Name[da]=Profilinformation
-Name[de]=Profil-Information
+Name[de]=Farbprofilinformation
 Name[el]=Πληροφορίες προφίλ
 Name[en_GB]=Profile Information
 Name[es]=Información del perfil
@@ -42,7 +42,7 @@ Comment[bs]=Prikaži ICC-specifične informacije profila
 Comment[ca]=Mostra la informació del perfil específica d'ICC
 Comment[ca@valencia]=Mostra la informació del perfil específica d'ICC
 Comment[da]=Vis ICC-specifik profilinformation
-Comment[de]=Anzeige ICC-spezifischer Profil-Informationen
+Comment[de]=Anzeige von ICCprofilinformationen
 Comment[el]=Εμφάνιση ειδικά για ICC πληροφοριών προφίλ
 Comment[en_GB]=Display ICC-specific Profile Information
 Comment[es]=Mostrar información de perfil específico de ICC
