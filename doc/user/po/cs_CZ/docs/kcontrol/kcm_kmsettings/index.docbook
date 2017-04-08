@@ -48,7 +48,7 @@ Internet: <ulink url="http://www.oyranos.org">www.oyranos.org</ulink>
           </para>
 
            <para>
-Oyranos is a Color Management System (CMS), which relies one the ICC file format standard (<ulink url="http://www.color.org">www.color.org</ulink>) for color space definitions. The use of ICC color profiles shall enable a flawless and automated color data exchange between different color spaces and various devices with their respective physical color behaviours. 
+Oyranos je systém pro správu barev (CMS), který využívá jeden ze standardů souborového formátu ICC (<ulink url="http://www.color.org">www.color.org</ulink>) pro definice barvových prostorů. Použití barvových profilů ICC má umožnit bezproblémovou a automatizovanou výměnu dat o barvách mezi různými barvovými prostory a různými zařízeními s ohledem na jejich schopnost reprodukce barev. 
           </para>
 
            <para>
@@ -67,125 +67,125 @@ Oyranos allowes detailed settings like preferred editing color spaces and the be
         <sect1>
           <title>Výchozí profily</title>
           <para>Profily ICC by vždy měly být přiřazeny ke všem barvám. Pro nedefinované barvy mohou uživatelé nastavit různé výchozí profily ICC v nastaveních Oyranosu.</para>
-    <sect2>
-      <title>Editace XYZ</title>
-      <para>Preferovaný barvový prostor editace XYZ by měl popisovat CIE*XYZ.</para>
-    </sect2>
-    <sect2>
-      <title>Editace Lab</title>
-      <para>Preferovaný barvový prostor editace CIE*Lab by měl popisovat CIE*Lab.</para>
-    </sect2>
-    <sect2>
-      <title>Editace RGB</title>
-      <para>Preferovaný barvový prostor editace RGB by měl popisovat dobře se chovající barvový prostor jako např. sRGB.</para>
-    </sect2>
-    <sect2>
-      <title>Editace CMYK</title>
-      <para>Preferovaný barvový prostor editace CMYK by měl popisovat barvový prostor, který je kompatibilní s dobře definovaným standardem jako např. FOGRA či SWOP.</para>
-    </sect2>
-    <sect2>
-      <title>Editace v šedi</title>
-      <para>Preferovaný barvový prostor editace v šedi by měl popisovat barvový prostor s jedním kanálem jasu pro monochromatické obrázky.</para>
-    </sect2>
-    <sect2>
-      <title>Předpokládaný vstupní XYZ</title>
-      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu XYZ a definuje barvy pro další zpracování.</para>
-    </sect2>
-    <sect2>
-      <title>Předpokládaný vstupní Lab</title>
-      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu CIE*Lab a definuje barvy pro další zpracování.</para>
-    </sect2>
-    <sect2>
-      <title>Předpokládaný vstupní RGB</title>
-      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám RGB a definuje barvy pro další zpracování.</para>
-    </sect2>
-    <sect2>
-      <title>Předpokládaný vstupní Web</title>
-      <para>Přiřadí tento barvový prostor neoznačenému obrázku RGB pocházejícího z WWW. Toto bude vždy sRGB dle definice W3C.</para>
-    </sect2>
-    <sect2>
-      <title>Předpokládaný vstupní CMYK</title>
-      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám CMYK a definuje barvy pro další zpracování.</para>
-    </sect2>
-    <sect2>
-      <title>Předpokládaný pr. vstup. šedi</title>
-      <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu Gray (šeď) a definuje odstíny pro další zpracování.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Editace XYZ</guilabel></term> <listitem>
+    <para>Preferovaný barvový prostor editace XYZ by měl popisovat CIE*XYZ.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editace Lab</guilabel></term> <listitem>
+    <para>Preferovaný barvový prostor editace CIE*Lab by měl popisovat CIE*Lab.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editace RGB</guilabel></term> <listitem>
+    <para>Preferovaný barvový prostor editace RGB by měl popisovat dobře se chovající barvový prostor jako např. sRGB.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editace CMYK</guilabel></term> <listitem>
+    <para>Preferovaný barvový prostor editace CMYK by měl popisovat barvový prostor, který je kompatibilní s dobře definovaným standardem jako např. FOGRA či SWOP.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editace v šedi</guilabel></term> <listitem>
+    <para>Preferovaný barvový prostor editace v šedi by měl popisovat barvový prostor s jedním kanálem jasu pro monochromatické obrázky.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Předpokládaný vstupní XYZ</guilabel></term> <listitem>
+    <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu XYZ a definuje barvy pro další zpracování.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Předpokládaný vstupní Lab</guilabel></term> <listitem>
+    <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu CIE*Lab a definuje barvy pro další zpracování.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Předpokládaný vstupní RGB</guilabel></term> <listitem>
+    <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám RGB a definuje barvy pro další zpracování.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Předpokládaný vstupní Web</guilabel></term> <listitem>
+    <para>Přiřadí tento barvový prostor neoznačenému obrázku RGB pocházejícího z WWW. Toto bude vždy sRGB dle definice W3C.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Předpokládaný vstupní CMYK</guilabel></term> <listitem>
+    <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám CMYK a definuje barvy pro další zpracování.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Předpokládaný pr. vstup. šedi</guilabel></term> <listitem>
+    <para>Vybraný barvový prostor bude přiřazen k neoznačeným barvám modelu Gray (šeď) a definuje odstíny pro další zpracování.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Transformace</title>
           <para>Transformace mezi barvovými prostory rozdílných tvarů a velikostí lze provádět různými způsoby. Perceptuální záměr transformace je obvykle nejlepší volbou pro fotografie a umělecké obrazy. Používá se v mnoha automatizovaných systémech. Relativní kolorimetrický záměr poskytuje dobře definovaný standard, mapování barev jedna-k-jedné spolu s adaptací bílého bodu. To může vést k "oříznutí" barev mimo cílový gamut, což je cena za jinak kolorimetrickou přesnost. Relativní kolorimetrický záměr se často používá spolu s kompenzací černého bodu. Záměr dle saturace má poskytnout optimální využití sytých barev zařízení. Absolutní kolorimetrický záměr transformace funguje stejně jako relativní kolorimetrický záměr s tím rozdílem, že bílý bod není přizpůsoben (zůstává zachován). Všechny záměry transformace kromě těch kolorimetrických závisejí na tabulkách mapování barev vložených do profilu ICC jejich tvůrcem.</para>
-    <sect2>
-      <title>Záměr transformace</title>
-      <para>Záměr pro transformace mezi různými barvovými prostory se obvykle volí relativní kolorimetrický vč. kompenzace černého bodu nebo perceptuální.</para>
-    </sect2>
-    <sect2>
-      <title>Použít kompenzaci černého bodu (BPC)</title>
-      <para>BPC ovlivňuje pouze relativní kolorimetrický záměr transformace.</para>
-    </sect2>
-    <sect2>
-      <title>Varování gamutu</title>
-      <para>Většina uživatelů nemá potřebu kontrolovat, zda se jednotlivé barvy vejdou do barvového prostoru simulace.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Záměr transformace</guilabel></term> <listitem>
+    <para>Záměr pro transformace mezi různými barvovými prostory se obvykle volí relativní kolorimetrický vč. kompenzace černého bodu nebo perceptuální.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Použít kompenzaci černého bodu (BPC)</guilabel></term> <listitem>
+    <para>BPC ovlivňuje pouze relativní kolorimetrický záměr transformace.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Varování gamutu</guilabel></term> <listitem>
+    <para>Většina uživatelů nemá potřebu kontrolovat, zda se jednotlivé barvy vejdou do barvového prostoru simulace.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Uložit dokumenty se smíšenými barvovými prostory</title>
           <para>Smíšené barvové prostory v rámci jednoho dokumentu mohou být pro některé systémy obtížně zpracovatelné. Je možné nastavit preferenci pro převod do jediného prostoru barev.</para>
-    <sect2>
-      <title>Pro obrazovku</title>
-      <para>Zacházení se smíšenými barvovými prostory při přípravě dokumentu pro výstup na obrazovku. Většina uživatelů použije transformaci do sRGB (vhodné pro snadnou výměnu dat).</para>
-    </sect2>
-    <sect2>
-      <title>Pro tisk</title>
-      <para>Zacházení se smíšenými barvovými prostory při přípravě dokumentu pro tiskový výstup. Většina uživatelů použije transformaci do barvového prostoru pro editaci.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Pro obrazovku</guilabel></term> <listitem>
+    <para>Zacházení se smíšenými barvovými prostory při přípravě dokumentu pro výstup na obrazovku. Většina uživatelů použije transformaci do sRGB (vhodné pro snadnou výměnu dat).</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Pro tisk</guilabel></term> <listitem>
+    <para>Zacházení se smíšenými barvovými prostory při přípravě dokumentu pro tiskový výstup. Většina uživatelů použije transformaci do barvového prostoru pro editaci.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Nesoulad</title>
           <para>Rozhodnout co dělat, když se vstupní barvový prostor nerovná aktuálnímu nastavení.</para>
-    <sect2>
-      <title>Žádný profil obrázku</title>
-      <para>Toto nastavení rozhoduje, co se má dělat v případě, že barvy nemají přiřazen žádný barvový prostor. Obvykle by měl být přiřazen příslušný předpokládaný profil ICC.</para>
-    </sect2>
-    <sect2>
-      <title>V případě nesouladu RGB</title>
-      <para>Vstupní barvové prostory se mohou lišit od výchozího prostoru pro editaci. Pro většinu uživatelů je vhodná automatická transformace. Avšak pro náročnější práci může být vhodné zachovat hodnoty barev.</para>
-    </sect2>
-    <sect2>
-      <title>V případě nesouladu CMYK</title>
-      <para>Vstupní barvové prostory se mohou lišit od výchozího prostoru pro editaci. Pro většinu uživatelů je vhodná automatická transformace. Avšak pro náročnější práci může být vhodné zachovat hodnoty barev.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Žádný profil obrázku</guilabel></term> <listitem>
+    <para>Toto nastavení rozhoduje, co se má dělat v případě, že barvy nemají přiřazen žádný barvový prostor. Obvykle by měl být přiřazen příslušný předpokládaný profil ICC.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>V případě nesouladu RGB</guilabel></term> <listitem>
+    <para>Vstupní barvové prostory se mohou lišit od výchozího prostoru pro editaci. Pro většinu uživatelů je vhodná automatická transformace. Avšak pro náročnější práci může být vhodné zachovat hodnoty barev.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>V případě nesouladu CMYK</guilabel></term> <listitem>
+    <para>Vstupní barvové prostory se mohou lišit od výchozího prostoru pro editaci. Pro většinu uživatelů je vhodná automatická transformace. Avšak pro náročnější práci může být vhodné zachovat hodnoty barev.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Simulace</title>
           <para>Nastavení simulace umožňují stanovit barvový prostor pro napodobení jiného zařízení.</para>
-    <sect2>
-      <title>Simulace</title>
-      <para>Zvolte barvový profil charakterizující zařízení, které má být simulováno. Tento profil bude použit pouze v případě použití funkce simulace.</para>
-    </sect2>
-    <sect2>
-      <title>Záměr transformace pro simulaci</title>
-      <para>Způsob transformace barev pro simulaci. Většina uživatelů použije funkci simulace pouze na obrazovce, pro což se hodí relativní kolorimetrický záměr. Absolutní kolorimetrický záměr přepodkládá velmi pečlivou charakterizaci zařízení a komplikované nastavení, nicméně umožňuje porovnání barev "vedle sebe" (např. na monitoru a výtisku).</para>
-    </sect2>
-    <sect2>
-      <title>SofProof</title>
-      <para>Umožnit simulaci tiskového výstupu na monitoru. Většina uživatelů nepracuje s preferencí konkrétního média (papíru, inkoustu) a ponechá zpracování na systému. Tzn., že nepotřebují simulaci.</para>
-    </sect2>
-    <sect2>
-      <title>Hardproof</title>
-      <para>Umožní simulaci výstupního barvového profilu na místní tiskárně. Většina uživatelů nepracuje se záměrem výstupu na konkrétním médiu a proto ponechává správu barev na systému. Tzn., že nepotřebují použít tuto simulaci.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Simulace</guilabel></term> <listitem>
+    <para>Zvolte barvový profil charakterizující zařízení, které má být simulováno. Tento profil bude použit pouze v případě použití funkce simulace.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Záměr transformace pro simulaci</guilabel></term> <listitem>
+    <para>Způsob transformace barev pro simulaci. Většina uživatelů použije funkci simulace pouze na obrazovce, pro což se hodí relativní kolorimetrický záměr. Absolutní kolorimetrický záměr přepodkládá velmi pečlivou charakterizaci zařízení a komplikované nastavení, nicméně umožňuje porovnání barev "vedle sebe" (např. na monitoru a výtisku).</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>SofProof</guilabel></term> <listitem>
+    <para>Umožnit simulaci tiskového výstupu na monitoru. Většina uživatelů nepracuje s preferencí konkrétního média (papíru, inkoustu) a ponechá zpracování na systému. Tzn., že nepotřebují simulaci.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Hardproof</guilabel></term> <listitem>
+    <para>Umožní simulaci výstupního barvového profilu na místní tiskárně. Většina uživatelů nepracuje se záměrem výstupu na konkrétním médiu a proto ponechává správu barev na systému. Tzn., že nepotřebují použít tuto simulaci.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Effect</title>
           <para>Effect Settings allows one to decide about a abstract effect color space.</para>
-    <sect2>
-      <title>Effect</title>
-      <para>Select a color profile for adding a effect.</para>
-    </sect2>
-    <sect2>
-      <title>Use Effect</title>
-      <para>Switch for enabling the effect profile.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Effect</guilabel></term> <listitem>
+    <para>Select a color profile for adding a effect.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Use Effect</guilabel></term> <listitem>
+    <para>Switch for enabling the effect profile.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
       </article>

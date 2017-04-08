@@ -67,125 +67,125 @@ Oyranos allowes detailed settings like preferred editing color spaces and the be
         <sect1>
           <title>Default Profiles</title>
           <para>ICC profiles should always be attached to all colors. In the case that colors are undefined, users can set various default ICC profiles in Oyranos settings.</para>
-    <sect2>
-      <title>Editing XYZ</title>
-      <para>The preferred XYZ Editing Color Space shall describe CIE*XYZ.</para>
-    </sect2>
-    <sect2>
-      <title>Editing Lab</title>
-      <para>The preferred CIE*Lab Editing Color Space shall describe the CIE*Lab.</para>
-    </sect2>
-    <sect2>
-      <title>Editing Rgb</title>
-      <para>The preferred Rgb Editing Color Space should represent a well behaving color space like sRGB.</para>
-    </sect2>
-    <sect2>
-      <title>Editing Cmyk</title>
-      <para>The preferred Cmyk Editing Color Space should represent a color space that complies to well defined printing conditions like FOGRA or SWOP.</para>
-    </sect2>
-    <sect2>
-      <title>Editing Gray</title>
-      <para>The preferred Gray Editing Color Space shall describe a single lightness channel color space for grayscale images.</para>
-    </sect2>
-    <sect2>
-      <title>Assumed XYZ source</title>
-      <para>The selected color space will be assigned to untagged XYZ color content and define colors for further processing.</para>
-    </sect2>
-    <sect2>
-      <title>Assumed Lab source</title>
-      <para>The selected color space will be assigned to untagged CIE*Lab color content and define colors for further processing.</para>
-    </sect2>
-    <sect2>
-      <title>Assumed Rgb source</title>
-      <para>The selected color space will be assigned to untagged Rgb color content and define colors for further processing. Typical sRGB should be assumed.</para>
-    </sect2>
-    <sect2>
-      <title>Assumed Web source</title>
-      <para>Assigns an untagged Rgb Image with source from the WWW this color space. This will always be sRGB as defined by W3C.</para>
-    </sect2>
-    <sect2>
-      <title>Assumed Cmyk source</title>
-      <para>The selected color space will be assigned to untagged Cmyk color content and define colors for further processing.</para>
-    </sect2>
-    <sect2>
-      <title>Assumed Gray source</title>
-      <para>The selected color space will be assigned to untagged Gray color content and define colors for further processing.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Editing XYZ</guilabel></term> <listitem>
+    <para>The preferred XYZ Editing Color Space shall describe CIE*XYZ.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editing Lab</guilabel></term> <listitem>
+    <para>The preferred CIE*Lab Editing Color Space shall describe the CIE*Lab.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editing Rgb</guilabel></term> <listitem>
+    <para>The preferred Rgb Editing Color Space should represent a well behaving color space like sRGB.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editing Cmyk</guilabel></term> <listitem>
+    <para>The preferred Cmyk Editing Color Space should represent a color space that complies to well defined printing conditions like FOGRA or SWOP.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Editing Gray</guilabel></term> <listitem>
+    <para>The preferred Gray Editing Color Space shall describe a single lightness channel color space for grayscale images.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Assumed XYZ source</guilabel></term> <listitem>
+    <para>The selected color space will be assigned to untagged XYZ color content and define colors for further processing.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Assumed Lab source</guilabel></term> <listitem>
+    <para>The selected color space will be assigned to untagged CIE*Lab color content and define colors for further processing.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Assumed Rgb source</guilabel></term> <listitem>
+    <para>The selected color space will be assigned to untagged Rgb color content and define colors for further processing. Typical sRGB should be assumed.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Assumed Web source</guilabel></term> <listitem>
+    <para>Assigns an untagged Rgb Image with source from the WWW this color space. This will always be sRGB as defined by W3C.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Assumed Cmyk source</guilabel></term> <listitem>
+    <para>The selected color space will be assigned to untagged Cmyk color content and define colors for further processing.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Assumed Gray source</guilabel></term> <listitem>
+    <para>The selected color space will be assigned to untagged Gray color content and define colors for further processing.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Rendering</title>
           <para>The conversion between color spaces of different shape and size can happen in various ways. The Perceptual rendering intent is usually the best choice for photographs and artistic imagery. It is used in many automatic systems. The Relative Colorimetric rendering intent provides a well-defined standard, one-to-one color mapping, but without applying white point adaption. This can lead to color clipping in case of colors falling outside the target gamut as a price for the otherwise colorimetric correctness. The Relative Colorimetric intent is often used in combination with Black Point Compensation. The Saturation rendering intent shall provide an optimal use of saturated device colors. The Absolute Colorimetric rendering intent works like the relative colorimetric one except the white point is adapted. All rendering intents beside the colorimetric ones rely on the color tables designed by the profile vendor.</para>
-    <sect2>
-      <title>Rendering Intent</title>
-      <para>Rendering intent for color space transformations is typically the Relative Colorimetric intent plus Black Point Compensation or the Perceptual intent.</para>
-    </sect2>
-    <sect2>
-      <title>Use Black Point Compensation</title>
-      <para>BPC affects often only the Relative Colorimetric Rendering intent.</para>
-    </sect2>
-    <sect2>
-      <title>Gamut Warning</title>
-      <para>Most users want a simple display of colors and will not check if colors match the simulation color space.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Rendering Intent</guilabel></term> <listitem>
+    <para>Rendering intent for color space transformations is typically the Relative Colorimetric intent plus Black Point Compensation or the Perceptual intent.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Use Black Point Compensation</guilabel></term> <listitem>
+    <para>BPC affects often only the Relative Colorimetric Rendering intent.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Gamut Warning</guilabel></term> <listitem>
+    <para>Most users want a simple display of colors and will not check if colors match the simulation color space.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Save Mixed Color Space Documents</title>
           <para>Mixed color spaces inside one single document can be difficult to handle for some systems. The settings can give the option to flatten document color spaces.</para>
-    <sect2>
-      <title>For Screen</title>
-      <para>Handle mixed color spaces in preparing a document for screen output. A conversion to sRGB helps in easy data exchange and is what most users want.</para>
-    </sect2>
-    <sect2>
-      <title>For Print</title>
-      <para>Handle mixed color spaces in preparing a document for print output. A conversion to the default editing color space is typically what most users want.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>For Screen</guilabel></term> <listitem>
+    <para>Handle mixed color spaces in preparing a document for screen output. A conversion to sRGB helps in easy data exchange and is what most users want.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>For Print</guilabel></term> <listitem>
+    <para>Handle mixed color spaces in preparing a document for print output. A conversion to the default editing color space is typically what most users want.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Mismatching</title>
           <para>Decide how to resolve conflicts with input color spaces and current settings.</para>
-    <sect2>
-      <title>No Image profile</title>
-      <para>This setting decides what to do in the case that colors have no color space assigned. Typically the according assumed ICC profile should be assigned.</para>
-    </sect2>
-    <sect2>
-      <title>On Rgb Mismatch</title>
-      <para>Incoming color spaces can differ from the default editing color space. For most users, an automatic conversion is fine. However, for more demanding work, the numbers need to be preserved.</para>
-    </sect2>
-    <sect2>
-      <title>On Cmyk Mismatch</title>
-      <para>Incoming color spaces can differ from the default editing color space. For most users, an automatic conversion is fine. However, for more demanding work, the numbers need to be preserved.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>No Image profile</guilabel></term> <listitem>
+    <para>This setting decides what to do in the case that colors have no color space assigned. Typically the according assumed ICC profile should be assigned.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>On Rgb Mismatch</guilabel></term> <listitem>
+    <para>Incoming color spaces can differ from the default editing color space. For most users, an automatic conversion is fine. However, for more demanding work, the numbers need to be preserved.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>On Cmyk Mismatch</guilabel></term> <listitem>
+    <para>Incoming color spaces can differ from the default editing color space. For most users, an automatic conversion is fine. However, for more demanding work, the numbers need to be preserved.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Proofing</title>
           <para>Proofing Settings allows one to decide about the simulation color space.</para>
-    <sect2>
-      <title>Proofing</title>
-      <para>Select a color profile representing a device to be simulated. This profile will only be applied if proofing is enabled.</para>
-    </sect2>
-    <sect2>
-      <title>Proofing Rendering Intent</title>
-      <para>Behaviour of color space transformation for proofing. Most people want a preview on screen only. The Relative Colorimetric intent is right for that. The Absolute Colorimetric intent needs a very careful profiling and non-trivial setup, but allows for side-by-side comparisons.</para>
-    </sect2>
-    <sect2>
-      <title>SoftProof</title>
-      <para>Enable simulation of output print on the monitor. Most users do not work for a certain media and leave color handling to the system. They want no simulation.</para>
-    </sect2>
-    <sect2>
-      <title>Hardproof</title>
-      <para>Enable simulation of an output color space on a local printer. Most users do not work for a certain media and leave color handling to the system. They want no simulation.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Proofing</guilabel></term> <listitem>
+    <para>Select a color profile representing a device to be simulated. This profile will only be applied if proofing is enabled.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Proofing Rendering Intent</guilabel></term> <listitem>
+    <para>Behaviour of color space transformation for proofing. Most people want a preview on screen only. The Relative Colorimetric intent is right for that. The Absolute Colorimetric intent needs a very careful profiling and non-trivial setup, but allows for side-by-side comparisons.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>SoftProof</guilabel></term> <listitem>
+    <para>Enable simulation of output print on the monitor. Most users do not work for a certain media and leave color handling to the system. They want no simulation.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Hardproof</guilabel></term> <listitem>
+    <para>Enable simulation of an output color space on a local printer. Most users do not work for a certain media and leave color handling to the system. They want no simulation.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
         <sect1>
           <title>Effect</title>
           <para>Effect Settings allows one to decide about a abstract effect color space.</para>
-    <sect2>
-      <title>Effect</title>
-      <para>Select a color profile for adding a effect.</para>
-    </sect2>
-    <sect2>
-      <title>Use Effect</title>
-      <para>Switch for enabling the effect profile.</para>
-    </sect2>
+    <variablelist><varlistentry><term>
+    <guilabel>Effect</guilabel></term> <listitem>
+    <para>Select a color profile for adding a effect.</para>
+    </listitem></varlistentry></variablelist>
+    <variablelist><varlistentry><term>
+    <guilabel>Use Effect</guilabel></term> <listitem>
+    <para>Switch for enabling the effect profile.</para>
+    </listitem></varlistentry></variablelist>
         </sect1>
       </article>
