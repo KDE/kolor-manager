@@ -1,12 +1,19 @@
 [Desktop Entry]
 Name=Device settings for Color Management
+Name[ca]=Ajustaments del dispositiu per a la gestió del color
+Name[nl]=Apparaatinstellingen voor kleurbeheer
+Name[pt]=Configuração do dispositivo de Gestão de Cores
+Name[sl]=Nastavitve naprav za upravljanje barv
+Name[sv]=Enhetsinställningar för färghantering
+Name[uk]=Параметри пристроїв для керування кольорами
+Name[x-test]=xxDevice settings for Color Managementxx
 Comment=Device settings for Color Management
 Comment[bs]=Postavke uređaja za upravljanje bojama
 Comment[ca]=Ajustaments del dispositiu per a la gestió del color
 Comment[ca@valencia]=Ajustaments del dispositiu per a la gestió del color
 Comment[cs]=Nastavení zařízení pro správu barev
 Comment[da]=Enhedsindstillinger for farvehåndtering
-Comment[de]=Farbmanagementeinstellungen für Geräte
+Comment[de]=Geräte-Einstellungen für Farbverwaltung
 Comment[el]=Ρυθμίσεις συσκευών για διαχείριση χρώματος
 Comment[en_GB]=Device settings for Colour Management
 Comment[es]=Preferencias del dispositivo para la gestión de color
