@@ -1,5 +1,11 @@
 [Desktop Entry]
 Name=ICC Profile Information
+Name[ca]=Informació del perfil ICC
+Name[ca@valencia]=Informació del perfil ICC
+Name[nl]=ICC-profielinformatie
+Name[pt]=Informação do Perfil ICC
+Name[uk]=Дані щодо профілю ICC
+Name[x-test]=xxICC Profile Informationxx
 Comment=Display ICC-specific Profile Information
 Comment[bs]=Prikaži ICC-specifične informacije profila
 Comment[ca]=Mostra la informació del perfil específica d'ICC
