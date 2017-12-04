@@ -1,9 +1,6 @@
 set(kminfo_PART_SRCS
       kminfo.cpp
       )
-SET(kminfo_RCCS
-      icons.qrc
-      )
 
 QT5_ADD_RESOURCES(kcm_kminfo_RCC_SRCS ${kminfo_RCCS})
 ADD_LIBRARY( kcm_kminfo MODULE ${kminfo_PART_SRCS} ${kminfo_RCC_SRCS} )

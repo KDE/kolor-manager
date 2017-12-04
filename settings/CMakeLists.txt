@@ -3,9 +3,6 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_BINARY_DIR})
 SET(kmsettings_PART_SRCS
       kmsettings.cpp
       )
-SET(kmsettings_RCCS
-      icons.qrc
-      )
 
 QT5_ADD_RESOURCES(kcm_kmsettings_RCC_SRCS ${kmsettings_RCCS})
 ADD_LIBRARY( kcm_kmsettings MODULE ${kmsettings_PART_SRCS} )

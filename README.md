@@ -41,7 +41,6 @@ The following files are installed under each module directory.  They are shown h
 MODULE.cpp (source code)
 MODULE.h (header)
 MODULE.ui (Qt Designer file)
-icons.qrc (resource file for icons in 'kmdevices' and 'kminfo')
 ui_MODULE.h (Qt designer header file - for hand coding purposes)
 CMakeLists.txt (build instructions for each module)
 

@@ -1,7 +1,0 @@
-<RCC>
-  <qresource prefix="/resources" >
-    <file alias="printer.png">resources/printer.png</file>
-    <file alias="monitor.png">resources/monitor.png</file>
-    <file alias="scanner.png">resources/scanner.png</file>
-  </qresource>
-</RCC>
