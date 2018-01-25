@@ -155,7 +155,7 @@ void ColorContext::setupColorLookupTable(bool advanced)
             oyProfile_Release(&dummyProfile);
         return;
     }
-    error = oyConversion_Correct(conversion, "//"OY_TYPE_STD"/icc", flags, options);
+    error = oyConversion_Correct(conversion, "//"OY_TYPE_STD"/icc_color", flags, options);
     if (error > 0) {
         kWarning() << "Failed to correct conversion for" << m_outputName << "flags" << flags;
         if (dummyProfile)
