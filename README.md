@@ -73,8 +73,7 @@ CMakeLists.txt (build instructions for each module)
 ### list modules
     qdbus org.kde.kded5 /kded org.kde.kded5.loadedModules
 ### restart kded (omit kdeinit5_wrapper to see LD_LIBRARY_PATH)
-    kquitapp kded5; sleep 1s; kdeinit5_wrapper kded5
-    kquitapp kded5; sleep 1s; QT_LOGGING_RULES="kolorserver.debug=true" kded5
+    kquitapp kded; QT_LOGGING_RULES="kolorserver.debug=true" kded5
     # kdebugdialog --fullmode   might be useful
 ### unload kolorserver
     qdbus org.kde.kded /kded unloadModule kolorserver
