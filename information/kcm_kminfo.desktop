@@ -23,6 +23,7 @@ Name[sv]=ICC-profilinformation
 Name[tr]=ICC Profil Bilgileri
 Name[uk]=Дані щодо профілю ICC
 Name[x-test]=xxICC Profile Informationxx
+Name[zh_TW]=ICC 設定檔資訊
 Comment=Display ICC-specific Profile Information
 Comment[bs]=Prikaži ICC-specifične informacije profila
 Comment[ca]=Mostra la informació del perfil específica d'ICC
