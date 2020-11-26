@@ -1,5 +1,6 @@
 [Desktop Entry]
 Name=Device settings for Color Management
+Name[az]=Rəng İdarəetmə sistemi üçün cihaz ayarları
 Name[ca]=Ajustaments del dispositiu per a la gestió del color
 Name[ca@valencia]=Ajustaments del dispositiu per a la gestió del color
 Name[cs]=Nastavení zařízení pro správu barev
@@ -30,6 +31,7 @@ Name[x-test]=xxDevice settings for Color Managementxx
 Name[zh_CN]=色彩管理设备设置
 Name[zh_TW]=顏色管理的裝置設定
 Comment=Device settings for Color Management
+Comment[az]=Rəng İdarəetmə sistemi üçün cihaz ayarları
 Comment[bs]=Postavke uređaja za upravljanje bojama
 Comment[ca]=Ajustaments del dispositiu per a la gestió del color
 Comment[ca@valencia]=Ajustaments del dispositiu per a la gestió del color
