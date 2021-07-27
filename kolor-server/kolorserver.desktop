@@ -80,5 +80,5 @@ Comment[sv]=Tillåter program att kommunicera med färghanteringssystemet och im
 Comment[tr]=Uygulamalara renk yönetim sistemiyle iletişim kurmalarına izin verir ve X Renk Yönetim niteliğini uygular
 Comment[uk]=Дозволяє програмам обмінюватися даними з системою керування кольорами і реалізує специфікацію керування кольорами графічного сервера X
 Comment[x-test]=xxAllows applications to communicate with the color management system and implements the X Color Management specificationxx
-Comment[zh_CN]=实现 X 色彩管理标准，应用程序通过它与色彩管理系统通讯。
+Comment[zh_CN]=让应用程序能够与色彩管理系统建立联系，实现 X 的色彩管理规范。
 Comment[zh_TW]=允許應用程式與顏色管理系統聯繫，並實作 X 顏色管理規格
