@@ -1,0 +1,97 @@
+# Translation of kminfo to Norwegian Nynorsk
+#
+# Karl Ove Hufthammer <karl@huftis.org>, 2016.
+# Øystein Steffensen-Alværvik <oysteins.omsetting@protonmail.com>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2018-05-10 22:24+0100\n"
+"Last-Translator: Øystein Steffensen-Alværvik <ystein@posteo.net>\n"
+"Language-Team: Norwegian Nynorsk <l10n-no@lister.huftis.org>\n"
+"Language: nn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Karl Ove Hufthammer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "karl@huftis.org"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "KDE-versjon av Oyranos Synnefo"
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© 2008 Joseph Simon III"
+
+#: kminfo.cpp:61
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr "utviklar"
+
+#: kminfo.cpp:62
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt"
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"

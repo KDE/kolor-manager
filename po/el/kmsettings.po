@@ -1,0 +1,502 @@
+# kmsettings.po translation el
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stelios <sstavra@gmail.com>, 2012, 2015, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-10-14 15:48+0200\n"
+"Last-Translator: Stelios <sstavra@gmail.com>\n"
+"Language-Team: Greek <kde-i18n-el@kde.org>\n"
+"Language: el\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stelios"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "sstavra@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "KDE έκδοση του Oyranos Synnefo"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "προγραμματιστής"
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "Η ρυθμίσεις πολιτικής για το '%1' έχουν αλλάξει.\n"
+#~ "Θέλετε να τις αποθηκεύσετε;"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "Οι ρυθμίσεις πολιτικής έχουν τροποποιηθεί."
+
+#~ msgid "Add new policy"
+#~ msgstr "Προσθήκη νέας πολιτικής"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Εισαγάγετε ένα όνομα για τη νέα πολιτική:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "Το όνομα πολιτικής '%1' ήδη υπάρχει."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Αδυναμία προσθήκης πολιτικής."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Ενεργός πολιτική:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Ρυθμίσεις πολιτικής"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Αλλαγή της καθολικής χρωματικής πολιτικής:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Επιλέξτε από μια ομάδα προκαθορισμένων ή ορισμένων από το χρήστη "
+#~ "ρυθμίσεων πολιτικής που συντηρούν όλες τις ρυθμίσεις στον Kolor Manager.</"
+#~ "p>\n"
+#~ "<p>Οι τέσσερις «τυπικές» ρυθμίσεις είναι ως ακολούθως:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Γραφική σχεδίαση:</b> Χρήσιμη για ψηφιακή εικονογράφηση και "
+#~ "εργασία με εικόνες στον ιστό.</li>\n"
+#~ "<li><b>Κατοικία / Γραφείο:</b> Ρυθμίσεις που χρησιμεύουν για περιπτώσεις "
+#~ "της καθημερινότητας.</li>\n"
+#~ "<li><b>Φωτογραφία:</b> Βελτιστοποιημένη για εργασία σχετική με "
+#~ "φωτογράφηση.</li>\n"
+#~ "<li><b>Εκτυπωτής:</b> Ρυθμίσεις που χρησιμεύουν κυρίως για εκτύπωση/"
+#~ "δοκιμή εικόνων.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Προσθήκη προσαρμοσμένης πολιτικής"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Αφαίρεση προσαρμοσμένης πολιτικής"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Προκαθορισμένα προφίλ"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Επιλέξτε τα προκαθορισμένα <em>υποθετικά</em> προφίλ για καθέναν από "
+#~ "τους αντίστοιχους χρωματικούς χώρους.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Υποθετική πηγή RGB:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Υποθετική πηγή CMYK:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Υποθετική πηγή XYZ:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Υποθετική πηγή lab:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Υποθετική πηγή γκρι:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Πηγή ιστού:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (προκαθορισμένο)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Επιλέξτε τα προκαθορισμένα προφίλ <em>επεξεργασίας</em> για καθέναν "
+#~ "από τους αντίστοιχους χρωματικούς χώρους.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "Επεξεργασία RGB:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "Επεξεργασία CMYK:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "Επεξεργασία XYZ:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Επεξεργασία Lab:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Επεξεργασία γκρι:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Ρυθμίσεις συμπεριφοράς"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p>Οι ρυθμίσεις <b>χειρισμού δυσαρμονίας</b> επιτρέπουν το χειρισμό "
+#~ "διαφορετικών καταστάσεων για διαφορετικά προφίλ.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Χειρισμός δυσαρμονίας"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "Για μη-υφιστάμενα προφίλ"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "Για δυσαρμονία RGB"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "Για δυσαρμονία CMYK"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Να μη γίνει καταχώρηση προφίλ:</b> Να μη γίνει τίποτε για το "
+#~ "δυσανάλογο προφίλ (να μείνει ως έχει).</li>\n"
+#~ "<li><b>Να γίνει καταχώρηση υποθετικού προφίλ:</b> Να γίνει καταχώρηση "
+#~ "προφίλ.</li>\n"
+#~ "<li><b>Προτροπή χρήστη:</b> Να αποφασίσει ο χρήστης για την καταχώρηση ή "
+#~ "όχι του προφίλ.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "Να μη γίνει καταχώρηση προφίλ"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Να γίνει καταχώρηση υποθετικού προφίλ"
+
+#~ msgid "Prompt User"
+#~ msgstr "Προτροπή χρήστη"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Διατήρηση αριθμών:</b> Να επιτραπεί στο πηγαίο RGB προφίλ να "
+#~ "διατηρηθεί και χωρίς αλλαγές από τον προορισμό.</li>\n"
+#~ "<li><b>Αυτόματη μετατροπή:</b> Να γίνει μετατροπή του πηγαίου RGB προφίλ "
+#~ "στον προορισμό.</li>\n"
+#~ "<li><b>Προτροπή χρήστη:</b> Να επιτρέπεται στον χρήστη να επιλέξει ποια "
+#~ "μέθοδο θα χρησιμοποιήσει.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Διατήρηση αριθμών"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Αυτόματη μετατροπή"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Διατήρηση αριθμών:</b> Να επιτραπεί στο πηγαίο CMYK προφίλ να "
+#~ "διατηρηθεί και χωρίς αλλαγές από τον προορισμό.</li>\n"
+#~ "<li><b>Αυτόματη μετατροπή:</b> Να γίνει μετατροπή του πηγαίου CMYK προφίλ "
+#~ "στον προορισμό.</li>\n"
+#~ "<li><b>Προτροπή χρήστη:</b> Να επιτρέπεται στον χρήστη να επιλέξει ποια "
+#~ "μέθοδο θα χρησιμοποιήσει.</li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p>Οι <b>ρυθμίσεις μικτού χρωματικού χώρου</b> σας επιτρέπουν να "
+#~ "χειρίζεστε επιλογές δυσαρμονίας στον χρωματικό χώρο για την οθόνη και τον "
+#~ "εκτυπωτή σας.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Ρυθμίσεις μικτού χρωματικού χώρου"
+
+#~ msgid "For Screen"
+#~ msgstr "Για την οθόνη"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Διατήρηση αριθμών:</b> Να παραμείνει ο εκτός RGB χρωματικός χώρος "
+#~ "ως έχει (χωρίς μετατροπή).</li>\n"
+#~ "<li><b>Μετατροπή σε RGB χώρο για επεξεργασία:</b> Μετατροπή του εκτός RGB "
+#~ "χρωματικού χώρου στο χρωματικό χώρο που καταχωρήθηκε για επεξεργασία.</"
+#~ "li>\n"
+#~ "<li><b>Μετατροπή στον ιστό:</b> Μετατροπή του εκτός RGB χρωματικού χώρου "
+#~ "σε κατάλληλο για τον ιστό sRGB χρωματικό χώρο.</li>\n"
+#~ "<li><b>Προτροπή χρήστη:</b> Να επιτρέπεται στο χρήστη να επιλέγει την "
+#~ "κατάλληλη μέθοδο μετατροπής χρωματικού χώρου.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Μετατροπή σε RGB χώρο για επεξεργασία"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Μετατροπή στον ιστό"
+
+#~ msgid "Printer"
+#~ msgstr "Εκτυπωτής"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Διατήρηση αριθμών:</b> Να παραμείνει ο εκτός CMYK χρωματικός χώρος "
+#~ "ως έχει (χωρίς μετατροπή).</li>\n"
+#~ "<li><b>Μετατροπή σε CMYK για επεξεργασία:</b> Μετατροπή του εκτός CMYK "
+#~ "χρωματικού χώρου σε CMYK χρωματικό χώρο που καταχωρήθηκε για επεξεργασία."
+#~ "</li>\n"
+#~ "<li><b>Μετατροπή σε CMYK χωρίς ετικέτα:</b> Μετατροπή του χρωματικού "
+#~ "χώρου σε χρωματικό χώρο εκτός CMYK.</li>\n"
+#~ "<li><b>Προτροπή χρήστη:</b> Να επιτρέπεται στο χρήστη να επιλέγει την "
+#~ "κατάλληλη μέθοδο μετατροπής χρωματικού χώρου.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Μετατροπή σε CMYK για επεξεργασία"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Μετατροπή σε CMYK χωρίς ετικέτα"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p>Η <b>δοκιμή</b> θα σας επιτρέψει να τροποποιήσετε τις επιλογές "
+#~ "χρωματικών δοκιμών, που συμπεριλαμβάνουν χρωματικό χώρο, στοχευμένη "
+#~ "αποτύπωση και δοκιμή για πλήρες/απαλό.</b>"
+
+#~ msgid "Proofing"
+#~ msgstr "Δοκιμή"
+
+#~ msgid "Color Space:"
+#~ msgstr "Χρωματικός χώρος:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Επιλέξτε από μια λίστα προφίλ εφαρμόσιμων για δοκιμή."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Στοχευμένη αποτύπωση:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Σχετική χρωμομέτρηση:</b> Διαβαθμίζει το λευκό σημείο του φάσματος "
+#~ "πηγής στο λευκό σημείο του προορισμού.</li>\n"
+#~ "<li><b>Απόλυτη χρωμομέτρηση:</b> Διατηρεί τα εντός φάσματος χρώματα και "
+#~ "αποκόπτει τα εκτός φάσματος χρώματα στην πλησιέστερη απόχρωση.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Σχετική χρωμομέτρηση"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Απόλυτη χρωμομέτρηση"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Επιλέξτε <b>Απαλή δοκιμή</b> ως μέσο προεπισκόπησης της εξόδου του "
+#~ "χρώματος του εκτυπωτή στην οθόνη σας. (Κυρίως για ταίριασμα με μέσα "
+#~ "διαβιβάσεων.)</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Απαλή δοκιμή"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Επιλέξτε <b>Πλήρη δοκιμή</b> (ή ταίριασμα εκτύπωσης) για πλήρη "
+#~ "προσομοίωση χρωμάτων τα οποία ο εκτυπωτής θα χρησιμοποιεί μέσα από μια "
+#~ "ανακλαστική επιφάνεια.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Πλήρης δοκιμή"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p>Οι <b>ρυθμίσεις αποτύπωσης</b> σάς επιτρέπουν να αλλάξετε την καθολική "
+#~ "τιμή στοχευμένης αποτύπωσης.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Στοχευμένη αποτύπωση"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Αντιληπτική:</b> Διατηρεί τη συσχέτιση ανάμεσα σε εκτός φάσματος "
+#~ "χρώματα.</li>\n"
+#~ "<li><b>Σχετική χρωμομέτρηση:</b> Το λευκό σημείο του χρωματικού χώρου "
+#~ "πηγής αλλάζει με εκείνο του προορισμού.</li>\n"
+#~ "<li><b>Κορεσμός:</b> Διατηρεί τον ακριβή κορεσμό, ενώ τροποποιεί τις "
+#~ "χρωματικές αποχρώσεις.</li>\n"
+#~ "<li><b>Απόλυτη χρωμομέτρηση:</b> Το λευκό σημείο του χρωματικού χώρου "
+#~ "προορισμού θα γίνει το λευκό σημείο της πηγής.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Αντιληπτική"
+
+#~ msgid "Saturation"
+#~ msgstr "Κορεσμός"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "BlackPointCompensation"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Προειδοποίηση φάσματος"

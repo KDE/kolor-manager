@@ -1,0 +1,202 @@
+# Translation of kmdevices.po to Ukrainian
+# Copyright (C) 2012-2017 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmdevices\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-06 09:17+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: kmdevices.cpp:51
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Версія Oyranos Synnefo від KDE"
+
+#: kmdevices.cpp:53
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© Joseph Simon III, 2008"
+
+#: kmdevices.cpp:57
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
+#: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
+#: kmdevices.cpp:66 kmdevices.cpp:67
+#, kde-format
+msgid "developer"
+msgstr "розробник"
+
+#: kmdevices.cpp:58
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmdevices.cpp:59
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmdevices.cpp:61
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmdevices.cpp:62
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmdevices.cpp:63
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmdevices.cpp:64
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmdevices.cpp:65
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmdevices.cpp:66
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmdevices.cpp:67
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMDevices"
+#~ msgstr "KMDevices"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "© Joseph Simon III, 2008–2009"
+
+#~ msgid "You have not selected any device"
+#~ msgstr "Вами не позначено жодного пристрою"
+
+#~ msgid "(No Profile Installed)"
+#~ msgstr "(Не встановлено жодного профілю)"
+
+#~ msgid "Downloading Profile from Taxi DB ..."
+#~ msgstr "Доступні профілі пристроїв з бази даних Taxi…"
+
+#~ msgid "No valid profile obtained"
+#~ msgstr "Не вдалося отримати коректний профіль"
+
+#~ msgid "Profile already installed"
+#~ msgstr "Профіль вже встановлено"
+
+#~ msgid "User Path can not be written"
+#~ msgstr "Не вдалося записати дані до каталогу користувача"
+
+#~ msgid "Profile not useable"
+#~ msgstr "Профіль є непридатним для використання"
+
+#~ msgid "Internal error"
+#~ msgstr "Внутрішня помилка"
+
+#~ msgid "Profile has been installed"
+#~ msgstr "Профіль встановлено"
+
+#~ msgid "automatic"
+#~ msgstr "автоматично"
+
+#~ msgid "Looking for Device Profiles in Taxi DB ..."
+#~ msgstr "Пошук профілів пристроїв у базі даних Taxi…"
+
+#~ msgid "wrong device"
+#~ msgstr "помилковий пристрій"
+
+#~ msgid "You can select and install a profile"
+#~ msgstr "Ви можете позначити і встановити профіль"
+
+#~ msgid "Not found any profile for the selected device in Taxi DB"
+#~ msgstr ""
+#~ "У базі даних Taxi не знайдено жодного профілю для позначеного пристрою"
+
+#~ msgid "Available Device Profiles from Taxi DB"
+#~ msgstr "Доступні профілі пристроїв з бази даних Taxi"
+
+#~ msgid " Install selected profile"
+#~ msgstr " Встановити позначений профіль"
+
+#~ msgid "Detected Devices"
+#~ msgstr "Виявлені пристрої"
+
+#~ msgid "List of installed input/output devices and their default profiles."
+#~ msgstr ""
+#~ "Список встановлених пристроїв введення та виведення даних та відповідних "
+#~ "профілів."
+
+#~ msgid "Device Name"
+#~ msgstr "Назва пристрою"
+
+#~ msgid "Designation"
+#~ msgstr "Призначення"
+
+#~ msgid "Profile Description"
+#~ msgstr "Опис профілю"
+
+#~ msgid "Profile Filename"
+#~ msgstr "Назва файла профілю"
+
+#~ msgid "Available Device Profiles"
+#~ msgstr "Доступні профілі пристроїв"
+
+#~ msgid "Show only device related ICC profiles"
+#~ msgstr "Показати лише пов’язані з пристроєм профілі ICC"
+
+#~ msgid "Installs selected profile"
+#~ msgstr "Встановити позначений профіль"
+
+#~ msgid "Profile %1 is already associated with this device."
+#~ msgstr "З цим пристроєм вже пов’язано профіль %1."
+
+#~ msgid "Cannot add profile to list"
+#~ msgstr "Не вдалося додати профіль до списку"
+
+#~ msgid ""
+#~ "Oyranos DB entry:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Запис бази даних Oyranos:\n"
+#~ "%1"
+
+#~ msgid "Profiles Associated with Device"
+#~ msgstr "Профілі, пов’язані з пристроєм"
+
+#~ msgid ""
+#~ "Listing of all profiles that are associated with the selected device."
+#~ msgstr "Список всіх профілів, які пов’язано з позначеним пристроєм."

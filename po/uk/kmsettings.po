@@ -1,0 +1,505 @@
+# Translation of kmsettings.po to Ukrainian
+# Copyright (C) 2012-2017 This_file_is_part_of_KDE
+# This file is distributed under the license LGPL version 2.1 or
+# version 3 or later versions approved by the membership of KDE e.V.
+#
+# Yuri Chornoivan <yurchor@ukr.net>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-06 09:17+0300\n"
+"Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
+"Language-Team: Ukrainian <kde-i18n-uk@kde.org>\n"
+"Language: uk\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрій Чорноіван"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yurchor@ukr.net"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Версія Oyranos Synnefo від KDE"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© Joseph Simon III, 2008"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "розробник"
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "© Joseph Simon III, 2008–2009"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "Параметри правила «%1» було змінено.\n"
+#~ "Бажаєте зберегти зміни?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "Параметри правила було змінено."
+
+#~ msgid "Add new policy"
+#~ msgstr "Додавання нового правила"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Будь ласка, вкажіть назву нового правила:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "Правило з назвою «%1» вже існує."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Не вдалося додати правило."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Активне правило:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Параметри правил"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Змінити загальне правило кольорів:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Виберіть правило з групи стандартних або визначених користувачем "
+#~ "правил, якими керуватимуться всі параметри у керуванні кольорами.</p>\n"
+#~ "<p>Чотирма стандартними правилами є такі правила:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design (робота з графікою):</b> створено для роботи над "
+#~ "цифровими ілюстраціями та роботи з зображеннями, які будуть переглядатися "
+#~ "за допомогою інтернету.</li>\n"
+#~ "<li><b>Home / Office (домівка/офіс):</b> налаштування для звичайних "
+#~ "користувачів.</li>\n"
+#~ "<li><b>Photography (фотографія):</b> оптимізовано для роботи з "
+#~ "фотоматеріалами.</li>\n"
+#~ "<li><b>Printer (принтер):</b> параметри для друку сигнальних та "
+#~ "остаточних зображень.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Додати нетипове правило"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Вилучити нетипове правило"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Типові профілі"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Виберіть типові <em>припущення</em> щодо профілів для кожного з "
+#~ "просторів кольорів.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Припущення для RGB:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Припущення для CMYK:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Припущення для XYZ:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Припущення для Lab:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Припущення для відтінків сірого:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Інтернет-джерело:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (типовий)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Виберіть типові профілі <em>редагування</em> для кожного з просторів "
+#~ "кольорів.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "RGB для редагування:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "CMYK для редагування:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "XYZ для редагування:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Lab для редагування:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Відтінки сірого для редагування:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Параметри поведінки"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p>За допомогою пунктів панелі <b>Обробка невідповідностей</b> ви зможете "
+#~ "settings lets you manage different handling situations for differing "
+#~ "profiles.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Обробка невідповідностей"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "Для профілів, яких немає"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "Для невідповідностей RGB"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "Для невідповідностей CMYK"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Не призначати профіль:</b> не виконувати дій з обробки "
+#~ "невідповідностей (залишити все як є).</li>\n"
+#~ "<li><b>Призначити профіль припущення:</b> призначити профіль.</li>\n"
+#~ "<li><b>Запитати у користувача:</b> надати змогу користувачеві "
+#~ "визначитися, чи слід призначати профіль.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "Не призначати профілю"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Призначити профіль припущення"
+
+#~ msgid "Prompt User"
+#~ msgstr "Запитати у користувача"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Зберігати числові значення:</b> дозволити збереження початкового "
+#~ "профілю RGB, не змінювати його.</li>\n"
+#~ "<li><b>Автоматично перетворити:</b> перетворити початковий профіль RGB у "
+#~ "профіль призначення.</li>\n"
+#~ "<li><b>Запитати у користувача:</b> надати змогу користувачеві вибрати "
+#~ "спосіб обробки.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Зберігати числові значення"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Автоматично перетворити"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Зберігати числові значення:</b> дозволити збереження початкового "
+#~ "профілю CMYK, не змінювати його.</li>\n"
+#~ "<li><b>Автоматично перетворити:</b> перетворити початковий профіль CMYK у "
+#~ "профіль призначення.</li>\n"
+#~ "<li><b>Запитати у користувача:</b> надати змогу користувачеві вибрати "
+#~ "спосіб обробки.</li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p>За допомогою сторінки <b>Параметри змішування просторів кольорів</b> "
+#~ "ви зможете керувати обробкою невідповідностей між просторами кольорів для "
+#~ "вашого монітора і принтера.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Параметри змішування просторів кольорів"
+
+#~ msgid "For Screen"
+#~ msgstr "Для показу на екрані"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Зберігати числові значення:</b> дозволити збереження початкового "
+#~ "профілю RGB, не змінювати його.</li>\n"
+#~ "<li><b>Перетворити у простір RGB для редагування:</b> перетворити кольори "
+#~ "простору, що не збігається з RGB, на кольори призначеного простору для "
+#~ "редагування.</li>\n"
+#~ "<li><b>Перетворити на кольори інтернету:</b> перетворити кольори поза "
+#~ "простором RGB на кольори простору кольорів sRGB, призначеного для показу "
+#~ "даних у інтернеті.</li>\n"
+#~ "<li><b>Запитати у користувача:</b> надати змогу користувачеві вибрати "
+#~ "спосіб обробки.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Перетворити у простір RGB для редагування"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Перетворити на кольори інтернету"
+
+#~ msgid "Printer"
+#~ msgstr "Принтер"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Зберігати числові значення:</b> не змінювати кольори, які не "
+#~ "належать до простору CMYK (без перетворення).</li>\n"
+#~ "<li><b>Перетворити у простір CMYK для редагування:</b> перетворити всі "
+#~ "кольори поза простором кольорів CMYK на кольори призначеного для "
+#~ "редагування простору кольорів CMYK.</li>\n"
+#~ "<li><b>Перетворити у CMYK без міток:</b> перетворити простір кольорів на "
+#~ "простір, що не збігається з простором кольорів CMYK.</li>\n"
+#~ "<li><b>Запитати у користувача:</b> надати користувачеві змогу вибрати "
+#~ "потрібний спосіб перетворення просторів кольорів.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Перетворити у простір CMYK для редагування"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Перетворити у CMYK без міток"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p>За допомогою панелі <b>Проба кольорів</b> ви зможете змінити параметри "
+#~ "проби кольорів, зокрема простір кольорів, відтворення кольорів та "
+#~ "параметри контрольного відбитка та пробного зображення.</b>"
+
+#~ msgid "Proofing"
+#~ msgstr "Проба кольорів"
+
+#~ msgid "Color Space:"
+#~ msgstr "Простір кольорів:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Виберіть зі списку профіль для проби кольорів."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Відтворення кольорів:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Відносне колориметричне:</b> масштабувати точку білого палітри "
+#~ "початкового зображення у точку білого палітри призначення.</li>\n"
+#~ "<li><b>Абсолютне колориметричне:</b> зберегти кольори палітри, обрізати "
+#~ "кольори поза палітрою до найближчого кольору за відтінком.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Відносне колориметричне"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Абсолютне колориметричне"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Виберіть варіант <b>Пробне зображення</b> для попереднього перегляду "
+#~ "на екрані кольору зображення, яке буде надруковано на принтері.</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Пробне зображення"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Позначте пункт <b>Контрольна копія</b> (або пробний відбиток), щоб "
+#~ "виконати повну імітацію кольорів, які буде використано принтером для "
+#~ "друку на поверхні відбитка.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Контрольна копія"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Параметри відтворення</b> надають вам змогу змінити загальні "
+#~ "параметри відтворення кольорів.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Відтворення кольорів"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Придатне до сприйняття:</b> зберігає співвідношення між кольорами "
+#~ "поза палітрою.</li>\n"
+#~ "<li><b>Відносне колориметричне:</b> точку білого початкового простору "
+#~ "кольорів буде замінено на точку білого простору кольорів призначення.</"
+#~ "li>\n"
+#~ "<li><b>Насиченість:</b> точно зберегти насиченість кольорів, змінивши "
+#~ "відтінки.</li>\n"
+#~ "<li><b>Абсолютне колориметричне:</b> сумістити точку білого простору "
+#~ "кольорів призначення з точкою білого початкового простору кольорів.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Придатне до сприйняття"
+
+#~ msgid "Saturation"
+#~ msgstr "Насиченість"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "Компенсація точки чорного"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Попередження щодо гами"

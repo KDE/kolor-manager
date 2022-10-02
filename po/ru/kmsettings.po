@@ -1,0 +1,166 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Yuri Efremov <yur.arh@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2013-01-17 19:10+0400\n"
+"Last-Translator: Yuri Efremov <yur.arh@gmail.com>\n"
+"Language-Team: Russian <kde-russian@lists.kde.ru>\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 1.5\n"
+"Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
+"%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Environment: kde\n"
+"X-Accelerator-Marker: &\n"
+"X-Text-Markup: kde4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Юрий Ефремов"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "yur.arh@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© Joseph Simon III, 2008"
+
+#: kmsettings.cpp:59
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "© Joseph Simon III, 2008"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kmsettings.cpp:60
+#, fuzzy, kde-format
+#| msgid "2010-2013 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "© Kai-Uwe Behrmann, 2010–2013"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "© Joseph Simon III, 2008–2009"
+
+#, fuzzy
+#~| msgid "KMSettings"
+#~ msgid "Policy Settings"
+#~ msgstr "KMSettings"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "Редактирование RGB:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "Редактирование CMYK:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "Редактирование XYZ:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Редактирование Lab:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Редактирование оттенков серого:"
+
+#, fuzzy
+#~ msgid "Prompt User"
+#~ msgstr "Запрос параметров у пользователя"
+
+#~ msgid "Printer"
+#~ msgstr "Принтер"
+
+#, fuzzy
+#~| msgid "Editing CMYK:"
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Редактирование CMYK:"
+
+#~ msgid "Color Space:"
+#~ msgstr "Цветовое пространство:"
+
+#, fuzzy
+#~ msgid "Rendering Intent:"
+#~ msgstr "&Цветопередача:"
+
+#, fuzzy
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Относительная колориметрическая"
+
+#, fuzzy
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Абсолютная колориметрическая"
+
+#, fuzzy
+#~ msgid "Rendering Intent"
+#~ msgstr "Управление графикой"
+
+#, fuzzy
+#~ msgid "Perceptual"
+#~ msgstr "Воспринимаемая"
+
+#, fuzzy
+#~ msgid "Saturation"
+#~ msgstr "Насыщенность"

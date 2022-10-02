@@ -1,0 +1,175 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2020-01-23 15:51+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrej Mernik"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrejm@ubuntu.si"
+
+#: kmdevices.cpp:51
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Različica Oyranos Synnefo za KDE"
+
+#: kmdevices.cpp:53
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmdevices.cpp:57
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
+#: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
+#: kmdevices.cpp:66 kmdevices.cpp:67
+#, kde-format
+msgid "developer"
+msgstr "razvijalec"
+
+#: kmdevices.cpp:58
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmdevices.cpp:59
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmdevices.cpp:61
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmdevices.cpp:62
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmdevices.cpp:63
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmdevices.cpp:64
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmdevices.cpp:65
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmdevices.cpp:66
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmdevices.cpp:67
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMDevices"
+#~ msgstr "KMDevices"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "You have not selected any device"
+#~ msgstr "Niste izbrali nobene naprave"
+
+#~ msgid "(No Profile Installed)"
+#~ msgstr "(Ni nameščenih profilov)"
+
+#~ msgid "Downloading Profile from Taxi DB ..."
+#~ msgstr "Prejemanje profila iz Taxi DB ..."
+
+#~ msgid "No valid profile obtained"
+#~ msgstr "Prejet profil ni veljaven"
+
+#~ msgid "Profile already installed"
+#~ msgstr "Profil je že nameščen"
+
+#~ msgid "User Path can not be written"
+#~ msgstr "Uporabniška pot ni zapisljiva"
+
+#~ msgid "Profile not useable"
+#~ msgstr "Profil ni uporaben"
+
+#~ msgid "Internal error"
+#~ msgstr "Notranja napaka"
+
+#~ msgid "Profile has been installed"
+#~ msgstr "Profil je bil nameščen"
+
+#~ msgid "automatic"
+#~ msgstr "samodejno"
+
+#~ msgid "Looking for Device Profiles in Taxi DB ..."
+#~ msgstr "Pregledovanje za profili naprav v Taxi DB ..."
+
+#~ msgid "wrong device"
+#~ msgstr "napačna naprava"
+
+#~ msgid "You can select and install a profile"
+#~ msgstr "Profil lahko izberete in namestite"
+
+#~ msgid "Not found any profile for the selected device in Taxi DB"
+#~ msgstr "Za izbrano napravo ni bilo najdenega nobenega profila v Taxi DB"
+
+#~ msgid "Available Device Profiles from Taxi DB"
+#~ msgstr "Razpoložljivi profili naprav iz Taxi DB"
+
+#~ msgid " Install selected profile"
+#~ msgstr " Namesti izbran profil"
+
+#~ msgid "Detected Devices"
+#~ msgstr "Zaznane naprave"
+
+#~ msgid "List of installed input/output devices and their default profiles."
+#~ msgstr ""
+#~ "Seznam nameščenih vhodnih/izhodnih naprav in njihovih privzetih profilov."
+
+#~ msgid "Device Name"
+#~ msgstr "Ime naprave"
+
+#~ msgid "Designation"
+#~ msgstr "Naslov"
+
+#~ msgid "Profile Description"
+#~ msgstr "Opis profila"
+
+#~ msgid "Profile Filename"
+#~ msgstr "Ime datoteke profila"
+
+#~ msgid "Available Device Profiles"
+#~ msgstr "Razpoložljivi profili naprav"
+
+#~ msgid "Show only device related ICC profiles"
+#~ msgstr "Pokaži le profile ICC, ki so povezani z napravami"

@@ -1,0 +1,94 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the kolor-manager package.
+# Paolo Zamponi <zapaolo@email.it>, 2017.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-05-20 11:42+0100\n"
+"Last-Translator: Paolo Zamponi <zapaolo@email.it>\n"
+"Language-Team: Italian <kde-i18n-it@kde.org>\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Paolo Zamponi"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "zapaolo@email.it"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Versione KDE di Oyranos Synnefo"
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kminfo.cpp:61
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr "sviluppatore"
+
+#: kminfo.cpp:62
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"

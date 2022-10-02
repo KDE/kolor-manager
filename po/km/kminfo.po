@@ -1,0 +1,184 @@
+# translation of kminfo.po to Khmer
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kminfo\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2012-07-04 14:48+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer <support@khmeros.info>\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា​"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨ ដោយ Joseph Simon III"
+
+#: kminfo.cpp:61
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨ ដោយ Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kminfo.cpp:62
+#, fuzzy, kde-format
+#| msgid "2010 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០១០ ដោយ Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMInfo"
+#~ msgstr "KMInfo"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨-២០០៩ ដោយ Joseph Simon III"
+
+#~ msgid "in memory"
+#~ msgstr "នៅ​ក្នុង​អង្គចងចាំ"
+
+#~ msgid "Installed Profiles"
+#~ msgstr "ទម្រង់​ដែល​បាន​ដំឡើង"
+
+#~ msgid "Description"
+#~ msgstr "សេចក្ដីពណ៌នា"
+
+#~ msgid "Devices"
+#~ msgstr "ឧបករណ៍"
+
+#~ msgid "Editing Space"
+#~ msgstr "កែសម្រួល​ទំហំ"
+
+#~ msgid "Assumed Space"
+#~ msgstr "ទំហំ​ស្មាន"
+
+#~ msgid "ICCDescriptionLabel"
+#~ msgstr "ICCDescriptionLabel"
+
+#~ msgid "(Copyright not available)"
+#~ msgstr "(មិនមាន​ការ​រក្សាសិទ្ធិ​ទេ)"
+
+#~ msgid "Date Created:"
+#~ msgstr "កាលបរិច្ឆេទ​បានបង្កើត ៖"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Device Class:"
+#~ msgstr "ថ្នាក់​ឧបករណ៍ ៖"
+
+#~ msgid "Manufacturer:"
+#~ msgstr "ក្រុមហ៊ុន​ផលិត ៖"
+
+#~ msgid "Model:"
+#~ msgstr "គំរូ ៖"
+
+#~ msgid "ICC Version:"
+#~ msgstr "កំណែ ICC ៖"
+
+#~ msgid "Color Space:"
+#~ msgstr "ចន្លោះ​ពណ៌ ៖"
+
+#~ msgid "PCS Type:"
+#~ msgstr "ប្រភេទ PCS ៖"
+
+#, fuzzy
+#~| msgid "Analyze Profile Data"
+#~ msgid "Profile Path:"
+#~ msgstr "វិភាគ​ទិន្នន័យ​ទម្រង់"
+
+#~ msgid "---"
+#~ msgstr "---"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:11pt; "
+#~ "font-weight:600; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Profile Path:</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:11pt; "
+#~ "font-weight:600; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">ផ្លូវ​ទម្រង់ ៖</p></body></"
+#~ "html>"

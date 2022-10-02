@@ -1,0 +1,176 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2014-12-09 20:51+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Úr Balázs"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "urbalazs@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© Joseph Simon III, 2008."
+
+#: kmsettings.cpp:59
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "© Joseph Simon III, 2008."
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kmsettings.cpp:60
+#, fuzzy, kde-format
+#| msgid "2010-2014 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann, 2010-2014."
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "Joseph Simon III, 2008-2009."
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "A(z) „%1” házirend beállításai megváltoztak.\n"
+#~ "Szeretné elmenteni azokat?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "A házirend beállítások megváltoztak."
+
+#~ msgid "Add new policy"
+#~ msgstr "Új házirend hozzáadása"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Adjon nevet az új házirendnek:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "A(z) „%1” házirendnév már létezik."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Nem lehet hozzáadni a házirendet."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Aktív házirend:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Házirend beállítások"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "A globális szín házirend megváltoztatása:"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Egyéni házirend hozzáadása"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Egyéni házirend eltávolítása"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Alapértelmezett profilok"
+
+#~ msgid "Web Source:"
+#~ msgstr "Web forrás:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (alapértelmezett)"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Viselkedési beállítások"
+
+#~ msgid "Printer"
+#~ msgstr "Nyomtató"
+
+#~ msgid "Color Space:"
+#~ msgstr "Színtér:"
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Renderelési szándék:"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Relatív színmetrika"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Abszolút színmetrika"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Renderelési szándék"
+
+#~ msgid "Saturation"
+#~ msgstr "Telítettség"

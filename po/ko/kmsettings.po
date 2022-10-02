@@ -1,0 +1,171 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+# Shinjo Park <kde@peremen.name>, 2014, 2015, 2017, 2019.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2019-04-25 01:03+0200\n"
+"Last-Translator: Shinjo Park <kde@peremen.name>\n"
+"Language-Team: Korean <kde-kr@kde.org>\n"
+"Language: ko\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Lokalize 18.12.3\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "박신조"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kde@peremen.name"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Oyranos Synnefo의 KDE 버전"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "개발자"
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "'%1'의 정책 설정이 변경되었습니다.\n"
+#~ "저장하시겠습니까?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "정책 설정이 수정되었습니다."
+
+#~ msgid "Add new policy"
+#~ msgstr "새 정책 추가"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "새 정책의 이름을 입력하십시오:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "이름이 '%1'인 정책이 이미 존재합니다."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "정책을 추가할 수 없습니다."
+
+#~ msgid "Active Policy:"
+#~ msgstr "활성 정책:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "정책 설정"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "전역 색 정책 변경:"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "사용자 정의 정책 추가"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "사용자 정의 정책 삭제"
+
+#~ msgid "Default Profiles"
+#~ msgstr "기본 프로필"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr "<p>색 공간별 기본적으로 <em>간주되는</em> 프로필입니다.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "간주되는 RGB 원본:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "간주되는 CMYK 원본:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "간주되는 XYZ 원본:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "간주되는 Lab 원본:"
+
+#~ msgid "Printer"
+#~ msgstr "인쇄"
+
+#~ msgid "Color Space:"
+#~ msgstr "색 공간:"
+
+#, fuzzy
+#~ msgid "Saturation"
+#~ msgstr "선명도"

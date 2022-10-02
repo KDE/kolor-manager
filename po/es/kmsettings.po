@@ -1,0 +1,397 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Eloy Cuadra <ecuadra@eloihr.net>, 2012, 2014, 2016, 2017.
+# Aitor Morant <fromhell091@gmail.com>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-10 21:36+0200\n"
+"Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
+"Language-Team: Spanish <kde-l10n-es@kde.org>\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Eloy Cuadra"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ecuadra@eloihr.net"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Versión para KDE de Oyranos Synnefo"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "desarrollador"
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "La configuración de políticas para «%1» han cambiado.\n"
+#~ "¿Desea guardarlas?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "La configuración de políticas se ha modificado."
+
+#~ msgid "Add new policy"
+#~ msgstr "Añadir nueva política"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Por favor introduzca un nombre para la nueva política:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "La política llamada «%1» ya existe."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Incapaz de añadir la política."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Política activa:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Preferencias de la política"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Cambie la política de colores global:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Seleccione entre un grupo de políticas predefinidas o definidas por el "
+#~ "usuario que mantienen todos los ajustes en Kolor Manager.</p>\n"
+#~ "<p>Los cuatro ajustes «estándar» son los siguientes:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Diseño de gráficos:</b> Útil para ilustración digital y trabajo "
+#~ "con imágenes para la web. .</li>\n"
+#~ "<li><b>Hogar / Oficina:</b> Ajustes usados para el día a día.</li>\n"
+#~ "<li><b>Fotografía:</b> Optimizado para trabajo relacionado con la "
+#~ "fotografía.</li>\n"
+#~ "<li><b>Impresora:</b> Ajustes usados principalmente para imágenes a "
+#~ "imprimir/pruebas.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Añadir política personalizada"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Eliminar política personalizada"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Perfiles por omisión"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Seleccione el perfil <em>asumido</em> predeterminado para cada uno de "
+#~ "los espacios de color correspondientes.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Origen RGB asumido:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Origen CMYK asumido:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Origen XYZ asumido:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Origen Lab asumido:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Origen de escala de grises asumido:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Origen web:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (predeterminado)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Seleccione los perfiles de <em>edición</em> predeterminados para cada "
+#~ "uno de los espacios de color correspondientes.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "Editar RGB:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "Editar CMYK:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "Editar XYZ:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Edición de Lab:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Edición de escala de grises:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Preferencias del comportamiento"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p>Los ajustes de <b>gestión de desajuste</b> le permite gestionar "
+#~ "diferentes situaciones para diferentes perfiles.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Gestión del desajuste"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "Para un perfil inexistente"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "Para el desajuste RGB"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "Para el desajuste CMYK"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "No asignar perfil"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Asignar el perfil asumido"
+
+#~ msgid "Prompt User"
+#~ msgstr "Preguntar al usuario"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Preservar números"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Convertir automáticamente"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p><b>Ajustes del espacio de color  mixto</b> le permite gestionar las "
+#~ "opciones de los desajustes del espacio de color para su monitor e "
+#~ "impresora.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Configuración del espacio de color mixto"
+
+#~ msgid "For Screen"
+#~ msgstr "Para la pantalla"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Convertir a un espacio de edición RGB"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Convertir a web"
+
+#~ msgid "Printer"
+#~ msgstr "Impresora"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Convertir a CMYK editable"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Convertir a CMYK sin etiquetar"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p><b>Pruebas</b> le permitirá modificar las opciones de color de prueba, "
+#~ "incluyendo espacio de color, opciones de representación y prueba dura/"
+#~ "blanda.</b>"
+
+#~ msgid "Proofing"
+#~ msgstr "Pruebas"
+
+#~ msgid "Color Space:"
+#~ msgstr "Espacio de color:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Selecciona entre una lista de perfiles aplicables para probar."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Opciones de representación:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Colorimetría relativa:</b> Escala el punto blanco de la gama "
+#~ "original en el punto blanco del objetivo.</li>\n"
+#~ "<li><b>Colorimetría absoluta:</b> Mantinene los colores dentro de la "
+#~ "gama, y convierte los colores fuera de gama a los tonos más cercanos.</"
+#~ "li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Colorimetría relativa"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Colorimetría absoluta"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Seleccione <b>prueba blanda</b> como un medio para obtener la vista "
+#~ "previa en su monitor  la salida de los colores de la impresora. "
+#~ "(Principalmente para igualar los medios transmisivos.)</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Prueba blanda"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Comprobar <b>pruebas tangibles</b> (o impresión) para simular "
+#~ "completamente los colores que la impresora usará a través de una "
+#~ "superficie reflexivo.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Prueba dura"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Ajustes de representación</b> le permite cambiar las opciones de "
+#~ "procesamiento.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Opciones de representación"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptivo:</b> Mantiene la relación entre los colores fuera de "
+#~ "gama.</li>\n"
+#~ "<li><b>Colorimetría relativa:</b> El punto blanco del espacio de color "
+#~ "original se modifica en el destino.</li>\n"
+#~ "<li><b>Saturación:</b> Mantiene la saturación exacta, mientras modifica "
+#~ "los tonos del color.</li>\n"
+#~ "<li><b>Colorimetría absoluta:</b> El punto blanco del espacio de color "
+#~ "original se convierte en el punto blanco del destino.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Perceptivo"
+
+#~ msgid "Saturation"
+#~ msgstr "Saturación"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "BlackPointCompensation"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Advertencia gama"

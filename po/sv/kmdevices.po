@@ -1,0 +1,198 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-06 16:49+0100\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: kmdevices.cpp:51
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "KDE-version av Oyranos Synnefo"
+
+#: kmdevices.cpp:53
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© 2008 Joseph Simon III"
+
+#: kmdevices.cpp:57
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
+#: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
+#: kmdevices.cpp:66 kmdevices.cpp:67
+#, kde-format
+msgid "developer"
+msgstr "utvecklare"
+
+#: kmdevices.cpp:58
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmdevices.cpp:59
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmdevices.cpp:61
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmdevices.cpp:62
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmdevices.cpp:63
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmdevices.cpp:64
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmdevices.cpp:65
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmdevices.cpp:66
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmdevices.cpp:67
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMDevices"
+#~ msgstr "KM-enheter"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "You have not selected any device"
+#~ msgstr "Du har inte valt någon enhet"
+
+#~ msgid "(No Profile Installed)"
+#~ msgstr "(ingen profil installerad)"
+
+#~ msgid "Downloading Profile from Taxi DB ..."
+#~ msgstr "Laddar ner profil från Taxi-databasen..."
+
+#~ msgid "No valid profile obtained"
+#~ msgstr "Ingen giltig profil erhållen"
+
+#~ msgid "Profile already installed"
+#~ msgstr "Profil redan installerad"
+
+#~ msgid "User Path can not be written"
+#~ msgstr "Det går inte att skriva på användarsökvägen"
+
+#~ msgid "Profile not useable"
+#~ msgstr "Profilen är inte användbar"
+
+#~ msgid "Internal error"
+#~ msgstr "Internt fel"
+
+#~ msgid "Profile has been installed"
+#~ msgstr "Profilen har installerats"
+
+#~ msgid "automatic"
+#~ msgstr "automatisk"
+
+#~ msgid "Looking for Device Profiles in Taxi DB ..."
+#~ msgstr "Letar efter enhetsprofiler i Taxi-databasen..."
+
+#~ msgid "wrong device"
+#~ msgstr "fel enhet"
+
+#~ msgid "You can select and install a profile"
+#~ msgstr "Du kan markera och installera en profil"
+
+#~ msgid "Not found any profile for the selected device in Taxi DB"
+#~ msgstr "Hittade ingen profil för den valda enheten i Taxi-databasen"
+
+#~ msgid "Available Device Profiles from Taxi DB"
+#~ msgstr "Tillgängliga enhetsprofiler från Taxi-databasen"
+
+#~ msgid " Install selected profile"
+#~ msgstr " Installera vald profil"
+
+#~ msgid "Detected Devices"
+#~ msgstr "Detekterade enheter"
+
+#~ msgid "List of installed input/output devices and their default profiles."
+#~ msgstr ""
+#~ "Lista över alla installerade in- och utenheter och deras standardprofiler."
+
+#~ msgid "Device Name"
+#~ msgstr "Enhetsnamn"
+
+#~ msgid "Designation"
+#~ msgstr "Beteckning"
+
+#~ msgid "Profile Description"
+#~ msgstr "Profilbeskrivning"
+
+#~ msgid "Profile Filename"
+#~ msgstr "Profilens filnamn"
+
+#~ msgid "Available Device Profiles"
+#~ msgstr "Tillgängliga enhetsprofiler"
+
+#~ msgid "Show only device related ICC profiles"
+#~ msgstr "Visa bara enhetsrelaterade ICC-profiler"
+
+#~ msgid "Installs selected profile"
+#~ msgstr "Installerar vald profil"
+
+#~ msgid "Profile %1 is already associated with this device."
+#~ msgstr "Profilen %1 är redan associerad med den här enheten."
+
+#~ msgid "Cannot add profile to list"
+#~ msgstr "Kan inte lägga till profil i lista"
+
+#~ msgid ""
+#~ "Oyranos DB entry:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Oyranos DB-post:\n"
+#~ "%1"
+
+#~ msgid "Profiles Associated with Device"
+#~ msgstr "Profiler associerade med enhet"
+
+#~ msgid ""
+#~ "Listing of all profiles that are associated with the selected device."
+#~ msgstr ""
+#~ "Listning av alla profiler som är associerade med den markerade enheten."

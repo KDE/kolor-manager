@@ -1,0 +1,199 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-15 08:48+0100\n"
+"Last-Translator: Łukasz Wojniłowicz <lukasz.wojnilowicz@gmail.com>\n"
+"Language-Team: Polish <kde-i18n-doc@kde.org>\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Lokalize 2.0\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Łukasz Wojniłowicz"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "lukasz.wojnilowicz@gmail.com"
+
+#: kmdevices.cpp:51
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Wersja KDE Oyranos Synnefo"
+
+#: kmdevices.cpp:53
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmdevices.cpp:57
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
+#: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
+#: kmdevices.cpp:66 kmdevices.cpp:67
+#, kde-format
+msgid "developer"
+msgstr "programista"
+
+#: kmdevices.cpp:58
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmdevices.cpp:59
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmdevices.cpp:61
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmdevices.cpp:62
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmdevices.cpp:63
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmdevices.cpp:64
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmdevices.cpp:65
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmdevices.cpp:66
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmdevices.cpp:67
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMDevices"
+#~ msgstr "KMDevices"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "You have not selected any device"
+#~ msgstr "Nie wybrano żadnego urządzenia"
+
+#~ msgid "(No Profile Installed)"
+#~ msgstr "(Nie zainstalowano żadnego profilu)"
+
+#~ msgid "Downloading Profile from Taxi DB ..."
+#~ msgstr "Pobieranie profilu z BD Taxi ..."
+
+#~ msgid "No valid profile obtained"
+#~ msgstr "Nie pobrano żadnego prawidłowego profilu"
+
+#~ msgid "Profile already installed"
+#~ msgstr "Profil jest już zainstalowany"
+
+#~ msgid "User Path can not be written"
+#~ msgstr "Nie można zapisać ścieżki użytkownika"
+
+#~ msgid "Profile not useable"
+#~ msgstr "Profil jest nieużywalny"
+
+#~ msgid "Internal error"
+#~ msgstr "Błąd wewnętrzny"
+
+#~ msgid "Profile has been installed"
+#~ msgstr "Profil został zainstalowany"
+
+#~ msgid "automatic"
+#~ msgstr "samoczynnie"
+
+#~ msgid "Looking for Device Profiles in Taxi DB ..."
+#~ msgstr "Szukanie profilów urządzeń w BD Taxi ..."
+
+#~ msgid "wrong device"
+#~ msgstr "złe urządzenie"
+
+#~ msgid "You can select and install a profile"
+#~ msgstr "Możesz wybrać i zainstalować profil"
+
+#~ msgid "Not found any profile for the selected device in Taxi DB"
+#~ msgstr "Nie znaleziono żadnego profilu dla wybranego urządzenia w BD Taxi"
+
+#~ msgid "Available Device Profiles from Taxi DB"
+#~ msgstr "Dostępne profile urządzenia z BD Taxi"
+
+#~ msgid " Install selected profile"
+#~ msgstr " Instaluj wybrany profil"
+
+#~ msgid "Detected Devices"
+#~ msgstr "Wykryte urządzenia"
+
+#~ msgid "List of installed input/output devices and their default profiles."
+#~ msgstr ""
+#~ "Lista zainstalowanych urządzeń wejścia/wyjścia i ich domyślnych profili."
+
+#~ msgid "Device Name"
+#~ msgstr "Nazwa urządzenia"
+
+#~ msgid "Designation"
+#~ msgstr "Przeznaczenie"
+
+#~ msgid "Profile Description"
+#~ msgstr "Opis profilu"
+
+#~ msgid "Profile Filename"
+#~ msgstr "Nazwa pliku profilu"
+
+#~ msgid "Available Device Profiles"
+#~ msgstr "Dostępne profile urządzenia"
+
+#~ msgid "Show only device related ICC profiles"
+#~ msgstr "Pokaż tylko profile ICC odpowiednie dla urządzenia"
+
+#~ msgid "Installs selected profile"
+#~ msgstr "Instaluje wybrany profil"
+
+#~ msgid "Profile %1 is already associated with this device."
+#~ msgstr "Profil %1 jest już skojarzony z tym urządzeniem."
+
+#~ msgid "Cannot add profile to list"
+#~ msgstr "Nie można dodać profilu do listy"
+
+#~ msgid ""
+#~ "Oyranos DB entry:\n"
+#~ "%1"
+#~ msgstr ""
+#~ "Wpis bazy danych Oyranos:\n"
+#~ "%1"
+
+#~ msgid "Profiles Associated with Device"
+#~ msgstr "Profile skojarzone z urządzeniem"
+
+#~ msgid ""
+#~ "Listing of all profiles that are associated with the selected device."
+#~ msgstr ""
+#~ "Wykaz wszystkich profili, które są skojarzone z wybranym urządzeniem."

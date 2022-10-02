@@ -1,0 +1,152 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Andrej Mernik <andrejm@ubuntu.si>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2020-01-23 15:51+0100\n"
+"Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
+"Language-Team: Slovenian <lugos-slo@lugos.si>\n"
+"Language: sl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2.4\n"
+"Plural-Forms: nplurals=4; plural=(n%100==1 ? 1 : n%100==2 ? 2 : n%100==3 || n"
+"%100==4 ? 3 : 0);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Andrej Mernik"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "andrejm@ubuntu.si"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Različica Oyranos Synnefo za KDE"
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kminfo.cpp:61
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr "razvijalec"
+
+#: kminfo.cpp:62
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMInfo"
+#~ msgstr "KMInfo"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "in memory"
+#~ msgstr "v pomnilniku"
+
+#~ msgid "Installed Profiles"
+#~ msgstr "Nameščeni profili"
+
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#~ msgid "Devices"
+#~ msgstr "Naprave"
+
+#~ msgid "Assumed Space"
+#~ msgstr "Predviden prostor"
+
+#~ msgid "ICCDescriptionLabel"
+#~ msgstr "ICCDescriptionLabel"
+
+#~ msgid "(Copyright not available)"
+#~ msgstr "(avtorske pravice niso na voljo)"
+
+#~ msgid "Date Created:"
+#~ msgstr "Ustvarjeno:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Device Class:"
+#~ msgstr "Razred naprave:"
+
+#~ msgid "Manufacturer:"
+#~ msgstr "Proizvajalec:"
+
+#~ msgid "Model:"
+#~ msgstr "Model:"
+
+#~ msgid "ICC Version:"
+#~ msgstr "Različica ICC:"
+
+#~ msgid "Color Space:"
+#~ msgstr "Barvni prostor:"
+
+#~ msgid "PCS Type:"
+#~ msgstr "Vrsta PCS:"
+
+#~ msgid "Profile Path:"
+#~ msgstr "Pot profila:"
+
+#~ msgid "---"
+#~ msgstr "---"

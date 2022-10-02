@@ -1,0 +1,180 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Xosé <xosecalvo@gmail.com>, 2012.
+# Adrian Chaves Fernandez <adriyetichaves@gmail.com>, 2012, 2013, 2015, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2018-04-22 11:49+0100\n"
+"Last-Translator: Adrian Chaves <adrian@chaves.io>\n"
+"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Xosé Calvo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xosecalvo@gmail.com"
+
+#: kmdevices.cpp:51
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Versión de KDE de Oyranos Synnefo"
+
+#: kmdevices.cpp:53
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© 2008 Joseph Simon III"
+
+#: kmdevices.cpp:57
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
+#: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
+#: kmdevices.cpp:66 kmdevices.cpp:67
+#, kde-format
+msgid "developer"
+msgstr "Desenvolvedor."
+
+#: kmdevices.cpp:58
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmdevices.cpp:59
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmdevices.cpp:61
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmdevices.cpp:62
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmdevices.cpp:63
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmdevices.cpp:64
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmdevices.cpp:65
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmdevices.cpp:66
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmdevices.cpp:67
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMDevices"
+#~ msgstr "KMDevices"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "You have not selected any device"
+#~ msgstr "Non seleccionou ningún dispositivo."
+
+#~ msgid "(No Profile Installed)"
+#~ msgstr "(Non hai ningún perfil instalado)"
+
+#~ msgid "Downloading Profile from Taxi DB ..."
+#~ msgstr "Descargando o perfil da base de datos de Taxi…"
+
+#~ msgid "No valid profile obtained"
+#~ msgstr "Non se obtivo ningún perfil válido."
+
+#~ msgid "Profile already installed"
+#~ msgstr "O perfil xa está instalado."
+
+#~ msgid "User Path can not be written"
+#~ msgstr "Non se pode escribir no cartafol do usuario."
+
+#~ msgid "Profile not useable"
+#~ msgstr "O perfil non pode usarse."
+
+#~ msgid "Internal error"
+#~ msgstr "Produciuse un erro interno."
+
+#~ msgid "Profile has been installed"
+#~ msgstr "O perfil instalouse correctamente."
+
+#~ msgid "automatic"
+#~ msgstr "automático"
+
+#~ msgid "Looking for Device Profiles in Taxi DB ..."
+#~ msgstr "Buscando perfís de dispositivos na base de datos Taxi…"
+
+#~ msgid "wrong device"
+#~ msgstr "dispositivo incorrecto"
+
+#~ msgid "You can select and install a profile"
+#~ msgstr "Pode seleccionar e instalar un perfil."
+
+#~ msgid "Not found any profile for the selected device in Taxi DB"
+#~ msgstr ""
+#~ "Non se atopou ningún perfil para o dispositivo seleccionado na base de "
+#~ "datos de Taxi."
+
+#~ msgid "Available Device Profiles from Taxi DB"
+#~ msgstr "Perfís de dispositivos dispoñíbeis da base de datos de Taxi."
+
+#~ msgid " Install selected profile"
+#~ msgstr " Instalar o perfil seleccionado"
+
+#~ msgid "Detected Devices"
+#~ msgstr "Dispositivos detectados"
+
+#~ msgid "List of installed input/output devices and their default profiles."
+#~ msgstr ""
+#~ "Listaxe cos dispositivos de entrada/saída instalados e os seus perfís por "
+#~ "omisión."
+
+#~ msgid "Device Name"
+#~ msgstr "Nome de dispositivo"
+
+#~ msgid "Designation"
+#~ msgstr "Designación"
+
+#~ msgid "Profile Description"
+#~ msgstr "Descrición do perfil"
+
+#~ msgid "Profile Filename"
+#~ msgstr "Nome de ficheiro do perfil"
+
+#~ msgid "Available Device Profiles"
+#~ msgstr "Perfís de dispositivo dispoñíbeis"
+
+#~ msgid "Show only device related ICC profiles"
+#~ msgstr "Mostrar só os perfís de ICC relacionados con dispositivos"
+
+#~ msgid "Installs selected profile"
+#~ msgstr "Instala o perfil seleccionado."

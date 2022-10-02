@@ -1,0 +1,493 @@
+# translation of kmsettings.po to Khmer
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Khoem Sokhem <khoemsokhem@khmeros.info>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2012-07-06 11:48+0700\n"
+"Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
+"Language-Team: Khmer\n"
+"Language: km\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.11.4\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "ខឹម សុខែម, ម៉ន ម៉េត, សេង សុត្ថា, ចាន់ សម្បត្តិរតនៈ, សុខ សុភា"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr ""
+"khoemsokhem@khmeros.info,​​mornmet@khmeros.info,sutha@khmeros.info,"
+"ratanak@khmeros.info,sophea@khmeros.info"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨ ដោយ Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "រក្សាសិទ្ធិ​ឆ្នាំ ២០០៨ ដោយ Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kmsettings.cpp:60
+#, fuzzy, kde-format
+#| msgid "2010 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "ឆ្នាំ​ ២០១០ ដោយ Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "ឆ្នាំ​ ២០០៨-២០០៩ ដោយ Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "ការ​កំណត់​គោលនយោបាយ​សម្រាប់ '%1' បាន​ផ្លាស់ប្ដូរ ។\n"
+#~ "តើ​អ្នក​ចង់​រក្សាទុក​ពួកវា​ដែរឬទេ ?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "កា​រកំណត់​គោលនយោបាយ​ត្រូវ​បានកែប្រែ ។"
+
+#~ msgid "Add new policy"
+#~ msgstr "បន្ថែម​គោលនយោបាយ​ថ្មី"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "សូម​បញ្ចូល​ឈ្មោះ​​សម្រាប់​គោលនយោបាយ​ថ្មី ៖"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "មាន​ឈ្មោះ​គោលនយោបាយ '%1' រួច​ហើយ ។"
+
+#~ msgid "Unable to add policy."
+#~ msgstr "មិន​អាច​បន្ថែម​គោលនយោបាយ​បាន​ទេ ។"
+
+#~ msgid "Active Policy:"
+#~ msgstr "គោលនយោបាយ​សកម្ម ៖"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "កា​រកំណត់​គោលនយោបាយ"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "ផ្លាស់ប្ដូរ​គោលនយោបាយ​ពណ៌​សកល ៖"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>ជ្រើស​ពី​ក្រុម​នៃ​កា​រកំណត់​គោលនយោបាយ​ជា​មុន ឬ​កំណត់​ដោយ​អ្នក​ប្រើ​ ដែល​ថែទាំ​ការ​កំណត់​ទាំងអស់​នៅ​ក្នុង​"
+#~ "កម្មវិធី​គ្រប់គ្រង Kolor ។</p>\n"
+#~ "<p>ការ​កំណត់ \"ស្តង់ដារ​\" ចំនួន ៤ ដូច​ខាង​ក្រោម ៖</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>ការ​រចនា​ក្រាហ្វិក ៖</b> មាន​ប្រយោជន៍​សម្រាប់​ការ​បង្ហាញ​ឌីជីថល​ និង​ការ​ងារ​រូបភាព​"
+#~ "លើបណ្ដាញ ។</li>\n"
+#~ "<li><b>នៅ​ផ្ទះ/ការិយាល័យ ៖</b> កា​រកំណត់ ដែល​ត្រូវ​បាន​ប្រើ​សម្រាប់​​ការ​កើត​ឡើង​រាល់​ថ្ងៃ ។</"
+#~ "li>\n"
+#~ "<li><b>រូបថត ៖</b> បាន​ធ្វើ​ឲ្យ​ប្រសើ​រ​បំផុត​សម្រាប់​ការងារ​ដែល​ទាក់ទង​នឹង​រូបថត ។</li>\n"
+#~ "<li><b>ម៉ាស៊ីន​បោះពុម្ព ៖</b> កា​រកំណត់​បាន​ប្រើ​ជា​ចម្បង​សម្រាប់​​ការ​បោះពុម្ព/បង្ហាញ​រូបភាព​ ។</"
+#~ "li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "បន្ថែម​គោលនយោបាយ​ផ្ទាល់​ខ្លួន"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "យក​គោលនយោបាយ​ផ្ទាល់​ខ្លួន​ចេញ"
+
+#~ msgid "Default Profiles"
+#~ msgstr "ទម្រង់​លំនាំដើម"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr "<p>ជ្រើស​លំនាំដើម <em>សន្មត់​ថា</em> ទម្រង់​សម្រាប់​ចន្លោះ​ពណ៌​ដែលទាក់ទង​នីមួយៗ ។</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "ប្រភព RGB ដែល​បាន​សន្មត់ ៖"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "ប្រភព​ពណ៌ CMYK ដែល​បាន​សន្មត់ ៖"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "ប្រភព​ XYZ ដែល​បាន​សន្មត់ ៖"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "ប្រភព​មន្ទីរ​ពិសោធន៍​ដែល​បាន​សន្មត់ ៖"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "ប្រភព​ពណ៌​ប្រផះ​ដែលបាន​សន្មត់ ៖"
+
+#~ msgid "Web Source:"
+#~ msgstr "ប្រភព​បណ្ដាញ ៖"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (លំនាំដើម)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr "<p>ជ្រើស​លំនាំដើម <em>កែសម្រួល</em> ទម្រង់​សម្រាប់​ចន្លោះ​ពណ៌​ដែល​ទាក់ទង​នីមួយៗ ។</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "កែសម្រួល RGB ៖"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "កែសម្រួល CMYK ៖"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "កែសម្រួល XYZ ៖"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "កែសម្រួល​មន្ទីរ​ពិសោធន៍ ៖"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "កែសម្រួល​ពណ៌​ប្រផះ ៖"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "ការ​កំណត់​ឥរិយាបថ"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "ការ​កំណត់<p><b>ដំណោះ​ស្រាយ​មិន​ត្រូវ​គ្នា</b> អនុញ្ញាត​ឲ្យ​អ្នក​គ្រប់គ្រង​ស្ថានភាព​ដំណោះស្រាយ​ផ្សេងៗ "
+#~ "សម្រាប់​ទម្រង់​ដែល​ខុស​គ្នា ។</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "ដំណោះស្រាយ​មិន​ត្រូវ​គ្នា"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "សម្រាប់​ទម្រង់​ដែល​មិន​ទាន់​មាន"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "សម្រាប់​ការ​ផ្គូផ្គង RGB មិន​ត្រូវ​គ្នា"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "សម្រាប់​ការ​ផ្គូផ្គង CMYK មិន​ត្រូវ​គ្នា"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "មិន​ផ្ដល់​ទម្រង់"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "ផ្ដល់​ទម្រង់​ដែល​បាន​សន្មត់"
+
+#~ msgid "Prompt User"
+#~ msgstr "សួ​រអ្នក​ប្រើ"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "បម្រុង​ទុក​លេខ"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "បម្លែង​ដោយ​ស្វ័យ​ប្រវត្តិ"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "ការ​កំណត់​ចន្លោះ​ពណ៌​លាយ​គ្នា"
+
+#~ msgid "For Screen"
+#~ msgstr "សម្រាប់​អេក្រង់"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "បម្លែង​ទៅ​ចន្លោះ​ RGB កែសម្រួល"
+
+#~ msgid "Convert to Web"
+#~ msgstr "បម្លែង​ទៅ​បណ្ដាញ"
+
+#~ msgid "Printer"
+#~ msgstr "ម៉ាស៊ីន​បោះពុម្ព"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "បម្លែង​ទៅ​ CMYK កែសម្រួល"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "បម្លែង​ទៅ CMYK គ្មាន​ស្លាក"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+
+#~ msgid "Proofing"
+#~ msgstr "ការ​បង្ហាញ"
+
+#~ msgid "Color Space:"
+#~ msgstr "ចន្លោះ​ពណ៌ ៖"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "ជ្រើស​ពី​បញ្ជី​ទម្រង់​ដែលអាច​អនុវត្ត​សម្រាប់​បង្ហាញ ។"
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "សម្រាប់​បង្ហាញ ៖"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "មាត្រដ្ឋាន​ពណ៌​ដែល​ទាក់ទង"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "មាត្រដ្ឋាន​ពណ៌​ដាច់ខាត"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "បង្ហាញ​ល្អ"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "បង្ហាញ​មិន​សូវ​ល្អ"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "សម្រាប់​បង្ហាញ"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "យល់ដឹង"
+
+#~ msgid "Saturation"
+#~ msgstr "តិត្ថិភាព"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "BlackPointCompensation"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "ការ​ព្រមាន Gamut"

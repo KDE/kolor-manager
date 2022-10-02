@@ -1,0 +1,497 @@
+# Bosnian translations for kde package.
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kde package.
+# Samir Ribic <megaribi@epn.ba>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kde 49i410\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2015-01-21 21:41+0100\n"
+"Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
+"Language-Team: Bosnian\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:23+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Samir Ribić,Lejla Bajgoric,Mirza Bulbulusic"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Samir.ribic@etf.unsa.ba,lbajgoric1@etf.unsa.ba,mbulbulusic@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kmsettings.cpp:60
+#, fuzzy, kde-format
+#| msgid "2010-2014 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "2010-2014 Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMSettings"
+#~ msgstr "KM Postavke"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "Polisa postavki za '%1' je promijenjena.\n"
+#~ "Da li je želite sačuvati?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "Polisa postavki je promijenjena."
+
+#~ msgid "Add new policy"
+#~ msgstr "Dodaj novu polisu"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Unesite ime za novu polisu:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "Ime polise '%1' već postoji."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Nemoguće dodati novu polisu."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Aktivna polisa:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Postavke polise"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Promijeni globalnu boju polise:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Odaberite iz grupe pre-set ili korisnički definirane postavke politike "
+#~ "koje održavaju sve postavke u Kolor Manager.</p>\n"
+#~ "<p>Četiri \"standardne\" postavke su:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Grafički Dizajn:</b>Koristan za digitalnu ilustraciju i mrežno-"
+#~ "slikoviti rad .</li>\n"
+#~ "<li><b>Kuća/ Ured:</b> Postavke koje su korištene za svakodnevne pojave ."
+#~ "</li>\n"
+#~ "<li><b>Fotografija:</b> Optimizirana za rad sa slikama.</li>\n"
+#~ "<li><b>Štampač:</b> Postavke korištene uglavnom za printer/provjeru slike."
+#~ "</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Dodaj prilagođenu polisu"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Ukloni prilagođenu polisu"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Podrazumijevani profili"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Odaberite zadane <em>pretpostavljene</em> profile za svaki od "
+#~ "odgovarajućih prostora  boja.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Pretpostavljeni RGB izvor:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Pretpostavljeni CMYK izvor:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Pretpostavljeni XYZ izvor:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Pretpostavljeni Lab izvor:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Pretpostavljeni Grej izvor:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Veb izvor:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (podrazumijevani)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Odaberite zadane <em>uređivačke</em>profile za svaki od odgovarajućih "
+#~ "boja prostora.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "Uređivanje RGB-a:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "Uređivanje CMYK-a:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "Uređivanje XYZ-a:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Uređivanje Lab-a:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Uređivanje Grej-a:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Postavke ponašanja"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p><b>Rukovanje neslaganjima</b> Postavke omogućuju upravljanje "
+#~ "različitim situacijama rukovanja za različite profile.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Neusklađeno rukovanje"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "Za nepostojeće profile"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "Za RGB neusklađenost"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "Za CMYK neusklađenost"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Ne dodijeli profile:</b> Nemoj učiniti ništa za neusklađene "
+#~ "profile (ostavi kako jeste).</li>\n"
+#~ "<li><b>Dodijeli pretpostavljene profile:</b> Dodijeli profil.</li>\n"
+#~ "<li><b>Pitaj korisnika:</b> Neka korisnik odluči da li će dodijeliti "
+#~ "profil ili ne.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "Ne dodijeli profil"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Dodijeli pretpostavljeni profil"
+
+#~ msgid "Prompt User"
+#~ msgstr "Pitaj korisnika"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Sačuvaj brojeve:</b> Dopustite izvoru RGB profila da se čuva i "
+#~ "ostane nepromijenjen od odredišta.</li>\n"
+#~ "<li><b>Automatski pretvoriti:</b> Pretvorite izvorni RGB profil na "
+#~ "njegovo odredište.</li>\n"
+#~ "<li><b>Pitaj Korisnika:</b> Dopustite korisniku da odabere koji način će "
+#~ "koristiti.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Sačuvaj brojeve"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Automatski pretvori"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Sačuvaj brojeve:</b> Dopustite izvoru CMYK profila da se čuva i "
+#~ "ostane nepromijenjen od odredišta.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Pretvorite izvorni CMYK profil na "
+#~ "njegovo odredište.</li>\n"
+#~ "<li><b>Prompt User:</b>Dopustite korisniku da odabere koji način će "
+#~ "koristiti.</li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p><b>Postavke Prostornog Miješanja Boje</b> omogućuje vam rukovanje "
+#~ "opcijama neusklađenosti prostor boja monitora i pisača.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Postavke Prostornog Miješanja Boje"
+
+#~ msgid "For Screen"
+#~ msgstr "Za ekran"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Sačuvaj brojeve:</b> Ostavite sav ne RGB prostor boja kao što je "
+#~ "(nema pretvorbe).</li>\n"
+#~ "<li><b>Pretvorite u uređivački RGB prostor:</b> Pretvorite sve ono što "
+#~ "nije RGB prostor boja u dodijeljenom prostoru za uređivanje boja.</li>\n"
+#~ "<li><b>Pretvori u Web:</b> Pretvorite sve ono što nije RGB prostor boja u "
+#~ "web-odgovarajući prostor sRGB boja.</li>\n"
+#~ "<li><b>Pitajte korisnika:</b> Dopustite korisniku da odaberete "
+#~ "odgovarajući način konverzije prostornih boja.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Pretvori u uređeni RGB prostor"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Pretvori u Web"
+
+#~ msgid "Printer"
+#~ msgstr "Štampač"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Sačuvaj brojeve:</b> Ostavite sav ne CMYK prostor boja kao što je "
+#~ "(nema pretvorbe).</li>\n"
+#~ "<li><b>Pretvorite u uređivački CMYK:</b> Pretvorite sve ono što nije RGB "
+#~ "prostor boja u dodijeljenom prostoru za uređivanje boja.</li>\n"
+#~ "<li><b>Pretvorite u neoznačene CMYK:</b> Pretvorite prostorne boje u sve "
+#~ "što nijeCMYK prostor boja.</li>\n"
+#~ "<li><b>Pitajte korisnika:</b> Dopustite korisniku da odaberete "
+#~ "odgovarajući način konverzije prostornih boja.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Pretvori u uređeni CMYK"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Pretvori u neoznačeni CMYK"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p><b>Korekcije</b> će omogućiti modifikovanje boje opcija korekcije, "
+#~ "uključuju prostor boje, cilj iscrtavanja i teške/meke korekcije. </b>"
+
+#~ msgid "Proofing"
+#~ msgstr "Korekcije"
+
+#~ msgid "Color Space:"
+#~ msgstr "Oboji prostor:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Izaberi sa liste primjenljive profile za korekciju."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Cilj iscrtavanja:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Relativna Kolorimetrija:</b> Skaliraj bijelu tačku izvora u bijelu "
+#~ "tačku odredišta.</li>\n"
+#~ "<li><b>Apsolutna Kolorimetrija:</b> Približava skalne boje i spojnice "
+#~ "izvan skale najbližoj boji</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Relativna kolorimetrija"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Apsolutna kolorimetrija"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Odaberi <b>Lahki Dokaz</b>kao sredstvo za pregled ispisa u boji pisača "
+#~ "na monitoru. (Uglavnom da uklopi propusne medije.)</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Mekan dokaz"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Provjerite<b>Teški Dokaz</b>(ili podudaranje ispisa) da u potpunosti "
+#~ "simulira boje koje će  pisač koristiti uz kroz reflektirajuću površinu.</"
+#~ "p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Težak dokaz"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Pružanje Postavki</b>dozvoljavaju vam da promijenite globalno "
+#~ "polaganje namjera .</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Namjera sjenčenja"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Opažajno:</b> Čuva odnos između boja koje nisu na skali.</li>\n"
+#~ "<li><b>Relativna Kolormetrija:</b> Bijela tačka prostora boja izvora se "
+#~ "mijenja do odredišta.</li>\n"
+#~ "<li><b>Zasićenje:</b> Čuva precizno zasićenje dok modifikuje nijanse boje."
+#~ "</li>\n"
+#~ "<li><b>Apsolutna Kolormetrija:</b> Bijela točka odredišta raspona boja će "
+#~ "postati bijela točka izvora.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Perceptualno"
+
+#~ msgid "Saturation"
+#~ msgstr "Zasićenje"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "Kompenzacija crne tačke"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Skala upozorenja"

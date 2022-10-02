@@ -1,0 +1,183 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Freek de Kruijf <freekdekruijf@kde.nl>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-06 09:28+0100\n"
+"Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
+"Language-Team: Dutch <kde-i18n-nl@kde.org>\n"
+"Language: nl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Freek de Kruijf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "freekdekruijf@kde.nl"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "KDE versie van Oyranos Synnefo"
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kminfo.cpp:61
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr "ontwikkelaar"
+
+#: kminfo.cpp:62
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMInfo"
+#~ msgstr "KMInfo"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "in memory"
+#~ msgstr "in geheugen"
+
+#~ msgid "Installed Profiles"
+#~ msgstr "Geïnstalleerde profielen"
+
+#~ msgid "Description"
+#~ msgstr "Beschrijving"
+
+#~ msgid "Devices"
+#~ msgstr "Apparaten"
+
+#~ msgid "Editing Space"
+#~ msgstr "Bewerkingsruimte"
+
+#~ msgid "Assumed Space"
+#~ msgstr "Ingenomen ruimte"
+
+#~ msgid "ICCDescriptionLabel"
+#~ msgstr "ICCBeschrijvingsLabel"
+
+#~ msgid "(Copyright not available)"
+#~ msgstr "(Copyright niet beschikbaar)"
+
+#~ msgid "Date Created:"
+#~ msgstr "Datum aangemaakt:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Device Class:"
+#~ msgstr "Apparaatklasse:"
+
+#~ msgid "Manufacturer:"
+#~ msgstr "Fabrikant:"
+
+#~ msgid "Model:"
+#~ msgstr "Model:"
+
+#~ msgid "ICC Version:"
+#~ msgstr "ICC-versie:"
+
+#~ msgid "Color Space:"
+#~ msgstr "Kleurruimte:"
+
+#~ msgid "PCS Type:"
+#~ msgstr "PCS-type:"
+
+#~ msgid "Profile Path:"
+#~ msgstr "Profielpad:"
+
+#~ msgid "---"
+#~ msgstr "---"
+
+#~ msgid ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:11pt; "
+#~ "font-weight:600; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Profile Path:</p></"
+#~ "body></html>"
+#~ msgstr ""
+#~ "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/"
+#~ "REC-html40/strict.dtd\">\n"
+#~ "<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/"
+#~ "css\">\n"
+#~ "p, li { white-space: pre-wrap; }\n"
+#~ "</style></head><body style=\" font-family:'DejaVu Sans'; font-size:11pt; "
+#~ "font-weight:600; font-style:normal;\">\n"
+#~ "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-"
+#~ "right:0px; -qt-block-indent:0; text-indent:0px;\">Profiel pad:</p></"
+#~ "body></html>"
+
+#~ msgid "No Profile Selected"
+#~ msgstr "Geen profiel geselecteerd"
+
+#~ msgid "Show profile information"
+#~ msgstr "Profielinformatie tonen"

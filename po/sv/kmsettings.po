@@ -1,0 +1,495 @@
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the km package.
+#
+# Stefan Asserhäll <stefan.asserhall@bredband.net>, 2012, 2013, 2014, 2016, 2017.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-04-06 16:50+0100\n"
+"Last-Translator: Stefan Asserhäll <stefan.asserhall@bredband.net>\n"
+"Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
+"Language: sv\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Lokalize 2.0\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Stefan Asserhäll"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "stefan.asserhall@bredband.net"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "KDE-version av Oyranos Synnefo"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "utvecklare"
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KM-inställningar"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "Policyinställningarna för '%1' har ändrats.\n"
+#~ "Vill du spara dem?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "Policyinställningar har ändrats."
+
+#~ msgid "Add new policy"
+#~ msgstr "Lägg till ny policy"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Ange ett namn på den nya policyn:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "Policynamnet '%1' finns redan."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Kunde inte lägga till policy."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Aktiv policy:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Policyinställningar"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Ändra global färgpolicy:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Välj bland en grupp förinställda eller användardefinierade "
+#~ "policyinställningar som hanterar alla inställningarna i of the settings i "
+#~ "färghanteraren.</p>\n"
+#~ "<p>De fyra \"standardinställningarna\" är följande:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Grafikdesign:</b> Användbar för digital illustration och arbete "
+#~ "med webbilder.</li>\n"
+#~ "<li><b>Hem/Kontor:</b> Inställningar som används för vardagligt bruk.</"
+#~ "li>\n"
+#~ "<li><b>Fotografi:</b> Optimerad för fotorelaterat arbete.</li>\n"
+#~ "<li><b>Skrivare:</b> Inställningar i huvudsak använda för utskrift och "
+#~ "korrektur av bilder.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Lägg till egen policy"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Ta bort egen policy"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Standardprofiler"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Välj förvalda <em>antagna</em> profiler för var och en av de "
+#~ "motsvarande färgrymderna.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Antagen RGB-källa:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Antagen CMYK-källa:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Antagen XYZ-källa:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Antagen Lab-källa:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Antagen gråskalekälla:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Webbkälla:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (förval)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Välj förvalda <em>redigeringsprofiler</em> för var och en av de "
+#~ "motsvarande färgrymderna.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "Redigering av RGB:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "Redigering av CMYK:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "Redigering av XYZ:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Redigering av Lab:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Redigering av gråskala:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Beteendeinställningar"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p>Inställningar för <b>Hantering av missanpassning</b> låter dig ta hand "
+#~ "om olika hanteringssituationer för olika profiler.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Hantering av missanpassning"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "För icke-existerande profil"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "För missanpassning av RGB"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "För missanpassning av CMYK"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Tilldela inte profil:</b> Gör ingenting med en missanpassad profil "
+#~ "(lämna den som den är).</li>\n"
+#~ "<li><b>Tilldela antagen profil:</b> Tilldela en profil.</li>\n"
+#~ "<li><b>Fråga användaren:</b> Låt användaren bestämma om en profil ska "
+#~ "tilldelas eller inte.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "Tilldela inte profil"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Tilldela antagen profil"
+
+#~ msgid "Prompt User"
+#~ msgstr "Fråga användaren"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Bevara nummer:</b> Låt källans RGB-profil behållas och förbli "
+#~ "oförändrad av målet.</li>\n"
+#~ "<li><b>Konvertera automatiskt:</b> Konvertera källans RGB-profil till "
+#~ "dess mål.</li>\n"
+#~ "<li><b>Fråga användaren:</b> Låt användaren välja vilken metod som ska "
+#~ "användas.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Bevara nummer"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Konvertera automatiskt"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Bevara nummer:</b> Låt källans CMYK-profil behållas och förbli "
+#~ "oförändrad av målet.</li>\n"
+#~ "<li><b>Konvertera automatiskt:</b> Konvertera källans CMYK-profil till "
+#~ "dess mål.</li>\n"
+#~ "<li><b>Fråga användaren:</b> Låt användaren välja vilken metod som ska "
+#~ "användas.</li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p><b>Blandade färgrymdsinställningar</b> låter dig hantera alternativ "
+#~ "för missanpassning av färgrymd för bildskärm och skrivare.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Blandade färgrymdsinställningar"
+
+#~ msgid "For Screen"
+#~ msgstr "För bildskärm"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Bevara nummer:</b> Lämna icke-RGB färgrymden som den är (ingen "
+#~ "konvertering).</li>\n"
+#~ "<li><b>Konvertera till redigering av RGB-rymd:</b> Konvertera icke-RGB "
+#~ "färgrymden till den tilldelade färgrymden för redigering.</li>\n"
+#~ "<li><b>Konvertera till webb:</b> Konvertera icke-RGB färgrymden till "
+#~ "lämplig sRGB färgrymd för webben.</li>\n"
+#~ "<li><b>Fråga användaren:</b> Låt användaren välja lämplig "
+#~ "konverteringsmetod för färgrymden.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Konvertera till redigering av RGB-rymd"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Konvertera till webb"
+
+#~ msgid "Printer"
+#~ msgstr "Skrivare"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Bevara nummer:</b> Lämna icke-CMYK färgrymden som den är (ingen "
+#~ "konvertering).</li>\n"
+#~ "<li><b>Konvertera till redigering av CMYK-rymd:</b> Konvertera icke-CMYK "
+#~ "färgrymden till den tilldelade färgrymden för redigering av CMYK.</li>\n"
+#~ "<li><b>Konvertera till CMYK utan taggar:</b> Konvertera färgrymden till "
+#~ "en icke-CMYK färgrymd.</li>\n"
+#~ "<li><b>Fråga användaren:</b> Låt användaren välja lämplig "
+#~ "konverteringsmetod för färgrymden.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Konvertera till redigering av CMYK"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Konvertera till CMYK utan taggar"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p><b>Korrektur</b> låter dig ändra inställningar av färgkorrektur, "
+#~ "inklusive färgrymd, återgivningsalternativ, och bildskärmskorrektur eller "
+#~ "inte.</b>"
+
+#~ msgid "Proofing"
+#~ msgstr "Korrektur"
+
+#~ msgid "Color Space:"
+#~ msgstr "Färgrymd:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Välj från en lista med profiler tillämpliga för korrektur."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Återgivningsalternativ:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Relativt färgläge:</b> Skalar vitpunkten hos källans tonomfång "
+#~ "till målets vitpunkt.</li>\n"
+#~ "<li><b>Absolut färgläge:</b> Bevarar färger inom tonomfånget, och beskär "
+#~ "färger utanför tonomfånget till närmaste färgton.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Relativt färgläge"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Absolut färgläge"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Välj <b>Bildskärmskorrektur</b> som ett sätt att förhandsgranska "
+#~ "skrivarens färgåtergivning på bildskärmen. (I huvudsak för att motsvara "
+#~ "transparenta medier.)</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Bildskärmskorrektur"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Markera <b>Hård korrektur</b> (eller matcha utskrift) för att simulera "
+#~ "färger som skrivaren använder fullständigt via en reflektiv yta.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Hård korrektur"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Återgivningsinställningar</b> låter dig ändra de globala "
+#~ "återgivningsalternativen.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Återgivningsalternativ"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptuell:</b> Bevarar förhållandet mellan färger utanför "
+#~ "tonomfånget.</li>\n"
+#~ "<li><b>Relativt färgläge:</b> Vitpunkten hos källans färgrymd ändras till "
+#~ "målets.</li>\n"
+#~ "<li><b>Färgmättnad:</b> Bevarar noggrann färgmättnad, medan färgtoner "
+#~ "ändras.</li>\n"
+#~ "<li><b>Absolut färgläge:</b> Vitpunkten hos målets färgrymd blir källans "
+#~ "vitpunkt.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Perceptuell"
+
+#~ msgid "Saturation"
+#~ msgstr "Färgmättnad"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "Svartpunktskompensering"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Tonomfångsvarning"

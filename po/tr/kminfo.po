@@ -1,0 +1,156 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Translators:
+# Volkan Gezer <volkangezer@gmail.com>, 2013
+msgid ""
+msgstr ""
+"Project-Id-Version: extragear-graphics-kde4\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2017-06-03 13:29+0000\n"
+"Last-Translator: Mete <metebilgin48@gmail.com>\n"
+"Language-Team: Turkish (http://www.transifex.com/projects/p/extragear-"
+"graphics-k-tr/language/tr/)\n"
+"Language: tr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Volkan Gezer"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "volkangezer@gmail.com"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Oyranos Synnefo'nun KDE versiyonu"
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008 Joseph Simon III"
+
+#: kminfo.cpp:61
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr "geliştirici"
+
+#: kminfo.cpp:62
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMInfo"
+#~ msgstr "KMInfo"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "in memory"
+#~ msgstr "bellekte"
+
+#~ msgid "Installed Profiles"
+#~ msgstr "Kurulu Profiller"
+
+#~ msgid "Description"
+#~ msgstr "Açıklama"
+
+#~ msgid "Devices"
+#~ msgstr "Aygıtlar"
+
+#~ msgid "Editing Space"
+#~ msgstr "Uzay Düzenleme"
+
+#~ msgid "Assumed Space"
+#~ msgstr "Varsayılan Uzay"
+
+#~ msgid "ICCDescriptionLabel"
+#~ msgstr "ICCDescriptionLabel"
+
+#~ msgid "(Copyright not available)"
+#~ msgstr "(Telif hakkı kullanılabilir değil)"
+
+#~ msgid "Date Created:"
+#~ msgstr "Oluşturulma Tarihi:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Device Class:"
+#~ msgstr "Aygıt Sınıfı:"
+
+#~ msgid "Manufacturer:"
+#~ msgstr "Üretici:"
+
+#~ msgid "Model:"
+#~ msgstr "Model:"
+
+#~ msgid "ICC Version:"
+#~ msgstr "ICC Sürümü:"
+
+#~ msgid "Color Space:"
+#~ msgstr "Renk Uzayı:"
+
+#~ msgid "PCS Type:"
+#~ msgstr "PCS Türü:"
+
+#~ msgid "Profile Path:"
+#~ msgstr "Profil Yolu:"
+
+#~ msgid "---"
+#~ msgstr "---"

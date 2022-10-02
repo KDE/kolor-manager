@@ -1,0 +1,135 @@
+# Irish translation of kmsettings
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kmsettings package.
+# Kevin Scannell <kscanne@gmail.com>, 2012.
+msgid ""
+msgstr ""
+"Project-Id-Version: kmsettings\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2012-05-14 16:25-0500\n"
+"Last-Translator: Kevin Scannell <kscanne@gmail.com>\n"
+"Language-Team: Irish <gaeilge-gnulinux@lists.sourceforge.net>\n"
+"Language: ga\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=5; plural=n==1 ? 0 : n==2 ? 1 : n<7 ? 2 : n < 11 ? "
+"3 : 4\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kevin Scannell"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "kscanne@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "© 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kmsettings.cpp:60
+#, fuzzy, kde-format
+#| msgid "2010 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "2010 Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#, fuzzy
+#~| msgid "KMSettings"
+#~ msgid "Policy Settings"
+#~ msgstr "KMSettings"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Socruithe Oibrithe"
+
+#~ msgid "Prompt User"
+#~ msgstr "Tabhair Leid Don Úsáideoir"
+
+#~ msgid "Printer"
+#~ msgstr "Printéir"
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Intinn Rindreála:"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Dathmhéadrach Coibhneasta"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Dathmhéadrach Absalóideach"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Intinn Rindreála"
+
+#~ msgid "Perceptual"
+#~ msgstr "Céadfach"
+
+#~ msgid "Saturation"
+#~ msgstr "Sáithiú"

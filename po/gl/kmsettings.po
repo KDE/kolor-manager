@@ -1,0 +1,496 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Xosé <xosecalvo@gmail.com>, 2012.
+# Marce Villarino <mvillarino@kde-espana.es>, 2012.
+# Adrián Chaves Fernández <adriyetichaves@gmail.com>, 2013, 2015.
+# Adrian Chaves <adrian@chaves.io>, 2018.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2018-04-22 11:49+0100\n"
+"Last-Translator: Adrian Chaves <adrian@chaves.io>\n"
+"Language-Team: Galician <kde-i18n-doc@kde.org>\n"
+"Language: gl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Xosé Calvo"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "xosecalvo@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Versión de KDE de Oyranos Synnefo"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© 2008 Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "Desenvolvedor."
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr "Modificáronse as opcións de política de «%1».Desexa gardalas?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "Modificáronse as opcións de política."
+
+#~ msgid "Add new policy"
+#~ msgstr "Engadir unha política nova"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Introduza un nome para a nova política:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "Xa existe o nome de política «%1»."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Foi imposíbel engadir a política."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Política activa:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Opcións da política"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Mudar a política de cores global:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Escolla dun grupo de opcións de política por omisión ou definidas polo "
+#~ "usuario que manteñan todas as opcións de Kolor Manager.</p>\n"
+#~ "<p>As catro opcións «padrón» son as que seguen:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Deseño gráfico:</b> Útil para a ilustración dixital e o traballo "
+#~ "con imaxes na web.</li>\n"
+#~ "<li><b>Fogar / Oficina:</b> Opcións empregadas para situacións cotiás.</"
+#~ "li>\n"
+#~ "<li><b>Fotografía:</b> Optimizadas para traballos relacionados coa "
+#~ "fotografía.</li>\n"
+#~ "<li><b>Impresión:</b> Opcións empregadas principalmente para imaxes para "
+#~ "imprimir/probas.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Engadir unha política personalizada"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Eliminar esta política personalizada"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Perfís por omisión"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Escolla os perfís por omisión <em>asumidos</em> para cada un dos "
+#~ "espazos de cores correspondentes.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Fonte de RGB asumida:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Fonte de CMYK asumida:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Fonte de XYZ asumida:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Fonte de Lab asumida:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Fonte de Gray asumida:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Fonte da web:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (predeterminado)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Escolla os perfís por omisión <em>de edición</em> para cada un dos "
+#~ "espazos de cores correspondentes.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "RGB de edición:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "CMYK de edición:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "XYZ de edición:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Lab de edición:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Gray de edición:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Configuración do comportamento"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p>As opcións de <b>xestión dos desacordos</b> permiten xestionar "
+#~ "diversas situacións de xestión de diversos perfís.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Xestión dos desacordos"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "Par un perfil inexistente"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "Para un desacordo de RGB"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "Para un desacordo de CMYK"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Non asignar un perfil:</b> Non facer nada co perfil en desacordo "
+#~ "(deixalo como está)..</li>\n"
+#~ "<li><b>Asignar o perfil asumido:</b> Asignar un perfil.</li>\n"
+#~ "<li><b>Preguntarlle ao usuario:</b> Deixar que o usuario decida se desexa "
+#~ "asignar un perfil ou non.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "Non asignar un perfil"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Asignar o perfil asumido"
+
+#~ msgid "Prompt User"
+#~ msgstr "Preguntarlle ao usuario"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Conservar os números:</b> Permitir manter o perfil da fonte de RGB "
+#~ "e sen modificar do destino.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Converter o perfil da fonte de RGB ao "
+#~ "seu destino.</li>\n"
+#~ "<li><b>Prompt User:</b> Permitir que o usuario escolla o método que "
+#~ "desexe empregar.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Conservar os números"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Converter automaticamente"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Conservar os números:</b> Permitir manter o perfil da fonte de "
+#~ "CMYK e sen modificar do destino.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Converter o perfil da fonte de CMYK ao "
+#~ "seu destino.</li>\n"
+#~ "<li><b>Prompt User:</b> Permitir que o usuario escolla o método que "
+#~ "desexe empregar.</li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p>As <b>opcións de espazos de cores mixtos</b> permiten xestionar as "
+#~ "opcións de desacordo dos espazos de cores para o monitor e a impresora.</"
+#~ "p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Configuración dos espazos de cores mixtos"
+
+#~ msgid "For Screen"
+#~ msgstr "Para a pantalla"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Conservar os números:</b> Deixar o espazo de cores non RGB como "
+#~ "estiver (sen conversión).</li>\n"
+#~ "<li><b>Converter ao espazo RGB de edición:</b> Converter o espazo de "
+#~ "cores non RGB ao espazo de cores de edición asignado.</li>\n"
+#~ "<li><b>Converter á Web:</b> Converter o espazo de cores non RGB ao espazo "
+#~ "de cores sRGB axeitado para a web.</li>\n"
+#~ "<li><b>Preguntarlle ao usuario:</b> Permitir que o usuario escolla o "
+#~ "método de conversión de espazos de cores axeitado.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Converter ao espazo de cores RGB de edición"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Converter á Web"
+
+#~ msgid "Printer"
+#~ msgstr "Impresora"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Conservar os números:</b> Deixar o espazo de cores non CMYK como "
+#~ "estiver (sen conversión).</li>\n"
+#~ "<li><b>Converter ao espazo CMYK:</b> Converter o espazo de cores non CMYK "
+#~ "a un espazo de cores de edición asignado.</li>\n"
+#~ "<li><b>Converter á Web sen etiquetas:</b> Converter o espazo de cores a "
+#~ "un espazo de cores non CMYK.</li>\n"
+#~ "<li><b>Preguntarlle ao usuario:</b> Permitir que o usuario escolla o "
+#~ "método de conversión de espazos de cores axeitado.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Converter a CMYK de edición"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Converter a CMYK sen etiquetas"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p><b>Probas</b> permite modificar as opcións de probas de cor, incluídos "
+#~ "o espazo de cores, o propósito de debuxado e as probas duras/brandas.</b>"
+
+#~ msgid "Proofing"
+#~ msgstr "Probas"
+
+#~ msgid "Color Space:"
+#~ msgstr "Espazo de cores:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Escolla dunha lista de perfís aplicábeis ás probas."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Propósito de debuxado:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Colorimétrico relativo:</b> Escala o punto branco da gama da orixe "
+#~ "ao punto branco do destino.</li>\n"
+#~ "<li><b>Colorimétrico absoluto:</b> Conserva as cores da gama e recorta as "
+#~ "que fiquen fóra para o ton máis próximo.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Colorimétrico relativo"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Colorimétrico absoluto"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Escolla <b>Proba branda</b> como medio para a previsualización da "
+#~ "saída de cor da impresora no seu monitor. (Fundamentalmente para "
+#~ "coincidir cos medios transmisivos).</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Proba branda"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Escolla <b>Proba dura</b> (ou coincidir coa impresión) para simular "
+#~ "completamente as cores que a impresora vai empregar a través dunha "
+#~ "superficie reflectante.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Proba dura"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Configuración do debuxado</b> permite modificar o propósito de "
+#~ "debuxado xeral.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Propósito de debuxado"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Percibido:</b> Mantén a relación entre as cores de fóra da gama.</"
+#~ "li>\n"
+#~ "<li><b>Colorimétrico relativo:</b> O punto branco da orixe do espazo de "
+#~ "cores múdase para o destino.</li>\n"
+#~ "<li><b>Saturación:</b> Mantén unha saturación precisa ao tempo que "
+#~ "modifica os tons das cores.</li>\n"
+#~ "<li><b>Colorimétrico relativo:</b> O punto branco do espazo de cores de "
+#~ "destino convértese no punto branco da orixe.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Percibido"
+
+#~ msgid "Saturation"
+#~ msgstr "Saturación"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "CompensaciónPuntoNegro"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Advertencia sobre a gama"

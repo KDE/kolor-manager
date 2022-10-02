@@ -1,0 +1,492 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Marek Laane <bald@smail.ee>, 2012, 2019.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2019-12-20 19:43+0200\n"
+"Last-Translator: Marek Laane <qiilaq69@gmail.com>\n"
+"Language-Team: Estonian <kde-et@lists.linux.ee>\n"
+"Language: et\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Lokalize 19.08.1\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Marek Laane"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "qiilaq69@gmail.com"
+
+#: kmsettings.cpp:53
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr "Oyranos Synnefo KDE versioon"
+
+#: kmsettings.cpp:55
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "(c) 2008: Joseph Simon III"
+
+#: kmsettings.cpp:59
+#, kde-format
+msgid "Joseph Simon III"
+msgstr "Joseph Simon III"
+
+#: kmsettings.cpp:59 kmsettings.cpp:60 kmsettings.cpp:61 kmsettings.cpp:63
+#: kmsettings.cpp:64 kmsettings.cpp:65 kmsettings.cpp:66 kmsettings.cpp:67
+#: kmsettings.cpp:68 kmsettings.cpp:69
+#, kde-format
+msgid "developer"
+msgstr "arendaja"
+
+#: kmsettings.cpp:60
+#, kde-format
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann"
+
+#: kmsettings.cpp:61
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich"
+
+#: kmsettings.cpp:63
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr "Albert Astals Cid"
+
+#: kmsettings.cpp:64
+#, kde-format
+msgid "Christoph Feck"
+msgstr "Christoph Feck"
+
+#: kmsettings.cpp:65
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr "Boudewijn Rempt "
+
+#: kmsettings.cpp:66
+#, kde-format
+msgid "Pino Toscano"
+msgstr "Pino Toscano"
+
+#: kmsettings.cpp:67
+#, kde-format
+msgid "Laurent Montel"
+msgstr "Laurent Montel"
+
+#: kmsettings.cpp:68
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr "Cyrille Berger Skott"
+
+#: kmsettings.cpp:69
+#, kde-format
+msgid "Hal Van Engel"
+msgstr "Hal Van Engel"
+
+#~ msgid "KMSettings"
+#~ msgstr "KMSettings"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009: Joseph Simon III"
+
+#~ msgid ""
+#~ "The policy settings for '%1' have changed.\n"
+#~ "Do you wish to save them?"
+#~ msgstr ""
+#~ "\"%1\" reegli seadistused on muutunud.\n"
+#~ "Kas salvestada need?"
+
+#~ msgid "Policy settings have been modified."
+#~ msgstr "Reegli seadistusi on muudetud"
+
+#~ msgid "Add new policy"
+#~ msgstr "Uue reegli lisamine"
+
+#~ msgid "Please enter a name for the new policy:"
+#~ msgstr "Uue reegli nimi:"
+
+#~ msgid "The policy name '%1' already exists."
+#~ msgstr "Reegel nimega \"%1\" on juba olemas."
+
+#~ msgid "Unable to add policy."
+#~ msgstr "Reegli lisamine nurjus."
+
+#~ msgid "Active Policy:"
+#~ msgstr "Aktiivne reegel:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Policy Settings"
+#~ msgstr "Reegli seadistused"
+
+#~ msgid "Change the global color policy:"
+#~ msgstr "Globaalse värvireegli muutmine:"
+
+#~ msgid ""
+#~ "<p>Select from a group of pre-set or user-defined policy settings that "
+#~ "maintain all of the settings in Kolor Manager.</p>\n"
+#~ "<p>The four \"standard\" settings are as follows:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graphic Design:</b> Useful for digital illustration and web "
+#~ "imaging work.</li>\n"
+#~ "<li><b>Home / Office:</b> Settings that are used for everyday occurrences."
+#~ "</li>\n"
+#~ "<li><b>Photography:</b> Optimized for photo-related work.</li>\n"
+#~ "<li><b>Printer:</b> Settings used mainly for printer/proofing images.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<p>Siin saab valida valmis- või kasutaja määratud reeglite seadistuste "
+#~ "rühma, mis hõlmavad kõiki Kolor Manageri seadistusi.</p>\n"
+#~ "<p>Neli \"standardset\" seadistust on järgmised:</p>\n"
+#~ "<ul>\n"
+#~ "<li><b>Graafika:</b> abiks digitaalse illustreerimise ja veebikujunduse "
+#~ "puhul.</li>\n"
+#~ "<li><b>Kodu / kontor:</b> argikasutuseks mõeldud seadistused.</li>\n"
+#~ "<li><b>Fotograafia:</b> optimeeritud fotonduse tarbeks.</li>\n"
+#~ "<li><b>Printer:</b> peamiselt trükkimiseks või väljundvaateks mõeldud "
+#~ "seadistused.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Add Custom Policy"
+#~ msgstr "Lisa kohandatud reegel"
+
+#~ msgid "Remove Custom Policy"
+#~ msgstr "Eemalda kohandatud reegel"
+
+#~ msgid "Default Profiles"
+#~ msgstr "Vaikeprofiilid"
+
+#~ msgid ""
+#~ "<p>Select the default <em>assumed</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Vali igale värviruumile vastavad vaikimisi <em>eeldatavad</em> "
+#~ "profiilid.</p>"
+
+#~ msgid "Assumed RGB Source:"
+#~ msgstr "Eeldatav RGB allikas:"
+
+#~ msgid "Assumed CMYK Source:"
+#~ msgstr "Eeldatav CMYK allikas:"
+
+#~ msgid "Assumed XYZ Source:"
+#~ msgstr "Eeldatav XYZ allikas:"
+
+#~ msgid "Assumed Lab Source:"
+#~ msgstr "Eeldatav Lab allikas:"
+
+#~ msgid "Assumed Gray Source:"
+#~ msgstr "Eeldatav halltoonide allikas:"
+
+#~ msgid "Web Source:"
+#~ msgstr "Veebiallikas:"
+
+#~ msgid "sRGB.icc (default)"
+#~ msgstr "sRGB.icc (vaikimisi)"
+
+#~ msgid ""
+#~ "<p>Select the default <em>editing</em> profiles for each of the "
+#~ "corresponding color spaces.</p>"
+#~ msgstr ""
+#~ "<p>Vali igale värviruumile vastavad vaikimisi <em>redigeerimise</em> "
+#~ "profiilid.</p>"
+
+#~ msgid "Editing RGB:"
+#~ msgstr "Redigeerimis-RGB:"
+
+#~ msgid "Editing CMYK:"
+#~ msgstr "Redigeerimis-CMYK:"
+
+#~ msgid "Editing XYZ:"
+#~ msgstr "Redigeerimis-XYZ:"
+
+#~ msgid "Editing Lab:"
+#~ msgstr "Redigeerimis-Lab:"
+
+#~ msgid "Editing Gray:"
+#~ msgstr "Redigeerimis-halltoonid:"
+
+#~ msgid "Behavior Settings"
+#~ msgstr "Käitumise seadistused"
+
+#~ msgid ""
+#~ "<p><b>Mismatch Handling</b> settings lets you manage different handling "
+#~ "situations for differing profiles.</p>\n"
+#~ msgstr ""
+#~ "<p><b>Sobimatuse kohtlemise</b> seadistused võimaldavad hallata eri "
+#~ "profiilide erineva kohtlemise olukordi.</p>\n"
+
+#~ msgid "Mismatch Handling"
+#~ msgstr "Sobimatuse kohtlemine"
+
+#~ msgid "For Non-existent Profile"
+#~ msgstr "Olematu profiili korral"
+
+#~ msgid "For RGB Mismatch"
+#~ msgstr "RGB sobimatuse korral"
+
+#~ msgid "For CMYK Mismatch"
+#~ msgstr "CMYK sobimatuse korral"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Do Not Assign Profile:</b> Do nothing to the mismatched profile "
+#~ "(leave as is).</li>\n"
+#~ "<li><b>Assign Assumed Profile:</b> Assign a profile.</li>\n"
+#~ "<li><b>Prompt User:</b> Let the user decide on whether to assign a "
+#~ "profile or not.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Profiili ei omistata:</b> sobimatu profiiliga ei võeta midagi ette "
+#~ "(kõik jääb samaks).</li>\n"
+#~ "<li><b>Omistatakse eeldatav profiil:</b> omistatakse profiil.</li>\n"
+#~ "<li><b>Küsitakse kasutajalt:</b> lastakse kasutajal otsustada, kas "
+#~ "omistada profiil või mitte.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Do Not Assign Profile"
+#~ msgstr "Profiili ei omistata"
+
+#~ msgid "Assign Assumed Profile"
+#~ msgstr "Omistatakse eeldatav profiil"
+
+#~ msgid "Prompt User"
+#~ msgstr "Küsitakse kasutajalt"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source RGB profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source RGB profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Arvud säilitatakse:</b> lubatakse alles jätta RGB lähteprofiil, "
+#~ "muutmata seda sihtprofiiliks.</li>\n"
+#~ "<li><b>Teisendatakse automaatselt:</b> RGB lähteprofiil teisendatakse "
+#~ "sihtprofiiliks.</li>\n"
+#~ "<li><b>Küsitakse kasutajalt:</b> lastakse kasutajal valida, millist "
+#~ "meetodit pruukida.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Preserve Numbers"
+#~ msgstr "Arvud säilitatakse"
+
+#~ msgid "Automatically Convert"
+#~ msgstr "Teisendatakse automaatselt"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Allow the source CMYK profile to be kept and "
+#~ "unchanged from the destination.</li>\n"
+#~ "<li><b>Automatically Convert:</b> Convert the source CMYK profile to its "
+#~ "destination.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to choose which method to use.</"
+#~ "li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Arvud säilitatakse:</b> lubatakse alles jätta CMYK lähteprofiil, "
+#~ "muutmata seda sihtprofiiliks.</li>\n"
+#~ "<li><b>Teisendatakse automaatselt:</b> CMYK lähteprofiil teisendatakse "
+#~ "sihtprofiiliks.</li>\n"
+#~ "<li><b>Küsitakse kasutajalt:</b> lastakse kasutajal valida, millist "
+#~ "meetodit pruukida.</li>\n"
+#~ "</ul>"
+
+#~ msgid ""
+#~ "<p><b>Mixed Color Space Settings</b> lets you handle color space mismatch "
+#~ "options for your monitor and printer.</p>"
+#~ msgstr ""
+#~ "<p><b>Mitme värviruumi seadistused</b> võimaldab hallata monitori ja "
+#~ "printeri värviruumi sobimatuse valikuid.</p>"
+
+#~ msgid "Mixed Color Space Settings"
+#~ msgstr "Mitme värviruumi seadistused"
+
+#~ msgid "For Screen"
+#~ msgstr "Ekraanile"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-RGB color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing RGB Space:</b> Convert the non-RGB color space "
+#~ "into the assigned editing color space.</li>\n"
+#~ "<li><b>Convert to Web:</b> Convert the non-RGB color space into the web-"
+#~ "appropriate sRGB color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Arvud säilitatakse:</b> mitte-RGB värviruum jäetakse puutumata (ei "
+#~ "teisendata).</li>\n"
+#~ "<li><b>Teisendatakse redigeerimis-RGB ruumi:</b> mitte-RGB värviruum "
+#~ "teisendatakse eeldatavaks redigeerimis-värviruumiks.</li>\n"
+#~ "<li><b>Teisendatakse veebi:</b> mitte-RGB värviruum teisendatakse veebile "
+#~ "sobivaks sRGB värviruumiks.</li>\n"
+#~ "<li><b>Küsitakse kasutajalt:</b> lastakse kasutajal valida sobiv "
+#~ "värviruumi teisendamise meetod.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing RGB Space"
+#~ msgstr "Teisendatakse redigeerimis-RGB ruumi"
+
+#~ msgid "Convert to Web"
+#~ msgstr "Teisendatakse veebi"
+
+#~ msgid "Printer"
+#~ msgstr "Printer"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Preserve Numbers:</b> Leave the non-CMYK color space as is (no "
+#~ "conversion).</li>\n"
+#~ "<li><b>Convert to Editing CMYK:</b> Convert the non-CMYK color space into "
+#~ "an assigned editing CMYK color space.</li>\n"
+#~ "<li><b>Convert to Untagged CMYK:</b> Convert the color space into a non-"
+#~ "CMYK color space.</li>\n"
+#~ "<li><b>Prompt User:</b> Allow the user to select the appropriate color "
+#~ "space conversion method.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Arvud säilitatakse:</b> mitte-CMYK värviruum jäetakse puutumata "
+#~ "(ei teisendata).</li>\n"
+#~ "<li><b>Teisendatakse redigeerimis-CMYK-i ruumi:</b> mitte-CMYK värviruum "
+#~ "teisendatakse omistatud redigeerimis-CMYK värviruumiks.</li>\n"
+#~ "<li><b>Teisendatakse sildistamata CMYK-i:</b> värviruum teisendatakse "
+#~ "mitte-CMYK värviruumiks.</li>\n"
+#~ "<li><b>Küsitakse kasutajalt:</b> lastakse kasutajal valida sobiv "
+#~ "värviruumi teisendamise meetod.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Convert to Editing CMYK"
+#~ msgstr "Teisendatakse redigeerimis-CMYK-i"
+
+#~ msgid "Convert to Untagged CMYK"
+#~ msgstr "Teisendatakse sildistamata CMYK-i"
+
+#~ msgid ""
+#~ "<p><b>Proofing</b> will allow you to modify color proofing options, "
+#~ "including color space, rendering intent, and hard/soft proofing.</b>"
+#~ msgstr ""
+#~ "<p><b>Väljundvaade</b> võimaldab muuda värvi väljundvaate valikuid, "
+#~ "sealhulgas värviruumi, renderdamisviisi ning väljundvaadet/väljatrükki.</"
+#~ "p>"
+
+#~ msgid "Proofing"
+#~ msgstr "Väljundvaade"
+
+#~ msgid "Color Space:"
+#~ msgstr "Värviruum:"
+
+#~ msgid "Select from a list of profiles applicable for proofing."
+#~ msgstr "Siin saab valida väljundvaatele vajaliku profiili."
+
+#~ msgid "Rendering Intent:"
+#~ msgstr "Renderdamisviis:"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Relative Colorimetric:</b> Scales the white point of the source "
+#~ "gamut into the white point of the target.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> Preserves in-gamut colors, and clips "
+#~ "out-of-gamut colors to the nearest hue.</li>\n"
+#~ "</ul>"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Suhteline kolorimeetriline:</b> skaleerib lähtevärviulatuse "
+#~ "valgepunkti sihtmärgi valgepunktiks.</li>\n"
+#~ "<li><b>Absoluutne kolorimeetriline:</b> säilitab värviulatuse värvid ja "
+#~ "lõikab sellest välja jäävad värvid lähima toonini.</li>\n"
+#~ "</ul>"
+
+#~ msgid "Relative Colorimetric"
+#~ msgstr "Suhteline kolorimeetriline"
+
+#~ msgid "Absolute Colorimetric"
+#~ msgstr "Absoluutne kolorimeetriline"
+
+#~ msgid ""
+#~ "<p>Select <b>Soft Proof</b> as a means to preview the printer's color "
+#~ "output on your monitor. (Mostly to match transmissive media.)</p>"
+#~ msgstr ""
+#~ "<p>Vali <b>väljundvaade</b> võimaluseks näha printeri värviväljundit oma "
+#~ "monitoril (peamiselt ülekandemeedia sobivuse selgitamiseks).</p>"
+
+#~ msgid "Soft Proof"
+#~ msgstr "Väljundvaade"
+
+#~ msgid ""
+#~ "<p>Check <b>Hard Proof</b> (or match print) to fully simulate colors that "
+#~ "the printer will be using through a reflective surface.</p>"
+#~ msgstr ""
+#~ "<p>Vali <b>väljatrükk</b> (ehk trükisobivus) värvide täielikuks "
+#~ "simuleerimiseks, mida printer hakkab kasutama.</p>"
+
+#~ msgid "Hard Proof"
+#~ msgstr "Väljatrükk"
+
+#~ msgid ""
+#~ "<p><b>Rendering Settings</b> allows you to change the global rendering "
+#~ "intent.</p>"
+#~ msgstr ""
+#~ "<p><b>Renderdamise seadistused</b> võimaldavad muuta globaalset "
+#~ "renderdamisviisi.</p>"
+
+#~ msgid "Rendering Intent"
+#~ msgstr "Renderdamisviis"
+
+#~ msgid ""
+#~ "<ul>\n"
+#~ "<li><b>Perceptual:</b> Preserves relationship between out-of-gamut colors."
+#~ "</li>\n"
+#~ "<li><b>Relative Colorimetric:</b> The white point of the colorspace "
+#~ "source is changed to the destination.</li>\n"
+#~ "<li><b>Saturation:</b> Preserves accurate saturation, while modifying "
+#~ "color hues.</li>\n"
+#~ "<li><b>Absolute Colorimetric:</b> The white point of the destination "
+#~ "colorspace will become the white point of the source.</li>\n"
+#~ "</ul>\n"
+#~ msgstr ""
+#~ "<ul>\n"
+#~ "<li><b>Pertseptuaalne:</b> säilitatakse värviulatusest väljajäävate "
+#~ "värvide suhe.</li>\n"
+#~ "<li><b>Relatiivne kolorimeetriline:</b> lähtevärviruumi valgepunkt "
+#~ "muudetakse sihtmärgi valgepunktiks.</li>\n"
+#~ "<li><b>Küllastus:</b> säilitatakse täpne küllastus, aga muudetakse "
+#~ "värvitoone.</li>\n"
+#~ "<li><b>Absoluutne kolorimeetriline:</b> sihtvärviruumi valgepunktiks "
+#~ "määratakse lähtevärviruumi valgepunkt.</li>\n"
+#~ "</ul>\n"
+
+#~ msgid "Perceptual"
+#~ msgstr "Pertseptuaalne"
+
+#~ msgid "Saturation"
+#~ msgstr "Küllastus"
+
+#~ msgid "BlackPointCompensation"
+#~ msgstr "Mustpunkti kompenseerimine"
+
+#~ msgid "Gamut Warning"
+#~ msgstr "Värviulatuse hoiatus"

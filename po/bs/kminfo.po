@@ -1,0 +1,159 @@
+# Bosnian translations for kde package.
+# Copyright (C) 2012 This_file_is_part_of_KDE
+# This file is distributed under the same license as the kde package.
+# Samir Ribic <megaribi@epn.ba>, 2012.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kde 49i410\n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2015-01-30 08:15+0100\n"
+"Last-Translator: Samir Ribic <samir.ribic@etf.unsa.ba>\n"
+"Language-Team: Bosnian\n"
+"Language: bs\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Launchpad (build 17341)\n"
+"X-Launchpad-Export-Date: 2015-02-15 06:21+0000\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Samir Ribić,Lejla Bajgoric"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "Samir.ribic@etf.unsa.ba,lbajgoric1@etf.unsa.ba"
+
+#: kminfo.cpp:55
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kminfo.cpp:57
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "2008 Joseph Simon III"
+
+#: kminfo.cpp:61
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "2008 Joseph Simon III"
+
+#: kminfo.cpp:61 kminfo.cpp:62 kminfo.cpp:63 kminfo.cpp:65 kminfo.cpp:66
+#: kminfo.cpp:67 kminfo.cpp:68 kminfo.cpp:69 kminfo.cpp:70 kminfo.cpp:71
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kminfo.cpp:62
+#, fuzzy, kde-format
+#| msgid "2010-2014 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "2010-2014 Kai-Uwe Behrmann"
+
+#: kminfo.cpp:63
+#, kde-format
+msgid "Jan Gruhlich"
+msgstr ""
+
+#: kminfo.cpp:65
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kminfo.cpp:66
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kminfo.cpp:67
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kminfo.cpp:68
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kminfo.cpp:69
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kminfo.cpp:70
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kminfo.cpp:71
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMInfo"
+#~ msgstr "KMInfo"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "2008-2009 Joseph Simon III"
+
+#~ msgid "in memory"
+#~ msgstr "u memoriji"
+
+#~ msgid "Installed Profiles"
+#~ msgstr "Instalirani profili"
+
+#~ msgid "Description"
+#~ msgstr "Opis"
+
+#~ msgid "Devices"
+#~ msgstr "Uređaji"
+
+#~ msgid "Editing Space"
+#~ msgstr "Uređivanje prostora"
+
+#~ msgid "Assumed Space"
+#~ msgstr "Pretpostavljeni prostor"
+
+#~ msgid "ICCDescriptionLabel"
+#~ msgstr "ICC Opisna naljepnica"
+
+#~ msgid "(Copyright not available)"
+#~ msgstr "(Autorska prava nisu dostupna)"
+
+#~ msgid "Date Created:"
+#~ msgstr "Datum kreiran:"
+
+#~ msgid "----"
+#~ msgstr "----"
+
+#~ msgid "Device Class:"
+#~ msgstr "Klasa uređaja:"
+
+#~ msgid "Manufacturer:"
+#~ msgstr "Proizvođač:"
+
+#~ msgid "Model:"
+#~ msgstr "Model:"
+
+#~ msgid "ICC Version:"
+#~ msgstr "ICC Verzija:"
+
+#~ msgid "Color Space:"
+#~ msgstr "Oboji prostor:"
+
+#~ msgid "PCS Type:"
+#~ msgstr "PCS Tip:"
+
+#~ msgid "Profile Path:"
+#~ msgstr "Putanja profila:"
+
+#~ msgid "---"
+#~ msgstr "---"

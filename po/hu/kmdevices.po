@@ -1,0 +1,183 @@
+# Copyright (C) YEAR This_file_is_part_of_KDE
+# This file is distributed under the same license as the PACKAGE package.
+#
+# Kristóf Kiszel <ulysses@kubuntu.org>, 2012.
+# Balázs Úr <urbalazs@gmail.com>, 2012, 2013, 2014.
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: https://bugs.kde.org\n"
+"POT-Creation-Date: 2019-05-20 02:44+0200\n"
+"PO-Revision-Date: 2014-12-09 20:51+0100\n"
+"Last-Translator: Balázs Úr <urbalazs@gmail.com>\n"
+"Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
+"Language: hu\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Lokalize 1.5\n"
+
+#, kde-format
+msgctxt "NAME OF TRANSLATORS"
+msgid "Your names"
+msgstr "Kiszel Kristóf"
+
+#, kde-format
+msgctxt "EMAIL OF TRANSLATORS"
+msgid "Your emails"
+msgstr "ulysses@kubuntu.org"
+
+#: kmdevices.cpp:51
+#, kde-format
+msgid "KDE version of Oyranos Synnefo"
+msgstr ""
+
+#: kmdevices.cpp:53
+#, kde-format
+msgid "(c) 2008 Joseph Simon III"
+msgstr "© Joseph Simon III, 2008."
+
+#: kmdevices.cpp:57
+#, fuzzy, kde-format
+#| msgid "(c) 2008 Joseph Simon III"
+msgid "Joseph Simon III"
+msgstr "© Joseph Simon III, 2008."
+
+#: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
+#: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
+#: kmdevices.cpp:66 kmdevices.cpp:67
+#, kde-format
+msgid "developer"
+msgstr ""
+
+#: kmdevices.cpp:58
+#, fuzzy, kde-format
+#| msgid "2010-2014 Kai-Uwe Behrmann"
+msgid "Kai-Uwe Behrmann"
+msgstr "Kai-Uwe Behrmann, 2010-2014."
+
+#: kmdevices.cpp:59
+#, fuzzy, kde-format
+#| msgid "2012 Jan Gruhlich"
+msgid "Jan Gruhlich"
+msgstr "Jan Gruhlich, 2012."
+
+#: kmdevices.cpp:61
+#, kde-format
+msgid "Albert Astals Cid"
+msgstr ""
+
+#: kmdevices.cpp:62
+#, kde-format
+msgid "Christoph Feck"
+msgstr ""
+
+#: kmdevices.cpp:63
+#, kde-format
+msgid "Boudewijn Rempt "
+msgstr ""
+
+#: kmdevices.cpp:64
+#, kde-format
+msgid "Pino Toscano"
+msgstr ""
+
+#: kmdevices.cpp:65
+#, kde-format
+msgid "Laurent Montel"
+msgstr ""
+
+#: kmdevices.cpp:66
+#, kde-format
+msgid "Cyrille Berger Skott"
+msgstr ""
+
+#: kmdevices.cpp:67
+#, kde-format
+msgid "Hal Van Engel"
+msgstr ""
+
+#~ msgid "KMDevices"
+#~ msgstr "KMDevices"
+
+#~ msgid "2008-2009 Joseph Simon III"
+#~ msgstr "Joseph Simon III, 2008-2009."
+
+#~ msgid "You have not selected any device"
+#~ msgstr "Nem választott ki egyetlen eszközt sem"
+
+#~ msgid "(No Profile Installed)"
+#~ msgstr "(Nincs telepítve profil)"
+
+#~ msgid "Downloading Profile from Taxi DB ..."
+#~ msgstr "Profil letöltése a Taxi DB-ből …"
+
+#~ msgid "No valid profile obtained"
+#~ msgstr "Nincs érvényes kapott profil"
+
+#~ msgid "Profile already installed"
+#~ msgstr "A profil már telepítve van"
+
+#~ msgid "User Path can not be written"
+#~ msgstr "A felhasználói útvonal nem írható"
+
+#~ msgid "Profile not useable"
+#~ msgstr "A profil nem használható"
+
+#~ msgid "Internal error"
+#~ msgstr "Belső hiba"
+
+#~ msgid "Profile has been installed"
+#~ msgstr "A profil telepítve van"
+
+#~ msgid "automatic"
+#~ msgstr "automatikus"
+
+#~ msgid "Looking for Device Profiles in Taxi DB ..."
+#~ msgstr "Eszközprofilok keresése a Taxi DB-ben …"
+
+#~ msgid "wrong device"
+#~ msgstr "rossz eszköz"
+
+#~ msgid "You can select and install a profile"
+#~ msgstr "Kiválaszthat és telepíthet egy profilt"
+
+#~ msgid "Not found any profile for the selected device in Taxi DB"
+#~ msgstr ""
+#~ "Nem található egyetlen profil sem a kiválasztott eszközhöz a Taxi DB-ben"
+
+#~ msgid "Available Device Profiles from Taxi DB"
+#~ msgstr "Elérhető eszközprofilok a Taxi DB-ből"
+
+#~ msgid " Install selected profile"
+#~ msgstr " Kijelölt profil telepítése"
+
+#~ msgid "Detected Devices"
+#~ msgstr "Felismert eszközök"
+
+#~ msgid "List of installed input/output devices and their default profiles."
+#~ msgstr ""
+#~ "A telepített beviteli/kiviteli eszközök és alapértelmezett profiljaik "
+#~ "listája."
+
+#~ msgid "Device Name"
+#~ msgstr "Eszköznév"
+
+#~ msgid "Designation"
+#~ msgstr "Meghatározás"
+
+#~ msgid "Profile Description"
+#~ msgstr "Profilleírás"
+
+#~ msgid "Profile Filename"
+#~ msgstr "Profil fájlneve"
+
+#~ msgid "Available Device Profiles"
+#~ msgstr "Elérhető eszközprofilok"
+
+#~ msgid "Show only device related ICC profiles"
+#~ msgstr "Csak eszközhöz kapcsolódó ICC-profilok megjelenítése"
+
+#~ msgid "Installs selected profile"
+#~ msgstr "Telepíti a kijelölt profilt"
