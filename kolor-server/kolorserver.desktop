@@ -65,6 +65,7 @@ Comment[gl]=Permite ás aplicacións comunicarse co sistema de xestión de cor e
 Comment[hu]=Lehetővé teszi az alkalmazások számára, hogy kommunikáljanak a színkezelő rendszerrel és megvalósítja az X színkezelő specifikációt
 Comment[is]=Gerir forritum kleift að eiga samskipti við litastýringakerfið og setur upp X Color Management skilgreiningarnar
 Comment[it]=Permette alle applicazioni di comunicare con il sistema di gestione dei colori e implementa la specifica di gestione dei colori di X.
+Comment[ka]=საშუალებას აძლევს აპლიკაციებს, ურთიერთობა ჰქონდეთ ფერების მართვის სისტემასთან და წარმოადგენს X-ის ფერების მართვის სპეციფიკაციის განხორციელებას
 Comment[ko]=프로그램과 색 관리 시스템이 통신하고 X 색 관리 표준을 구현합니다
 Comment[nb]=Lar programmer kommunisere med fargestyringssystemet og implementerer X sin fargestyringsspesifikasjon
 Comment[nds]=Lett Programmen mit dat Klöörpleegsysteem snacken un sett dat X-Klöörpleeg-Regelwark üm
