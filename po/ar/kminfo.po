@@ -31,7 +31,7 @@ msgstr "zayed.alsaidi@gmail.com"
 #: kminfo.cpp:55
 #, kde-format
 msgid "KDE version of Oyranos Synnefo"
-msgstr "إصدارة كدي Oyranos Synnefo"
+msgstr "إصدارة كِيدِي Oyranos Synnefo"
 
 #: kminfo.cpp:57
 #, kde-format
