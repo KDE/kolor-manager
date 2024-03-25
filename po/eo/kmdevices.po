@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kolor-manager\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2023-11-05 12:26+0000\n"
-"PO-Revision-Date: 2024-02-26 21:30+0100\n"
+"PO-Revision-Date: 2024-03-24 10:34+0100\n"
 "Last-Translator: Oliver Kellogg <okellogg@users.sourceforge.net>\n"
 "Language-Team: Esperanto <kde-i18n-eo.org>\n"
 "Language: eo\n"
@@ -31,17 +31,17 @@ msgstr ""
 #: kmdevices.cpp:51
 #, kde-format
 msgid "KDE version of Oyranos Synnefo"
-msgstr ""
+msgstr "KDE-versio de Oyranos Synnefo"
 
 #: kmdevices.cpp:53
 #, kde-format
 msgid "(c) 2008 Joseph Simon III"
-msgstr ""
+msgstr "(c) 2008 Joseph Simon III"
 
 #: kmdevices.cpp:57
 #, kde-format
 msgid "Joseph Simon III"
-msgstr ""
+msgstr "Jozefo Simono III"
 
 #: kmdevices.cpp:57 kmdevices.cpp:58 kmdevices.cpp:59 kmdevices.cpp:61
 #: kmdevices.cpp:62 kmdevices.cpp:63 kmdevices.cpp:64 kmdevices.cpp:65
@@ -53,12 +53,12 @@ msgstr "programisto"
 #: kmdevices.cpp:58
 #, kde-format
 msgid "Kai-Uwe Behrmann"
-msgstr ""
+msgstr "Kai-Uwe Behrmann"
 
 #: kmdevices.cpp:59
 #, kde-format
 msgid "Jan Gruhlich"
-msgstr ""
+msgstr "Jan Gruhlich"
 
 #: kmdevices.cpp:61
 #, kde-format
@@ -88,9 +88,9 @@ msgstr "Laurent Montel"
 #: kmdevices.cpp:66
 #, kde-format
 msgid "Cyrille Berger Skott"
-msgstr ""
+msgstr "Cyrille Berger Skott"
 
 #: kmdevices.cpp:67
 #, kde-format
 msgid "Hal Van Engel"
-msgstr ""
+msgstr "Hal Van Engel"
